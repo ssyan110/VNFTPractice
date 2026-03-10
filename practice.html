@@ -1,0 +1,903 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ứng dụng Luyện tập Chữ Hán</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;700&family=Inter:wght@400;600&display=swap');
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f0f4f8;
+        }
+
+        .hanzi {
+            font-family: 'Noto Sans SC', sans-serif;
+            font-size: 2.5rem;
+        }
+
+        .correct {
+            background-color: #10b981 !important;
+            color: white !important;
+            border-color: #059669 !important;
+        }
+
+        .incorrect {
+            background-color: #ef4444 !important;
+            color: white !important;
+            border-color: #dc2626 !important;
+        }
+
+        .team-blue {
+            background-color: #3b82f6 !important;
+            color: white !important;
+            border-color: #1d4ed8 !important;
+        }
+
+        .team-red {
+            background-color: #ef4444 !important;
+            color: white !important;
+            border-color: #b91c1c !important;
+        }
+
+        .btn-option {
+            transition: all 0.2s;
+        }
+
+        .btn-option:active {
+            transform: scale(0.95);
+        }
+
+        .nav-item-active {
+            background-color: #dbeafe;
+            color: #1e40af;
+            border-left: 4px solid #2563eb;
+        }
+    </style>
+</head>
+
+<body class="min-h-screen flex flex-col items-center">
+
+    <div class="w-full flex flex-col lg:flex-row max-w-6xl min-h-screen">
+
+        <!-- Sidebar Navigation -->
+        <aside id="sidebar" class="w-full lg:w-64 bg-white border-r border-gray-200 p-6 flex flex-col gap-2">
+            <div class="mb-8 hidden lg:block">
+                <h2 class="text-xl font-bold text-blue-800">NHẬN DIỆN CHỮ HÁN</h2>
+                <p class="text-xs text-gray-400 font-semibold uppercase tracking-widest mt-1">36 Chữ Hán Cơ Bản</p>
+            </div>
+
+            <nav class="flex flex-col gap-1">
+                <button onclick="jumpTo('welcome')" id="nav-welcome"
+                    class="nav-item flex items-center gap-3 px-4 py-3 text-left rounded-lg hover:bg-gray-50 transition-colors text-gray-600 font-medium nav-item-active">
+                    <span>🏠</span> Trang chủ
+                </button>
+                <div class="h-px bg-gray-100 my-2"></div>
+                <p class="px-4 text-[10px] font-bold text-gray-400 uppercase tracking-widest mb-1">Các bài tập</p>
+                <button onclick="jumpTo(1)" id="nav-level-1"
+                    class="nav-item flex items-center gap-3 px-4 py-3 text-left rounded-lg hover:bg-gray-50 transition-colors text-gray-600 font-medium">
+                    <span>🔍</span> 1. Thám tử bộ thủ
+                </button>
+                <button onclick="jumpTo(2)" id="nav-level-2"
+                    class="nav-item flex items-center gap-3 px-4 py-3 text-left rounded-lg hover:bg-gray-50 transition-colors text-gray-600 font-medium">
+                    <span>👀</span> 2. Mắt thần phân biệt
+                </button>
+                <button onclick="jumpTo(3)" id="nav-level-3"
+                    class="nav-item flex items-center gap-3 px-4 py-3 text-left rounded-lg hover:bg-gray-50 transition-colors text-gray-600 font-medium">
+                    <span>✍️</span> 3. Điền từ
+                </button>
+                <button onclick="jumpTo(4)" id="nav-level-4"
+                    class="nav-item flex items-center gap-3 px-4 py-3 text-left rounded-lg hover:bg-gray-50 transition-colors text-gray-600 font-medium">
+                    <span>⚔️</span> 4. Cờ 5x5
+                </button>
+                <div class="h-px bg-gray-100 my-2"></div>
+                <button onclick="jumpTo(5)" id="nav-level-5"
+                    class="nav-item flex items-center gap-3 px-4 py-3 text-left rounded-lg hover:bg-gray-50 transition-colors text-gray-600 font-medium">
+                    <span>🧩</span> 5. Ghép từ
+                </button>
+                <button onclick="jumpTo(6)" id="nav-level-6"
+                    class="nav-item flex items-center gap-3 px-4 py-3 text-left rounded-lg hover:bg-gray-50 transition-colors text-gray-600 font-medium">
+                    <span>🎧</span> 6. Nhìn Pinyin chọn chữ
+                </button>
+                <button onclick="jumpTo(7)" id="nav-level-7"
+                    class="nav-item flex items-center gap-3 px-4 py-3 text-left rounded-lg hover:bg-gray-50 transition-colors text-gray-600 font-medium">
+                    <span>📏</span> 7. Xếp câu
+                </button>
+            </nav>
+
+            <div class="mt-auto pt-6 border-t border-gray-100 hidden lg:block">
+                <p class="text-xs text-gray-400">Thiết kế cho Gemini Workspace</p>
+            </div>
+        </aside>
+
+        <!-- Main Content Area -->
+        <div class="flex-1 flex flex-col items-center p-4 lg:p-10">
+            <header class="w-full max-w-2xl text-center mb-8">
+                <h1 class="text-3xl font-bold text-blue-900 uppercase tracking-tight">Ôn tập Chữ Hán</h1>
+            </header>
+
+            <main id="app-container"
+                class="w-full max-w-2xl bg-white rounded-3xl shadow-2xl p-6 lg:p-8 relative overflow-hidden min-h-[600px] border border-gray-100">
+
+                <!-- Welcome Screen -->
+                <div id="screen-welcome" class="text-center py-16">
+                    <div class="mb-8">
+                        <span class="hanzi text-8xl text-blue-600 animate-pulse">学习</span>
+                    </div>
+                    <h2 class="text-3xl font-bold text-gray-800 mb-4">你好！</h2>
+                    <p class="text-gray-500 mb-10 text-lg">Hôm nay chúng ta sẽ cùng ôn tập lại 36 chữ Hán đã học thông
+                        qua các trò chơi tương tác.</p>
+                    <button onclick="jumpTo(1)"
+                        class="bg-blue-600 hover:bg-blue-700 text-white px-12 py-5 rounded-2xl text-xl font-bold transition-all shadow-xl hover:shadow-2xl active:scale-95">
+                        Bắt đầu buổi học
+                    </button>
+                </div>
+
+                <!-- Level 1: Thám tử bộ thủ -->
+                <div id="screen-level-1" class="hidden">
+                    <div class="flex justify-between items-center mb-6">
+                        <span
+                            class="bg-blue-100 text-blue-800 px-4 py-1.5 rounded-full text-xs font-bold uppercase tracking-widest">Trò
+                            chơi: Bộ thủ</span>
+                        <span id="l1-score" class="text-gray-400 text-sm font-semibold">Tiến độ: 0/5</span>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-1">Thám tử bộ thủ</h3>
+                    <p class="text-gray-500 mb-6 italic">Tìm các chữ có chứa thành phần bộ thủ yêu cầu bên dưới.</p>
+
+                    <div class="bg-blue-50 p-6 rounded-2xl mb-8 text-center border-2 border-blue-100 shadow-inner">
+                        <p class="text-gray-600 font-medium mb-1">Tìm các chữ có chứa bộ:</p>
+                        <div class="text-4xl font-black text-red-600" id="target-radical">亻 (Nhân đứng)</div>
+                    </div>
+
+                    <div id="l1-grid" class="grid grid-cols-4 gap-4 mb-8">
+                        <!-- Chars injected here -->
+                    </div>
+                </div>
+
+                <!-- Level 2: Mắt thần phân biệt -->
+                <div id="screen-level-2" class="hidden">
+                    <div class="flex justify-between items-center mb-6">
+                        <span
+                            class="bg-purple-100 text-purple-800 px-4 py-1.5 rounded-full text-xs font-bold uppercase tracking-widest">Trò
+                            chơi: Phân biệt</span>
+                        <span id="l2-score" class="text-gray-400 text-sm font-semibold">Tiến độ: 0/5</span>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-1">Mắt thần phân biệt</h3>
+                    <p class="text-gray-500 mb-8 italic">Tìm một chữ duy nhất khác biệt so với các chữ còn lại.</p>
+
+                    <div id="l2-content" class="space-y-4">
+                        <!-- Questions injected here -->
+                    </div>
+                </div>
+
+                <!-- Level 3: Mảnh ghép hoàn hảo -->
+                <div id="screen-level-3" class="hidden">
+                    <div class="flex justify-between items-center mb-6">
+                        <span
+                            class="bg-green-100 text-green-800 px-4 py-1.5 rounded-full text-xs font-bold uppercase tracking-widest">Trò
+                            chơi: Điền từ</span>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-1">Mảnh ghép hoàn hảo</h3>
+                    <p class="text-gray-500 mb-8 italic">Chọn đáp án đúng dựa vào nghĩa tiếng Việt đi kèm.</p>
+
+                    <div id="l3-content" class="space-y-5">
+                        <!-- Sentences injected here -->
+                    </div>
+
+                    <button id="btn-to-l4" onclick="jumpTo(4)"
+                        class="hidden w-full mt-10 bg-blue-600 hover:bg-blue-700 text-white py-5 rounded-2xl font-bold text-xl shadow-xl transition-all">
+                        Chuyển sang: Cờ 5x5
+                    </button>
+                </div>
+
+                <!-- Level 4: 5x5 Grid Board Game -->
+                <div id="screen-level-4" class="hidden">
+                    <div class="flex justify-between items-center mb-6">
+                        <span
+                            class="bg-orange-100 text-orange-800 px-4 py-1.5 rounded-full text-xs font-bold uppercase tracking-widest">Trò
+                            chơi: Cờ 5x5</span>
+                        <button onclick="renderL4()"
+                            class="text-blue-600 hover:text-blue-800 text-sm font-bold flex items-center gap-1 transition-colors bg-blue-50 px-3 py-1 rounded-lg">
+                            <span>🔄</span> Làm mới bàn cờ
+                        </button>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-2 text-center text-orange-900">Đại chiến 5x5</h3>
+                    <p class="text-sm text-gray-500 mb-8 text-center italic leading-relaxed">
+                        Học sinh đọc đúng chữ để chiếm ô cho đội của mình.<br>
+                        <span class="font-bold text-blue-600">Click 1 lần: Đội Xanh</span> | <span
+                            class="font-bold text-red-600">Click 2 lần: Đội Đỏ</span>
+                    </p>
+
+                    <div id="l4-grid"
+                        class="grid grid-cols-5 gap-3 max-w-md mx-auto mb-10 bg-gray-100 p-3 rounded-2xl shadow-inner border-2 border-gray-200">
+                        <!-- 25 words injected here -->
+                    </div>
+
+                    <div class="flex justify-center gap-8 py-4 bg-gray-50 rounded-xl border border-gray-200">
+                        <div class="flex items-center gap-3">
+                            <div class="w-6 h-6 bg-blue-500 rounded-full shadow-md"></div>
+                            <span class="font-bold text-blue-800">Đội Xanh</span>
+                        </div>
+                        <div class="flex items-center gap-3">
+                            <div class="w-6 h-6 bg-red-500 rounded-full shadow-md"></div>
+                            <span class="font-bold text-red-800">Đội Đỏ</span>
+                        </div>
+                    </div>
+
+                    <button onclick="jumpTo(5)"
+                        class="w-full mt-10 bg-blue-600 hover:bg-blue-700 text-white py-5 rounded-2xl font-bold text-lg shadow-xl cursor-pointer">Chuyển
+                        sang: Ghép từ</button>
+                </div>
+
+                <!-- Level 5: Ghép từ (Word Formation) -->
+                <div id="screen-level-5" class="hidden">
+                    <div class="flex justify-between items-center mb-6">
+                        <span
+                            class="bg-indigo-100 text-indigo-800 px-4 py-1.5 rounded-full text-xs font-bold uppercase tracking-widest">Trò
+                            chơi: Ghép từ</span>
+                        <span id="l5-score" class="text-gray-400 text-sm font-semibold">Tiến độ: 0/5</span>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-1">Mảnh ghép song sinh</h3>
+                    <p class="text-gray-500 mb-8 italic">Hãy ghép 2 chữ Hán với nhau để tạo thành một từ có nghĩa theo
+                        yêu cầu.</p>
+
+                    <div id="l5-content" class="flex flex-col items-center">
+                        <div
+                            class="bg-indigo-50 px-8 py-6 rounded-2xl border-2 border-indigo-100 w-full text-center shadow-inner mb-8">
+                            <p class="text-sm font-bold text-indigo-400 uppercase tracking-widest mb-1">Hãy ghép từ:</p>
+                            <h4 id="l5-hint" class="text-2xl font-black text-indigo-900">Bắc Kinh</h4>
+                        </div>
+
+                        <div class="flex items-center gap-4 mb-10 w-full max-w-sm">
+                            <div id="l5-slot-1"
+                                class="flex-1 aspect-square bg-gray-50 border-4 border-dashed border-gray-200 rounded-2xl flex items-center justify-center text-4xl font-bold text-gray-400 hanzi">
+                                1</div>
+                            <span class="text-3xl font-bold text-gray-300">+</span>
+                            <div id="l5-slot-2"
+                                class="flex-1 aspect-square bg-gray-50 border-4 border-dashed border-gray-200 rounded-2xl flex items-center justify-center text-4xl font-bold text-gray-400 hanzi">
+                                2</div>
+                        </div>
+
+                        <div id="l5-options" class="grid grid-cols-4 gap-3 w-full max-w-md">
+                            <!-- Chars injected here -->
+                        </div>
+                    </div>
+
+                    <button id="btn-to-l6" onclick="jumpTo(6)"
+                        class="hidden w-full mt-10 bg-blue-600 hover:bg-blue-700 text-white py-5 rounded-2xl font-bold text-xl shadow-xl transition-all cursor-pointer">
+                        Chuyển sang: Nhìn Pinyin tìm chữ
+                    </button>
+                </div>
+
+                <!-- Level 6: Nhìn pinyin tìm chữ (Pinyin Match) -->
+                <div id="screen-level-6" class="hidden">
+                    <div class="flex justify-between items-center mb-6">
+                        <span
+                            class="bg-pink-100 text-pink-800 px-4 py-1.5 rounded-full text-xs font-bold uppercase tracking-widest">Trò
+                            chơi: Nhìn Pinyin chọn chữ</span>
+                        <span id="l6-score" class="text-gray-400 text-sm font-semibold">Tiến độ: 0/5</span>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-1">Bắt mạch âm thanh</h3>
+                    <p class="text-gray-500 mb-8 italic">Chọn đúng chữ Hán (hoặc các chữ) tương ứng với Pinyin bên dưới.
+                    </p>
+
+                    <div id="l6-content" class="flex flex-col items-center">
+                        <div
+                            class="bg-pink-50 w-full py-8 text-center rounded-2xl shadow-inner border border-pink-100 mb-10 relative overflow-hidden">
+                            <div class="absolute -top-10 -right-10 opacity-10 text-9xl">🔊</div>
+                            <p class="text-sm font-bold text-pink-400 uppercase tracking-widest mb-2">Tìm Pinyin:</p>
+                            <h4 id="l6-pinyin" class="text-5xl font-black text-pink-900 tracking-wide font-sans">míng
+                                tiān</h4>
+                            <p id="l6-meaning" class="text-gray-500 mt-3 font-medium">(ngày mai)</p>
+                        </div>
+
+                        <div id="l6-options" class="flex justify-center gap-4 flex-wrap max-w-lg">
+                            <!-- Options injected here -->
+                        </div>
+                    </div>
+
+                    <button id="btn-to-l7" onclick="jumpTo(7)"
+                        class="hidden w-full mt-10 bg-blue-600 hover:bg-blue-700 text-white py-5 rounded-2xl font-bold text-xl shadow-xl transition-all cursor-pointer">
+                        Chuyển sang: Xếp câu
+                    </button>
+                </div>
+
+                <!-- Level 7: Sắp xếp câu (Sentence Reordering) -->
+                <div id="screen-level-7" class="hidden">
+                    <div class="flex justify-between items-center mb-6">
+                        <span
+                            class="bg-teal-100 text-teal-800 px-4 py-1.5 rounded-full text-xs font-bold uppercase tracking-widest">Trò
+                            chơi: Xếp câu</span>
+                        <span id="l7-score" class="text-gray-400 text-sm font-semibold">Tiến độ: 0/5</span>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-1">Đại chiến ngữ pháp</h3>
+                    <p class="text-gray-500 mb-6 italic">Sắp xếp các khối từ để tạo thành câu hoàn chỉnh theo nghĩa
+                        tiếng Việt.</p>
+
+                    <div id="l7-content" class="w-full">
+                        <div class="bg-white border-2 border-teal-100 p-6 rounded-2xl text-center mb-6 shadow-sm">
+                            <p class="text-gray-400 text-xs font-bold uppercase tracking-widest mb-2">Dịch câu này:</p>
+                            <h4 id="l7-vietnamese" class="text-xl font-bold text-gray-800">Cô ấy rất bận.</h4>
+                        </div>
+
+                        <!-- Dropzone for sentence -->
+                        <div id="l7-dropzone"
+                            class="min-h-[80px] bg-gray-50 border-2 border-dashed border-gray-300 rounded-2xl mb-8 p-3 flex flex-wrap gap-2 items-center justify-center">
+                        </div>
+
+                        <!-- Shuffled pieces -->
+                        <div class="relative">
+                            <p class="text-xs text-center text-gray-400 mb-3 uppercase tracking-wider font-bold">Các từ
+                                cho sẵn</p>
+                            <div id="l7-options" class="flex flex-wrap justify-center gap-3">
+                                <!-- Chunks injected here -->
+                            </div>
+                        </div>
+
+                        <div class="flex justify-center mt-6">
+                            <button onclick="resetL7()"
+                                class="text-gray-400 hover:text-gray-600 font-medium text-sm flex items-center gap-1 cursor-pointer">
+                                <span>↺</span> Làm lại câu này
+                            </button>
+                        </div>
+                    </div>
+
+                    <button onclick="jumpTo('result')"
+                        class="w-full mt-10 bg-green-600 hover:bg-green-700 text-white py-5 rounded-2xl font-bold text-lg shadow-xl cursor-pointer">Kết
+                        thúc buổi học</button>
+                </div>
+
+                <!-- Result Screen -->
+                <div id="screen-result" class="hidden text-center py-20">
+                    <div class="mb-8">
+                        <span class="text-8xl">🎓</span>
+                    </div>
+                    <h2 class="text-4xl font-bold text-blue-600 mb-4">Hoàn thành tốt!</h2>
+                    <p class="text-gray-500 text-xl mb-12 px-10">Cả lớp đã nhận diện và ghi nhớ tốt 36 chữ Hán ngày hôm
+                        nay.</p>
+                    <button onclick="location.reload()"
+                        class="bg-blue-600 text-white px-10 py-4 rounded-full font-bold shadow-xl hover:bg-blue-700">
+                        Quay về Trang chủ
+                    </button>
+                </div>
+
+            </main>
+        </div>
+    </div>
+
+    <script>
+        const screens = ['welcome', 'level-1', 'level-2', 'level-3', 'level-4', 'level-5', 'level-6', 'level-7', 'result'];
+        let currentL1SubLevel = 0;
+        let l1Found = 0;
+        let l2Progress = 0;
+        let l3Progress = 0;
+        let l5Progress = 0;
+        let l5CurrentSelections = [];
+        let l6Progress = 0;
+        let l6Found = 0;
+        let l7Progress = 0;
+        let l7CurrentSentence = [];
+        let l7TargetLength = 0;
+
+        const all36Words = [
+            '一', '八', '五', '不', '大', '口', '白', '女', '你',
+            '好', '马', '太', '汉', '语', '吗', '妈', '爸', '很',
+            '忙', '他', '她', '难', '六', '七', '九', '学', '去',
+            '北', '京', '对', '明', '天', '见', '银', '行', '二'
+        ];
+
+        const l1Data = [
+            { radical: '亻 (Nhân đứng)', targets: ['你', '他'], others: ['妈', '忙', '难', '很', '银', '见', '汉', '爸'] },
+            { radical: '女 (Bộ Nữ)', targets: ['女', '她', '好', '妈'], others: ['忙', '难', '语', '对', '你', '很', '爸', '大'] },
+            { radical: '口 (Bộ Khẩu)', targets: ['口', '吗'], others: ['语', '汉', '白', '大', '行', '京', '北', '不'] },
+            { radical: '讠 (Bộ Ngôn)', targets: ['语'], others: ['汉', '对', '你', '她', '去', '见', '学', '明'] },
+            { radical: '彳 (Bộ Xích)', targets: ['很', '行'], others: ['他', '你', '语', '难', '对', '明', '学', '京'] },
+            { radical: '一 (Nhất)', targets: ['一', '不'], others: ['八', '五', '白', '女', '你', '汉', '语', '六'] },
+            { radical: '八 (Bát)', targets: ['八', '六'], others: ['五', '大', '白', '马', '妈', '爸', '明', '九'] },
+            { radical: '白 (Bạch)', targets: ['白'], others: ['口', '女', '好', '大', '汉', '语', '吗', '见'] },
+            { radical: '日 (Nhật)', targets: ['明'], others: ['天', '白', '大', '他', '她', '太', '八', '五'] },
+            { radical: '大 (Đại)', targets: ['大', '太', '天'], others: ['不', '对', '明', '去', '见', '学', '六', '八'] }
+        ];
+
+        const l2Data = [
+            { chars: ['大', '大', '大', '太', '大'], hint: "Tìm chữ THÁI (quá, lắm)" },
+            { chars: ['天', '大', '天', '天', '天'], hint: "Tìm chữ ĐẠI (to lớn)" },
+            { chars: ['吗', '吗', '妈', '吗', '吗'], hint: "Tìm chữ MẸ (mẫu thân)" },
+            { chars: ['月', '日', '日', '明', '月'], hint: "Tìm chữ MINH (sáng, ngày mai)" },
+            { chars: ['三', '九', '三', '三', '三'], hint: "Tìm chữ CỬU (số 9)" },
+            { chars: ['六', '一', '四', '五', '八'], hint: "Tìm chữ LỤC (số 6)" },
+            { chars: ['他', '他', '她', '他', '他'], hint: "Tìm chữ CÔ ẤY" },
+            { chars: ['走', '走', '云', '云', '去'], hint: "Tìm chữ ĐI" },
+            { chars: ['人', '七', '九', '八', '人'], hint: "Tìm chữ BÁT (số 8)" },
+            { chars: ['贝', '贝', '见', '贝', '贝'], hint: "Tìm chữ KIẾN (gặp)" }
+        ];
+
+        const l3Questions = [
+            { text_pre: "你", text_post: "吗?", vietnamese: "Bạn có khỏe không?", options: ['好', '忙', '大'], answer: '好' },
+            { text_pre: "我很", text_post: "。", vietnamese: "Tôi rất bận.", options: ['忙', '见', '白'], answer: '忙' },
+            { text_pre: "明", text_post: "见。", vietnamese: "Hẹn gặp lại ngày mai.", options: ['天', '京', '去'], answer: '天' },
+            { text_pre: "汉", text_post: "不难。", vietnamese: "Tiếng Hán không khó.", options: ['语', '行', '妈'], answer: '语' },
+            { text_pre: "去北", text_post: "。", vietnamese: "Đi Bắc Kinh.", options: ['京', '天', '学'], answer: '京' },
+            { text_pre: "七", text_post: "九。", vietnamese: "Bảy, tám, chín.", options: ['八', '六', '五'], answer: '八' },
+            { text_pre: "不", text_post: "。", vietnamese: "Không đúng.", options: ['对', '了', '学'], answer: '对' },
+            { text_pre: "她很", text_post: "。", vietnamese: "Cô ấy rất tốt.", options: ['好', '很', '难'], answer: '好' },
+            { text_pre: "", text_post: "京很大。", vietnamese: "Bắc Kinh rất lớn.", options: ['北', '我', '天'], answer: '北' },
+            { text_pre: "去银", text_post: "。", vietnamese: "Đi ngân hàng.", options: ['行', '很', '白'], answer: '行' }
+        ];
+
+        const l5Data = [
+            { chars: ['北', '京'], hint: "Bắc Kinh" },
+            { chars: ['汉', '语'], hint: "Tiếng Hán" },
+            { chars: ['银', '行'], hint: "Ngân hàng" },
+            { chars: ['明', '天'], hint: "Ngày mai" },
+            { chars: ['你', '好'], hint: "Xin chào" },
+            { chars: ['爸', '爸'], hint: "Bố" },
+            { chars: ['妈', '妈'], hint: "Mẹ" },
+            { chars: ['很', '大'], hint: "Rất to" },
+            { chars: ['太', '忙'], hint: "Quá bận" },
+            { chars: ['不', '难'], hint: "Không khó" }
+        ];
+
+        const l6Data = [
+            { pinyin: "yín háng", meaning: "Ngân hàng", targets: ['银', '行'] },
+            { pinyin: "míng tiān", meaning: "Ngày mai", targets: ['明', '天'] },
+            { pinyin: "nán", meaning: "Khó", targets: ['难'] },
+            { pinyin: "xué", meaning: "Học", targets: ['学'] },
+            { pinyin: "hěn", meaning: "Rất", targets: ['很'] },
+            { pinyin: "běi jīng", meaning: "Bắc Kinh", targets: ['北', '京'] },
+            { pinyin: "hàn yǔ", meaning: "Tiếng Hán", targets: ['汉', '语'] },
+            { pinyin: "mā ma", meaning: "Mẹ", targets: ['妈', '妈'] },
+            { pinyin: "bà ba", meaning: "Bố", targets: ['爸', '爸'] },
+            { pinyin: "qù", meaning: "Đi", targets: ['去'] }
+        ];
+
+        const l7Data = [
+            { vietnamese: "Anh ấy đi Bắc Kinh.", answer: ['他', '去', '北', '京'] },
+            { vietnamese: "Tiếng Hán không khó.", answer: ['汉', '语', '不', '难'] },
+            { vietnamese: "Cô ấy rất bận.", answer: ['她', '很', '忙'] },
+            { vietnamese: "Hẹn gặp lại ngày mai.", answer: ['明', '天', '见'] },
+            { vietnamese: "Mẹ bạn có khỏe không?", answer: ['你', '妈', '妈', '好', '吗'] },
+            { vietnamese: "Bố anh ấy không đi ngân hàng.", answer: ['他', '爸', '爸', '不', '去', '银', '行'] },
+            { vietnamese: "Tiếng Hán rất tốt.", answer: ['汉', '语', '很', '好'] },
+            { vietnamese: "Chào bạn.", answer: ['你', '好'] },
+            { vietnamese: "Cô ấy không đi Bắc Kinh.", answer: ['她', '不', '去', '北', '京'] },
+            { vietnamese: "Ngày mai đi ngân hàng.", answer: ['明', '天', '去', '银', '行'] }
+        ];
+
+        function jumpTo(target) {
+            // Reset states for a fresh jump
+            if (target === 'welcome') {
+                showScreen('welcome');
+                updateNavUI('welcome');
+                return;
+            }
+            if (target === 'result') {
+                showScreen('result');
+                updateNavUI('result');
+                return;
+            }
+
+            // Logic to initialize levels
+            if (target === 1) {
+                currentL1SubLevel = 0;
+                renderL1();
+            } else if (target === 2) {
+                l2Progress = 0;
+                renderL2();
+            } else if (target === 3) {
+                l3Progress = 0;
+                renderL3();
+                document.getElementById('btn-to-l4').classList.add('hidden');
+            } else if (target === 4) {
+                renderL4();
+            } else if (target === 5) {
+                l5Progress = 0;
+                renderL5();
+                document.getElementById('btn-to-l6').classList.add('hidden');
+            } else if (target === 6) {
+                l6Progress = 0;
+                renderL6();
+                document.getElementById('btn-to-l7').classList.add('hidden');
+            } else if (target === 7) {
+                l7Progress = 0;
+                renderL7();
+            }
+
+            showScreen('level-' + target);
+            updateNavUI('level-' + target);
+        }
+
+        function showScreen(id) {
+            screens.forEach(s => document.getElementById('screen-' + s).classList.add('hidden'));
+            document.getElementById('screen-' + id).classList.remove('hidden');
+        }
+
+        function updateNavUI(id) {
+            document.querySelectorAll('.nav-item').forEach(item => item.classList.remove('nav-item-active'));
+            const activeNav = document.getElementById('nav-' + id);
+            if (activeNav) activeNav.classList.add('nav-item-active');
+        }
+
+        // --- LEVEL 1 RENDER ---
+        function renderL1() {
+            const data = l1Data[currentL1SubLevel];
+            document.getElementById('target-radical').innerText = data.radical;
+            document.getElementById('l1-score').innerText = `Tiến độ: ${currentL1SubLevel}/${l1Data.length}`;
+            const grid = document.getElementById('l1-grid');
+            grid.innerHTML = '';
+            let pool = [...data.targets, ...data.others.slice(0, 8 - data.targets.length)].sort(() => Math.random() - 0.5);
+            l1Found = 0;
+            pool.forEach(char => {
+                const btn = document.createElement('button');
+                btn.className = 'hanzi h-20 bg-gray-50 border-2 border-gray-100 rounded-2xl flex items-center justify-center hover:shadow-lg transition-all btn-option shadow-sm';
+                btn.innerText = char;
+                btn.onclick = () => {
+                    if (data.targets.includes(char)) {
+                        btn.classList.add('correct');
+                        btn.disabled = true;
+                        l1Found++;
+                        if (l1Found === data.targets.length) {
+                            currentL1SubLevel++;
+                            if (currentL1SubLevel < l1Data.length) {
+                                setTimeout(renderL1, 800);
+                            } else {
+                                setTimeout(() => jumpTo(2), 800);
+                            }
+                        }
+                    } else {
+                        btn.classList.add('incorrect');
+                        setTimeout(() => btn.classList.remove('incorrect'), 500);
+                    }
+                };
+                grid.appendChild(btn);
+            });
+        }
+
+        // --- LEVEL 2 RENDER ---
+        function renderL2() {
+            const container = document.getElementById('l2-content');
+            container.innerHTML = '';
+            l2Progress = 0;
+            l2Data.forEach((item, idx) => {
+                const div = document.createElement('div');
+                div.className = "p-4 bg-gray-50 rounded-2xl border border-gray-100 shadow-sm";
+                const label = document.createElement('p');
+                label.className = "text-[10px] text-blue-600 font-black mb-3 text-center uppercase tracking-widest";
+                label.innerText = item.hint;
+                div.appendChild(label);
+                const btnRow = document.createElement('div');
+                btnRow.className = "flex gap-2 justify-center";
+                const counts = {};
+                item.chars.forEach(c => counts[c] = (counts[c] || 0) + 1);
+                const oddChar = Object.keys(counts).find(c => counts[c] === 1);
+                item.chars.forEach(char => {
+                    const btn = document.createElement('button');
+                    btn.className = "hanzi text-3xl w-14 h-14 flex items-center justify-center border-2 border-white bg-white rounded-xl shadow-md btn-option";
+                    btn.innerText = char;
+                    btn.onclick = () => {
+                        if (char === oddChar) {
+                            btn.classList.add('correct');
+                            btnRow.querySelectorAll('button').forEach(b => b.disabled = true);
+                            l2Progress++;
+                            document.getElementById('l2-score').innerText = `Tiến độ: ${l2Progress}/${l2Data.length}`;
+                            if (l2Progress === l2Data.length) setTimeout(() => jumpTo(3), 1000);
+                        } else {
+                            btn.classList.add('incorrect');
+                            setTimeout(() => btn.classList.remove('incorrect'), 500);
+                        }
+                    };
+                    btnRow.appendChild(btn);
+                });
+                div.appendChild(btnRow);
+                container.appendChild(div);
+            });
+        }
+
+        // --- LEVEL 3 RENDER ---
+        function renderL3() {
+            const container = document.getElementById('l3-content');
+            container.innerHTML = '';
+            l3Progress = 0;
+            l3Questions.forEach((q, idx) => {
+                const div = document.createElement('div');
+                div.className = "p-5 border-2 border-gray-100 rounded-2xl bg-white shadow-sm";
+                div.innerHTML = `
+                    <div class="flex justify-between items-start mb-2"><span class="text-xs font-bold text-blue-500 uppercase">Câu ${idx + 1}</span><span class="text-sm font-medium text-gray-500 italic">${q.vietnamese}</span></div>
+                    <div class="text-4xl mb-6 flex items-center gap-3 font-medium">
+                        <span>${q.text_pre}</span>
+                        <div class="w-16 h-14 border-b-4 border-blue-400 flex items-center justify-center bg-gray-50 rounded-t-xl text-blue-600 font-bold shadow-inner" id="l3-ans-${idx}">?</div>
+                        <span>${q.text_post}</span>
+                    </div>
+                    <div class="flex gap-3" id="l3-opts-${idx}">
+                        ${q.options.map(opt => `<button onclick="checkL3(${idx}, '${opt}')" class="bg-white border-2 border-gray-200 px-6 py-2 rounded-xl font-bold text-2xl hover:border-blue-400 hover:bg-blue-50 btn-option shadow-sm">${opt}</button>`).join('')}
+                    </div>
+                `;
+                container.appendChild(div);
+            });
+        }
+
+        function checkL3(idx, selected) {
+            const q = l3Questions[idx];
+            const display = document.getElementById(`l3-ans-${idx}`);
+            if (selected === q.answer) {
+                display.innerText = selected;
+                display.classList.remove('text-blue-600', 'bg-gray-50');
+                display.classList.add('text-white', 'bg-green-500', 'border-green-600');
+                document.getElementById(`l3-opts-${idx}`).querySelectorAll('button').forEach(b => b.disabled = true);
+                l3Progress++;
+                if (l3Progress === l3Questions.length) document.getElementById('btn-to-l4').classList.remove('hidden');
+            } else {
+                display.innerText = "✕";
+                setTimeout(() => display.innerText = "?", 500);
+            }
+        }
+
+        // --- LEVEL 4 RENDER ---
+        function renderL4() {
+            const grid = document.getElementById('l4-grid');
+            grid.innerHTML = '';
+            // Shuffle and pick 25 words
+            const words = [...all36Words].sort(() => Math.random() - 0.5).slice(0, 25);
+            words.forEach(word => {
+                const cell = document.createElement('button');
+                cell.className = "hanzi text-3xl h-20 bg-white border border-gray-300 rounded-xl flex items-center justify-center font-bold btn-option transition-all shadow-sm";
+                cell.innerText = word;
+                cell.onclick = () => {
+                    if (!cell.classList.contains('team-blue') && !cell.classList.contains('team-red')) {
+                        cell.classList.add('team-blue');
+                    } else if (cell.classList.contains('team-blue')) {
+                        cell.classList.remove('team-blue');
+                        cell.classList.add('team-red');
+                    } else {
+                        cell.classList.remove('team-red');
+                    }
+                };
+                grid.appendChild(cell);
+            });
+        }
+
+        // --- LEVEL 5 RENDER ---
+        function renderL5() {
+            if (l5Progress >= l5Data.length) return;
+            document.getElementById('l5-score').innerText = `Tiến độ: ${l5Progress}/${l5Data.length}`;
+
+            const data = l5Data[l5Progress];
+            document.getElementById('l5-hint').innerText = data.hint;
+
+            const slot1 = document.getElementById('l5-slot-1');
+            const slot2 = document.getElementById('l5-slot-2');
+            slot1.innerText = '1'; slot1.classList.remove('text-indigo-600', 'border-indigo-400', 'bg-indigo-50', 'correct', 'incorrect'); slot1.classList.add('text-gray-400', 'border-gray-200');
+            slot2.innerText = '2'; slot2.classList.remove('text-indigo-600', 'border-indigo-400', 'bg-indigo-50', 'correct', 'incorrect'); slot2.classList.add('text-gray-400', 'border-gray-200');
+
+            l5CurrentSelections = [];
+
+            const optionsContainer = document.getElementById('l5-options');
+            optionsContainer.innerHTML = '';
+
+            // Generate pool: 2 targets + 6 random from 36 words
+            let pool = [...data.chars];
+            const shuffled36 = [...all36Words].sort(() => Math.random() - 0.5);
+            for (let char of shuffled36) {
+                if (pool.length >= 8) break;
+                if (!pool.includes(char)) pool.push(char);
+            }
+            pool = pool.sort(() => Math.random() - 0.5);
+
+            pool.forEach((char, idx) => {
+                const btn = document.createElement('button');
+                btn.className = "hanzi h-14 bg-white border-2 border-gray-200 shadow-sm rounded-xl font-bold flex items-center justify-center hover:border-indigo-300 hover:bg-indigo-50 transition-all btn-option";
+                btn.innerText = char;
+                btn.onclick = () => {
+                    if (l5CurrentSelections.length === 0) {
+                        l5CurrentSelections.push(char);
+                        slot1.innerText = char;
+                        slot1.classList.remove('text-gray-400', 'border-gray-200');
+                        slot1.classList.add('text-indigo-600', 'border-indigo-400', 'bg-indigo-50');
+                        btn.disabled = true;
+                        btn.classList.add('opacity-50');
+                    } else if (l5CurrentSelections.length === 1) {
+                        l5CurrentSelections.push(char);
+                        slot2.innerText = char;
+                        slot2.classList.remove('text-gray-400', 'border-gray-200');
+                        slot2.classList.add('text-indigo-600', 'border-indigo-400', 'bg-indigo-50');
+                        btn.disabled = true;
+                        btn.classList.add('opacity-50');
+
+                        // Check answer
+                        if (l5CurrentSelections[0] === data.chars[0] && l5CurrentSelections[1] === data.chars[1]) {
+                            slot1.classList.add('correct');
+                            slot2.classList.add('correct');
+                            setTimeout(() => {
+                                l5Progress++;
+                                if (l5Progress === l5Data.length) {
+                                    document.getElementById('btn-to-l6').classList.remove('hidden');
+                                    document.getElementById('l5-score').innerText = `Tiến độ: ${l5Progress}/${l5Data.length}`;
+                                } else {
+                                    renderL5();
+                                }
+                            }, 800);
+                        } else {
+                            slot1.classList.add('incorrect');
+                            slot2.classList.add('incorrect');
+                            setTimeout(() => {
+                                renderL5(); // reset
+                            }, 800);
+                        }
+                    }
+                };
+                optionsContainer.appendChild(btn);
+            });
+        }
+
+        // --- LEVEL 6 RENDER ---
+        function renderL6() {
+            if (l6Progress >= l6Data.length) return;
+            document.getElementById('l6-score').innerText = `Tiến độ: ${l6Progress}/${l6Data.length}`;
+
+            const data = l6Data[l6Progress];
+            document.getElementById('l6-pinyin').innerText = data.pinyin;
+            document.getElementById('l6-meaning').innerText = `(${data.meaning})`;
+
+            l6Found = 0;
+            const targetLength = data.targets.length;
+
+            const optionsContainer = document.getElementById('l6-options');
+            optionsContainer.innerHTML = '';
+
+            // pool: targets + 5-7 random
+            let pool = [...data.targets];
+            const shuffled36 = [...all36Words].sort(() => Math.random() - 0.5);
+            for (let char of shuffled36) {
+                if (pool.length >= 8) break;
+                if (!pool.includes(char)) pool.push(char);
+            }
+            pool = pool.sort(() => Math.random() - 0.5);
+
+            pool.forEach(char => {
+                const btn = document.createElement('button');
+                btn.className = "hanzi text-3xl w-16 h-16 flex items-center justify-center border-2 border-gray-200 bg-white rounded-2xl shadow-sm hover:border-pink-300 hover:bg-pink-50 transition-all btn-option";
+                btn.innerText = char;
+                btn.onclick = () => {
+                    if (data.targets.includes(char)) {
+                        btn.classList.add('correct');
+                        btn.disabled = true;
+                        l6Found++;
+                        if (l6Found === targetLength) {
+                            optionsContainer.querySelectorAll('button').forEach(b => b.disabled = true);
+                            setTimeout(() => {
+                                l6Progress++;
+                                if (l6Progress === l6Data.length) {
+                                    document.getElementById('btn-to-l7').classList.remove('hidden');
+                                    document.getElementById('l6-score').innerText = `Tiến độ: ${l6Progress}/${l6Data.length}`;
+                                } else {
+                                    renderL6();
+                                }
+                            }, 800);
+                        }
+                    } else {
+                        btn.classList.add('incorrect');
+                        setTimeout(() => btn.classList.remove('incorrect'), 500);
+                    }
+                };
+                optionsContainer.appendChild(btn);
+            });
+        }
+
+        // --- LEVEL 7 RENDER ---
+        function renderL7() {
+            if (l7Progress >= l7Data.length) return;
+            document.getElementById('l7-score').innerText = `Tiến độ: ${l7Progress}/${l7Data.length}`;
+
+            const data = l7Data[l7Progress];
+            document.getElementById('l7-vietnamese').innerText = data.vietnamese;
+
+            l7CurrentSentence = [];
+            l7TargetLength = data.answer.length;
+
+            const dropzone = document.getElementById('l7-dropzone');
+            dropzone.innerHTML = ''; // clear dropzone
+            dropzone.classList.remove('bg-green-100', 'border-green-400');
+            dropzone.classList.add('bg-gray-50', 'border-gray-300');
+
+            const optionsContainer = document.getElementById('l7-options');
+            optionsContainer.innerHTML = '';
+
+            // pool: answer chars (shuffled) + maybe 1-2 distractor chars
+            let pool = [...data.answer];
+            const distractorCount = 2;
+            const shuffled36 = [...all36Words].sort(() => Math.random() - 0.5);
+            let addedDistractors = 0;
+            for (let char of shuffled36) {
+                if (addedDistractors >= distractorCount) break;
+                if (!pool.includes(char)) {
+                    pool.push(char);
+                    addedDistractors++;
+                }
+            }
+            pool = pool.sort(() => Math.random() - 0.5);
+
+            pool.forEach((char, idx) => {
+                const btn = document.createElement('button');
+                btn.className = "hanzi text-2xl px-4 py-3 bg-white border border-gray-200 shadow-sm rounded-xl font-bold hover:border-teal-400 hover:bg-teal-50 btn-option transition-all l7-chunk";
+                btn.innerText = char;
+                btn.id = `l7-piece-${idx}`;
+                btn.onclick = () => {
+                    // move to dropzone
+                    btn.classList.add('hidden');
+
+                    const placedBtn = document.createElement('button');
+                    placedBtn.className = "hanzi text-2xl px-4 py-3 bg-teal-500 text-white border-2 border-teal-600 shadow-md rounded-xl font-bold btn-option transition-transform";
+                    placedBtn.innerText = char;
+                    placedBtn.onclick = () => {
+                        // move back to options
+                        placedBtn.remove();
+                        btn.classList.remove('hidden');
+                        l7CurrentSentence.splice(l7CurrentSentence.indexOf(char), 1);
+                    };
+
+                    dropzone.appendChild(placedBtn);
+                    l7CurrentSentence.push(char);
+
+                    checkL7();
+                };
+                optionsContainer.appendChild(btn);
+            });
+        }
+
+        function checkL7() {
+            const data = l7Data[l7Progress];
+            if (l7CurrentSentence.length === data.answer.length) {
+                // Check if correct
+                let correct = true;
+                for (let i = 0; i < data.answer.length; i++) {
+                    if (l7CurrentSentence[i] !== data.answer[i]) correct = false;
+                }
+
+                const dropzone = document.getElementById('l7-dropzone');
+                if (correct) {
+                    dropzone.querySelectorAll('button').forEach(b => {
+                        b.classList.remove('bg-teal-500', 'border-teal-600');
+                        b.classList.add('bg-green-500', 'border-green-600');
+                        b.onclick = null; // disable click
+                    });
+                    dropzone.classList.remove('bg-gray-50', 'border-gray-300');
+                    dropzone.classList.add('bg-green-100', 'border-green-400');
+                    document.getElementById('l7-options').querySelectorAll('button').forEach(b => b.disabled = true);
+
+                    setTimeout(() => {
+                        l7Progress++;
+                        if (l7Progress === l7Data.length) {
+                            // done
+                            document.getElementById('l7-score').innerText = `Tiến độ: ${l7Progress}/${l7Data.length}`;
+                            setTimeout(() => jumpTo('result'), 1500);
+                        } else {
+                            renderL7();
+                        }
+                    }, 1200);
+                } else {
+                    dropzone.querySelectorAll('button').forEach(b => {
+                        b.classList.remove('bg-teal-500', 'border-teal-600');
+                        b.classList.add('bg-red-500', 'border-red-600');
+                    });
+                    dropzone.classList.add('animate-pulse');
+                    setTimeout(() => {
+                        dropzone.querySelectorAll('button').forEach(b => {
+                            b.classList.remove('bg-red-500', 'border-red-600');
+                            b.classList.add('bg-teal-500', 'border-teal-600');
+                        });
+                        dropzone.classList.remove('animate-pulse');
+                    }, 800);
+                }
+            }
+        }
+
+        function resetL7() {
+            renderL7(); // Re-render to reset state visually and logically
+        }
+    </script>
+</body>
+
+</html>
