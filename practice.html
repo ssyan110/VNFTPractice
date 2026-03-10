@@ -61,61 +61,35 @@
 
 <body class="min-h-screen flex flex-col items-center">
 
-    <div class="w-full flex flex-col lg:flex-row max-w-6xl min-h-screen">
+    <div class="w-full flex flex-col max-w-4xl min-h-screen mx-auto">
 
-        <!-- Sidebar Navigation -->
-        <aside id="sidebar" class="w-full lg:w-64 bg-white border-r border-gray-200 p-6 flex flex-col gap-2">
-            <div class="mb-8 hidden lg:block">
+        <!-- Top Navigation (Dropdown) -->
+        <header class="w-full bg-white border-b border-gray-200 p-4 lg:p-6 flex flex-col sm:flex-row justify-between items-center gap-4 z-10 relative shadow-sm">
+            <div class="text-center sm:text-left">
                 <h2 class="text-xl font-bold text-blue-800">NHẬN DIỆN CHỮ HÁN</h2>
                 <p class="text-xs text-gray-400 font-semibold uppercase tracking-widest mt-1">36 Chữ Hán Cơ Bản</p>
             </div>
 
-            <nav class="flex flex-col gap-1">
-                <button onclick="jumpTo('welcome')" id="nav-welcome"
-                    class="nav-item flex items-center gap-3 px-4 py-3 text-left rounded-lg hover:bg-gray-50 transition-colors text-gray-600 font-medium nav-item-active">
-                    <span>🏠</span> Trang chủ
-                </button>
-                <div class="h-px bg-gray-100 my-2"></div>
-                <p class="px-4 text-[10px] font-bold text-gray-400 uppercase tracking-widest mb-1">Các bài tập</p>
-                <button onclick="jumpTo(1)" id="nav-level-1"
-                    class="nav-item flex items-center gap-3 px-4 py-3 text-left rounded-lg hover:bg-gray-50 transition-colors text-gray-600 font-medium">
-                    <span>🔍</span> 1. Thám tử bộ thủ
-                </button>
-                <button onclick="jumpTo(2)" id="nav-level-2"
-                    class="nav-item flex items-center gap-3 px-4 py-3 text-left rounded-lg hover:bg-gray-50 transition-colors text-gray-600 font-medium">
-                    <span>👀</span> 2. Mắt thần phân biệt
-                </button>
-                <button onclick="jumpTo(3)" id="nav-level-3"
-                    class="nav-item flex items-center gap-3 px-4 py-3 text-left rounded-lg hover:bg-gray-50 transition-colors text-gray-600 font-medium">
-                    <span>✍️</span> 3. Điền từ
-                </button>
-                <button onclick="jumpTo(4)" id="nav-level-4"
-                    class="nav-item flex items-center gap-3 px-4 py-3 text-left rounded-lg hover:bg-gray-50 transition-colors text-gray-600 font-medium">
-                    <span>⚔️</span> 4. Cờ 5x5
-                </button>
-                <div class="h-px bg-gray-100 my-2"></div>
-                <button onclick="jumpTo(5)" id="nav-level-5"
-                    class="nav-item flex items-center gap-3 px-4 py-3 text-left rounded-lg hover:bg-gray-50 transition-colors text-gray-600 font-medium">
-                    <span>🧩</span> 5. Ghép từ
-                </button>
-                <button onclick="jumpTo(6)" id="nav-level-6"
-                    class="nav-item flex items-center gap-3 px-4 py-3 text-left rounded-lg hover:bg-gray-50 transition-colors text-gray-600 font-medium">
-                    <span>🎧</span> 6. Nhìn Pinyin chọn chữ
-                </button>
-                <button onclick="jumpTo(7)" id="nav-level-7"
-                    class="nav-item flex items-center gap-3 px-4 py-3 text-left rounded-lg hover:bg-gray-50 transition-colors text-gray-600 font-medium">
-                    <span>📏</span> 7. Xếp câu
-                </button>
-            </nav>
-
-            <div class="mt-auto pt-6 border-t border-gray-100 hidden lg:block">
-                <p class="text-xs text-gray-400">Thiết kế cho Gemini Workspace</p>
+            <div class="relative w-full sm:w-72">
+                <select id="game-select" onchange="jumpTo(this.value === 'welcome' ? 'welcome' : parseInt(this.value))" class="w-full appearance-none bg-blue-50 border border-blue-100 text-blue-800 font-bold py-3 px-4 pr-10 rounded-xl outline-none focus:ring-2 focus:ring-blue-500 cursor-pointer shadow-sm transition-all hover:bg-blue-100 text-sm sm:text-base">
+                    <option value="welcome">🏠 Trang chủ</option>
+                    <option value="1">🔍 1. Thám tử bộ thủ</option>
+                    <option value="2">👀 2. Mắt thần phân biệt</option>
+                    <option value="3">✍️ 3. Điền từ</option>
+                    <option value="4">⚔️ 4. Cờ 5x5</option>
+                    <option value="5">🧩 5. Ghép từ</option>
+                    <option value="6">🎧 6. Nhìn Pinyin chọn chữ</option>
+                    <option value="7">📏 7. Xếp câu</option>
+                </select>
+                <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-4 text-blue-600">
+                    <svg class="fill-current h-5 w-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"/></svg>
+                </div>
             </div>
-        </aside>
+        </header>
 
         <!-- Main Content Area -->
-        <div class="flex-1 flex flex-col items-center p-4 lg:p-10">
-            <header class="w-full max-w-2xl text-center mb-8">
+        <div class="flex-1 flex flex-col items-center p-4 lg:p-8 w-full">
+            <header class="w-full max-w-2xl text-center mb-8 hidden">
                 <h1 class="text-3xl font-bold text-blue-900 uppercase tracking-tight">Ôn tập Chữ Hán</h1>
             </header>
 
@@ -454,9 +428,9 @@
             { pinyin: "mā ma", meaning: "Mẹ", targets: ['妈', '妈'] },
             { pinyin: "bà ba", meaning: "Bố", targets: ['爸', '爸'] },
             { pinyin: "qù", meaning: "Đi", targets: ['去'] },
-            { pinyin: "Wǒ bú qù běi jīngù", meaning: "Tôi không đi Bắc Kinh", targets: ['我不去北京'] },
-            { pinyin: "Mā ma duì tā hǎo ma?", meaning: "Mẹ có tốt với anh ta không?", targets: ['妈妈对他好吗？'] },
-            { pinyin: "Míng tiān tā qù xué hàn yǔ", meaning: "Ngày mai cô ấy đi học tiếng Hán.", targets: ['明天她去学汉语'] },
+            { pinyin: "Wǒ bú qù běi jīng", meaning: "Tôi không đi Bắc Kinh", targets: ['我', '不', '去', '北', '京'] },
+            { pinyin: "Mā ma duì tā hǎo ma?", meaning: "Mẹ có tốt với anh ta không?", targets: ['妈', '妈', '对', '他', '好', '吗'] },
+            { pinyin: "Míng tiān tā qù xué hàn yǔ", meaning: "Ngày mai cô ấy đi học tiếng Hán.", targets: ['明', '天', '她', '去', '学', '汉', '语'] },
         ];
 
         const l7Data = [
@@ -521,9 +495,16 @@
         }
 
         function updateNavUI(id) {
-            document.querySelectorAll('.nav-item').forEach(item => item.classList.remove('nav-item-active'));
-            const activeNav = document.getElementById('nav-' + id);
-            if (activeNav) activeNav.classList.add('nav-item-active');
+            const select = document.getElementById('game-select');
+            if (!select) return;
+            if (id === 'welcome') {
+                select.value = 'welcome';
+            } else if (id.startsWith('level-')) {
+                const num = id.split('-')[1];
+                select.value = num;
+            } else if (id === 'result') {
+                // If it goes to result, maybe just leave it as 7 or you can add a generic option if needed.
+            }
         }
 
         // --- LEVEL 1 RENDER ---
@@ -752,18 +733,18 @@
             const optionsContainer = document.getElementById('l6-options');
             optionsContainer.innerHTML = '';
 
-            // pool: targets + 5-7 random
+            // pool: targets + distractors
             let pool = [...data.targets];
             const shuffled36 = [...all36Words].sort(() => Math.random() - 0.5);
             for (let char of shuffled36) {
-                if (pool.length >= 8) break;
+                if (pool.length >= Math.max(8, data.targets.length + 3)) break;
                 if (!pool.includes(char)) pool.push(char);
             }
             pool = pool.sort(() => Math.random() - 0.5);
 
             pool.forEach(char => {
                 const btn = document.createElement('button');
-                btn.className = "hanzi text-3xl w-16 h-16 flex items-center justify-center border-2 border-gray-200 bg-white rounded-2xl shadow-sm hover:border-pink-300 hover:bg-pink-50 transition-all btn-option";
+                btn.className = "hanzi text-2xl sm:text-3xl h-16 min-w-[4rem] px-5 flex items-center justify-center border-2 border-gray-200 bg-white rounded-2xl shadow-sm hover:border-pink-300 hover:bg-pink-50 transition-all btn-option leading-none";
                 btn.innerText = char;
                 btn.onclick = () => {
                     if (data.targets.includes(char)) {
