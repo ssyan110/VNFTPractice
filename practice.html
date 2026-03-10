@@ -382,16 +382,18 @@
         ];
 
         const l2Data = [
-            { chars: ['大', '大', '大', '太', '大'], hint: "Tìm chữ THÁI (quá, lắm)" },
-            { chars: ['天', '大', '天', '天', '天'], hint: "Tìm chữ ĐẠI (to lớn)" },
-            { chars: ['吗', '吗', '妈', '吗', '吗'], hint: "Tìm chữ MẸ (mẫu thân)" },
-            { chars: ['月', '日', '日', '明', '月'], hint: "Tìm chữ MINH (sáng, ngày mai)" },
-            { chars: ['三', '九', '三', '三', '三'], hint: "Tìm chữ CỬU (số 9)" },
-            { chars: ['六', '一', '四', '五', '八'], hint: "Tìm chữ LỤC (số 6)" },
-            { chars: ['他', '他', '她', '他', '他'], hint: "Tìm chữ CÔ ẤY" },
-            { chars: ['走', '走', '云', '云', '去'], hint: "Tìm chữ ĐI" },
-            { chars: ['人', '七', '九', '八', '人'], hint: "Tìm chữ BÁT (số 8)" },
-            { chars: ['贝', '贝', '见', '贝', '贝'], hint: "Tìm chữ KIẾN (gặp)" }
+            { chars: ['大', '大', '大', '太', '大'], target: '太', hint: "Tìm chữ THÁI (quá, lắm)" },
+            { chars: ['天', '大', '天', '天', '天'], target: '大', hint: "Tìm chữ ĐẠI (to lớn)" },
+            { chars: ['吗', '吗', '妈', '吗', '吗'], target: '妈', hint: "Tìm chữ MẸ (mẫu thân)" },
+            { chars: ['月', '日', '日', '明', '月'], target: '明', hint: "Tìm chữ MINH (sáng, ngày mai)" },
+            { chars: ['三', '九', '三', '三', '三'], target: '九', hint: "Tìm chữ CỬU (số 9)" },
+            { chars: ['六', '一', '四', '五', '八'], target: '六', hint: "Tìm chữ LỤC (số 6)" },
+            { chars: ['他', '他', '她', '他', '他'], target: '她', hint: "Tìm chữ CÔ ẤY" },
+            { chars: ['入', '入', '云', '云', '去'], target: '去', hint: "Tìm chữ ĐI" },
+            { chars: ['人', '七', '九', '八', '人'], target: '八', hint: "Tìm chữ BÁT (số 8)" },
+            { chars: ['贝', '贝', '见', '贝', '贝'], target: '见', hint: "Tìm chữ KIẾN (gặp)" },
+            { chars: ['谁', '难', '谁', '谁', '谁'], target: '难', hint: "Tìm chữ KHÓ" },
+            { chars: ['入', '入', '入', '人', '入'], target: '人', hint: "Tìm chữ NGƯỜI" }
         ];
 
         const l3Questions = [
@@ -561,15 +563,12 @@
                 div.appendChild(label);
                 const btnRow = document.createElement('div');
                 btnRow.className = "flex gap-2 justify-center";
-                const counts = {};
-                item.chars.forEach(c => counts[c] = (counts[c] || 0) + 1);
-                const oddChar = Object.keys(counts).find(c => counts[c] === 1);
                 item.chars.forEach(char => {
                     const btn = document.createElement('button');
                     btn.className = "hanzi text-3xl w-14 h-14 flex items-center justify-center border-2 border-white bg-white rounded-xl shadow-md btn-option";
                     btn.innerText = char;
                     btn.onclick = () => {
-                        if (char === oddChar) {
+                        if (char === item.target) {
                             btn.classList.add('correct');
                             btnRow.querySelectorAll('button').forEach(b => b.disabled = true);
                             l2Progress++;
