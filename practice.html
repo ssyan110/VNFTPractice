@@ -128,6 +128,7 @@
                     <div class="bg-blue-50 p-6 rounded-2xl mb-8 text-center border-2 border-blue-100 shadow-inner">
                         <p class="text-gray-600 font-medium mb-1">Tìm các chữ có chứa bộ:</p>
                         <div class="text-4xl font-black text-red-600" id="target-radical">亻 (Nhân đứng)</div>
+                        <div id="l1-remaining" class="text-blue-600 font-bold mt-2"></div>
                     </div>
 
                     <div id="l1-grid" class="grid grid-cols-4 gap-4 mb-8">
@@ -442,6 +443,11 @@
             const data = l1Data[currentL1SubLevel];
             document.getElementById('target-radical').innerText = data.radical;
             document.getElementById('l1-score').innerText = `Tiến độ: ${currentL1SubLevel}/${l1Data.length}`;
+
+            const remainingElem = document.getElementById('l1-remaining');
+            remainingElem.innerText = `Còn ${data.targets.length} chữ cần tìm`;
+            remainingElem.className = "text-blue-600 font-bold mt-2";
+
             const grid = document.getElementById('l1-grid');
             grid.innerHTML = '';
             let pool = [...data.targets, ...data.others.slice(0, 8 - data.targets.length)].sort(() => Math.random() - 0.5);
@@ -456,12 +462,17 @@
                         btn.disabled = true;
                         l1Found++;
                         if (l1Found === data.targets.length) {
+                            remainingElem.innerText = "Đúng hết rồi nhé! 🎉";
+                            remainingElem.className = "text-green-600 font-bold mt-2 text-lg";
+
                             currentL1SubLevel++;
                             if (currentL1SubLevel < l1Data.length) {
-                                setTimeout(renderL1, 800);
+                                setTimeout(renderL1, 1500);
                             } else {
-                                setTimeout(() => jumpTo(2), 800);
+                                setTimeout(() => jumpTo(2), 1500);
                             }
+                        } else {
+                            remainingElem.innerText = `Còn ${data.targets.length - l1Found} chữ cần tìm`;
                         }
                     } else {
                         btn.classList.add('incorrect');

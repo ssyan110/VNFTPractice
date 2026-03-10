@@ -1,50 +1,41 @@
 // Character Database: Single Source of Truth for individual characters
 const charDatabase = [
     { char: '一', pinyin: 'yī', meaning: 'MỘT', radical: '一 (Nhất)' },
-    { char: '二', pinyin: 'èr', meaning: 'HAI' },
-    { char: '三', pinyin: 'sān', meaning: 'BA' },
-    { char: '四', pinyin: 'sì', meaning: 'BỐN' },
-    { char: '五', pinyin: 'wǔ', meaning: 'NĂM' },
-    { char: '六', pinyin: 'liù', meaning: 'SÁU', radical: '八 (Bát)' },
-    { char: '七', pinyin: 'qī', meaning: 'BẢY' },
     { char: '八', pinyin: 'bā', meaning: 'TÁM', radical: '八 (Bát)' },
-    { char: '九', pinyin: 'jiǔ', meaning: 'CHÍN' },
+    { char: '五', pinyin: 'wǔ', meaning: 'NĂM' },
     { char: '不', pinyin: 'bù', meaning: 'KHÔNG', radical: '一 (Nhất)' },
     { char: '大', pinyin: 'dà', meaning: 'TO LỚN', radical: '大 (Đại)' },
-    { char: '太', pinyin: 'tài', meaning: 'QUÁ, LẮM', radical: '大 (Đại)', similar: '大天' },
-    { char: '天', pinyin: 'tiān', meaning: 'TRỜI, NGÀY', radical: '大 (Đại)', similar: '大太' },
     { char: '口', pinyin: 'kǒu', meaning: 'MIỆNG', radical: '口 (Bộ Khẩu)' },
-    { char: '吗', pinyin: 'ma', meaning: 'KHÔNG (TRỢ TỪ)', radical: '口 (Bộ Khẩu)' },
     { char: '白', pinyin: 'bái', meaning: 'TRẮNG', radical: '白 (Bạch)' },
     { char: '女', pinyin: 'nǚ', meaning: 'PHỤ NỮ', radical: '女 (Bộ Nữ)' },
-    { char: '她', pinyin: 'tā', meaning: 'CÔ ẤY', radical: '女 (Bộ Nữ)' },
-    { char: '好', pinyin: 'hǎo', meaning: 'TỐT', radical: '女 (Bộ Nữ)' },
-    { char: '妈', pinyin: 'mā', meaning: 'MẸ', radical: '女 (Bộ Nữ)' },
     { char: '你', pinyin: 'nǐ', meaning: 'BẠN', radical: '亻 (Nhân đứng)' },
-    { char: '他', pinyin: 'tā', meaning: 'ANH ẤY', radical: '亻 (Nhân đứng)' },
-    { char: '语', pinyin: 'yǔ', meaning: 'NGÔN NGỮ', radical: '讠 (Bộ Ngôn)' },
-    { char: '汉', pinyin: 'hàn', meaning: 'HÁN' },
-    { char: '很', pinyin: 'hěn', meaning: 'RẤT', radical: '彳 (Bộ Xích)' },
-    { char: '行', pinyin: 'háng', meaning: 'NGÂN HÀNG', radical: '彳 (Bộ Xích)' },
+    { char: '好', pinyin: 'hǎo', meaning: 'TỐT', radical: '女 (Bộ Nữ)' },
     { char: '马', pinyin: 'mǎ', meaning: 'NGỰA' },
+    { char: '太', pinyin: 'tài', meaning: 'QUÁ, LẮM', radical: '大 (Đại)', similar: '大天' },
+    { char: '汉', pinyin: 'hàn', meaning: 'HÁN' },
+    { char: '语', pinyin: 'yǔ', meaning: 'NGÔN NGỮ', radical: '讠 (Bộ Ngôn)' },
+    { char: '吗', pinyin: 'ma', meaning: 'KHÔNG (TRỢ TỪ)', radical: '口 (Bộ Khẩu)' },
+    { char: '妈', pinyin: 'mā', meaning: 'MẸ', radical: '女 (Bộ Nữ)' },
     { char: '爸', pinyin: 'bà', meaning: 'BỐ' },
+    { char: '很', pinyin: 'hěn', meaning: 'RẤT', radical: '彳 (Bộ Xích)' },
     { char: '忙', pinyin: 'máng', meaning: 'BẬN' },
-    { char: '难', pinyin: 'nán', meaning: 'KHÓ', similar: '谁' },
+    { char: '他', pinyin: 'tā', meaning: 'ANH ẤY', radical: '亻 (Nhân đứng)' },
+    { char: '她', pinyin: 'tā', meaning: 'CÔ ẤY', radical: '女 (Bộ Nữ)' },
+    { char: '难', pinyin: 'nán', meaning: 'KHÓ' },
+    { char: '六', pinyin: 'liù', meaning: 'SÁU', radical: '八 (Bát)' },
+    { char: '七', pinyin: 'qī', meaning: 'BẢY' },
+    { char: '九', pinyin: 'jiǔ', meaning: 'CHÍN' },
     { char: '学', pinyin: 'xué', meaning: 'HỌC' },
-    { char: '去', pinyin: 'qù', meaning: 'ĐI', similar: '云走' },
+    { char: '去', pinyin: 'qù', meaning: 'ĐI' },
     { char: '北', pinyin: 'běi', meaning: 'BẮC' },
     { char: '京', pinyin: 'jīng', meaning: 'KINH' },
     { char: '对', pinyin: 'duì', meaning: 'ĐÚNG' },
-    { char: '明', pinyin: 'míng', meaning: 'SÁNG', radical: '日 (Nhật)', similar: '日月' },
-    { char: '见', pinyin: 'jiàn', meaning: 'GẶP', similar: '贝' },
+    { char: '明', pinyin: 'míng', meaning: 'SÁNG', radical: '日 (Nhật)' },
+    { char: '天', pinyin: 'tiān', meaning: 'TRỜI, NGÀY', radical: '大 (Đại)', similar: '大太' },
+    { char: '见', pinyin: 'jiàn', meaning: 'GẶP' },
     { char: '银', pinyin: 'yín', meaning: 'BẠC' },
-    { char: '走', pinyin: 'zǒu', meaning: 'ĐI BỘ', similar: '去云' },
-    { char: '云', pinyin: 'yún', meaning: 'MÂY', similar: '去走' },
-    { char: '人', pinyin: 'rén', meaning: 'NGƯỜI', similar: '入八' },
-    { char: '入', pinyin: 'rù', meaning: 'VÀO', similar: '人八' },
-    { char: '贝', pinyin: 'bèi', meaning: 'BỐI', similar: '见' },
-    { char: '谁', pinyin: 'shéi', meaning: 'AI', similar: '难' },
-    { char: '月', pinyin: 'yuè', meaning: 'THÁNG', similar: '明' }
+    { char: '行', pinyin: 'háng', meaning: 'NGÂN HÀNG', radical: '彳 (Bộ Xích)' },
+    { char: '二', pinyin: 'èr', meaning: 'HAI' }
 ];
 
 // Vocabulary Database for words (2+ characters)
@@ -106,7 +97,7 @@ function generateGame1Data() {
             radicalsMap[c.radical].push(c.char);
         }
     });
-    
+
     let data = Object.keys(radicalsMap).map(rad => {
         let targets = radicalsMap[rad];
         let others = allWords.filter(c => !targets.includes(c)).sort(() => 0.5 - Math.random());
@@ -124,18 +115,16 @@ function generateGame2Data() {
     let pool = [...charDatabase].sort(() => 0.5 - Math.random());
     for (let i = 0; i < Math.min(10, pool.length); i++) {
         let targetObj = pool[i];
-        let distractorChar;
 
-        if (targetObj.similar) {
-            let simChars = targetObj.similar.split('');
-            distractorChar = simChars[Math.floor(Math.random() * simChars.length)];
-        } else {
-            let others = allWords.filter(c => c !== targetObj.char);
-            distractorChar = others[Math.floor(Math.random() * others.length)];
-        }
+        // Grab 4 different random characters that are NOT the target character
+        let others = allWords.filter(c => c !== targetObj.char).sort(() => 0.5 - Math.random());
+        let distractors = others.slice(0, 4);
 
-        let chars = [distractorChar, distractorChar, distractorChar, distractorChar, distractorChar];
-        chars[Math.floor(Math.random() * 5)] = targetObj.char;
+        // Combine the 4 distractors with the 1 target
+        let chars = [...distractors, targetObj.char];
+
+        // Shuffle the 5 characters so the target isn't always at the end
+        chars = chars.sort(() => 0.5 - Math.random());
 
         data.push({
             chars: chars,
@@ -176,7 +165,7 @@ function generateGame6Data() {
     charDatabase.forEach(w => pool.push({ pinyin: w.pinyin, meaning: w.meaning, targets: [w.char] }));
     vocabDatabase.forEach(w => pool.push({ pinyin: w.pinyin, meaning: w.meaning, targets: w.chars }));
     sentenceDatabase.forEach(s => pool.push({ pinyin: s.pinyin, meaning: s.vietnamese, targets: s.chars }));
-    
+
     return pool.sort(() => 0.5 - Math.random()).slice(0, 10);
 }
 
