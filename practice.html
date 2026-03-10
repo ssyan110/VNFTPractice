@@ -347,6 +347,7 @@
         </div>
     </div>
 
+    <script src="data.js"></script>
     <script>
         const screens = ['welcome', 'level-1', 'level-2', 'level-3', 'level-4', 'level-5', 'level-6', 'level-7', 'result'];
         let currentL1SubLevel = 0;
@@ -361,97 +362,13 @@
         let l7CurrentSentence = [];
         let l7TargetLength = 0;
 
-        const all36Words = [
-            '一', '八', '五', '不', '大', '口', '白', '女', '你',
-            '好', '马', '太', '汉', '语', '吗', '妈', '爸', '很',
-            '忙', '他', '她', '难', '六', '七', '九', '学', '去',
-            '北', '京', '对', '明', '天', '见', '银', '行', '二'
-        ];
-
-        const l1Data = [
-            { radical: '亻 (Nhân đứng)', targets: ['你', '他'], others: ['妈', '忙', '难', '很', '银', '见', '汉', '爸'] },
-            { radical: '女 (Bộ Nữ)', targets: ['女', '她', '好', '妈'], others: ['忙', '难', '语', '对', '你', '很', '爸', '大'] },
-            { radical: '口 (Bộ Khẩu)', targets: ['口', '吗'], others: ['语', '汉', '白', '大', '行', '京', '北', '不'] },
-            { radical: '讠 (Bộ Ngôn)', targets: ['语'], others: ['汉', '对', '你', '她', '去', '见', '学', '明'] },
-            { radical: '彳 (Bộ Xích)', targets: ['很', '行'], others: ['他', '你', '语', '难', '对', '明', '学', '京'] },
-            { radical: '一 (Nhất)', targets: ['一', '不'], others: ['八', '五', '白', '女', '你', '汉', '语', '六'] },
-            { radical: '八 (Bát)', targets: ['八', '六'], others: ['五', '大', '白', '马', '妈', '爸', '明', '九'] },
-            { radical: '白 (Bạch)', targets: ['白'], others: ['口', '女', '好', '大', '汉', '语', '吗', '见'] },
-            { radical: '日 (Nhật)', targets: ['明'], others: ['天', '白', '大', '他', '她', '太', '八', '五'] },
-            { radical: '大 (Đại)', targets: ['大', '太', '天'], others: ['不', '对', '明', '去', '见', '学', '六', '八'] }
-        ];
-
-        const l2Data = [
-            { chars: ['大', '大', '大', '太', '大'], target: '太', hint: "Tìm chữ THÁI (quá, lắm)" },
-            { chars: ['天', '大', '天', '天', '天'], target: '大', hint: "Tìm chữ ĐẠI (to lớn)" },
-            { chars: ['吗', '吗', '妈', '吗', '吗'], target: '妈', hint: "Tìm chữ MẸ (mẫu thân)" },
-            { chars: ['月', '日', '日', '明', '月'], target: '明', hint: "Tìm chữ MINH (sáng, ngày mai)" },
-            { chars: ['三', '九', '三', '三', '三'], target: '九', hint: "Tìm chữ CỬU (số 9)" },
-            { chars: ['六', '一', '四', '五', '八'], target: '六', hint: "Tìm chữ LỤC (số 6)" },
-            { chars: ['他', '他', '她', '他', '他'], target: '她', hint: "Tìm chữ CÔ ẤY" },
-            { chars: ['入', '入', '云', '云', '去'], target: '去', hint: "Tìm chữ ĐI" },
-            { chars: ['人', '七', '九', '八', '人'], target: '八', hint: "Tìm chữ BÁT (số 8)" },
-            { chars: ['贝', '贝', '见', '贝', '贝'], target: '见', hint: "Tìm chữ KIẾN (gặp)" },
-            { chars: ['谁', '难', '谁', '谁', '谁'], target: '难', hint: "Tìm chữ KHÓ" },
-            { chars: ['入', '入', '入', '人', '入'], target: '人', hint: "Tìm chữ NGƯỜI" }
-        ];
-
-        const l3Questions = [
-            { text_pre: "你", text_post: "吗?", vietnamese: "Bạn có khỏe không?", options: ['好', '忙', '大'], answer: '好' },
-            { text_pre: "我很", text_post: "。", vietnamese: "Tôi rất bận.", options: ['好', '见', '忙'], answer: '忙' },
-            { text_pre: "明", text_post: "见。", vietnamese: "Hẹn gặp lại ngày mai.", options: ['京', '京', '天'], answer: '天' },
-            { text_pre: "汉", text_post: "不难。", vietnamese: "Tiếng Hán không khó.", options: ['语', '行', '妈'], answer: '语' },
-            { text_pre: "去北", text_post: "。", vietnamese: "Đi Bắc Kinh.", options: ['不', '京', '学'], answer: '京' },
-            { text_pre: "七", text_post: "九。", vietnamese: "Bảy, tám, chín.", options: ['七', '六', '八'], answer: '八' },
-            { text_pre: "不", text_post: "。", vietnamese: "Không đúng.", options: ['对', '了', '学'], answer: '对' },
-            { text_pre: "她很", text_post: "。", vietnamese: "Cô ấy rất tốt.", options: ['白', '很', '好'], answer: '好' },
-            { text_pre: "", text_post: "京很大。", vietnamese: "Bắc Kinh rất lớn.", options: ['八', '北', '天'], answer: '北' },
-            { text_pre: "去银", text_post: "。", vietnamese: "Đi ngân hàng.", options: ['行', '很', '白'], answer: '行' }
-        ];
-
-        const l5Data = [
-            { chars: ['北', '京'], hint: "Bắc Kinh" },
-            { chars: ['汉', '语'], hint: "Tiếng Hán" },
-            { chars: ['银', '行'], hint: "Ngân hàng" },
-            { chars: ['明', '天'], hint: "Ngày mai" },
-            { chars: ['你', '好'], hint: "Xin chào" },
-            { chars: ['爸', '爸'], hint: "Bố" },
-            { chars: ['妈', '妈'], hint: "Mẹ" },
-            { chars: ['很', '大'], hint: "Rất to" },
-            { chars: ['太', '忙'], hint: "Quá bận" },
-            { chars: ['不', '难'], hint: "Không khó" },
-            { chars: ['很', '忙'], hint: "Rất bận" },
-            { chars: ['去', '吗'], hint: "Đi không?" }
-        ];
-
-        const l6Data = [
-            { pinyin: "yín háng", meaning: "Ngân hàng", targets: ['银', '行'] },
-            { pinyin: "míng tiān", meaning: "Ngày mai", targets: ['明', '天'] },
-            { pinyin: "nán", meaning: "Khó", targets: ['难'] },
-            { pinyin: "xué", meaning: "Học", targets: ['学'] },
-            { pinyin: "hěn", meaning: "Rất", targets: ['很'] },
-            { pinyin: "běi jīng", meaning: "Bắc Kinh", targets: ['北', '京'] },
-            { pinyin: "hàn yǔ", meaning: "Tiếng Hán", targets: ['汉', '语'] },
-            { pinyin: "mā ma", meaning: "Mẹ", targets: ['妈', '妈'] },
-            { pinyin: "bà ba", meaning: "Bố", targets: ['爸', '爸'] },
-            { pinyin: "qù", meaning: "Đi", targets: ['去'] },
-            { pinyin: "Wǒ bú qù běi jīng", meaning: "Tôi không đi Bắc Kinh", targets: ['我', '不', '去', '北', '京'] },
-            { pinyin: "Mā ma duì tā hǎo ma?", meaning: "Mẹ có tốt với anh ta không?", targets: ['妈', '妈', '对', '他', '好', '吗'] },
-            { pinyin: "Míng tiān tā qù xué hàn yǔ", meaning: "Ngày mai cô ấy đi học tiếng Hán.", targets: ['明', '天', '她', '去', '学', '汉', '语'] },
-        ];
-
-        const l7Data = [
-            { vietnamese: "Anh ấy đi Bắc Kinh.", answer: ['他', '去', '北', '京'] },
-            { vietnamese: "Tiếng Hán không khó.", answer: ['汉', '语', '不', '难'] },
-            { vietnamese: "Cô ấy rất bận.", answer: ['她', '很', '忙'] },
-            { vietnamese: "Hẹn gặp lại ngày mai.", answer: ['明', '天', '见'] },
-            { vietnamese: "Mẹ bạn có khỏe không?", answer: ['你', '妈', '妈', '好', '吗'] },
-            { vietnamese: "Bố anh ấy không đi ngân hàng.", answer: ['他', '爸', '爸', '不', '去', '银', '行'] },
-            { vietnamese: "Tiếng Hán rất dễ học.", answer: ['汉', '语', '很', '好', '学'] },
-            { vietnamese: "Chào bạn.", answer: ['你', '好'] },
-            { vietnamese: "Cô ấy không đi Bắc Kinh.", answer: ['她', '不', '去', '北', '京'] },
-            { vietnamese: "Ngày mai đi ngân hàng.", answer: ['明', '天', '去', '银', '行'] }
-        ];
+        const all36Words = allWords;
+        let l1Data = [];
+        let l2Data = [];
+        let l3Questions = [];
+        let l5Data = [];
+        let l6Data = [];
+        let l7Data = [];
 
         function jumpTo(target) {
             // Reset states for a fresh jump
@@ -468,26 +385,32 @@
 
             // Logic to initialize levels
             if (target === 1) {
+                l1Data = generateGame1Data();
                 currentL1SubLevel = 0;
                 renderL1();
             } else if (target === 2) {
+                l2Data = generateGame2Data();
                 l2Progress = 0;
                 renderL2();
             } else if (target === 3) {
+                l3Questions = generateGame3Data();
                 l3Progress = 0;
                 renderL3();
                 document.getElementById('btn-to-l4').classList.add('hidden');
             } else if (target === 4) {
                 renderL4();
             } else if (target === 5) {
+                l5Data = generateGame5Data();
                 l5Progress = 0;
                 renderL5();
                 document.getElementById('btn-to-l6').classList.add('hidden');
             } else if (target === 6) {
+                l6Data = generateGame6Data();
                 l6Progress = 0;
                 renderL6();
                 document.getElementById('btn-to-l7').classList.add('hidden');
             } else if (target === 7) {
+                l7Data = generateGame7Data();
                 l7Progress = 0;
                 renderL7();
             }
