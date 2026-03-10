@@ -417,14 +417,14 @@
 
         const l3Questions = [
             { text_pre: "你", text_post: "吗?", vietnamese: "Bạn có khỏe không?", options: ['好', '忙', '大'], answer: '好' },
-            { text_pre: "我很", text_post: "。", vietnamese: "Tôi rất bận.", options: ['忙', '见', '白'], answer: '忙' },
-            { text_pre: "明", text_post: "见。", vietnamese: "Hẹn gặp lại ngày mai.", options: ['天', '京', '去'], answer: '天' },
+            { text_pre: "我很", text_post: "。", vietnamese: "Tôi rất bận.", options: ['好', '见', '忙'], answer: '忙' },
+            { text_pre: "明", text_post: "见。", vietnamese: "Hẹn gặp lại ngày mai.", options: ['京', '京', '天'], answer: '天' },
             { text_pre: "汉", text_post: "不难。", vietnamese: "Tiếng Hán không khó.", options: ['语', '行', '妈'], answer: '语' },
-            { text_pre: "去北", text_post: "。", vietnamese: "Đi Bắc Kinh.", options: ['京', '天', '学'], answer: '京' },
-            { text_pre: "七", text_post: "九。", vietnamese: "Bảy, tám, chín.", options: ['八', '六', '五'], answer: '八' },
+            { text_pre: "去北", text_post: "。", vietnamese: "Đi Bắc Kinh.", options: ['不', '京', '学'], answer: '京' },
+            { text_pre: "七", text_post: "九。", vietnamese: "Bảy, tám, chín.", options: ['七', '六', '八'], answer: '八' },
             { text_pre: "不", text_post: "。", vietnamese: "Không đúng.", options: ['对', '了', '学'], answer: '对' },
-            { text_pre: "她很", text_post: "。", vietnamese: "Cô ấy rất tốt.", options: ['好', '很', '难'], answer: '好' },
-            { text_pre: "", text_post: "京很大。", vietnamese: "Bắc Kinh rất lớn.", options: ['北', '我', '天'], answer: '北' },
+            { text_pre: "她很", text_post: "。", vietnamese: "Cô ấy rất tốt.", options: ['白', '很', '好'], answer: '好' },
+            { text_pre: "", text_post: "京很大。", vietnamese: "Bắc Kinh rất lớn.", options: ['八', '北', '天'], answer: '北' },
             { text_pre: "去银", text_post: "。", vietnamese: "Đi ngân hàng.", options: ['行', '很', '白'], answer: '行' }
         ];
 
@@ -438,7 +438,9 @@
             { chars: ['妈', '妈'], hint: "Mẹ" },
             { chars: ['很', '大'], hint: "Rất to" },
             { chars: ['太', '忙'], hint: "Quá bận" },
-            { chars: ['不', '难'], hint: "Không khó" }
+            { chars: ['不', '难'], hint: "Không khó" },
+            { chars: ['很', '忙'], hint: "Rất bận" },
+            { chars: ['去', '吗'], hint: "Đi không?" }
         ];
 
         const l6Data = [
@@ -451,7 +453,10 @@
             { pinyin: "hàn yǔ", meaning: "Tiếng Hán", targets: ['汉', '语'] },
             { pinyin: "mā ma", meaning: "Mẹ", targets: ['妈', '妈'] },
             { pinyin: "bà ba", meaning: "Bố", targets: ['爸', '爸'] },
-            { pinyin: "qù", meaning: "Đi", targets: ['去'] }
+            { pinyin: "qù", meaning: "Đi", targets: ['去'] },
+            { pinyin: "Wǒ bú qù běi jīngù", meaning: "Tôi không đi Bắc Kinh", targets: ['我不去北京'] },
+            { pinyin: "Mā ma duì tā hǎo ma?", meaning: "Mẹ có tốt với anh ta không?", targets: ['妈妈对他好吗？'] },
+            { pinyin: "Míng tiān tā qù xué hàn yǔ", meaning: "Ngày mai cô ấy đi học tiếng Hán.", targets: ['明天她去学汉语'] },
         ];
 
         const l7Data = [
@@ -461,7 +466,7 @@
             { vietnamese: "Hẹn gặp lại ngày mai.", answer: ['明', '天', '见'] },
             { vietnamese: "Mẹ bạn có khỏe không?", answer: ['你', '妈', '妈', '好', '吗'] },
             { vietnamese: "Bố anh ấy không đi ngân hàng.", answer: ['他', '爸', '爸', '不', '去', '银', '行'] },
-            { vietnamese: "Tiếng Hán rất tốt.", answer: ['汉', '语', '很', '好'] },
+            { vietnamese: "Tiếng Hán rất dễ học.", answer: ['汉', '语', '很', '好', '学'] },
             { vietnamese: "Chào bạn.", answer: ['你', '好'] },
             { vietnamese: "Cô ấy không đi Bắc Kinh.", answer: ['她', '不', '去', '北', '京'] },
             { vietnamese: "Ngày mai đi ngân hàng.", answer: ['明', '天', '去', '银', '行'] }
