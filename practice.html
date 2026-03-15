@@ -610,73 +610,97 @@
         function renderL2() {
             const container = document.getElementById('l2-content');
             container.innerHTML = '';
-            l2Progress = 0;
             document.getElementById('l2-score').innerText = `Tiến độ: ${l2Progress}/${l2Data.length}`;
-            l2Data.forEach((item, idx) => {
-                const div = document.createElement('div');
-                div.className = "p-4 bg-gray-50 rounded-2xl border border-gray-100 shadow-sm";
-                const label = document.createElement('p');
-                label.className = "text-[10px] text-blue-600 font-black mb-3 text-center uppercase tracking-widest";
-                label.innerText = item.hint;
-                div.appendChild(label);
-                const btnRow = document.createElement('div');
-                btnRow.className = "flex gap-2 justify-center";
-                item.chars.forEach(char => {
-                    const btn = document.createElement('button');
-                    btn.className = "hanzi text-3xl w-14 h-14 flex items-center justify-center border-2 border-white bg-white rounded-xl shadow-md btn-option";
-                    btn.innerText = char;
-                    btn.onclick = () => {
-                        if (char === item.target) {
-                            btn.classList.add('correct');
-                            btnRow.querySelectorAll('button').forEach(b => b.disabled = true);
-                            l2Progress++;
-                            document.getElementById('l2-score').innerText = `Tiến độ: ${l2Progress}/${l2Data.length}`;
-                            if (l2Progress === l2Data.length) setTimeout(() => jumpTo(3), 1000);
-                        } else {
-                            btn.classList.add('incorrect');
-                            setTimeout(() => btn.classList.remove('incorrect'), 500);
-                        }
-                    };
-                    btnRow.appendChild(btn);
-                });
-                div.appendChild(btnRow);
-                container.appendChild(div);
+            if (l2Progress >= l2Data.length) return;
+
+            const item = l2Data[l2Progress];
+            const div = document.createElement('div');
+            div.className = "p-5 bg-gray-50 rounded-2xl border border-gray-100 shadow-sm";
+            div.innerHTML = `
+                <div class="flex justify-between items-start mb-3">
+                    <span class="text-xs font-bold text-purple-600 uppercase tracking-widest">Câu ${l2Progress + 1}/${l2Data.length}</span>
+                    <span class="text-[10px] text-blue-600 font-black text-center uppercase tracking-widest">${item.hint}</span>
+                </div>
+                <div id="l2-current-options" class="flex gap-2 justify-center"></div>
+            `;
+
+            const btnRow = div.querySelector('#l2-current-options');
+            item.chars.forEach(char => {
+                const btn = document.createElement('button');
+                btn.className = "hanzi text-3xl w-14 h-14 flex items-center justify-center border-2 border-white bg-white rounded-xl shadow-md btn-option";
+                btn.innerText = char;
+                btn.onclick = () => checkL2(char, btnRow);
+                btnRow.appendChild(btn);
             });
+
+            container.appendChild(div);
+        }
+
+        function checkL2(selected, btnRow) {
+            const item = l2Data[l2Progress];
+            const buttons = btnRow.querySelectorAll('button');
+            const clickedButton = Array.from(buttons).find(button => button.innerText === selected);
+
+            if (selected === item.target) {
+                if (clickedButton) clickedButton.classList.add('correct');
+                buttons.forEach(button => button.disabled = true);
+                l2Progress++;
+                document.getElementById('l2-score').innerText = `Tiến độ: ${l2Progress}/${l2Data.length}`;
+                setTimeout(() => {
+                    if (l2Progress === l2Data.length) {
+                        jumpTo(3);
+                    } else {
+                        renderL2();
+                    }
+                }, 500);
+            } else if (clickedButton) {
+                clickedButton.classList.add('incorrect');
+                setTimeout(() => clickedButton.classList.remove('incorrect'), 500);
+            }
         }
 
         // --- LEVEL 3 RENDER ---
         function renderL3() {
             const container = document.getElementById('l3-content');
             container.innerHTML = '';
-            l3Progress = 0;
-            l3Questions.forEach((q, idx) => {
-                const div = document.createElement('div');
-                div.className = "p-5 border-2 border-gray-100 rounded-2xl bg-white shadow-sm";
-                div.innerHTML = `
-                    <div class="flex justify-between items-start mb-2"><span class="text-xs font-bold text-blue-500 uppercase">Câu ${idx + 1}</span><span class="text-sm font-medium text-gray-500 italic">${q.vietnamese}</span></div>
-                    <div class="text-4xl mb-6 flex items-center gap-3 font-medium">
-                        <span>${q.text_pre}</span>
-                        <div class="w-16 h-14 border-b-4 border-blue-400 flex items-center justify-center bg-gray-50 rounded-t-xl text-blue-600 font-bold shadow-inner" id="l3-ans-${idx}">?</div>
-                        <span>${q.text_post}</span>
-                    </div>
-                    <div class="flex gap-3" id="l3-opts-${idx}">
-                        ${q.options.map(opt => `<button onclick="checkL3(${idx}, '${opt}')" class="bg-white border-2 border-gray-200 px-6 py-2 rounded-xl font-bold text-2xl hover:border-blue-400 hover:bg-blue-50 btn-option shadow-sm">${opt}</button>`).join('')}
-                    </div>
-                `;
-                container.appendChild(div);
-            });
+            if (l3Progress >= l3Questions.length) {
+                document.getElementById('btn-to-l4').classList.remove('hidden');
+                return;
+            }
+
+            const q = l3Questions[l3Progress];
+            const div = document.createElement('div');
+            div.className = "p-5 border-2 border-gray-100 rounded-2xl bg-white shadow-sm";
+            div.innerHTML = `
+                <div class="flex justify-between items-start mb-2"><span class="text-xs font-bold text-blue-500 uppercase">Câu ${l3Progress + 1}/${l3Questions.length}</span><span class="text-sm font-medium text-gray-500 italic">${q.vietnamese}</span></div>
+                <div class="text-4xl mb-6 flex items-center gap-3 font-medium">
+                    <span>${q.text_pre}</span>
+                    <div class="w-16 h-14 border-b-4 border-blue-400 flex items-center justify-center bg-gray-50 rounded-t-xl text-blue-600 font-bold shadow-inner" id="l3-ans-current">?</div>
+                    <span>${q.text_post}</span>
+                </div>
+                <div class="flex gap-3" id="l3-opts-current">
+                    ${q.options.map(opt => `<button onclick="checkL3('${opt}')" class="bg-white border-2 border-gray-200 px-6 py-2 rounded-xl font-bold text-2xl hover:border-blue-400 hover:bg-blue-50 btn-option shadow-sm">${opt}</button>`).join('')}
+                </div>
+            `;
+            container.appendChild(div);
         }
 
-        function checkL3(idx, selected) {
-            const q = l3Questions[idx];
-            const display = document.getElementById(`l3-ans-${idx}`);
+        function checkL3(selected) {
+            const q = l3Questions[l3Progress];
+            const display = document.getElementById('l3-ans-current');
+            const options = document.getElementById('l3-opts-current');
             if (selected === q.answer) {
                 display.innerText = selected;
                 display.classList.remove('text-blue-600', 'bg-gray-50');
                 display.classList.add('text-white', 'bg-green-500', 'border-green-600');
-                document.getElementById(`l3-opts-${idx}`).querySelectorAll('button').forEach(b => b.disabled = true);
+                options.querySelectorAll('button').forEach(b => b.disabled = true);
                 l3Progress++;
-                if (l3Progress === l3Questions.length) document.getElementById('btn-to-l4').classList.remove('hidden');
+                setTimeout(() => {
+                    if (l3Progress === l3Questions.length) {
+                        document.getElementById('btn-to-l4').classList.remove('hidden');
+                    }
+                    renderL3();
+                }, 500);
             } else {
                 display.innerText = "✕";
                 setTimeout(() => display.innerText = "?", 500);

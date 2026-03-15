@@ -219,7 +219,8 @@ function generateGame1Data() {
 function generateGame2Data() {
     const learnedPool = charDatabase
         .filter(item => learnedCharacterSet.has(item.char))
-        .sort(() => 0.5 - Math.random());
+        .sort(() => 0.5 - Math.random())
+        .slice(0, 20);
 
     return learnedPool.map(targetObj => {
         const distractors = learnedCharacters
@@ -236,7 +237,7 @@ function generateGame2Data() {
 }
 
 function generateGame3Data() {
-    let data = [...grammarDatabase].sort(() => 0.5 - Math.random()).slice(0, 10);
+    let data = [...grammarDatabase].sort(() => 0.5 - Math.random()).slice(0, 20);
     // Add multiple choice options dynamically
     return data.map(item => {
         let opts = [item.answer];
