@@ -82,6 +82,8 @@
                     <option value="5">🧩 5. Ghép từ</option>
                     <option value="6">🎧 6. Nhìn Pinyin chọn chữ</option>
                     <option value="7">📏 7. Xếp câu</option>
+                    <option value="8">📖 8. Đọc câu đoán nghĩa</option>
+                    <option value="9">🐾 9. Ghi nhớ vị trí</option>
                 </select>
                 <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-4 text-blue-600">
                     <svg class="fill-current h-5 w-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
@@ -325,7 +327,93 @@
                         </div>
                     </div>
 
-                    <button onclick="jumpTo('result')"
+                    <button onclick="jumpTo(8)"
+                        class="w-full mt-10 bg-blue-600 hover:bg-blue-700 text-white py-5 rounded-2xl font-bold text-lg shadow-xl cursor-pointer">Chuyển
+                        sang: Đọc câu đoán nghĩa</button>
+                </div>
+
+                <!-- Level 8: Sentence Meaning Reveal -->
+                <div id="screen-level-8" class="hidden">
+                    <div class="flex justify-between items-center mb-6">
+                        <span
+                            class="bg-cyan-100 text-cyan-800 px-4 py-1.5 rounded-full text-xs font-bold uppercase tracking-widest">Trò
+                            chơi: Đọc hiểu</span>
+                        <span id="l8-score" class="text-gray-400 text-sm font-semibold">Tiến độ: 0/5</span>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-1">Đọc câu đoán nghĩa</h3>
+                    <p class="text-gray-500 mb-8 italic">Đọc câu tiếng Trung, chờ 5 giây rồi bấm nút để xem nghĩa tiếng Việt.</p>
+
+                    <div class="bg-cyan-50 border-2 border-cyan-100 rounded-3xl p-6 lg:p-8 shadow-inner">
+                        <div class="flex justify-between items-center mb-4">
+                            <span id="l8-index" class="text-xs font-black uppercase tracking-widest text-cyan-600">Câu 1</span>
+                            <span id="l8-timer" class="text-sm font-semibold text-cyan-700">Chờ 5 giây...</span>
+                        </div>
+                        <div id="l8-sentence"
+                            class="hanzi text-3xl sm:text-4xl leading-relaxed text-center text-slate-800 min-h-[140px] flex items-center justify-center">
+                            汉语不难。
+                        </div>
+                    </div>
+
+                    <div class="mt-8 flex flex-col items-center gap-4">
+                        <button id="l8-reveal-btn"
+                            class="hidden bg-cyan-600 hover:bg-cyan-700 text-white px-8 py-4 rounded-2xl text-lg font-bold shadow-lg transition-all">
+                            Xem đáp án
+                        </button>
+                        <div id="l8-answer"
+                            class="hidden w-full bg-white border-2 border-cyan-100 rounded-2xl p-5 text-center shadow-sm">
+                            <p class="text-xs font-black uppercase tracking-widest text-cyan-500 mb-2">Nghĩa tiếng Việt</p>
+                            <p id="l8-meaning" class="text-xl font-semibold text-slate-700">Tiếng Hán không khó.</p>
+                        </div>
+                        <button id="l8-next-btn"
+                            class="hidden w-full bg-blue-600 hover:bg-blue-700 text-white py-4 rounded-2xl font-bold text-lg shadow-xl transition-all">
+                            Câu tiếp theo
+                        </button>
+                    </div>
+
+                    <button id="btn-to-l9" onclick="jumpTo(9)"
+                        class="w-full mt-10 bg-blue-600 hover:bg-blue-700 text-white py-5 rounded-2xl font-bold text-lg shadow-xl cursor-pointer">Chuyển
+                        sang: Ghi nhớ vị trí</button>
+                </div>
+
+                <!-- Level 9: Memory With Animal Covers -->
+                <div id="screen-level-9" class="hidden">
+                    <div class="flex justify-between items-center mb-6">
+                        <span
+                            class="bg-amber-100 text-amber-800 px-4 py-1.5 rounded-full text-xs font-bold uppercase tracking-widest">Trò
+                            chơi: Ghi nhớ</span>
+                        <span id="l9-score" class="text-gray-400 text-sm font-semibold">Tiến độ: 0/5</span>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-1">Con vật che chữ</h3>
+                    <p class="text-gray-500 mb-6 italic">Nhìn 4 chữ, ghi nhớ vị trí trong 10 giây, rồi trả lời: chữ nào đang ở sau con vật được hỏi.</p>
+
+                    <div class="flex items-center justify-between gap-4 mb-6">
+                        <div id="l9-phase" class="text-sm font-bold uppercase tracking-widest text-amber-700">Giai đoạn ghi nhớ</div>
+                        <div id="l9-timer"
+                            class="min-w-[140px] text-center bg-amber-50 border border-amber-200 text-amber-800 px-4 py-2 rounded-xl font-black">
+                            10 giây
+                        </div>
+                    </div>
+
+                    <div id="l9-prompt"
+                        class="hidden mb-6 text-center bg-white border-2 border-amber-100 rounded-2xl px-5 py-4 text-xl font-bold text-slate-700 shadow-sm">
+                        Đằng sau con hổ là chữ gì?
+                    </div>
+
+                    <div id="l9-grid" class="grid grid-cols-2 gap-4 max-w-md mx-auto mb-8">
+                        <!-- Memory cards injected here -->
+                    </div>
+
+                    <div class="flex flex-col gap-4">
+                        <div id="l9-feedback" class="text-center text-sm font-semibold text-gray-500 min-h-[24px]">
+                            Hãy đọc to và ghi nhớ vị trí của 4 chữ.
+                        </div>
+                        <button id="l9-next-btn"
+                            class="hidden w-full bg-blue-600 hover:bg-blue-700 text-white py-4 rounded-2xl font-bold text-lg shadow-xl transition-all">
+                            Câu tiếp theo
+                        </button>
+                    </div>
+
+                    <button id="btn-to-result" onclick="jumpTo('result')"
                         class="w-full mt-10 bg-green-600 hover:bg-green-700 text-white py-5 rounded-2xl font-bold text-lg shadow-xl cursor-pointer">Kết
                         thúc buổi học</button>
                 </div>
@@ -350,7 +438,7 @@
 
     <script src="data.js"></script>
     <script>
-        const screens = ['welcome', 'level-1', 'level-2', 'level-3', 'level-4', 'level-5', 'level-6', 'level-7', 'result'];
+        const screens = ['welcome', 'level-1', 'level-2', 'level-3', 'level-4', 'level-5', 'level-6', 'level-7', 'level-8', 'level-9', 'result'];
         let currentL1SubLevel = 0;
         let l1Found = 0;
         let l2Progress = 0;
@@ -362,6 +450,12 @@
         let l7Progress = 0;
         let l7CurrentSentence = [];
         let l7TargetLength = 0;
+        let l8Progress = 0;
+        let l8RevealTimer = null;
+        let l9Progress = 0;
+        let l9QuestionIndex = 0;
+        let l9Countdown = null;
+        let l9Practice = null;
 
         const all36Words = allWords;
         let l1Data = [];
@@ -370,8 +464,27 @@
         let l5Data = [];
         let l6Data = [];
         let l7Data = [];
+        let l8Data = [];
+        let l9Data = [];
+
+        function clearL8Timer() {
+            if (l8RevealTimer) {
+                clearTimeout(l8RevealTimer);
+                l8RevealTimer = null;
+            }
+        }
+
+        function clearL9Timers() {
+            if (l9Countdown) {
+                clearInterval(l9Countdown);
+                l9Countdown = null;
+            }
+        }
 
         function jumpTo(target) {
+            clearL8Timer();
+            clearL9Timers();
+
             // Reset states for a fresh jump
             if (target === 'welcome') {
                 showScreen('welcome');
@@ -414,6 +527,16 @@
                 l7Data = generateGame7Data();
                 l7Progress = 0;
                 renderL7();
+            } else if (target === 8) {
+                l8Data = generateGame8Data();
+                l8Progress = 0;
+                renderL8();
+                document.getElementById('btn-to-l9').classList.add('hidden');
+            } else if (target === 9) {
+                l9Data = generateGame9Data();
+                l9Progress = 0;
+                renderL9Practice();
+                document.getElementById('btn-to-result').classList.add('hidden');
             }
 
             showScreen('level-' + target);
@@ -488,6 +611,7 @@
             const container = document.getElementById('l2-content');
             container.innerHTML = '';
             l2Progress = 0;
+            document.getElementById('l2-score').innerText = `Tiến độ: ${l2Progress}/${l2Data.length}`;
             l2Data.forEach((item, idx) => {
                 const div = document.createElement('div');
                 div.className = "p-4 bg-gray-50 rounded-2xl border border-gray-100 shadow-sm";
@@ -796,7 +920,7 @@
                         if (l7Progress === l7Data.length) {
                             // done
                             document.getElementById('l7-score').innerText = `Tiến độ: ${l7Progress}/${l7Data.length}`;
-                            setTimeout(() => jumpTo('result'), 1500);
+                            setTimeout(() => jumpTo(8), 1500);
                         } else {
                             renderL7();
                         }
@@ -820,6 +944,183 @@
 
         function resetL7() {
             renderL7(); // Re-render to reset state visually and logically
+        }
+
+        // --- LEVEL 8 RENDER ---
+        function renderL8() {
+            if (l8Progress >= l8Data.length) {
+                document.getElementById('btn-to-l9').classList.remove('hidden');
+                return;
+            }
+
+            clearL8Timer();
+
+            const data = l8Data[l8Progress];
+            document.getElementById('l8-score').innerText = `Tiến độ: ${l8Progress}/${l8Data.length}`;
+            document.getElementById('l8-index').innerText = `Câu ${l8Progress + 1}`;
+            document.getElementById('l8-sentence').innerText = data.chinese;
+            document.getElementById('l8-timer').innerText = 'Chờ 5 giây...';
+
+            const revealBtn = document.getElementById('l8-reveal-btn');
+            const answerBox = document.getElementById('l8-answer');
+            const nextBtn = document.getElementById('l8-next-btn');
+            const finishBtn = document.getElementById('btn-to-l9');
+
+            revealBtn.classList.add('hidden');
+            answerBox.classList.add('hidden');
+            nextBtn.classList.add('hidden');
+            finishBtn.classList.add('hidden');
+            document.getElementById('l8-meaning').innerText = data.vietnamese;
+
+            l8RevealTimer = setTimeout(() => {
+                document.getElementById('l8-timer').innerText = 'Có thể xem đáp án';
+                revealBtn.classList.remove('hidden');
+                l8RevealTimer = null;
+            }, 5000);
+
+            revealBtn.onclick = () => {
+                answerBox.classList.remove('hidden');
+                revealBtn.classList.add('hidden');
+                document.getElementById('l8-timer').innerText = 'Đã hiện nghĩa';
+
+                if (l8Progress === l8Data.length - 1) {
+                    document.getElementById('l8-score').innerText = `Tiến độ: ${l8Data.length}/${l8Data.length}`;
+                    finishBtn.classList.remove('hidden');
+                } else {
+                    nextBtn.classList.remove('hidden');
+                }
+            };
+
+            nextBtn.onclick = () => {
+                l8Progress++;
+                renderL8();
+            };
+        }
+
+        // --- LEVEL 9 RENDER ---
+        function renderL9Practice() {
+            if (l9Progress >= l9Data.length) {
+                document.getElementById('btn-to-result').classList.remove('hidden');
+                return;
+            }
+
+            clearL9Timers();
+            l9Practice = l9Data[l9Progress];
+            l9QuestionIndex = 0;
+
+            document.getElementById('l9-score').innerText = `Tiến độ: ${l9Progress}/${l9Data.length}`;
+            document.getElementById('l9-phase').innerText = 'Giai đoạn ghi nhớ';
+            document.getElementById('l9-timer').innerText = '10 giây';
+            document.getElementById('l9-prompt').classList.add('hidden');
+            document.getElementById('l9-next-btn').classList.add('hidden');
+            document.getElementById('btn-to-result').classList.add('hidden');
+            document.getElementById('l9-feedback').innerText = 'Hãy đọc to và ghi nhớ vị trí của 4 chữ.';
+
+            renderL9Grid(false);
+
+            let timeLeft = 10;
+            l9Countdown = setInterval(() => {
+                timeLeft--;
+                document.getElementById('l9-timer').innerText = `${timeLeft} giây`;
+
+                if (timeLeft <= 0) {
+                    clearL9Timers();
+                    startL9QuestionRound();
+                }
+            }, 1000);
+        }
+
+        function renderL9Grid(isCovered, activeIndex = null) {
+            const grid = document.getElementById('l9-grid');
+            grid.innerHTML = '';
+
+            l9Practice.cards.forEach((card, index) => {
+                const btn = document.createElement('button');
+                btn.className = 'relative min-h-[170px] rounded-3xl border-2 border-gray-200 bg-white shadow-sm overflow-hidden transition-all';
+
+                const isRevealed = card.revealed === true;
+
+                if (!isCovered || isRevealed) {
+                    btn.innerHTML = `
+                        <div class="absolute inset-0 bg-white"></div>
+                        <div class="relative h-full flex items-center justify-center">
+                            <span class="hanzi text-6xl text-slate-800">${card.char}</span>
+                        </div>
+                    `;
+                    btn.disabled = true;
+                } else {
+                    btn.style.background = card.animal.bg;
+                    btn.innerHTML = `
+                        <div class="h-full flex flex-col items-center justify-center gap-2 px-3 py-4">
+                            <div class="text-6xl leading-none">${card.animal.emoji}</div>
+                            <div class="text-sm font-black uppercase tracking-widest text-slate-700">Con ${card.animal.name}</div>
+                        </div>
+                    `;
+                    btn.onclick = () => handleL9CardClick(index);
+                }
+
+                grid.appendChild(btn);
+            });
+        }
+
+        function startL9QuestionRound() {
+            document.getElementById('l9-phase').innerText = 'Giai đoạn trả lời';
+            document.getElementById('l9-feedback').innerText = 'Hãy nói đáp án rồi bấm đúng con vật để kiểm tra.';
+            document.getElementById('l9-timer').innerText = 'Hết giờ ghi nhớ';
+            showL9Question();
+        }
+
+        function showL9Question() {
+            const promptIndex = l9Practice.prompts[l9QuestionIndex];
+            const card = l9Practice.cards[promptIndex];
+            const prompt = document.getElementById('l9-prompt');
+
+            prompt.innerText = `Đằng sau con ${card.animal.name} là chữ gì?`;
+            prompt.classList.remove('hidden');
+            document.getElementById('l9-next-btn').classList.add('hidden');
+            document.getElementById('l9-feedback').innerText = 'Chọn đúng con vật để lật chữ.';
+
+            renderL9Grid(true, promptIndex);
+        }
+
+        function handleL9CardClick(clickedIndex) {
+            const promptIndex = l9Practice.prompts[l9QuestionIndex];
+            if (clickedIndex !== promptIndex) {
+                const grid = document.getElementById('l9-grid');
+                const wrongCard = grid.children[clickedIndex];
+                if (wrongCard) {
+                    wrongCard.classList.add('incorrect');
+                    setTimeout(() => wrongCard.classList.remove('incorrect'), 400);
+                }
+                document.getElementById('l9-feedback').innerText = `Hãy tìm đúng con ${l9Practice.cards[promptIndex].animal.name}.`;
+                return;
+            }
+
+            l9Practice.cards[clickedIndex].revealed = true;
+            renderL9Grid(true, promptIndex);
+            document.getElementById('l9-feedback').innerText = `Đáp án là chữ ${l9Practice.cards[clickedIndex].char}.`;
+
+            const nextBtn = document.getElementById('l9-next-btn');
+            nextBtn.classList.remove('hidden');
+            nextBtn.innerText = l9QuestionIndex === l9Practice.prompts.length - 1 ? 'Bộ tiếp theo' : 'Câu tiếp theo';
+            nextBtn.onclick = () => {
+                l9QuestionIndex++;
+
+                if (l9QuestionIndex >= l9Practice.prompts.length) {
+                    l9Progress++;
+                    if (l9Progress >= l9Data.length) {
+                        document.getElementById('l9-score').innerText = `Tiến độ: ${l9Data.length}/${l9Data.length}`;
+                        document.getElementById('l9-feedback').innerText = 'Hoàn thành tất cả các bộ ghi nhớ.';
+                        document.getElementById('l9-prompt').classList.add('hidden');
+                        document.getElementById('l9-next-btn').classList.add('hidden');
+                        document.getElementById('btn-to-result').classList.remove('hidden');
+                    } else {
+                        renderL9Practice();
+                    }
+                } else {
+                    showL9Question();
+                }
+            };
         }
     </script>
 </body>

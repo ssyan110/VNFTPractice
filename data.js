@@ -35,8 +35,26 @@ const charDatabase = [
     { char: '见', pinyin: 'jiàn', meaning: 'GẶP' },
     { char: '银', pinyin: 'yín', meaning: 'BẠC' },
     { char: '行', pinyin: 'háng', meaning: 'NGÂN HÀNG', radical: '彳 (Bộ Xích)' },
-    { char: '二', pinyin: 'èr', meaning: 'HAI' }
+    { char: '二', pinyin: 'èr', meaning: 'HAI' },
+    { char: '三', pinyin: 'sān', meaning: 'BA', radical: '一 (Nhất)' },
+    { char: '四', pinyin: 'sì', meaning: 'BỐN', radical: '囗 (Vi)' },
+    { char: '今', pinyin: 'jīn', meaning: 'HÔM NAY, BÂY GIỜ' },
+    { char: '关', pinyin: 'guān', meaning: 'ĐÓNG, TẮT' },
+    { char: '星', pinyin: 'xīng', meaning: 'SAO' },
+    { char: '期', pinyin: 'qī', meaning: 'KỲ, TUẦN' },
+    { char: '几', pinyin: 'jǐ', meaning: 'MẤY, BAO NHIÊU', radical: '几 (Kỷ)' },
+    { char: '我', pinyin: 'wǒ', meaning: 'TÔI' }
 ];
+
+// Keep this list in sync with characters_learned.md so game 2 only uses
+// learned characters and covers the full learned set.
+const learnedCharacters = [
+    '一', '八', '五', '不', '大', '口', '白', '女', '你', '好', '马',
+    '太', '汉', '语', '吗', '妈', '爸', '很', '忙', '他', '她', '难',
+    '六', '七', '九', '学', '去', '北', '京', '对', '明', '天', '见',
+    '银', '行', '二', '三', '四', '今', '关', '星', '期', '几', '我'
+];
+const learnedCharacterSet = new Set(learnedCharacters);
 
 // Vocabulary Database for words (2+ characters)
 const vocabDatabase = [
@@ -51,21 +69,60 @@ const vocabDatabase = [
     { word: '太忙', chars: ['太', '忙'], pinyin: 'tài máng', meaning: 'Quá bận' },
     { word: '不难', chars: ['不', '难'], pinyin: 'bù nán', meaning: 'Không khó' },
     { word: '很忙', chars: ['很', '忙'], pinyin: 'hěn máng', meaning: 'Rất bận' },
-    { word: '去吗', chars: ['去', '吗'], pinyin: 'qù ma', meaning: 'Đi không?' }
+    { word: '去吗', chars: ['去', '吗'], pinyin: 'qù ma', meaning: 'Đi không?' },
+    { word: '今天', chars: ['今', '天'], pinyin: 'jīn tiān', meaning: 'Hôm nay' },
+    { word: '星期', chars: ['星', '期'], pinyin: 'xīng qī', meaning: 'Tuần / thứ' },
+    { word: '星期一', chars: ['星', '期', '一'], pinyin: 'xīng qī yī', meaning: 'Thứ hai' },
+    { word: '星期二', chars: ['星', '期', '二'], pinyin: 'xīng qī èr', meaning: 'Thứ ba' },
+    { word: '星期三', chars: ['星', '期', '三'], pinyin: 'xīng qī sān', meaning: 'Thứ tư' },
+    { word: '星期四', chars: ['星', '期', '四'], pinyin: 'xīng qī sì', meaning: 'Thứ năm' },
+    { word: '星期五', chars: ['星', '期', '五'], pinyin: 'xīng qī wǔ', meaning: 'Thứ sáu' },
+    { word: '星期六', chars: ['星', '期', '六'], pinyin: 'xīng qī liù', meaning: 'Thứ bảy' },
+    { word: '星期天', chars: ['星', '期', '天'], pinyin: 'xīng qī tiān', meaning: 'Chủ nhật' },
+    { word: '几天', chars: ['几', '天'], pinyin: 'jǐ tiān', meaning: 'Mấy ngày' },
+    { word: '今天见', chars: ['今', '天', '见'], pinyin: 'jīn tiān jiàn', meaning: 'Hôm nay gặp' },
+    { word: '今天去', chars: ['今', '天', '去'], pinyin: 'jīn tiān qù', meaning: 'Hôm nay đi' },
+    { word: '今天很忙', chars: ['今', '天', '很', '忙'], pinyin: 'jīn tiān hěn máng', meaning: 'Hôm nay rất bận' },
+    { word: '明天去', chars: ['明', '天', '去'], pinyin: 'míng tiān qù', meaning: 'Ngày mai đi' },
+    { word: '明天很忙', chars: ['明', '天', '很', '忙'], pinyin: 'míng tiān hěn máng', meaning: 'Ngày mai rất bận' },
+    { word: '大学', chars: ['大', '学'], pinyin: 'dà xué', meaning: 'Đại học' },
+    { word: '北京大学', chars: ['北', '京', '大', '学'], pinyin: 'běi jīng dà xué', meaning: 'Đại học Bắc Kinh' },
+    { word: '好吗', chars: ['好', '吗'], pinyin: 'hǎo ma', meaning: 'Có khỏe / tốt không?' },
+    { word: '对吗', chars: ['对', '吗'], pinyin: 'duì ma', meaning: 'Đúng không?' }
 ];
 
 // Sentences Database
 const sentenceDatabase = [
-    { vietnamese: "Anh ấy đi Bắc Kinh.", answer: ['他', '去', '北', '京'], chars: ['他', '去', '北', '京'], pinyin: "Wǒ bú qù běi jīng." },
-    { vietnamese: "Tiếng Hán không khó.", answer: ['汉', '语', '不', '难'], chars: ['汉', '语', '不', '难'], pinyin: "Hàn yǔ bù nán." },
-    { vietnamese: "Cô ấy rất bận.", answer: ['她', '很', '忙'], chars: ['她', '很', '忙'], pinyin: "Tā hěn máng." },
-    { vietnamese: "Hẹn gặp lại ngày mai.", answer: ['明', '天', '见'], chars: ['明', '天', '见'], pinyin: "Míng tiān jiàn." },
-    { vietnamese: "Mẹ bạn có khỏe không?", answer: ['你', '妈', '妈', '好', '吗'], chars: ['你', '妈', '妈', '好', '吗'], pinyin: "Nǐ mā ma hǎo ma?" },
-    { vietnamese: "Bố anh ấy không đi ngân hàng.", answer: ['他', '爸', '爸', '不', '去', '银', '行'], chars: ['他', '爸', '爸', '不', '去', '银', '行'], pinyin: "Tā bà ba bù qù yín háng." },
-    { vietnamese: "Tiếng Hán rất dễ học.", answer: ['汉', '语', '很', '好', '学'], chars: ['汉', '语', '很', '好', '学'], pinyin: "Hàn yǔ hěn hǎo xué." },
     { vietnamese: "Chào bạn.", answer: ['你', '好'], chars: ['你', '好'], pinyin: "Nǐ hǎo." },
-    { vietnamese: "Cô ấy không đi Bắc Kinh.", answer: ['她', '不', '去', '北', '京'], chars: ['她', '不', '去', '北', '京'], pinyin: "Tā bù qù běi jīng." },
-    { vietnamese: "Ngày mai đi ngân hàng.", answer: ['明', '天', '去', '银', '行'], chars: ['明', '天', '去', '银', '行'], pinyin: "Míng tiān qù yín háng." }
+    { vietnamese: "Bạn có khỏe không?", answer: ['你', '好', '吗'], chars: ['你', '好', '吗'], pinyin: "Nǐ hǎo ma?" },
+    { vietnamese: "Mẹ bạn có khỏe không?", answer: ['你', '妈', '妈', '好', '吗'], chars: ['你', '妈', '妈', '好', '吗'], pinyin: "Nǐ mā ma hǎo ma?" },
+    { vietnamese: "Bố bạn có bận không?", answer: ['你', '爸', '爸', '忙', '吗'], chars: ['你', '爸', '爸', '忙', '吗'], pinyin: "Nǐ bà ba máng ma?" },
+    { vietnamese: "Tôi không bận.", answer: ['我', '不', '忙'], chars: ['我', '不', '忙'], pinyin: "Wǒ bù máng." },
+    { vietnamese: "Anh ấy rất tốt.", answer: ['他', '很', '好'], chars: ['他', '很', '好'], pinyin: "Tā hěn hǎo." },
+    { vietnamese: "Cô ấy rất bận.", answer: ['她', '很', '忙'], chars: ['她', '很', '忙'], pinyin: "Tā hěn máng." },
+    { vietnamese: "Tiếng Hán không khó.", answer: ['汉', '语', '不', '难'], chars: ['汉', '语', '不', '难'], pinyin: "Hàn yǔ bù nán." },
+    { vietnamese: "Bạn học tiếng Hán không?", answer: ['你', '学', '汉', '语', '吗'], chars: ['你', '学', '汉', '语', '吗'], pinyin: "Nǐ xué Hàn yǔ ma?" },
+    { vietnamese: "Tôi học tiếng Hán.", answer: ['我', '学', '汉', '语'], chars: ['我', '学', '汉', '语'], pinyin: "Wǒ xué Hàn yǔ." },
+    { vietnamese: "Cô ấy học tiếng Hán.", answer: ['她', '学', '汉', '语'], chars: ['她', '学', '汉', '语'], pinyin: "Tā xué Hàn yǔ." },
+    { vietnamese: "Bắc Kinh rất lớn.", answer: ['北', '京', '很', '大'], chars: ['北', '京', '很', '大'], pinyin: "Běi jīng hěn dà." },
+    { vietnamese: "Bạn đi Bắc Kinh không?", answer: ['你', '去', '北', '京', '吗'], chars: ['你', '去', '北', '京', '吗'], pinyin: "Nǐ qù Běi jīng ma?" },
+    { vietnamese: "Tôi đi Bắc Kinh.", answer: ['我', '去', '北', '京'], chars: ['我', '去', '北', '京'], pinyin: "Wǒ qù Běi jīng." },
+    { vietnamese: "Anh ấy không đi Bắc Kinh.", answer: ['他', '不', '去', '北', '京'], chars: ['他', '不', '去', '北', '京'], pinyin: "Tā bù qù Běi jīng." },
+    { vietnamese: "Cô ấy đi ngân hàng không?", answer: ['她', '去', '银', '行', '吗'], chars: ['她', '去', '银', '行', '吗'], pinyin: "Tā qù yín háng ma?" },
+    { vietnamese: "Hôm nay tôi đi ngân hàng.", answer: ['今', '天', '我', '去', '银', '行'], chars: ['今', '天', '我', '去', '银', '行'], pinyin: "Jīn tiān wǒ qù yín háng." },
+    { vietnamese: "Hôm nay anh ấy rất bận.", answer: ['今', '天', '他', '很', '忙'], chars: ['今', '天', '他', '很', '忙'], pinyin: "Jīn tiān tā hěn máng." },
+    { vietnamese: "Ngày mai gặp.", answer: ['明', '天', '见'], chars: ['明', '天', '见'], pinyin: "Míng tiān jiàn." },
+    { vietnamese: "Ngày mai tôi đi Bắc Kinh.", answer: ['明', '天', '我', '去', '北', '京'], chars: ['明', '天', '我', '去', '北', '京'], pinyin: "Míng tiān wǒ qù Běi jīng." },
+    { vietnamese: "Hôm nay là thứ mấy?", answer: ['今', '天', '星', '期', '几'], chars: ['今', '天', '星', '期', '几'], pinyin: "Jīn tiān xīng qī jǐ?" },
+    { vietnamese: "Hôm nay là thứ ba.", answer: ['今', '天', '星', '期', '二'], chars: ['今', '天', '星', '期', '二'], pinyin: "Jīn tiān xīng qī èr." },
+    { vietnamese: "Hôm nay là thứ tư.", answer: ['今', '天', '星', '期', '三'], chars: ['今', '天', '星', '期', '三'], pinyin: "Jīn tiān xīng qī sān." },
+    { vietnamese: "Thứ sáu gặp.", answer: ['星', '期', '五', '见'], chars: ['星', '期', '五', '见'], pinyin: "Xīng qī wǔ jiàn." },
+    { vietnamese: "Thứ bảy tôi không bận.", answer: ['星', '期', '六', '我', '不', '忙'], chars: ['星', '期', '六', '我', '不', '忙'], pinyin: "Xīng qī liù wǒ bù máng." },
+    { vietnamese: "Chủ nhật anh ấy đi Bắc Kinh.", answer: ['星', '期', '天', '他', '去', '北', '京'], chars: ['星', '期', '天', '他', '去', '北', '京'], pinyin: "Xīng qī tiān tā qù Běi jīng." },
+    { vietnamese: "Bố mẹ tôi rất bận.", answer: ['我', '爸', '妈', '很', '忙'], chars: ['我', '爸', '妈', '很', '忙'], pinyin: "Wǒ bà mā hěn máng." },
+    { vietnamese: "Mẹ anh ấy rất tốt.", answer: ['他', '妈', '妈', '很', '好'], chars: ['他', '妈', '妈', '很', '好'], pinyin: "Tā mā ma hěn hǎo." },
+    { vietnamese: "Bạn sinh nhật vào thứ mấy?", answer: ['你', '星', '期', '几', '生', '日'], chars: ['你', '星', '期', '几', '生', '日'], pinyin: "Nǐ xīng qī jǐ shēng rì?" },
+    { vietnamese: "Hôm nay là thứ mấy? Mẹ đi gặp bố không?", answer: ['今', '天', '星', '期', '几', '妈', '妈', '去', '见', '爸', '爸', '吗'], chars: ['今', '天', '星', '期', '几', '妈', '妈', '去', '见', '爸', '爸', '吗'], pinyin: "Jīn tiān xīng qī jǐ? Mā ma qù jiàn bà ba ma?" }
 ];
 
 // Grammar/Context Database (For Fill In The Blanks)
@@ -79,7 +136,56 @@ const grammarDatabase = [
     { text_pre: "不", text_post: "。", vietnamese: "Không đúng.", answer: '对' },
     { text_pre: "她很", text_post: "。", vietnamese: "Cô ấy rất tốt.", answer: '好' },
     { text_pre: "", text_post: "京很大。", vietnamese: "Bắc Kinh rất lớn.", answer: '北' },
-    { text_pre: "去银", text_post: "。", vietnamese: "Đi ngân hàng.", answer: '行' }
+    { text_pre: "去银", text_post: "。", vietnamese: "Đi ngân hàng.", answer: '行' },
+    { text_pre: "今", text_post: "很忙。", vietnamese: "Hôm nay rất bận.", answer: '天' },
+    { text_pre: "明", text_post: "去银行。", vietnamese: "Ngày mai đi ngân hàng.", answer: '天' },
+    { text_pre: "星", text_post: "三。", vietnamese: "Thứ tư.", answer: '期' },
+    { text_pre: "星期", text_post: "。", vietnamese: "Thứ ba.", answer: '二' },
+    { text_pre: "星期", text_post: "。", vietnamese: "Thứ năm.", answer: '四' },
+    { text_pre: "你学汉语", text_post: "？", vietnamese: "Bạn học tiếng Hán không?", answer: '吗' },
+    { text_pre: "你去北", text_post: "吗？", vietnamese: "Bạn đi Bắc Kinh không?", answer: '京' },
+    { text_pre: "北", text_post: "很大。", vietnamese: "Bắc Kinh rất lớn.", answer: '京' },
+    { text_pre: "他不", text_post: "。", vietnamese: "Anh ấy không bận.", answer: '忙' },
+    { text_pre: "今", text_post: "见。", vietnamese: "Hôm nay gặp.", answer: '天' },
+    { text_pre: "去银", text_post: "吗？", vietnamese: "Đi ngân hàng không?", answer: '行' },
+    { text_pre: "几", text_post: "？", vietnamese: "Mấy ngày?", answer: '天' },
+    { text_pre: "今天星期", text_post: "？", vietnamese: "Hôm nay là thứ mấy?", answer: '几' }
+];
+
+const sentenceRevealDatabase = [
+    { chinese: '汉语不难。', vietnamese: 'Tiếng Hán không khó.' },
+    { chinese: '我学汉语。', vietnamese: 'Tôi học tiếng Hán.' },
+    { chinese: '你学汉语吗？', vietnamese: 'Bạn học tiếng Hán không?' },
+    { chinese: '我爸爸很好，你爸爸好吗？', vietnamese: 'Bố tôi rất khỏe, bố bạn có khỏe không?' },
+    { chinese: '妈妈今天很忙。', vietnamese: 'Hôm nay mẹ rất bận.' },
+    { chinese: '我去银行。', vietnamese: 'Tôi đi ngân hàng.' },
+    { chinese: '她去北京几天？', vietnamese: 'Cô ấy đi Bắc Kinh mấy ngày?' },
+    { chinese: '他去银行吗？', vietnamese: 'Anh ấy đi ngân hàng không?' },
+    { chinese: '我去了北京，北京很大。', vietnamese: 'Tôi đã đi Bắc Kinh, Bắc Kinh rất lớn.' },
+    { chinese: '明天见！', vietnamese: 'Hẹn gặp ngày mai!' },
+    { chinese: '今天我去见妈妈。', vietnamese: 'Hôm nay tôi đi gặp mẹ.' },
+    { chinese: '星期几你去银行？', vietnamese: 'Thứ mấy bạn đi ngân hàng?' },
+    { chinese: '明天我很忙。', vietnamese: 'Ngày mai tôi rất bận.' },
+    { chinese: '今天星期几？', vietnamese: 'Hôm nay là thứ mấy?' },
+    { chinese: '今天星期三。', vietnamese: 'Hôm nay là thứ tư.' },
+    { chinese: '明天星期日吗？', vietnamese: 'Ngày mai chủ nhật phải không?' },
+    { chinese: '今天星期三，我去银行见妈妈。', vietnamese: 'Hôm nay là thứ tư, tôi đi ngân hàng gặp mẹ.' },
+    { chinese: '明天星期四，他去北京见爸爸。', vietnamese: 'Ngày mai là thứ năm, anh ấy đi Bắc Kinh gặp bố.' },
+    { chinese: '明天我去北京见妈妈，不见爸爸。', vietnamese: 'Ngày mai tôi đi Bắc Kinh gặp mẹ, không gặp bố.' },
+    { chinese: '今天星期三，我学汉语，她去银行见妈妈。', vietnamese: 'Hôm nay là thứ tư, tôi học tiếng Hán, cô ấy đi ngân hàng gặp mẹ.' },
+    { chinese: '明天星期四，我去北京见爸爸，不见妈妈。妈妈很忙，爸爸不忙。', vietnamese: 'Ngày mai là thứ năm, tôi đi Bắc Kinh gặp bố, không gặp mẹ. Mẹ rất bận, bố không bận.' }
+];
+
+const animalCoverDatabase = [
+    { name: 'chuột', emoji: '🐭', bg: '#dbeafe' },
+    { name: 'bò', emoji: '🐮', bg: '#fef3c7' },
+    { name: 'hổ', emoji: '🐯', bg: '#ffedd5' },
+    { name: 'thỏ', emoji: '🐰', bg: '#fce7f3' },
+    { name: 'rồng', emoji: '🐉', bg: '#dcfce7' },
+    { name: 'rắn', emoji: '🐍', bg: '#ccfbf1' },
+    { name: 'ngựa', emoji: '🐴', bg: '#fee2e2' },
+    { name: 'dê', emoji: '🐑', bg: '#f3f4f6' },
+    { name: 'khỉ', emoji: '🐵', bg: '#fef3c7' }
 ];
 
 // Core array of just strings for games that need random padding
@@ -111,28 +217,22 @@ function generateGame1Data() {
 }
 
 function generateGame2Data() {
-    let data = [];
-    let pool = [...charDatabase].sort(() => 0.5 - Math.random());
-    for (let i = 0; i < Math.min(10, pool.length); i++) {
-        let targetObj = pool[i];
+    const learnedPool = charDatabase
+        .filter(item => learnedCharacterSet.has(item.char))
+        .sort(() => 0.5 - Math.random());
 
-        // Grab 4 different random characters that are NOT the target character
-        let others = allWords.filter(c => c !== targetObj.char).sort(() => 0.5 - Math.random());
-        let distractors = others.slice(0, 4);
+    return learnedPool.map(targetObj => {
+        const distractors = learnedCharacters
+            .filter(char => char !== targetObj.char)
+            .sort(() => 0.5 - Math.random())
+            .slice(0, 4);
 
-        // Combine the 4 distractors with the 1 target
-        let chars = [...distractors, targetObj.char];
-
-        // Shuffle the 5 characters so the target isn't always at the end
-        chars = chars.sort(() => 0.5 - Math.random());
-
-        data.push({
-            chars: chars,
+        return {
+            chars: [...distractors, targetObj.char].sort(() => 0.5 - Math.random()),
             target: targetObj.char,
             hint: `Tìm chữ ${targetObj.meaning} (${targetObj.pinyin})`
-        });
-    }
-    return data;
+        };
+    });
 }
 
 function generateGame3Data() {
@@ -171,4 +271,32 @@ function generateGame6Data() {
 
 function generateGame7Data() {
     return [...sentenceDatabase].sort(() => 0.5 - Math.random()).slice(0, 10);
+}
+
+function generateGame8Data() {
+    return [...sentenceRevealDatabase];
+}
+
+function shuffleArray(items) {
+    return [...items].sort(() => 0.5 - Math.random());
+}
+
+function generateGame9Data() {
+    const practices = [];
+
+    for (let i = 0; i < 5; i++) {
+        const chars = shuffleArray(learnedCharacters).slice(0, 4);
+        const animals = shuffleArray(animalCoverDatabase).slice(0, 4);
+        const prompts = shuffleArray([0, 1, 2, 3]);
+
+        practices.push({
+            cards: chars.map((char, index) => ({
+                char,
+                animal: animals[index]
+            })),
+            prompts
+        });
+    }
+
+    return practices;
 }
