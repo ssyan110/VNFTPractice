@@ -78,7 +78,7 @@
                     <option value="1">🔍 1. Thám tử bộ thủ</option>
                     <option value="2">👀 2. Mắt thần phân biệt</option>
                     <option value="3">✍️ 3. Điền từ</option>
-                    <option value="4">⚔️ 4. Cờ 5x5</option>
+                    <option value="4">⚔️ 4. Cờ 4x5</option>
                     <option value="5">🧩 5. Ghép từ</option>
                     <option value="6">🎧 6. Nhìn Pinyin chọn chữ</option>
                     <option value="7">📏 7. Xếp câu</option>
@@ -174,18 +174,18 @@
                     </button>
                 </div>
 
-                <!-- Level 4: 5x5 Grid Board Game -->
+                <!-- Level 4: 4x5 Grid Board Game -->
                 <div id="screen-level-4" class="hidden">
                     <div class="flex justify-between items-center mb-6">
                         <span
                             class="bg-orange-100 text-orange-800 px-4 py-1.5 rounded-full text-xs font-bold uppercase tracking-widest">Trò
-                            chơi: Cờ 5x5</span>
+                            chơi: Cờ 4x5</span>
                         <button onclick="renderL4()"
                             class="text-blue-600 hover:text-blue-800 text-sm font-bold flex items-center gap-1 transition-colors bg-blue-50 px-3 py-1 rounded-lg">
                             <span>🔄</span> Làm mới bàn cờ
                         </button>
                     </div>
-                    <h3 class="text-2xl font-bold mb-2 text-center text-orange-900">Đại chiến 5x5</h3>
+                    <h3 class="text-2xl font-bold mb-2 text-center text-orange-900">Đại chiến 4x5</h3>
                     <p class="text-sm text-gray-500 mb-8 text-center italic leading-relaxed">
                         Học sinh đọc đúng chữ để chiếm ô cho đội của mình. 4 ô được chiếm trước sẽ thắng đội.<br>
                         <span class="font-bold text-blue-600">Click 1 lần: Đội Xanh</span> | <span
@@ -194,7 +194,7 @@
 
                     <div id="l4-grid"
                         class="grid grid-cols-5 gap-3 max-w-md mx-auto mb-10 bg-gray-100 p-3 rounded-2xl shadow-inner border-2 border-gray-200">
-                        <!-- 25 words injected here -->
+                        <!-- 20 words injected here -->
                     </div>
 
                     <div class="flex justify-center gap-8 py-4 bg-gray-50 rounded-xl border border-gray-200">
@@ -687,8 +687,8 @@
         function renderL4() {
             const grid = document.getElementById('l4-grid');
             grid.innerHTML = '';
-            // Shuffle and pick 25 words
-            const words = [...all36Words].sort(() => Math.random() - 0.5).slice(0, 25);
+            // Shuffle and pick 20 words
+            const words = [...all36Words].sort(() => Math.random() - 0.5).slice(0, 20);
             words.forEach(word => {
                 const cell = document.createElement('button');
                 cell.className = "hanzi text-3xl h-20 bg-white border border-gray-300 rounded-xl flex items-center justify-center font-bold btn-option transition-all shadow-sm";

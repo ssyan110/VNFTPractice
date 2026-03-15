@@ -250,7 +250,7 @@ function generateGame3Data() {
 }
 
 function generateGame5Data() {
-    let data = [...vocabDatabase].sort(() => 0.5 - Math.random()).slice(0, 10);
+    let data = [...vocabDatabase].sort(() => 0.5 - Math.random()).slice(0, 20);
     // Map to the object structure the view expects
     return data.map(item => {
         return {
@@ -266,11 +266,11 @@ function generateGame6Data() {
     vocabDatabase.forEach(w => pool.push({ pinyin: w.pinyin, meaning: w.meaning, targets: w.chars }));
     sentenceDatabase.forEach(s => pool.push({ pinyin: s.pinyin, meaning: s.vietnamese, targets: s.chars }));
 
-    return pool.sort(() => 0.5 - Math.random()).slice(0, 10);
+    return pool.sort(() => 0.5 - Math.random()).slice(0, 20);
 }
 
 function generateGame7Data() {
-    return [...sentenceDatabase].sort(() => 0.5 - Math.random()).slice(0, 10);
+    return [...sentenceDatabase].sort(() => 0.5 - Math.random()).slice(0, 20);
 }
 
 function generateGame8Data() {
