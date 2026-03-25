@@ -158,7 +158,13 @@ const sentenceDatabase = [
     { vietnamese: "Đây là ngựa trắng, đúng không?", answer: ['这', '是', '白', '马', '对', '吗'], chars: ['这', '是', '白', '马', '对', '吗'], pinyin: "Zhè shì bái mǎ, duì ma?" },
     { vietnamese: "Hôm nay anh ấy đi ngân hàng làm việc phải không?", answer: ['今', '天', '他', '去', '银', '行', '工', '作', '吗'], chars: ['今', '天', '他', '去', '银', '行', '工', '作', '吗'], pinyin: "Jīn tiān tā qù yín háng gōng zuò ma?" },
     { vietnamese: "Bắc Kinh lớn không?", answer: ['北', '京', '大', '吗'], chars: ['北', '京', '大', '吗'], pinyin: "Běi jīng dà ma?" },
-    { vietnamese: "Hôm nay anh ấy không làm việc, đi Bắc Kinh gặp bố tôi.", answer: ['他', '今', '天', '不', '工', '作', '去', '北', '京', '见', '我', '爸', '爸'], chars: ['他', '今', '天', '不', '工', '作', '去', '北', '京', '见', '我', '爸', '爸'], pinyin: "Tā jīn tiān bù gōng zuò, qù běi jīng jiàn wǒ bà ba." }
+    { vietnamese: "Hôm nay anh ấy không làm việc, đi Bắc Kinh gặp bố tôi.", answer: ['他', '今', '天', '不', '工', '作', '去', '北', '京', '见', '我', '爸', '爸'], chars: ['他', '今', '天', '不', '工', '作', '去', '北', '京', '见', '我', '爸', '爸'], pinyin: "Tā jīn tiān bù gōng zuò, qù běi jīng jiàn wǒ bà ba." },
+    { vietnamese: "Mấy ngày nay rất bận, tôi không đi làm.", answer: ['这', '几', '天', '很', '忙', '我', '不', '去', '工', '作'], chars: ['这', '几', '天', '很', '忙', '我', '不', '去', '工', '作'], pinyin: "Zhè jǐ tiān hěn máng, wǒ bù qù gōng zuò." },
+    { vietnamese: "Chủ nhật không phải là ngày làm việc.", answer: ['星', '期', '日', '不', '是', '工', '作', '日'], chars: ['星', '期', '日', '不', '是', '工', '作', '日'], pinyin: "Xīng qī rì bú shì gōng zuò rì." },
+    { vietnamese: "Bạn thứ mấy về Bắc Kinh?", answer: ['你', '星', '期', '几', '回', '去', '北', '京'], chars: ['你', '星', '期', '几', '回', '去', '北', '京'], pinyin: "Nǐ xīng qī jǐ huí qù běi jīng?" },
+    { vietnamese: "Người nào là bố bạn?", answer: ['哪', '个', '人', '是', '你', '爸', '爸'], chars: ['哪', '个', '人', '是', '你', '爸', '爸'], pinyin: "Nǎ ge rén shì nǐ bà ba?" },
+    { vietnamese: "Người kia không phải là mẹ tôi.", answer: ['那', '个', '人', '不', '是', '我', '妈', '妈'], chars: ['那', '个', '人', '不', '是', '我', '妈', '妈'], pinyin: "Nà ge rén bú shì wǒ mā ma." },
+    { vietnamese: "Ngân hàng thứ mấy đóng cửa?", answer: ['银', '行', '星', '期', '几', '关'], chars: ['银', '行', '星', '期', '几', '关'], pinyin: "Yín háng xīng qī jǐ guān?" }
 ];
 
 // Grammar/Context Database (For Fill In The Blanks)
@@ -185,7 +191,8 @@ const grammarDatabase = [
     { text_pre: "今", text_post: "见。", vietnamese: "Hôm nay gặp.", answer: '天' },
     { text_pre: "去银", text_post: "吗？", vietnamese: "Đi ngân hàng không?", answer: '行' },
     { text_pre: "几", text_post: "？", vietnamese: "Mấy ngày?", answer: '天' },
-    { text_pre: "今天星期", text_post: "？", vietnamese: "Hôm nay là thứ mấy?", answer: '几' }
+    { text_pre: "今天星期", text_post: "？", vietnamese: "Hôm nay là thứ mấy?", answer: '几' },
+    { text_pre: "这", text_post: "你妈妈吗？", vietnamese: "Đây là mẹ bạn phải không?", answer: '是' }
 ];
 
 const sentenceRevealDatabase = [
@@ -228,7 +235,12 @@ const sentenceRevealDatabase = [
     { chinese: '这是白马，对吗？', vietnamese: 'Đây là ngựa trắng, đúng không?' },
     { chinese: '今天他去银行工作吗？', vietnamese: 'Hôm nay anh ấy đi ngân hàng làm việc phải không?' },
     { chinese: '北京大吗？', vietnamese: 'Bắc Kinh lớn không?' },
-    { chinese: '他今天不工作，去北京见我爸爸。', vietnamese: 'Hôm nay anh ấy không làm việc, đi Bắc Kinh gặp bố tôi.' }
+    { chinese: '他今天不工作，去北京见我爸爸。', vietnamese: 'Hôm nay anh ấy không làm việc, đi Bắc Kinh gặp bố tôi.' },
+    { chinese: '银行星期六、星期日关', vietnamese: 'Ngân hàng đóng cửa thứ Bảy, Chủ Nhật.' },
+    { chinese: '你一星期去学校几天？', vietnamese: 'Một tuần bạn đến trường mấy ngày?' },
+    { chinese: '那是我学生，我对他很好', vietnamese: 'Đó là học sinh của tôi, tôi rất tốt với bạn ấy.' },
+    { chinese: '明天星期一，你去哪？', vietnamese: 'Ngày mai thứ Hai, bạn đi đâu?' },
+    { chinese: '你星期几回北京？回几天？', vietnamese: 'Thứ mấy bạn về Bắc Kinh? Về mấy ngày?' }
 ];
 
 const animalCoverDatabase = [
