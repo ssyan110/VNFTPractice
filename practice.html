@@ -77,13 +77,14 @@
         .cell-9x9:hover { opacity: 0.85; transform: scale(1.05); z-index: 2; }
         .cell-normal { background: #fff; color: #1e293b; }
         .cell-func { color: #fff; font-size: 1.2rem; }
-        .cell-func-pronunciation { background: linear-gradient(135deg, #a78bfa, #7c3aed); }
-        .cell-func-sentence { background: linear-gradient(135deg, #fbbf24, #d97706); }
-        .cell-func-buzz { background: linear-gradient(135deg, #f472b6, #db2777); }
-        .cell-func-extra { background: linear-gradient(135deg, #34d399, #059669); }
-        .cell-func-trap { background: linear-gradient(135deg, #f87171, #dc2626); }
+        .cell-func-read { background: linear-gradient(135deg, #fbbf24, #d97706); }
+        .cell-func-make { background: linear-gradient(135deg, #a78bfa, #7c3aed); }
         .cell-9x9.team-blue { background: #3b82f6 !important; color: #fff !important; }
         .cell-9x9.team-red { background: #ef4444 !important; color: #fff !important; }
+        .cell-9x9.cell-block {
+            box-shadow: 0 0 0 2px #facc15, 0 0 8px 2px rgba(250, 204, 21, 0.5);
+            z-index: 3;
+        }
         .cell-9x9.win-cell {
             animation: winPulse 0.6s ease-in-out infinite alternate;
             box-shadow: 0 0 12px 4px rgba(250, 204, 21, 0.8);
@@ -218,68 +219,71 @@
 
                 <!-- Level 4: 9x9 Gomoku Board Game -->
                 <div id="screen-level-4" class="hidden">
-                    <div class="flex justify-between items-center mb-4">
-                        <span
-                            class="bg-orange-100 text-orange-800 px-4 py-1.5 rounded-full text-xs font-bold uppercase tracking-widest">Trò
-                            chơi: Cờ 9x9</span>
-                        <button onclick="renderL4()"
-                            class="text-blue-600 hover:text-blue-800 text-sm font-bold flex items-center gap-1 transition-colors bg-blue-50 px-3 py-1 rounded-lg cursor-pointer">
-                            <span>🔄</span> Làm mới bàn cờ
+                    <div class="flex justify-between items-center mb-3">
+                        <span class="bg-orange-100 text-orange-800 px-4 py-1.5 rounded-full text-xs font-bold uppercase tracking-widest">Trò chơi: Cờ 9x9</span>
+                        <button onclick="renderL4()" class="text-blue-600 hover:text-blue-800 text-sm font-bold flex items-center gap-1 transition-colors bg-blue-50 px-3 py-1 rounded-lg cursor-pointer">
+                            <span>🔄</span> Làm mới
                         </button>
                     </div>
-                    <h3 class="text-2xl font-bold mb-2 text-center text-orange-900">Đại chiến 9x9</h3>
-                    <p class="text-sm text-gray-500 mb-4 text-center italic leading-relaxed">
-                        Đọc đúng chữ để chiếm ô. <span class="font-bold">5 ô liên tiếp</span> (ngang / dọc / chéo) thắng.<br>
-                        <span class="font-bold text-blue-600">Click 1 lần: Đội Xanh</span> | <span
-                            class="font-bold text-red-600">Click 2 lần: Đội Đỏ</span> | Click 3 lần: Bỏ chọn
+                    <h3 class="text-2xl font-bold mb-1 text-center text-orange-900">Đại chiến 9x9</h3>
+                    <p class="text-xs text-gray-500 mb-3 text-center italic leading-relaxed">
+                        Đọc đúng chữ để chiếm ô. <span class="font-bold">5 ô liên tiếp</span> (ngang / dọc / chéo) thắng.
                     </p>
 
-                    <!-- Function cell legend -->
-                    <div class="flex flex-wrap justify-center gap-2 mb-4 text-xs">
-                        <span class="bg-purple-100 text-purple-700 px-2 py-1 rounded-lg font-bold">🎤 Đọc Pinyin</span>
-                        <span class="bg-yellow-100 text-yellow-700 px-2 py-1 rounded-lg font-bold">✏️ Đặt câu</span>
-                        <span class="bg-pink-100 text-pink-700 px-2 py-1 rounded-lg font-bold">⚡ Ai nhanh hơn</span>
-                        <span class="bg-green-100 text-green-700 px-2 py-1 rounded-lg font-bold">🎁 Thêm lượt</span>
-                        <span class="bg-red-100 text-red-700 px-2 py-1 rounded-lg font-bold">💀 Bẫy</span>
+                    <!-- Turn indicator + Timer -->
+                    <div class="flex items-center justify-between mb-3 gap-3">
+                        <div id="l4-turn-indicator" class="flex-1 text-center py-2.5 rounded-xl font-black text-lg border-2 transition-all">
+                            Lượt: Đội Xanh
+                        </div>
+                        <div id="l4-timer-box" class="flex items-center gap-2 bg-gray-100 px-4 py-2.5 rounded-xl border border-gray-200">
+                            <span class="text-lg">⏱</span>
+                            <span id="l4-timer-text" class="font-black text-xl tabular-nums min-w-[2.5rem] text-center">20</span>
+                        </div>
                     </div>
 
-                    <div id="l4-grid"
-                        class="grid grid-cols-9 gap-1 mx-auto mb-6 bg-gray-800 p-2 rounded-2xl shadow-inner border-2 border-gray-700"
-                        style="max-width: 540px;">
-                        <!-- 81 cells injected here -->
+                    <!-- Block warning -->
+                    <div id="l4-block-warning" class="hidden mb-3 text-center py-2 px-4 rounded-xl font-bold text-sm animate-pulse border-2"></div>
+
+                    <!-- Function cell legend -->
+                    <div class="flex flex-wrap justify-center gap-2 mb-3 text-xs">
+                        <span class="bg-amber-100 text-amber-700 px-2 py-1 rounded-lg font-bold">📖 Đọc câu</span>
+                        <span class="bg-violet-100 text-violet-700 px-2 py-1 rounded-lg font-bold">✏️ Đặt câu</span>
+                    </div>
+
+                    <div id="l4-grid" class="grid grid-cols-9 gap-1 mx-auto mb-4 bg-gray-800 p-2 rounded-2xl shadow-inner border-2 border-gray-700" style="max-width: 540px;">
                     </div>
 
                     <!-- Winner banner -->
-                    <div id="l4-winner" class="hidden mb-4 text-center py-4 rounded-2xl font-black text-2xl animate-pulse shadow-lg"></div>
+                    <div id="l4-winner" class="hidden mb-3 text-center py-4 rounded-2xl font-black text-2xl animate-pulse shadow-lg"></div>
 
-                    <!-- Function cell popup modal -->
+                    <!-- Function cell modal -->
                     <div id="l4-modal" class="hidden fixed inset-0 bg-black/50 z-50 flex items-center justify-center p-4">
-                        <div class="bg-white rounded-3xl p-6 max-w-sm w-full shadow-2xl text-center">
-                            <div id="l4-modal-icon" class="text-5xl mb-3"></div>
-                            <h4 id="l4-modal-title" class="text-xl font-bold mb-2"></h4>
+                        <div class="bg-white rounded-3xl p-6 max-w-md w-full shadow-2xl text-center">
+                            <div id="l4-modal-icon" class="text-5xl mb-2"></div>
+                            <h4 id="l4-modal-title" class="text-xl font-bold mb-1"></h4>
                             <p id="l4-modal-desc" class="text-gray-500 mb-4 text-sm"></p>
-                            <div id="l4-modal-char" class="hanzi text-4xl font-bold text-gray-800 mb-4"></div>
+                            <div id="l4-modal-content" class="hanzi text-3xl font-bold text-gray-800 mb-5 leading-relaxed min-h-[3rem]"></div>
+                            <div id="l4-modal-team" class="text-sm font-bold mb-4"></div>
                             <div class="flex gap-3 justify-center">
-                                <button onclick="closeL4Modal(true)" class="bg-green-500 hover:bg-green-600 text-white px-6 py-3 rounded-xl font-bold cursor-pointer">✓ Đúng</button>
-                                <button onclick="closeL4Modal(false)" class="bg-red-500 hover:bg-red-600 text-white px-6 py-3 rounded-xl font-bold cursor-pointer">✕ Sai</button>
+                                <button onclick="closeL4Modal(true)" class="bg-green-500 hover:bg-green-600 text-white px-6 py-3 rounded-xl font-bold cursor-pointer text-lg">✓ Đúng</button>
+                                <button onclick="closeL4Modal(false)" class="bg-red-500 hover:bg-red-600 text-white px-6 py-3 rounded-xl font-bold cursor-pointer text-lg">✕ Sai</button>
                             </div>
                         </div>
                     </div>
 
-                    <div class="flex justify-center gap-8 py-3 bg-gray-50 rounded-xl border border-gray-200">
-                        <div class="flex items-center gap-3">
-                            <div class="w-6 h-6 bg-blue-500 rounded-full shadow-md"></div>
-                            <span class="font-bold text-blue-800">Đội Xanh</span>
+                    <!-- Score panel -->
+                    <div class="flex justify-center gap-6 py-3 bg-gray-50 rounded-xl border border-gray-200">
+                        <div class="flex items-center gap-2">
+                            <div class="w-5 h-5 bg-blue-500 rounded-full shadow"></div>
+                            <span class="font-bold text-blue-800">Xanh: <span id="l4-score-blue">0</span></span>
                         </div>
-                        <div class="flex items-center gap-3">
-                            <div class="w-6 h-6 bg-red-500 rounded-full shadow-md"></div>
-                            <span class="font-bold text-red-800">Đội Đỏ</span>
+                        <div class="flex items-center gap-2">
+                            <div class="w-5 h-5 bg-red-500 rounded-full shadow"></div>
+                            <span class="font-bold text-red-800">Đỏ: <span id="l4-score-red">0</span></span>
                         </div>
                     </div>
 
-                    <button onclick="jumpTo(5)"
-                        class="w-full mt-6 bg-blue-600 hover:bg-blue-700 text-white py-5 rounded-2xl font-bold text-lg shadow-xl cursor-pointer">Chuyển
-                        sang: Ghép từ</button>
+                    <button onclick="jumpTo(5)" class="w-full mt-5 bg-blue-600 hover:bg-blue-700 text-white py-5 rounded-2xl font-bold text-lg shadow-xl cursor-pointer">Chuyển sang: Ghép từ</button>
                 </div>
 
                 <!-- Level 5: Ghép từ (Word Formation) -->
@@ -556,6 +560,7 @@
         }
 
         function jumpTo(target) {
+            clearL4Timer();
             clearL8Timer();
             clearL9Timers();
 
@@ -782,60 +787,56 @@
         }
 
         // --- LEVEL 4 RENDER (9x9 Gomoku) ---
-        const FUNC_TYPES = [
-            { id: 'pronunciation', icon: '🎤', label: 'Đọc Pinyin', desc: 'Học sinh phải đọc đúng pinyin của chữ gần nhất.', css: 'cell-func-pronunciation' },
-            { id: 'sentence', icon: '✏️', label: 'Đặt câu', desc: 'Học sinh phải đặt một câu sử dụng chữ gần nhất.', css: 'cell-func-sentence' },
-            { id: 'buzz', icon: '⚡', label: 'Ai nhanh hơn', desc: 'Đội nào trả lời nhanh hơn sẽ được chiếm ô!', css: 'cell-func-buzz' },
-            { id: 'extra', icon: '🎁', label: 'Thêm lượt', desc: 'Đội được chơi thêm một lượt nữa!', css: 'cell-func-extra' },
-            { id: 'trap', icon: '💀', label: 'Bẫy', desc: 'Nếu trả lời sai, mất lượt ngay lập tức!', css: 'cell-func-trap' }
+        const L4_FUNC_TYPES = [
+            { id: 'read', icon: '📖', label: 'Đọc câu', desc: 'Học sinh đọc to câu tiếng Trung bên dưới.', css: 'cell-func-read' },
+            { id: 'make', icon: '✏️', label: 'Đặt câu', desc: 'Dùng từ bên dưới để đặt một câu tiếng Trung.', css: 'cell-func-make' }
         ];
 
-        let l4Board = []; // 81 cells: { type: 'char'|'func', char?, funcType?, team: null|'blue'|'red' }
+        let l4Board = [];
         let l4GameOver = false;
+        let l4CurrentTeam = 'blue';
         let l4ModalCell = null;
-        let l4ModalResolve = null;
+        let l4Timer = null;
+        let l4TimeLeft = 20;
+
+        function clearL4Timer() {
+            if (l4Timer) { clearInterval(l4Timer); l4Timer = null; }
+        }
 
         function generateL4Board() {
-            const TOTAL = 81;
-            const FUNC_COUNT = 10;
-            const CHAR_COUNT = TOTAL - FUNC_COUNT;
-
-            // Pick 71 characters (repeat if needed from learned set)
+            const TOTAL = 81, FUNC_COUNT = 10, CHAR_COUNT = TOTAL - FUNC_COUNT;
             let charPool = [...learnedCharacters].sort(() => Math.random() - 0.5);
-            while (charPool.length < CHAR_COUNT) {
-                charPool = charPool.concat([...learnedCharacters].sort(() => Math.random() - 0.5));
-            }
+            while (charPool.length < CHAR_COUNT) charPool = charPool.concat([...learnedCharacters].sort(() => Math.random() - 0.5));
             charPool = charPool.slice(0, CHAR_COUNT);
 
-            // Distribute 10 function cells evenly (not clustered)
-            // Divide grid into 10 zones and place one func cell in each
             const funcIndices = new Set();
             const zoneSize = Math.floor(TOTAL / FUNC_COUNT);
             for (let z = 0; z < FUNC_COUNT; z++) {
-                const start = z * zoneSize;
-                const end = Math.min(start + zoneSize, TOTAL);
-                let idx;
-                let attempts = 0;
-                do {
-                    idx = start + Math.floor(Math.random() * (end - start));
-                    attempts++;
-                } while (funcIndices.has(idx) && attempts < 20);
+                const start = z * zoneSize, end = Math.min(start + zoneSize, TOTAL);
+                let idx, attempts = 0;
+                do { idx = start + Math.floor(Math.random() * (end - start)); attempts++; } while (funcIndices.has(idx) && attempts < 20);
                 funcIndices.add(idx);
             }
 
-            // Assign function types (2 of each type)
+            // 5 read + 5 make, shuffled
             let funcTypes = [];
-            for (let i = 0; i < 2; i++) {
-                FUNC_TYPES.forEach(ft => funcTypes.push(ft));
-            }
+            for (let i = 0; i < 5; i++) L4_FUNC_TYPES.forEach(ft => funcTypes.push({...ft}));
             funcTypes = funcTypes.sort(() => Math.random() - 0.5);
 
             const board = [];
-            let charIdx = 0;
-            let funcIdx = 0;
+            let charIdx = 0, funcIdx = 0;
             for (let i = 0; i < TOTAL; i++) {
                 if (funcIndices.has(i)) {
-                    board.push({ type: 'func', funcType: funcTypes[funcIdx++], team: null });
+                    const ft = funcTypes[funcIdx++];
+                    // Pre-assign content
+                    if (ft.id === 'read') {
+                        const s = sentenceRevealDatabase[Math.floor(Math.random() * sentenceRevealDatabase.length)];
+                        ft.sentence = s.chinese;
+                    } else {
+                        const v = vocabDatabase[Math.floor(Math.random() * vocabDatabase.length)];
+                        ft.vocab = v.word;
+                    }
+                    board.push({ type: 'func', funcType: ft, team: null });
                 } else {
                     board.push({ type: 'char', char: charPool[charIdx++], team: null });
                 }
@@ -843,18 +844,64 @@
             return board;
         }
 
+        function updateL4TurnUI() {
+            const el = document.getElementById('l4-turn-indicator');
+            if (l4CurrentTeam === 'blue') {
+                el.className = 'flex-1 text-center py-2.5 rounded-xl font-black text-lg border-2 transition-all bg-blue-100 text-blue-800 border-blue-300';
+                el.innerText = '🔵 Lượt: Đội Xanh';
+            } else {
+                el.className = 'flex-1 text-center py-2.5 rounded-xl font-black text-lg border-2 transition-all bg-red-100 text-red-800 border-red-300';
+                el.innerText = '🔴 Lượt: Đội Đỏ';
+            }
+        }
+
+        function updateL4Scores() {
+            let blue = 0, red = 0;
+            l4Board.forEach(c => { if (c.team === 'blue') blue++; if (c.team === 'red') red++; });
+            document.getElementById('l4-score-blue').innerText = blue;
+            document.getElementById('l4-score-red').innerText = red;
+        }
+
+        function startL4Timer() {
+            clearL4Timer();
+            l4TimeLeft = 20;
+            const timerEl = document.getElementById('l4-timer-text');
+            timerEl.innerText = l4TimeLeft;
+            timerEl.classList.remove('text-red-600');
+            l4Timer = setInterval(() => {
+                l4TimeLeft--;
+                timerEl.innerText = l4TimeLeft;
+                if (l4TimeLeft <= 5) timerEl.classList.add('text-red-600');
+                if (l4TimeLeft <= 0) {
+                    clearL4Timer();
+                    // Time's up — skip turn
+                    switchL4Turn();
+                }
+            }, 1000);
+        }
+
+        function switchL4Turn() {
+            l4CurrentTeam = l4CurrentTeam === 'blue' ? 'red' : 'blue';
+            updateL4TurnUI();
+            startL4Timer();
+            checkL4BlockIndicator();
+        }
+
         function renderL4() {
             l4Board = generateL4Board();
             l4GameOver = false;
+            l4CurrentTeam = 'blue';
             document.getElementById('l4-winner').classList.add('hidden');
+            document.getElementById('l4-block-warning').classList.add('hidden');
+            updateL4TurnUI();
+            updateL4Scores();
+            startL4Timer();
 
             const grid = document.getElementById('l4-grid');
             grid.innerHTML = '';
-
             l4Board.forEach((cell, idx) => {
                 const btn = document.createElement('button');
                 btn.id = `l4-cell-${idx}`;
-
                 if (cell.type === 'char') {
                     btn.className = 'cell-9x9 cell-normal';
                     btn.innerText = cell.char;
@@ -863,7 +910,6 @@
                     btn.innerText = cell.funcType.icon;
                     btn.title = cell.funcType.label;
                 }
-
                 btn.onclick = () => handleL4Click(idx);
                 grid.appendChild(btn);
             });
@@ -872,28 +918,23 @@
         function handleL4Click(idx) {
             if (l4GameOver) return;
             const cell = l4Board[idx];
-            const btn = document.getElementById(`l4-cell-${idx}`);
+            if (cell.team !== null) return; // already claimed
 
-            if (cell.type === 'func' && cell.team === null) {
-                // Show function cell modal
+            if (cell.type === 'func') {
+                clearL4Timer(); // pause timer during modal
                 showL4FuncModal(idx);
                 return;
             }
 
-            // Normal cell or already-claimed cell: cycle teams
-            if (cell.team === null) {
-                cell.team = 'blue';
-                btn.classList.add('team-blue');
-            } else if (cell.team === 'blue') {
-                cell.team = 'red';
-                btn.classList.remove('team-blue');
-                btn.classList.add('team-red');
-            } else {
-                cell.team = null;
-                btn.classList.remove('team-red');
-            }
+            // Normal char cell — claim for current team
+            cell.team = l4CurrentTeam;
+            const btn = document.getElementById(`l4-cell-${idx}`);
+            btn.classList.add(l4CurrentTeam === 'blue' ? 'team-blue' : 'team-red');
+            updateL4Scores();
 
-            checkL4Win();
+            if (!checkL4Win()) {
+                switchL4Turn();
+            }
         }
 
         function showL4FuncModal(idx) {
@@ -905,24 +946,16 @@
             document.getElementById('l4-modal-title').innerText = ft.label;
             document.getElementById('l4-modal-desc').innerText = ft.desc;
 
-            // Find nearest character cell for context
-            let nearestChar = '';
-            for (let d = 1; d < 9; d++) {
-                for (const offset of [-1, 1, -9, 9]) {
-                    const ni = idx + offset * d;
-                    if (ni >= 0 && ni < 81 && l4Board[ni].type === 'char') {
-                        nearestChar = l4Board[ni].char;
-                        break;
-                    }
-                }
-                if (nearestChar) break;
-            }
+            const teamLabel = l4CurrentTeam === 'blue' ? '🔵 Đội Xanh đang trả lời' : '🔴 Đội Đỏ đang trả lời';
+            const teamEl = document.getElementById('l4-modal-team');
+            teamEl.innerText = teamLabel;
+            teamEl.className = 'text-sm font-bold mb-4 ' + (l4CurrentTeam === 'blue' ? 'text-blue-600' : 'text-red-600');
 
-            if (ft.id === 'pronunciation' || ft.id === 'sentence' || ft.id === 'trap') {
-                const charObj = charDatabase.find(c => c.char === nearestChar);
-                document.getElementById('l4-modal-char').innerText = nearestChar + (charObj ? ` (${charObj.pinyin})` : '');
+            const contentEl = document.getElementById('l4-modal-content');
+            if (ft.id === 'read') {
+                contentEl.innerText = ft.sentence;
             } else {
-                document.getElementById('l4-modal-char').innerText = '';
+                contentEl.innerText = ft.vocab;
             }
 
             l4ModalCell = idx;
@@ -930,75 +963,41 @@
         }
 
         function closeL4Modal(correct) {
-            const modal = document.getElementById('l4-modal');
-            modal.classList.add('hidden');
-
+            document.getElementById('l4-modal').classList.add('hidden');
             const idx = l4ModalCell;
             const cell = l4Board[idx];
             const btn = document.getElementById(`l4-cell-${idx}`);
-            const ft = cell.funcType;
 
-            if (ft.id === 'extra') {
-                // Extra turn: claim for current team (blue by default on correct)
-                if (correct) {
-                    cell.team = 'blue';
-                    btn.classList.add('team-blue');
-                } else {
-                    cell.team = 'red';
-                    btn.classList.add('team-red');
-                }
-            } else if (ft.id === 'buzz') {
-                // Fast buzz: whoever answers first
-                if (correct) {
-                    cell.team = 'blue';
-                    btn.classList.add('team-blue');
-                } else {
-                    cell.team = 'red';
-                    btn.classList.add('team-red');
-                }
-            } else if (ft.id === 'trap') {
-                // Trap: if wrong, opponent steals
-                if (correct) {
-                    cell.team = 'blue';
-                    btn.classList.add('team-blue');
-                } else {
-                    cell.team = 'red';
-                    btn.classList.add('team-red');
-                }
+            if (correct) {
+                // Current team claims
+                cell.team = l4CurrentTeam;
+                btn.classList.add(l4CurrentTeam === 'blue' ? 'team-blue' : 'team-red');
             } else {
-                // pronunciation, sentence
-                if (correct) {
-                    cell.team = 'blue';
-                    btn.classList.add('team-blue');
-                } else {
-                    cell.team = 'red';
-                    btn.classList.add('team-red');
-                }
+                // Opponent steals
+                const opponent = l4CurrentTeam === 'blue' ? 'red' : 'blue';
+                cell.team = opponent;
+                btn.classList.add(opponent === 'blue' ? 'team-blue' : 'team-red');
             }
 
             l4ModalCell = null;
-            checkL4Win();
+            updateL4Scores();
+
+            if (!checkL4Win()) {
+                switchL4Turn();
+            }
         }
 
         function checkL4Win() {
-            const SIZE = 9;
-            const WIN = 5;
-            const directions = [
-                [0, 1],  // horizontal
-                [1, 0],  // vertical
-                [1, 1],  // diagonal down-right
-                [1, -1]  // diagonal down-left
-            ];
-
+            const SIZE = 9, WIN = 5;
+            const dirs = [[0,1],[1,0],[1,1],[1,-1]];
             for (const team of ['blue', 'red']) {
                 for (let r = 0; r < SIZE; r++) {
                     for (let c = 0; c < SIZE; c++) {
-                        for (const [dr, dc] of directions) {
+                        for (const [dr, dc] of dirs) {
                             const cells = [];
                             let valid = true;
                             for (let k = 0; k < WIN; k++) {
-                                const nr = r + dr * k;
-                                const nc = c + dc * k;
+                                const nr = r + dr * k, nc = c + dc * k;
                                 if (nr < 0 || nr >= SIZE || nc < 0 || nc >= SIZE) { valid = false; break; }
                                 const idx = nr * SIZE + nc;
                                 if (l4Board[idx].team !== team) { valid = false; break; }
@@ -1006,29 +1005,83 @@
                             }
                             if (valid && cells.length === WIN) {
                                 highlightL4Win(cells, team);
-                                return;
+                                return true;
                             }
                         }
                     }
                 }
             }
+            return false;
         }
 
         function highlightL4Win(cells, team) {
             l4GameOver = true;
-            cells.forEach(idx => {
-                const btn = document.getElementById(`l4-cell-${idx}`);
-                btn.classList.add('win-cell');
-            });
-
+            clearL4Timer();
+            cells.forEach(idx => document.getElementById(`l4-cell-${idx}`).classList.add('win-cell'));
             const banner = document.getElementById('l4-winner');
             banner.classList.remove('hidden');
             if (team === 'blue') {
-                banner.className = 'mb-4 text-center py-4 rounded-2xl font-black text-2xl animate-pulse shadow-lg bg-blue-100 text-blue-800 border-2 border-blue-300';
+                banner.className = 'mb-3 text-center py-4 rounded-2xl font-black text-2xl animate-pulse shadow-lg bg-blue-100 text-blue-800 border-2 border-blue-300';
                 banner.innerText = '🏆 Đội Xanh chiến thắng!';
             } else {
-                banner.className = 'mb-4 text-center py-4 rounded-2xl font-black text-2xl animate-pulse shadow-lg bg-red-100 text-red-800 border-2 border-red-300';
+                banner.className = 'mb-3 text-center py-4 rounded-2xl font-black text-2xl animate-pulse shadow-lg bg-red-100 text-red-800 border-2 border-red-300';
                 banner.innerText = '🏆 Đội Đỏ chiến thắng!';
+            }
+            document.getElementById('l4-block-warning').classList.add('hidden');
+        }
+
+        // Block indicator: detect 4-in-a-row and warn
+        function checkL4BlockIndicator() {
+            if (l4GameOver) return;
+            const SIZE = 9, TARGET = 4;
+            const dirs = [[0,1],[1,0],[1,1],[1,-1]];
+            // Clear old block highlights
+            for (let i = 0; i < 81; i++) document.getElementById(`l4-cell-${i}`).classList.remove('cell-block');
+
+            let threats = []; // { team, blockIdx }
+            for (const team of ['blue', 'red']) {
+                for (let r = 0; r < SIZE; r++) {
+                    for (let c = 0; c < SIZE; c++) {
+                        for (const [dr, dc] of dirs) {
+                            let count = 0, cells = [], emptyIdx = null, valid = true;
+                            for (let k = 0; k < 5; k++) {
+                                const nr = r + dr * k, nc = c + dc * k;
+                                if (nr < 0 || nr >= SIZE || nc < 0 || nc >= SIZE) { valid = false; break; }
+                                const idx = nr * SIZE + nc;
+                                if (l4Board[idx].team === team) { count++; cells.push(idx); }
+                                else if (l4Board[idx].team === null) { emptyIdx = idx; }
+                                else { valid = false; break; }
+                            }
+                            if (valid && count === TARGET && emptyIdx !== null) {
+                                threats.push({ team, blockIdx: emptyIdx, cells });
+                            }
+                        }
+                    }
+                }
+            }
+
+            const warningEl = document.getElementById('l4-block-warning');
+            if (threats.length > 0) {
+                // Highlight block cells
+                const blockIndices = new Set();
+                threats.forEach(t => {
+                    blockIndices.add(t.blockIdx);
+                    t.cells.forEach(ci => document.getElementById(`l4-cell-${ci}`).classList.add('cell-block'));
+                    document.getElementById(`l4-cell-${t.blockIdx}`).classList.add('cell-block');
+                });
+
+                // Show warning for the most urgent threat
+                const t = threats[0];
+                const teamName = t.team === 'blue' ? 'Đội Xanh' : 'Đội Đỏ';
+                warningEl.classList.remove('hidden');
+                if (t.team === 'blue') {
+                    warningEl.className = 'mb-3 text-center py-2 px-4 rounded-xl font-bold text-sm animate-pulse border-2 bg-blue-50 text-blue-700 border-blue-300';
+                } else {
+                    warningEl.className = 'mb-3 text-center py-2 px-4 rounded-xl font-bold text-sm animate-pulse border-2 bg-red-50 text-red-700 border-red-300';
+                }
+                warningEl.innerText = `⚠️ ${teamName} sắp thắng! Cần chặn ngay!`;
+            } else {
+                warningEl.classList.add('hidden');
             }
         }
 
