@@ -790,7 +790,6 @@
 
         let l4Board = [];
         let l4GameOver = false;
-        let l4CurrentTeam = 'blue';
         let l4ModalCell = null;
         let l4Timer = null;
         let l4TimeLeft = 20;
@@ -820,7 +819,6 @@
                 funcIndices.add(idx);
             }
 
-            // 5 read + 5 make, shuffled
             let funcTypes = [];
             for (let i = 0; i < 5; i++) L4_FUNC_TYPES.forEach(ft => funcTypes.push({...ft}));
             funcTypes = funcTypes.sort(() => Math.random() - 0.5);
@@ -830,7 +828,6 @@
             for (let i = 0; i < TOTAL; i++) {
                 if (funcIndices.has(i)) {
                     const ft = funcTypes[funcIdx++];
-                    // Pre-assign content
                     if (ft.id === 'read') {
                         const s = sentenceRevealDatabase[Math.floor(Math.random() * sentenceRevealDatabase.length)];
                         ft.sentence = s.chinese;
@@ -844,17 +841,6 @@
                 }
             }
             return board;
-        }
-
-        function updateL4TurnUI() {
-            const el = document.getElementById('l4-turn-indicator');
-            if (l4CurrentTeam === 'blue') {
-                el.className = 'flex-1 text-center py-2.5 rounded-xl font-black text-lg border-2 transition-all bg-blue-100 text-blue-800 border-blue-300';
-                el.innerText = '🔵 Lượt: Đội Xanh';
-            } else {
-                el.className = 'flex-1 text-center py-2.5 rounded-xl font-black text-lg border-2 transition-all bg-red-100 text-red-800 border-red-300';
-                el.innerText = '🔴 Lượt: Đội Đỏ';
-            }
         }
 
         function updateL4Scores() {
@@ -876,24 +862,19 @@
                 if (l4TimeLeft <= 5) timerEl.classList.add('text-red-600');
                 if (l4TimeLeft <= 0) {
                     clearL4Timer();
-                    // Time's up — skip turn
-                    switchL4Turn();
+                    timerEl.innerText = '0';
                 }
             }, 1000);
         }
 
-        function switchL4Turn() {
-            l4CurrentTeam = l4CurrentTeam === 'blue' ? 'red' : 'blue';
-            updateL4TurnUI();
+        function resetL4Timer() {
             startL4Timer();
         }
 
         function renderL4() {
             l4Board = generateL4Board();
             l4GameOver = false;
-            l4CurrentTeam = 'blue';
             document.getElementById('l4-winner').classList.add('hidden');
-            updateL4TurnUI();
             updateL4Scores();
             startL4Timer();
 
@@ -918,23 +899,29 @@
         function handleL4Click(idx) {
             if (l4GameOver) return;
             const cell = l4Board[idx];
-            if (cell.team !== null) return; // already claimed
+            const btn = document.getElementById(`l4-cell-${idx}`);
 
-            if (cell.type === 'func') {
-                clearL4Timer(); // pause timer during modal
+            if (cell.type === 'func' && cell.team === null) {
                 showL4FuncModal(idx);
                 return;
             }
 
-            // Normal char cell — claim for current team
-            cell.team = l4CurrentTeam;
-            const btn = document.getElementById(`l4-cell-${idx}`);
-            btn.classList.add(l4CurrentTeam === 'blue' ? 'team-blue' : 'team-red');
-            updateL4Scores();
-
-            if (!checkL4Win()) {
-                switchL4Turn();
+            // Click-cycle: null → blue → red → null
+            if (cell.team === null) {
+                cell.team = 'blue';
+                btn.classList.add('team-blue');
+            } else if (cell.team === 'blue') {
+                cell.team = 'red';
+                btn.classList.remove('team-blue');
+                btn.classList.add('team-red');
+            } else {
+                cell.team = null;
+                btn.classList.remove('team-red');
             }
+
+            updateL4Scores();
+            startL4Timer(); // reset timer on each move
+            checkL4Win();
         }
 
         function showL4FuncModal(idx) {
@@ -955,22 +942,20 @@
                 l4ModalTimeLeft = 15;
             }
 
-            // Start modal countdown
             const timerEl = document.getElementById('l4-modal-timer');
-            timerEl.innerText = `⏱ ${l4ModalTimeLeft}s`;
+            timerEl.innerText = l4ModalTimeLeft + 's';
             timerEl.classList.remove('text-red-600');
             timerEl.classList.add('text-gray-600');
 
             clearL4ModalTimer();
             l4ModalTimer = setInterval(() => {
                 l4ModalTimeLeft--;
-                timerEl.innerText = `⏱ ${l4ModalTimeLeft}s`;
+                timerEl.innerText = l4ModalTimeLeft + 's';
                 if (l4ModalTimeLeft <= 3) {
                     timerEl.classList.remove('text-gray-600');
                     timerEl.classList.add('text-red-600');
                 }
                 if (l4ModalTimeLeft <= 0) {
-                    // Time's up — lose the turn, cell stays unclaimed
                     clearL4ModalTimer();
                     closeL4Modal(null);
                 }
@@ -995,14 +980,11 @@
                 cell.team = 'red';
                 btn.classList.add('team-red');
             }
-            // null = timeout or skip, cell stays unclaimed
 
             l4ModalCell = null;
             updateL4Scores();
-
-            if (!checkL4Win()) {
-                switchL4Turn();
-            }
+            startL4Timer();
+            checkL4Win();
         }
 
         function checkL4Win() {
