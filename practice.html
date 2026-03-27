@@ -226,11 +226,8 @@
                         Đọc đúng chữ để chiếm ô. <span class="font-bold">5 ô liên tiếp</span> (ngang / dọc / chéo) thắng. Đội Xanh đi trước.
                     </p>
 
-                    <!-- Turn indicator + Timer -->
-                    <div class="flex items-center justify-between mb-3 gap-3">
-                        <div id="l4-turn-indicator" class="flex-1 text-center py-2.5 rounded-xl font-black text-lg border-2 bg-blue-100 text-blue-800 border-blue-300">
-                            🔵 Lượt: Đội Xanh
-                        </div>
+                    <!-- Timer -->
+                    <div class="flex items-center justify-center mb-3 gap-3">
                         <div id="l4-timer-box" class="flex items-center gap-2 bg-gray-100 px-5 py-2.5 rounded-xl border border-gray-200">
                             <span class="text-lg">⏱</span>
                             <span id="l4-timer-text" class="font-black text-xl tabular-nums min-w-[2.5rem] text-center">20</span>
@@ -854,17 +851,6 @@
             document.getElementById('l4-score-red').innerText = red;
         }
 
-        function updateL4TurnUI() {
-            const el = document.getElementById('l4-turn-indicator');
-            if (l4CurrentTeam === 'blue') {
-                el.className = 'flex-1 text-center py-2.5 rounded-xl font-black text-lg border-2 bg-blue-100 text-blue-800 border-blue-300';
-                el.innerText = '🔵 Lượt: Đội Xanh';
-            } else {
-                el.className = 'flex-1 text-center py-2.5 rounded-xl font-black text-lg border-2 bg-red-100 text-red-800 border-red-300';
-                el.innerText = '🔴 Lượt: Đội Đỏ';
-            }
-        }
-
         function startL4Timer() {
             clearL4Timer();
             l4TimeLeft = 20;
@@ -891,7 +877,6 @@
             l4GameOver = false;
             l4CurrentTeam = 'blue';
             document.getElementById('l4-winner').classList.add('hidden');
-            updateL4TurnUI();
             updateL4Scores();
             startL4Timer();
 
@@ -1005,7 +990,6 @@
             if (!checkL4Win()) {
                 // Always advance turn (including timeout/skip)
                 l4CurrentTeam = l4CurrentTeam === 'blue' ? 'red' : 'blue';
-                updateL4TurnUI();
             }
         }
 
