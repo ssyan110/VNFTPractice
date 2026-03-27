@@ -923,18 +923,22 @@
                 return;
             }
 
-            if (cell.team !== null) return; // already claimed
+            // Click-cycle: null → blue → red → null
+            if (cell.team === null) {
+                cell.team = 'blue';
+                btn.classList.add('team-blue');
+            } else if (cell.team === 'blue') {
+                cell.team = 'red';
+                btn.classList.remove('team-blue');
+                btn.classList.add('team-red');
+            } else {
+                cell.team = null;
+                btn.classList.remove('team-red');
+            }
 
-            // Auto-assign to current team
-            cell.team = l4CurrentTeam;
-            btn.classList.add(l4CurrentTeam === 'blue' ? 'team-blue' : 'team-red');
             updateL4Scores();
             startL4Timer();
-
-            if (!checkL4Win()) {
-                l4CurrentTeam = l4CurrentTeam === 'blue' ? 'red' : 'blue';
-                updateL4TurnUI();
-            }
+            checkL4Win();
         }
 
         function showL4FuncModal(idx) {
@@ -999,10 +1003,9 @@
             startL4Timer();
 
             if (!checkL4Win()) {
-                if (team !== null) {
-                    l4CurrentTeam = l4CurrentTeam === 'blue' ? 'red' : 'blue';
-                    updateL4TurnUI();
-                }
+                // Always advance turn (including timeout/skip)
+                l4CurrentTeam = l4CurrentTeam === 'blue' ? 'red' : 'blue';
+                updateL4TurnUI();
             }
         }
 
