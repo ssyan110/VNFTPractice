@@ -228,12 +228,15 @@
 
                     <!-- Timer -->
                     <div class="flex items-center justify-center mb-3 gap-3">
-                        <div id="l4-timer-box" class="flex items-center gap-2 bg-gray-100 px-5 py-2.5 rounded-xl border border-gray-200">
+                        <button id="l4-start-btn" onclick="startL4Game()" class="bg-orange-500 hover:bg-orange-600 text-white px-8 py-3 rounded-xl font-black text-lg cursor-pointer shadow-md transition-all">
+                            ▶ Bắt đầu
+                        </button>
+                        <div id="l4-timer-box" class="hidden flex items-center gap-2 bg-gray-100 px-5 py-2.5 rounded-xl border border-gray-200">
                             <span class="text-lg">⏱</span>
                             <span id="l4-timer-text" class="font-black text-xl tabular-nums min-w-[2.5rem] text-center">20</span>
                             <span class="text-gray-400 text-sm font-bold">giây</span>
                         </div>
-                        <button onclick="resetL4Timer()" class="text-gray-500 hover:text-blue-600 text-sm font-bold bg-gray-100 px-3 py-2.5 rounded-xl border border-gray-200 cursor-pointer">↺ Reset</button>
+                        <button id="l4-reset-btn" onclick="resetL4Timer()" class="hidden text-gray-500 hover:text-blue-600 text-sm font-bold bg-gray-100 px-3 py-2.5 rounded-xl border border-gray-200 cursor-pointer">↺ Reset</button>
                     </div>
 
                     <!-- Block warning -->
@@ -790,6 +793,7 @@
 
         let l4Board = [];
         let l4GameOver = false;
+        let l4Started = false;
         let l4CurrentTeam = 'blue';
         let l4ModalCell = null;
         let l4Timer = null;
@@ -875,10 +879,14 @@
         function renderL4() {
             l4Board = generateL4Board();
             l4GameOver = false;
+            l4Started = false;
             l4CurrentTeam = 'blue';
+            clearL4Timer();
             document.getElementById('l4-winner').classList.add('hidden');
+            document.getElementById('l4-start-btn').classList.remove('hidden');
+            document.getElementById('l4-timer-box').classList.add('hidden');
+            document.getElementById('l4-reset-btn').classList.add('hidden');
             updateL4Scores();
-            startL4Timer();
 
             const grid = document.getElementById('l4-grid');
             grid.innerHTML = '';
@@ -898,8 +906,16 @@
             });
         }
 
+        function startL4Game() {
+            l4Started = true;
+            document.getElementById('l4-start-btn').classList.add('hidden');
+            document.getElementById('l4-timer-box').classList.remove('hidden');
+            document.getElementById('l4-reset-btn').classList.remove('hidden');
+            startL4Timer();
+        }
+
         function handleL4Click(idx) {
-            if (l4GameOver) return;
+            if (l4GameOver || !l4Started) return;
             const cell = l4Board[idx];
             const btn = document.getElementById(`l4-cell-${idx}`);
 
