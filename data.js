@@ -48,7 +48,30 @@ const charDatabase = [
     { char: '作', pinyin: 'zuò', meaning: 'LÀM, TẠO RA, SÁNG TẠO, LÀM VIỆC', radical: '亻 (rén) – bộ Nhân đứng' },
     { char: '日', pinyin: 'rì', meaning: 'MẶT TRỜI, NGÀY', radical: '日 (rì) – bộ Nhật' },
     { char: '是', pinyin: 'shì', meaning: 'LÀ, ĐÚNG, PHẢI', radical: '日 (rì) – bộ Nhật' },
-    { char: '这', pinyin: 'zhè', meaning: 'ĐÂY, CÁI NÀY', radical: '辶 (chuò) – bộ Sước' }
+    { char: '这', pinyin: 'zhè', meaning: 'ĐÂY, CÁI NÀY', radical: '辶 (chuò) – bộ Sước' },
+    { char: '进', pinyin: 'jìn', meaning: 'VÀO, TIẾN VÀO', radical: '辶 (chuò) – bộ Sước' },
+    { char: '老', pinyin: 'lǎo', meaning: 'GIÀ, LỚN TUỔI', radical: '老 (lǎo) – bộ Lão' },
+    { char: '师', pinyin: 'shī', meaning: 'THẦY, GIÁO VIÊN', radical: '巾 (jīn) – bộ Cân' },
+    { char: '身', pinyin: 'shēn', meaning: 'THÂN, CƠ THỂ', radical: '身 (shēn) – bộ Thân' },
+    { char: '体', pinyin: 'tǐ', meaning: 'THÂN THỂ, CƠ THỂ', radical: '亻 (rén) – bộ Nhân đứng' },
+    { char: '上', pinyin: 'shàng', meaning: 'TRÊN, LÊN', radical: '一 (yī) – bộ Nhất' },
+    { char: '下', pinyin: 'xià', meaning: 'DƯỚI, XUỐNG', radical: '一 (yī) – bộ Nhất' },
+    { char: '月', pinyin: 'yuè', meaning: 'MẶT TRĂNG, THÁNG', radical: '月 (yuè) – bộ Nguyệt' },
+    { char: '生', pinyin: 'shēng', meaning: 'SINH, SỐNG', radical: '生 (shēng) – bộ Sinh' },
+    { char: '了', pinyin: 'le', meaning: 'TRỢ TỪ HOÀN THÀNH', radical: '乙 (yǐ) – bộ Ất' },
+    { char: '木', pinyin: 'mù', meaning: 'CÂY, GỖ', radical: '木 (mù) – bộ Mộc' },
+    { char: '休', pinyin: 'xiū', meaning: 'NGHỈ NGƠI', radical: '亻 (rén) – bộ Nhân đứng' },
+    { char: '亡', pinyin: 'wáng', meaning: 'MẤT, CHẾT', radical: '亠 (tóu) – bộ Đầu' },
+    { char: '也', pinyin: 'yě', meaning: 'CŨNG', radical: '乙 (yǐ) – bộ Ất' },
+    { char: '又', pinyin: 'yòu', meaning: 'LẠI, NỮA', radical: '又 (yòu) – bộ Hựu' },
+    { char: '子', pinyin: 'zǐ', meaning: 'CON, ĐỨA TRẺ', radical: '子 (zǐ) – bộ Tử' },
+    { char: '小', pinyin: 'xiǎo', meaning: 'NHỎ, BÉ', radical: '小 (xiǎo) – bộ Tiểu' },
+    { char: '回', pinyin: 'huí', meaning: 'QUAY LẠI, TRỞ VỀ', radical: '囗 (wéi) – bộ Vi' },
+    { char: '校', pinyin: 'xiào', meaning: 'TRƯỜNG HỌC', radical: '木 (mù) – bộ Mộc' },
+    { char: '那', pinyin: 'nà', meaning: 'KIA, ĐÓ', radical: '阝 (yì) – bộ Ấp' },
+    { char: '哪', pinyin: 'nǎ', meaning: 'NÀO, ĐÂU', radical: '口 (kǒu) – bộ Khẩu' },
+    { char: '十', pinyin: 'shí', meaning: 'MƯỜI', radical: '十 (shí) – bộ Thập' },
+    { char: '昨', pinyin: 'zuó', meaning: 'HÔM QUA', radical: '日 (rì) – bộ Nhật' }
 ];
 
 // Keep this list in sync with characters_learned.md so game 2 only uses
@@ -58,7 +81,9 @@ const learnedCharacters = [
     '太', '汉', '语', '吗', '妈', '爸', '很', '忙', '他', '她', '难',
     '六', '七', '九', '学', '去', '北', '京', '对', '明', '天', '见',
     '银', '行', '二', '三', '四', '今', '关', '星', '期', '几', '我',
-    '工', '作', '日', '是', '这'
+    '工', '作', '日', '是', '这', '进', '老', '师', '身', '体', '上',
+    '下', '月', '生', '了', '木', '休', '亡', '也', '又', '子', '小',
+    '回', '校', '那', '哪', '十', '昨'
 ];
 const learnedCharacterSet = new Set(learnedCharacters);
 
