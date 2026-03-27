@@ -223,7 +223,7 @@
                     </div>
                     <h3 class="text-2xl font-bold mb-1 text-center text-orange-900">Đại chiến 9x9</h3>
                     <p class="text-xs text-gray-500 mb-3 text-center italic leading-relaxed">
-                        Đọc đúng chữ để chiếm ô. <span class="font-bold">5 ô liên tiếp</span> (ngang / dọc / chéo) thắng.
+                        Đọc đúng chữ để chiếm ô. <span class="font-bold">5 ô liên tiếp</span> (ngang / dọc / chéo) thắng. Đội Xanh đi trước.
                     </p>
 
                     <!-- Timer -->
@@ -790,6 +790,7 @@
 
         let l4Board = [];
         let l4GameOver = false;
+        let l4CurrentTeam = 'blue';
         let l4ModalCell = null;
         let l4Timer = null;
         let l4TimeLeft = 20;
@@ -874,6 +875,7 @@
         function renderL4() {
             l4Board = generateL4Board();
             l4GameOver = false;
+            l4CurrentTeam = 'blue';
             document.getElementById('l4-winner').classList.add('hidden');
             updateL4Scores();
             startL4Timer();
@@ -906,22 +908,17 @@
                 return;
             }
 
-            // Click-cycle: null → blue → red → null
-            if (cell.team === null) {
-                cell.team = 'blue';
-                btn.classList.add('team-blue');
-            } else if (cell.team === 'blue') {
-                cell.team = 'red';
-                btn.classList.remove('team-blue');
-                btn.classList.add('team-red');
-            } else {
-                cell.team = null;
-                btn.classList.remove('team-red');
-            }
+            if (cell.team !== null) return; // already claimed
 
+            // Auto-assign to current team
+            cell.team = l4CurrentTeam;
+            btn.classList.add(l4CurrentTeam === 'blue' ? 'team-blue' : 'team-red');
             updateL4Scores();
-            startL4Timer(); // reset timer on each move
-            checkL4Win();
+            startL4Timer();
+
+            if (!checkL4Win()) {
+                l4CurrentTeam = l4CurrentTeam === 'blue' ? 'red' : 'blue';
+            }
         }
 
         function showL4FuncModal(idx) {
@@ -984,7 +981,12 @@
             l4ModalCell = null;
             updateL4Scores();
             startL4Timer();
-            checkL4Win();
+
+            if (!checkL4Win()) {
+                if (team !== null) {
+                    l4CurrentTeam = l4CurrentTeam === 'blue' ? 'red' : 'blue';
+                }
+            }
         }
 
         function checkL4Win() {
