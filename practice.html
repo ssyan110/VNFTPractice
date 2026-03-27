@@ -62,7 +62,7 @@
             width: 100%;
             aspect-ratio: 1;
             font-family: 'Noto Sans SC', sans-serif;
-            font-size: 1.4rem;
+            font-size: 1.8rem;
             font-weight: 700;
             border: none;
             border-radius: 6px;
@@ -81,10 +81,6 @@
         .cell-func-make { background: linear-gradient(135deg, #a78bfa, #7c3aed); }
         .cell-9x9.team-blue { background: #3b82f6 !important; color: #fff !important; }
         .cell-9x9.team-red { background: #ef4444 !important; color: #fff !important; }
-        .cell-9x9.cell-block {
-            box-shadow: 0 0 0 2px #facc15, 0 0 8px 2px rgba(250, 204, 21, 0.5);
-            z-index: 3;
-        }
         .cell-9x9.win-cell {
             animation: winPulse 0.6s ease-in-out infinite alternate;
             box-shadow: 0 0 12px 4px rgba(250, 204, 21, 0.8);
@@ -97,7 +93,7 @@
         }
 
         @media (max-width: 580px) {
-            .cell-9x9 { font-size: 1rem; border-radius: 4px; }
+            .cell-9x9 { font-size: 1.3rem; border-radius: 4px; }
         }
     </style>
 </head>
@@ -230,19 +226,17 @@
                         Đọc đúng chữ để chiếm ô. <span class="font-bold">5 ô liên tiếp</span> (ngang / dọc / chéo) thắng.
                     </p>
 
-                    <!-- Turn indicator + Timer -->
-                    <div class="flex items-center justify-between mb-3 gap-3">
-                        <div id="l4-turn-indicator" class="flex-1 text-center py-2.5 rounded-xl font-black text-lg border-2 transition-all">
-                            Lượt: Đội Xanh
-                        </div>
-                        <div id="l4-timer-box" class="flex items-center gap-2 bg-gray-100 px-4 py-2.5 rounded-xl border border-gray-200">
+                    <!-- Timer -->
+                    <div class="flex items-center justify-center mb-3 gap-3">
+                        <div id="l4-timer-box" class="flex items-center gap-2 bg-gray-100 px-5 py-2.5 rounded-xl border border-gray-200">
                             <span class="text-lg">⏱</span>
                             <span id="l4-timer-text" class="font-black text-xl tabular-nums min-w-[2.5rem] text-center">20</span>
+                            <span class="text-gray-400 text-sm font-bold">giây</span>
                         </div>
+                        <button onclick="resetL4Timer()" class="text-gray-500 hover:text-blue-600 text-sm font-bold bg-gray-100 px-3 py-2.5 rounded-xl border border-gray-200 cursor-pointer">↺ Reset</button>
                     </div>
 
                     <!-- Block warning -->
-                    <div id="l4-block-warning" class="hidden mb-3 text-center py-2 px-4 rounded-xl font-bold text-sm animate-pulse border-2"></div>
 
                     <!-- Function cell legend -->
                     <div class="flex flex-wrap justify-center gap-2 mb-3 text-xs">
@@ -250,7 +244,7 @@
                         <span class="bg-violet-100 text-violet-700 px-2 py-1 rounded-lg font-bold">✏️ Đặt câu</span>
                     </div>
 
-                    <div id="l4-grid" class="grid grid-cols-9 gap-1 mx-auto mb-4 bg-gray-800 p-2 rounded-2xl shadow-inner border-2 border-gray-700" style="max-width: 540px;">
+                    <div id="l4-grid" class="grid grid-cols-9 gap-1 mx-auto mb-4 bg-gray-800 p-2 rounded-2xl shadow-inner border-2 border-gray-700" style="max-width: 630px;">
                     </div>
 
                     <!-- Winner banner -->
@@ -262,11 +256,12 @@
                             <div id="l4-modal-icon" class="text-5xl mb-2"></div>
                             <h4 id="l4-modal-title" class="text-xl font-bold mb-1"></h4>
                             <p id="l4-modal-desc" class="text-gray-500 mb-4 text-sm"></p>
-                            <div id="l4-modal-content" class="hanzi text-3xl font-bold text-gray-800 mb-5 leading-relaxed min-h-[3rem]"></div>
-                            <div id="l4-modal-team" class="text-sm font-bold mb-4"></div>
+                            <div id="l4-modal-content" class="hanzi text-3xl font-bold text-gray-800 mb-3 leading-relaxed min-h-[3rem]"></div>
+                            <div id="l4-modal-timer" class="text-2xl font-black mb-4 tabular-nums"></div>
                             <div class="flex gap-3 justify-center">
-                                <button onclick="closeL4Modal(true)" class="bg-green-500 hover:bg-green-600 text-white px-6 py-3 rounded-xl font-bold cursor-pointer text-lg">✓ Đúng</button>
-                                <button onclick="closeL4Modal(false)" class="bg-red-500 hover:bg-red-600 text-white px-6 py-3 rounded-xl font-bold cursor-pointer text-lg">✕ Sai</button>
+                                <button onclick="closeL4Modal('blue')" class="bg-blue-500 hover:bg-blue-600 text-white px-6 py-3 rounded-xl font-bold cursor-pointer text-lg">🔵 Đội Xanh</button>
+                                <button onclick="closeL4Modal('red')" class="bg-red-500 hover:bg-red-600 text-white px-6 py-3 rounded-xl font-bold cursor-pointer text-lg">🔴 Đội Đỏ</button>
+                                <button onclick="closeL4Modal(null)" class="bg-gray-300 hover:bg-gray-400 text-gray-700 px-4 py-3 rounded-xl font-bold cursor-pointer text-sm">Bỏ qua</button>
                             </div>
                         </div>
                     </div>
@@ -561,6 +556,7 @@
 
         function jumpTo(target) {
             clearL4Timer();
+            clearL4ModalTimer();
             clearL8Timer();
             clearL9Timers();
 
@@ -798,9 +794,15 @@
         let l4ModalCell = null;
         let l4Timer = null;
         let l4TimeLeft = 20;
+        let l4ModalTimer = null;
+        let l4ModalTimeLeft = 0;
 
         function clearL4Timer() {
             if (l4Timer) { clearInterval(l4Timer); l4Timer = null; }
+        }
+
+        function clearL4ModalTimer() {
+            if (l4ModalTimer) { clearInterval(l4ModalTimer); l4ModalTimer = null; }
         }
 
         function generateL4Board() {
@@ -884,7 +886,6 @@
             l4CurrentTeam = l4CurrentTeam === 'blue' ? 'red' : 'blue';
             updateL4TurnUI();
             startL4Timer();
-            checkL4BlockIndicator();
         }
 
         function renderL4() {
@@ -892,7 +893,6 @@
             l4GameOver = false;
             l4CurrentTeam = 'blue';
             document.getElementById('l4-winner').classList.add('hidden');
-            document.getElementById('l4-block-warning').classList.add('hidden');
             updateL4TurnUI();
             updateL4Scores();
             startL4Timer();
@@ -946,38 +946,56 @@
             document.getElementById('l4-modal-title').innerText = ft.label;
             document.getElementById('l4-modal-desc').innerText = ft.desc;
 
-            const teamLabel = l4CurrentTeam === 'blue' ? '🔵 Đội Xanh đang trả lời' : '🔴 Đội Đỏ đang trả lời';
-            const teamEl = document.getElementById('l4-modal-team');
-            teamEl.innerText = teamLabel;
-            teamEl.className = 'text-sm font-bold mb-4 ' + (l4CurrentTeam === 'blue' ? 'text-blue-600' : 'text-red-600');
-
             const contentEl = document.getElementById('l4-modal-content');
             if (ft.id === 'read') {
                 contentEl.innerText = ft.sentence;
+                l4ModalTimeLeft = 7;
             } else {
                 contentEl.innerText = ft.vocab;
+                l4ModalTimeLeft = 15;
             }
+
+            // Start modal countdown
+            const timerEl = document.getElementById('l4-modal-timer');
+            timerEl.innerText = `⏱ ${l4ModalTimeLeft}s`;
+            timerEl.classList.remove('text-red-600');
+            timerEl.classList.add('text-gray-600');
+
+            clearL4ModalTimer();
+            l4ModalTimer = setInterval(() => {
+                l4ModalTimeLeft--;
+                timerEl.innerText = `⏱ ${l4ModalTimeLeft}s`;
+                if (l4ModalTimeLeft <= 3) {
+                    timerEl.classList.remove('text-gray-600');
+                    timerEl.classList.add('text-red-600');
+                }
+                if (l4ModalTimeLeft <= 0) {
+                    // Time's up — lose the turn, cell stays unclaimed
+                    clearL4ModalTimer();
+                    closeL4Modal(null);
+                }
+            }, 1000);
 
             l4ModalCell = idx;
             modal.classList.remove('hidden');
         }
 
-        function closeL4Modal(correct) {
+        function closeL4Modal(team) {
+            clearL4ModalTimer();
             document.getElementById('l4-modal').classList.add('hidden');
             const idx = l4ModalCell;
+            if (idx === null) return;
             const cell = l4Board[idx];
             const btn = document.getElementById(`l4-cell-${idx}`);
 
-            if (correct) {
-                // Current team claims
-                cell.team = l4CurrentTeam;
-                btn.classList.add(l4CurrentTeam === 'blue' ? 'team-blue' : 'team-red');
-            } else {
-                // Opponent steals
-                const opponent = l4CurrentTeam === 'blue' ? 'red' : 'blue';
-                cell.team = opponent;
-                btn.classList.add(opponent === 'blue' ? 'team-blue' : 'team-red');
+            if (team === 'blue') {
+                cell.team = 'blue';
+                btn.classList.add('team-blue');
+            } else if (team === 'red') {
+                cell.team = 'red';
+                btn.classList.add('team-red');
             }
+            // null = timeout or skip, cell stays unclaimed
 
             l4ModalCell = null;
             updateL4Scores();
@@ -1026,62 +1044,6 @@
             } else {
                 banner.className = 'mb-3 text-center py-4 rounded-2xl font-black text-2xl animate-pulse shadow-lg bg-red-100 text-red-800 border-2 border-red-300';
                 banner.innerText = '🏆 Đội Đỏ chiến thắng!';
-            }
-            document.getElementById('l4-block-warning').classList.add('hidden');
-        }
-
-        // Block indicator: detect 4-in-a-row and warn
-        function checkL4BlockIndicator() {
-            if (l4GameOver) return;
-            const SIZE = 9, TARGET = 4;
-            const dirs = [[0,1],[1,0],[1,1],[1,-1]];
-            // Clear old block highlights
-            for (let i = 0; i < 81; i++) document.getElementById(`l4-cell-${i}`).classList.remove('cell-block');
-
-            let threats = []; // { team, blockIdx }
-            for (const team of ['blue', 'red']) {
-                for (let r = 0; r < SIZE; r++) {
-                    for (let c = 0; c < SIZE; c++) {
-                        for (const [dr, dc] of dirs) {
-                            let count = 0, cells = [], emptyIdx = null, valid = true;
-                            for (let k = 0; k < 5; k++) {
-                                const nr = r + dr * k, nc = c + dc * k;
-                                if (nr < 0 || nr >= SIZE || nc < 0 || nc >= SIZE) { valid = false; break; }
-                                const idx = nr * SIZE + nc;
-                                if (l4Board[idx].team === team) { count++; cells.push(idx); }
-                                else if (l4Board[idx].team === null) { emptyIdx = idx; }
-                                else { valid = false; break; }
-                            }
-                            if (valid && count === TARGET && emptyIdx !== null) {
-                                threats.push({ team, blockIdx: emptyIdx, cells });
-                            }
-                        }
-                    }
-                }
-            }
-
-            const warningEl = document.getElementById('l4-block-warning');
-            if (threats.length > 0) {
-                // Highlight block cells
-                const blockIndices = new Set();
-                threats.forEach(t => {
-                    blockIndices.add(t.blockIdx);
-                    t.cells.forEach(ci => document.getElementById(`l4-cell-${ci}`).classList.add('cell-block'));
-                    document.getElementById(`l4-cell-${t.blockIdx}`).classList.add('cell-block');
-                });
-
-                // Show warning for the most urgent threat
-                const t = threats[0];
-                const teamName = t.team === 'blue' ? 'Đội Xanh' : 'Đội Đỏ';
-                warningEl.classList.remove('hidden');
-                if (t.team === 'blue') {
-                    warningEl.className = 'mb-3 text-center py-2 px-4 rounded-xl font-bold text-sm animate-pulse border-2 bg-blue-50 text-blue-700 border-blue-300';
-                } else {
-                    warningEl.className = 'mb-3 text-center py-2 px-4 rounded-xl font-bold text-sm animate-pulse border-2 bg-red-50 text-red-700 border-red-300';
-                }
-                warningEl.innerText = `⚠️ ${teamName} sắp thắng! Cần chặn ngay!`;
-            } else {
-                warningEl.classList.add('hidden');
             }
         }
 
