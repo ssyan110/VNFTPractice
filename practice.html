@@ -151,10 +151,10 @@
                 <select id="game-select" onchange="jumpTo(this.value === 'welcome' ? 'welcome' : parseInt(this.value))"
                     class="w-full appearance-none bg-blue-50 border border-blue-100 text-blue-800 font-bold py-3 px-4 pr-10 rounded-xl outline-none focus:ring-2 focus:ring-blue-500 cursor-pointer shadow-sm transition-all hover:bg-blue-100 text-sm sm:text-base">
                     <option value="welcome">🏠 Trang chủ</option>
-                    <option value="1">🔍 1. Thám tử bộ thủ</option>
-                    <option value="2">👀 2. Mắt thần phân biệt</option>
-                    <option value="3">✍️ 3. Điền từ</option>
-                    <option value="4">⚔️ 4. Cờ 9x9</option>
+                    <option value="4">⚔️ 1. Cờ 9x9</option>
+                    <option value="1">🔍 2. Thám tử bộ thủ</option>
+                    <option value="2">👀 3. Mắt thần phân biệt</option>
+                    <option value="3">✍️ 4. Điền từ</option>
                     <option value="5">🧩 5. Ghép từ</option>
                     <option value="6">🎧 6. Nhìn Pinyin chọn chữ</option>
                     <option value="7">📏 7. Xếp câu</option>
@@ -186,7 +186,7 @@
                     <h2 class="text-3xl font-bold text-gray-800 mb-4">你好！</h2>
                     <p class="text-gray-500 mb-10 text-lg">Bạn có thể sử dụng APP này để luyện tập nhận diện chữ Hán qua
                         bài trắc nghiệm nhé.</p>
-                    <button onclick="jumpTo(1)"
+                    <button onclick="jumpTo(4)"
                         class="bg-blue-600 hover:bg-blue-700 text-white px-12 py-5 rounded-2xl text-xl font-bold transition-all shadow-xl hover:shadow-2xl active:scale-95">
                         Bắt đầu buổi học
                     </button>
@@ -252,19 +252,44 @@
 
                 <!-- Level 4: 9x9 Gomoku Board Game -->
                 <div id="screen-level-4" class="hidden">
+                    <!-- Mode Selection -->
+                    <div id="l4-mode-select" class="text-center py-10">
+                        <h3 class="text-3xl font-bold mb-2 text-orange-900">⚔️ Đại chiến 9x9</h3>
+                        <p class="text-gray-500 mb-8 text-sm italic">Chọn chế độ chơi</p>
+                        <div class="flex flex-col sm:flex-row gap-4 justify-center max-w-lg mx-auto">
+                            <button onclick="initL4Mode('solo')"
+                                class="flex-1 bg-gradient-to-br from-indigo-500 to-purple-600 hover:from-indigo-600 hover:to-purple-700 text-white py-6 px-6 rounded-2xl font-bold text-lg shadow-xl cursor-pointer transition-all hover:scale-105">
+                                <div class="text-4xl mb-2">🤖</div>
+                                <div>1 Người chơi</div>
+                                <div class="text-xs opacity-80 mt-1 font-normal">Chơi với máy</div>
+                            </button>
+                            <button onclick="initL4Mode('multi')"
+                                class="flex-1 bg-gradient-to-br from-orange-500 to-red-500 hover:from-orange-600 hover:to-red-600 text-white py-6 px-6 rounded-2xl font-bold text-lg shadow-xl cursor-pointer transition-all hover:scale-105">
+                                <div class="text-4xl mb-2">👥</div>
+                                <div>2+ Người chơi</div>
+                                <div class="text-xs opacity-80 mt-1 font-normal">Chơi theo đội</div>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Game Content (hidden until mode selected) -->
+                    <div id="l4-game-content" class="hidden">
                     <div class="flex justify-between items-center mb-3">
                         <span
                             class="bg-orange-100 text-orange-800 px-4 py-1.5 rounded-full text-xs font-bold uppercase tracking-widest">Trò
                             chơi: Cờ 9x9</span>
-                        <button onclick="renderL4()"
-                            class="text-blue-600 hover:text-blue-800 text-sm font-bold flex items-center gap-1 transition-colors bg-blue-50 px-3 py-1 rounded-lg cursor-pointer">
-                            <span>🔄</span> Làm mới
-                        </button>
+                        <div class="flex gap-2">
+                            <button onclick="jumpTo(4)"
+                                class="text-gray-500 hover:text-gray-700 text-sm font-bold bg-gray-100 px-3 py-1 rounded-lg cursor-pointer">← Chế độ</button>
+                            <button onclick="renderL4()"
+                                class="text-blue-600 hover:text-blue-800 text-sm font-bold flex items-center gap-1 transition-colors bg-blue-50 px-3 py-1 rounded-lg cursor-pointer">
+                                <span>🔄</span> Làm mới
+                            </button>
+                        </div>
                     </div>
                     <h3 class="text-2xl font-bold mb-1 text-center text-orange-900">Đại chiến 9x9</h3>
-                    <p class="text-xs text-gray-500 mb-3 text-center italic leading-relaxed">
-                        Đọc đúng chữ để chiếm ô. <span class="font-bold">5 ô liên tiếp</span> (ngang / dọc / chéo)
-                        thắng. Đội Xanh đi trước.
+                    <p id="l4-desc" class="text-xs text-gray-500 mb-3 text-center italic leading-relaxed">
+                        Đọc đúng chữ để chiếm ô. <span class="font-bold">5 ô liên tiếp</span> (ngang / dọc / chéo) thắng.
                     </p>
 
                     <!-- Timer -->
@@ -313,7 +338,8 @@
                             <div id="l4-modal-content"
                                 class="hanzi text-3xl font-bold text-gray-800 mb-3 leading-relaxed min-h-[3rem]"></div>
                             <div id="l4-modal-timer" class="text-2xl font-black mb-4 tabular-nums"></div>
-                            <div class="flex gap-3 justify-center">
+                            <!-- Multi mode buttons -->
+                            <div id="l4-modal-btns-multi" class="flex gap-3 justify-center">
                                 <button onclick="closeL4Modal('blue')"
                                     class="bg-blue-500 hover:bg-blue-600 text-white px-6 py-3 rounded-xl font-bold cursor-pointer text-lg">🔵
                                     Đội Xanh</button>
@@ -324,6 +350,13 @@
                                     class="bg-gray-300 hover:bg-gray-400 text-gray-700 px-4 py-3 rounded-xl font-bold cursor-pointer text-sm">Bỏ
                                     qua</button>
                             </div>
+                            <!-- Solo mode buttons -->
+                            <div id="l4-modal-btns-solo" class="hidden flex gap-3 justify-center">
+                                <button onclick="closeL4Modal('blue')"
+                                    class="bg-green-500 hover:bg-green-600 text-white px-6 py-3 rounded-xl font-bold cursor-pointer text-lg">✓ Đúng</button>
+                                <button onclick="closeL4Modal(null)"
+                                    class="bg-red-500 hover:bg-red-600 text-white px-6 py-3 rounded-xl font-bold cursor-pointer text-lg">✕ Sai</button>
+                            </div>
                         </div>
                     </div>
 
@@ -331,17 +364,18 @@
                     <div class="flex justify-center gap-6 py-3 bg-gray-50 rounded-xl border border-gray-200">
                         <div class="flex items-center gap-2">
                             <div class="w-5 h-5 bg-blue-500 rounded-full shadow"></div>
-                            <span class="font-bold text-blue-800">Xanh: <span id="l4-score-blue">0</span></span>
+                            <span class="font-bold text-blue-800"><span id="l4-label-blue">Xanh</span>: <span id="l4-score-blue">0</span></span>
                         </div>
                         <div class="flex items-center gap-2">
                             <div class="w-5 h-5 bg-red-500 rounded-full shadow"></div>
-                            <span class="font-bold text-red-800">Đỏ: <span id="l4-score-red">0</span></span>
+                            <span class="font-bold text-red-800"><span id="l4-label-red">Đỏ</span>: <span id="l4-score-red">0</span></span>
                         </div>
                     </div>
 
                     <button onclick="jumpTo(5)"
                         class="w-full mt-5 bg-blue-600 hover:bg-blue-700 text-white py-5 rounded-2xl font-bold text-lg shadow-xl cursor-pointer">Chuyển
                         sang: Ghép từ</button>
+                    </div><!-- end l4-game-content -->
                 </div>
 
                 <!-- Level 5: Ghép từ (Word Formation) -->
@@ -652,7 +686,9 @@
                 renderL3();
                 document.getElementById('btn-to-l4').classList.add('hidden');
             } else if (target === 4) {
-                renderL4();
+                // Show mode selection, don't render board yet
+                document.getElementById('l4-mode-select').classList.remove('hidden');
+                document.getElementById('l4-game-content').classList.add('hidden');
             } else if (target === 5) {
                 l5Data = generateGame5Data();
                 l5Progress = 0;
@@ -862,6 +898,14 @@
         let l4TimeLeft = 20;
         let l4ModalTimer = null;
         let l4ModalTimeLeft = 0;
+        let l4Mode = 'multi'; // 'solo' or 'multi'
+
+        function initL4Mode(mode) {
+            l4Mode = mode;
+            document.getElementById('l4-mode-select').classList.add('hidden');
+            document.getElementById('l4-game-content').classList.remove('hidden');
+            renderL4();
+        }
 
         function clearL4Timer() {
             if (l4Timer) { clearInterval(l4Timer); l4Timer = null; }
@@ -950,6 +994,15 @@
             document.getElementById('l4-reset-btn').classList.add('hidden');
             updateL4Scores();
 
+            // Mode-specific labels
+            if (l4Mode === 'solo') {
+                document.getElementById('l4-label-blue').innerText = 'Bạn';
+                document.getElementById('l4-label-red').innerText = 'Máy';
+            } else {
+                document.getElementById('l4-label-blue').innerText = 'Xanh';
+                document.getElementById('l4-label-red').innerText = 'Đỏ';
+            }
+
             const grid = document.getElementById('l4-grid');
             grid.innerHTML = '';
             l4Board.forEach((cell, idx) => {
@@ -981,12 +1034,29 @@
             const cell = l4Board[idx];
             const btn = document.getElementById(`l4-cell-${idx}`);
 
+            // Solo mode: player is always blue
+            if (l4Mode === 'solo') {
+                if (cell.team !== null) return;
+                if (cell.type === 'func') {
+                    showL4FuncModal(idx);
+                    return;
+                }
+                cell.team = 'blue';
+                btn.classList.add('team-blue');
+                updateL4Scores();
+                startL4Timer();
+                if (!checkL4Win()) {
+                    setTimeout(computerL4Move, 400);
+                }
+                return;
+            }
+
+            // Multi mode: click-cycle
             if (cell.type === 'func' && cell.team === null) {
                 showL4FuncModal(idx);
                 return;
             }
 
-            // Click-cycle: null → blue → red → null
             if (cell.team === null) {
                 cell.team = 'blue';
                 btn.classList.add('team-blue');
@@ -1002,6 +1072,83 @@
             updateL4Scores();
             startL4Timer();
             checkL4Win();
+        }
+
+        // --- Computer AI for solo mode ---
+        function computerL4Move() {
+            if (l4GameOver) return;
+            const SIZE = 9;
+
+            // Score each empty cell
+            let bestScore = -1;
+            let bestIdx = -1;
+
+            for (let i = 0; i < 81; i++) {
+                if (l4Board[i].team !== null) continue;
+                let score = 0;
+
+                // Prefer blocking player's lines and extending own lines
+                score += scoreL4Position(i, 'red') * 1.1; // slight offensive preference
+                score += scoreL4Position(i, 'blue'); // defensive
+
+                // Small random factor to avoid predictability
+                score += Math.random() * 0.5;
+
+                if (score > bestScore) {
+                    bestScore = score;
+                    bestIdx = i;
+                }
+            }
+
+            if (bestIdx === -1) return; // board full
+
+            const cell = l4Board[bestIdx];
+            const btn = document.getElementById(`l4-cell-${bestIdx}`);
+
+            // If it's a function cell, computer auto-claims it
+            cell.team = 'red';
+            btn.classList.add('team-red');
+            updateL4Scores();
+            startL4Timer();
+            checkL4Win();
+        }
+
+        function scoreL4Position(idx, team) {
+            const SIZE = 9;
+            const r = Math.floor(idx / SIZE);
+            const c = idx % SIZE;
+            const dirs = [[0,1],[1,0],[1,1],[1,-1]];
+            let totalScore = 0;
+
+            for (const [dr, dc] of dirs) {
+                // Check both directions along this line
+                let count = 0;
+                let open = 0;
+
+                for (let sign = -1; sign <= 1; sign += 2) {
+                    for (let k = 1; k <= 4; k++) {
+                        const nr = r + dr * k * sign;
+                        const nc = c + dc * k * sign;
+                        if (nr < 0 || nr >= SIZE || nc < 0 || nc >= SIZE) break;
+                        const ni = nr * SIZE + nc;
+                        if (l4Board[ni].team === team) count++;
+                        else if (l4Board[ni].team === null) { open++; break; }
+                        else break;
+                    }
+                }
+
+                // Score based on consecutive count
+                if (count >= 4) totalScore += 10000; // winning move
+                else if (count === 3 && open >= 1) totalScore += 500;
+                else if (count === 2 && open >= 1) totalScore += 50;
+                else if (count === 1) totalScore += 5;
+            }
+
+            // Prefer center area
+            const centerDist = Math.abs(r - 4) + Math.abs(c - 4);
+            totalScore += Math.max(0, 8 - centerDist);
+
+            return totalScore;
         }
 
         function showL4FuncModal(idx) {
@@ -1041,6 +1188,15 @@
                 }
             }, 1000);
 
+            // Show correct button set
+            if (l4Mode === 'solo') {
+                document.getElementById('l4-modal-btns-multi').classList.add('hidden');
+                document.getElementById('l4-modal-btns-solo').classList.remove('hidden');
+            } else {
+                document.getElementById('l4-modal-btns-multi').classList.remove('hidden');
+                document.getElementById('l4-modal-btns-solo').classList.add('hidden');
+            }
+
             l4ModalCell = idx;
             modal.classList.remove('hidden');
         }
@@ -1066,8 +1222,9 @@
             startL4Timer();
 
             if (!checkL4Win()) {
-                // Always advance turn (including timeout/skip)
-                l4CurrentTeam = l4CurrentTeam === 'blue' ? 'red' : 'blue';
+                if (l4Mode === 'solo' && (team === 'blue' || team === null)) {
+                    setTimeout(computerL4Move, 400);
+                }
             }
         }
 
