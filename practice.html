@@ -363,7 +363,8 @@
                             <h4 id="l5-hint" class="text-2xl font-black text-indigo-900">Bắc Kinh</h4>
                         </div>
 
-                        <div id="l5-slots-container" class="flex flex-wrap items-center justify-center gap-4 mb-10 w-full max-w-md">
+                        <div id="l5-slots-container"
+                            class="flex flex-wrap items-center justify-center gap-4 mb-10 w-full max-w-md">
                             <!-- Slots injected here -->
                         </div>
 
@@ -473,7 +474,14 @@
                         <div class="flex justify-between items-center mb-4">
                             <span id="l8-index" class="text-xs font-black uppercase tracking-widest text-cyan-600">Câu
                                 1</span>
-                            <span id="l8-timer" class="text-sm font-semibold text-cyan-700">Chờ 5 giây...</span>
+                            <div
+                                class="flex items-center gap-2 bg-cyan-100/50 border border-cyan-200 px-3 py-1.5 rounded-xl shadow-sm">
+                                <span class="text-base text-cyan-600">⏱</span>
+                                <span id="l8-timer-text"
+                                    class="font-black text-lg text-cyan-800 tabular-nums min-w-[1.25rem] text-center">5</span>
+                                <span id="l8-timer-label"
+                                    class="text-cyan-600 text-xs font-bold uppercase tracking-widest">GIÂY</span>
+                            </div>
                         </div>
                         <div id="l8-sentence"
                             class="hanzi text-3xl sm:text-4xl leading-relaxed text-center text-slate-800 min-h-[140px] flex items-center justify-center">
@@ -581,7 +589,7 @@
         let l7CurrentSentence = [];
         let l7TargetLength = 0;
         let l8Progress = 0;
-        let l8RevealTimer = null;
+        let l8Interval = null;
         let l9Progress = 0;
         let l9QuestionIndex = 0;
         let l9Countdown = null;
@@ -598,9 +606,9 @@
         let l9Data = [];
 
         function clearL8Timer() {
-            if (l8RevealTimer) {
-                clearTimeout(l8RevealTimer);
-                l8RevealTimer = null;
+            if (l8Interval) {
+                clearInterval(l8Interval);
+                l8Interval = null;
             }
         }
 
@@ -1117,14 +1125,14 @@
 
             const slotsContainer = document.getElementById('l5-slots-container');
             slotsContainer.innerHTML = '';
-            
+
             for (let i = 0; i < data.chars.length; i++) {
                 const slot = document.createElement('div');
                 slot.id = `l5-slot-${i}`;
                 slot.className = "flex-1 aspect-square bg-gray-50 border-4 border-dashed border-gray-200 rounded-2xl flex items-center justify-center text-4xl font-bold text-gray-400 hanzi min-w-[3.5rem] max-w-[5rem]";
                 slot.innerText = i + 1;
                 slotsContainer.appendChild(slot);
-                
+
                 if (i < data.chars.length - 1) {
                     const plus = document.createElement('span');
                     plus.className = "text-3xl font-bold text-gray-300";
@@ -1154,12 +1162,12 @@
                     if (l5CurrentSelections.length < data.chars.length) {
                         const currentSlotIdx = l5CurrentSelections.length;
                         l5CurrentSelections.push(char);
-                        
+
                         const slot = document.getElementById(`l5-slot-${currentSlotIdx}`);
                         slot.innerText = char;
                         slot.classList.remove('text-gray-400', 'border-gray-200');
                         slot.classList.add('text-indigo-600', 'border-indigo-400', 'bg-indigo-50');
-                        
+
                         btn.disabled = true;
                         btn.classList.add('opacity-50');
 
@@ -1174,7 +1182,7 @@
                             }
 
                             if (isCorrect) {
-                                for(let j = 0; j < data.chars.length; j++) {
+                                for (let j = 0; j < data.chars.length; j++) {
                                     document.getElementById(`l5-slot-${j}`).classList.add('correct');
                                 }
                                 setTimeout(() => {
@@ -1187,7 +1195,7 @@
                                     }
                                 }, 800);
                             } else {
-                                for(let j = 0; j < data.chars.length; j++) {
+                                for (let j = 0; j < data.chars.length; j++) {
                                     document.getElementById(`l5-slot-${j}`).classList.add('incorrect');
                                 }
                                 setTimeout(() => {
@@ -1380,7 +1388,12 @@
             document.getElementById('l8-score').innerText = `Tiến độ: ${l8Progress}/${l8Data.length}`;
             document.getElementById('l8-index').innerText = `Câu ${l8Progress + 1}`;
             document.getElementById('l8-sentence').innerText = data.chinese;
-            document.getElementById('l8-timer').innerText = 'Chờ 5 giây...';
+
+            const timerText = document.getElementById('l8-timer-text');
+            const timerLabel = document.getElementById('l8-timer-label');
+            let timeLeft = 5;
+            timerText.innerText = timeLeft;
+            timerLabel.innerText = 'GIÂY';
 
             const revealBtn = document.getElementById('l8-reveal-btn');
             const answerBox = document.getElementById('l8-answer');
@@ -1393,16 +1406,22 @@
             finishBtn.classList.add('hidden');
             document.getElementById('l8-meaning').innerText = data.vietnamese;
 
-            l8RevealTimer = setTimeout(() => {
-                document.getElementById('l8-timer').innerText = 'Có thể xem đáp án';
-                revealBtn.classList.remove('hidden');
-                l8RevealTimer = null;
-            }, 5000);
+            l8Interval = setInterval(() => {
+                timeLeft--;
+                if (timeLeft > 0) {
+                    timerText.innerText = timeLeft;
+                } else {
+                    timerText.innerText = '0';
+                    timerLabel.innerText = 'XONG';
+                    revealBtn.classList.remove('hidden');
+                    clearL8Timer();
+                }
+            }, 1000);
 
             revealBtn.onclick = () => {
                 answerBox.classList.remove('hidden');
                 revealBtn.classList.add('hidden');
-                document.getElementById('l8-timer').innerText = 'Đã hiện nghĩa';
+                timerLabel.innerText = 'ĐÁP ÁN';
 
                 if (l8Progress === l8Data.length - 1) {
                     document.getElementById('l8-score').innerText = `Tiến độ: ${l8Data.length}/${l8Data.length}`;
