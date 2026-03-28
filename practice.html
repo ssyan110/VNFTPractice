@@ -74,26 +74,63 @@
             position: relative;
             line-height: 1;
         }
-        .cell-9x9:hover { opacity: 0.85; transform: scale(1.05); z-index: 2; }
-        .cell-normal { background: #fff; color: #1e293b; }
-        .cell-func { color: #fff; font-size: 1.2rem; }
-        .cell-func-read { background: linear-gradient(135deg, #fbbf24, #d97706); }
-        .cell-func-make { background: linear-gradient(135deg, #a78bfa, #7c3aed); }
-        .cell-9x9.team-blue { background: #3b82f6 !important; color: #fff !important; }
-        .cell-9x9.team-red { background: #ef4444 !important; color: #fff !important; }
+
+        .cell-9x9:hover {
+            opacity: 0.85;
+            transform: scale(1.05);
+            z-index: 2;
+        }
+
+        .cell-normal {
+            background: #fff;
+            color: #1e293b;
+        }
+
+        .cell-func {
+            color: #fff;
+            font-size: 1.2rem;
+        }
+
+        .cell-func-read {
+            background: linear-gradient(135deg, #fbbf24, #d97706);
+        }
+
+        .cell-func-make {
+            background: linear-gradient(135deg, #a78bfa, #7c3aed);
+        }
+
+        .cell-9x9.team-blue {
+            background: #3b82f6 !important;
+            color: #fff !important;
+        }
+
+        .cell-9x9.team-red {
+            background: #ef4444 !important;
+            color: #fff !important;
+        }
+
         .cell-9x9.win-cell {
             animation: winPulse 0.6s ease-in-out infinite alternate;
             box-shadow: 0 0 12px 4px rgba(250, 204, 21, 0.8);
             border: 2px solid #facc15 !important;
             z-index: 5;
         }
+
         @keyframes winPulse {
-            from { transform: scale(1); }
-            to { transform: scale(1.1); }
+            from {
+                transform: scale(1);
+            }
+
+            to {
+                transform: scale(1.1);
+            }
         }
 
         @media (max-width: 580px) {
-            .cell-9x9 { font-size: 1.3rem; border-radius: 4px; }
+            .cell-9x9 {
+                font-size: 1.3rem;
+                border-radius: 4px;
+            }
         }
     </style>
 </head>
@@ -216,27 +253,36 @@
                 <!-- Level 4: 9x9 Gomoku Board Game -->
                 <div id="screen-level-4" class="hidden">
                     <div class="flex justify-between items-center mb-3">
-                        <span class="bg-orange-100 text-orange-800 px-4 py-1.5 rounded-full text-xs font-bold uppercase tracking-widest">Trò chơi: Cờ 9x9</span>
-                        <button onclick="renderL4()" class="text-blue-600 hover:text-blue-800 text-sm font-bold flex items-center gap-1 transition-colors bg-blue-50 px-3 py-1 rounded-lg cursor-pointer">
+                        <span
+                            class="bg-orange-100 text-orange-800 px-4 py-1.5 rounded-full text-xs font-bold uppercase tracking-widest">Trò
+                            chơi: Cờ 9x9</span>
+                        <button onclick="renderL4()"
+                            class="text-blue-600 hover:text-blue-800 text-sm font-bold flex items-center gap-1 transition-colors bg-blue-50 px-3 py-1 rounded-lg cursor-pointer">
                             <span>🔄</span> Làm mới
                         </button>
                     </div>
                     <h3 class="text-2xl font-bold mb-1 text-center text-orange-900">Đại chiến 9x9</h3>
                     <p class="text-xs text-gray-500 mb-3 text-center italic leading-relaxed">
-                        Đọc đúng chữ để chiếm ô. <span class="font-bold">5 ô liên tiếp</span> (ngang / dọc / chéo) thắng. Đội Xanh đi trước.
+                        Đọc đúng chữ để chiếm ô. <span class="font-bold">5 ô liên tiếp</span> (ngang / dọc / chéo)
+                        thắng. Đội Xanh đi trước.
                     </p>
 
                     <!-- Timer -->
                     <div class="flex items-center justify-center mb-3 gap-3">
-                        <button id="l4-start-btn" onclick="startL4Game()" class="bg-orange-500 hover:bg-orange-600 text-white px-8 py-3 rounded-xl font-black text-lg cursor-pointer shadow-md transition-all">
+                        <button id="l4-start-btn" onclick="startL4Game()"
+                            class="bg-orange-500 hover:bg-orange-600 text-white px-8 py-3 rounded-xl font-black text-lg cursor-pointer shadow-md transition-all">
                             ▶ Bắt đầu
                         </button>
-                        <div id="l4-timer-box" class="hidden flex items-center gap-2 bg-gray-100 px-5 py-2.5 rounded-xl border border-gray-200">
+                        <div id="l4-timer-box"
+                            class="hidden flex items-center gap-2 bg-gray-100 px-5 py-2.5 rounded-xl border border-gray-200">
                             <span class="text-lg">⏱</span>
-                            <span id="l4-timer-text" class="font-black text-xl tabular-nums min-w-[2.5rem] text-center">20</span>
+                            <span id="l4-timer-text"
+                                class="font-black text-xl tabular-nums min-w-[2.5rem] text-center">20</span>
                             <span class="text-gray-400 text-sm font-bold">giây</span>
                         </div>
-                        <button id="l4-reset-btn" onclick="resetL4Timer()" class="hidden text-gray-500 hover:text-blue-600 text-sm font-bold bg-gray-100 px-3 py-2.5 rounded-xl border border-gray-200 cursor-pointer">↺ Reset</button>
+                        <button id="l4-reset-btn" onclick="resetL4Timer()"
+                            class="hidden text-gray-500 hover:text-blue-600 text-sm font-bold bg-gray-100 px-3 py-2.5 rounded-xl border border-gray-200 cursor-pointer">↺
+                            Reset</button>
                     </div>
 
                     <!-- Block warning -->
@@ -247,24 +293,36 @@
                         <span class="bg-violet-100 text-violet-700 px-2 py-1 rounded-lg font-bold">✏️ Đặt câu</span>
                     </div>
 
-                    <div id="l4-grid" class="grid grid-cols-9 gap-1 mx-auto mb-4 bg-gray-800 p-2 rounded-2xl shadow-inner border-2 border-gray-700" style="max-width: 630px;">
+                    <div id="l4-grid"
+                        class="grid grid-cols-9 gap-1 mx-auto mb-4 bg-gray-800 p-2 rounded-2xl shadow-inner border-2 border-gray-700"
+                        style="max-width: 630px;">
                     </div>
 
                     <!-- Winner banner -->
-                    <div id="l4-winner" class="hidden mb-3 text-center py-4 rounded-2xl font-black text-2xl animate-pulse shadow-lg"></div>
+                    <div id="l4-winner"
+                        class="hidden mb-3 text-center py-4 rounded-2xl font-black text-2xl animate-pulse shadow-lg">
+                    </div>
 
                     <!-- Function cell modal -->
-                    <div id="l4-modal" class="hidden fixed inset-0 bg-black/50 z-50 flex items-center justify-center p-4">
+                    <div id="l4-modal"
+                        class="hidden fixed inset-0 bg-black/50 z-50 flex items-center justify-center p-4">
                         <div class="bg-white rounded-3xl p-6 max-w-md w-full shadow-2xl text-center">
                             <div id="l4-modal-icon" class="text-5xl mb-2"></div>
                             <h4 id="l4-modal-title" class="text-xl font-bold mb-1"></h4>
                             <p id="l4-modal-desc" class="text-gray-500 mb-4 text-sm"></p>
-                            <div id="l4-modal-content" class="hanzi text-3xl font-bold text-gray-800 mb-3 leading-relaxed min-h-[3rem]"></div>
+                            <div id="l4-modal-content"
+                                class="hanzi text-3xl font-bold text-gray-800 mb-3 leading-relaxed min-h-[3rem]"></div>
                             <div id="l4-modal-timer" class="text-2xl font-black mb-4 tabular-nums"></div>
                             <div class="flex gap-3 justify-center">
-                                <button onclick="closeL4Modal('blue')" class="bg-blue-500 hover:bg-blue-600 text-white px-6 py-3 rounded-xl font-bold cursor-pointer text-lg">🔵 Đội Xanh</button>
-                                <button onclick="closeL4Modal('red')" class="bg-red-500 hover:bg-red-600 text-white px-6 py-3 rounded-xl font-bold cursor-pointer text-lg">🔴 Đội Đỏ</button>
-                                <button onclick="closeL4Modal(null)" class="bg-gray-300 hover:bg-gray-400 text-gray-700 px-4 py-3 rounded-xl font-bold cursor-pointer text-sm">Bỏ qua</button>
+                                <button onclick="closeL4Modal('blue')"
+                                    class="bg-blue-500 hover:bg-blue-600 text-white px-6 py-3 rounded-xl font-bold cursor-pointer text-lg">🔵
+                                    Đội Xanh</button>
+                                <button onclick="closeL4Modal('red')"
+                                    class="bg-red-500 hover:bg-red-600 text-white px-6 py-3 rounded-xl font-bold cursor-pointer text-lg">🔴
+                                    Đội Đỏ</button>
+                                <button onclick="closeL4Modal(null)"
+                                    class="bg-gray-300 hover:bg-gray-400 text-gray-700 px-4 py-3 rounded-xl font-bold cursor-pointer text-sm">Bỏ
+                                    qua</button>
                             </div>
                         </div>
                     </div>
@@ -281,7 +339,9 @@
                         </div>
                     </div>
 
-                    <button onclick="jumpTo(5)" class="w-full mt-5 bg-blue-600 hover:bg-blue-700 text-white py-5 rounded-2xl font-bold text-lg shadow-xl cursor-pointer">Chuyển sang: Ghép từ</button>
+                    <button onclick="jumpTo(5)"
+                        class="w-full mt-5 bg-blue-600 hover:bg-blue-700 text-white py-5 rounded-2xl font-bold text-lg shadow-xl cursor-pointer">Chuyển
+                        sang: Ghép từ</button>
                 </div>
 
                 <!-- Level 5: Ghép từ (Word Formation) -->
@@ -293,7 +353,7 @@
                         <span id="l5-score" class="text-gray-400 text-sm font-semibold">Tiến độ: 0/5</span>
                     </div>
                     <h3 class="text-2xl font-bold mb-1">Mảnh ghép song sinh</h3>
-                    <p class="text-gray-500 mb-8 italic">Hãy ghép 2 chữ Hán với nhau để tạo thành một từ có nghĩa theo
+                    <p class="text-gray-500 mb-8 italic">Hãy ghép chữ Hán với nhau để tạo thành một từ có nghĩa theo
                         yêu cầu.</p>
 
                     <div id="l5-content" class="flex flex-col items-center">
@@ -303,17 +363,11 @@
                             <h4 id="l5-hint" class="text-2xl font-black text-indigo-900">Bắc Kinh</h4>
                         </div>
 
-                        <div class="flex items-center gap-4 mb-10 w-full max-w-sm">
-                            <div id="l5-slot-1"
-                                class="flex-1 aspect-square bg-gray-50 border-4 border-dashed border-gray-200 rounded-2xl flex items-center justify-center text-4xl font-bold text-gray-400 hanzi">
-                                1</div>
-                            <span class="text-3xl font-bold text-gray-300">+</span>
-                            <div id="l5-slot-2"
-                                class="flex-1 aspect-square bg-gray-50 border-4 border-dashed border-gray-200 rounded-2xl flex items-center justify-center text-4xl font-bold text-gray-400 hanzi">
-                                2</div>
+                        <div id="l5-slots-container" class="flex flex-wrap items-center justify-center gap-4 mb-10 w-full max-w-md">
+                            <!-- Slots injected here -->
                         </div>
 
-                        <div id="l5-options" class="grid grid-cols-4 gap-3 w-full max-w-md">
+                        <div id="l5-options" class="flex flex-wrap justify-center gap-3 w-full max-w-md">
                             <!-- Chars injected here -->
                         </div>
                     </div>
@@ -825,7 +879,7 @@
             }
 
             let funcTypes = [];
-            for (let i = 0; i < 5; i++) L4_FUNC_TYPES.forEach(ft => funcTypes.push({...ft}));
+            for (let i = 0; i < 5; i++) L4_FUNC_TYPES.forEach(ft => funcTypes.push({ ...ft }));
             funcTypes = funcTypes.sort(() => Math.random() - 0.5);
 
             const board = [];
@@ -1011,7 +1065,7 @@
 
         function checkL4Win() {
             const SIZE = 9, WIN = 5;
-            const dirs = [[0,1],[1,0],[1,1],[1,-1]];
+            const dirs = [[0, 1], [1, 0], [1, 1], [1, -1]];
             for (const team of ['blue', 'red']) {
                 for (let r = 0; r < SIZE; r++) {
                     for (let c = 0; c < SIZE; c++) {
@@ -1059,64 +1113,87 @@
             const data = l5Data[l5Progress];
             document.getElementById('l5-hint').innerText = data.hint;
 
-            const slot1 = document.getElementById('l5-slot-1');
-            const slot2 = document.getElementById('l5-slot-2');
-            slot1.innerText = '1'; slot1.classList.remove('text-indigo-600', 'border-indigo-400', 'bg-indigo-50', 'correct', 'incorrect'); slot1.classList.add('text-gray-400', 'border-gray-200');
-            slot2.innerText = '2'; slot2.classList.remove('text-indigo-600', 'border-indigo-400', 'bg-indigo-50', 'correct', 'incorrect'); slot2.classList.add('text-gray-400', 'border-gray-200');
-
             l5CurrentSelections = [];
+
+            const slotsContainer = document.getElementById('l5-slots-container');
+            slotsContainer.innerHTML = '';
+            
+            for (let i = 0; i < data.chars.length; i++) {
+                const slot = document.createElement('div');
+                slot.id = `l5-slot-${i}`;
+                slot.className = "flex-1 aspect-square bg-gray-50 border-4 border-dashed border-gray-200 rounded-2xl flex items-center justify-center text-4xl font-bold text-gray-400 hanzi min-w-[3.5rem] max-w-[5rem]";
+                slot.innerText = i + 1;
+                slotsContainer.appendChild(slot);
+                
+                if (i < data.chars.length - 1) {
+                    const plus = document.createElement('span');
+                    plus.className = "text-3xl font-bold text-gray-300";
+                    plus.innerText = "+";
+                    slotsContainer.appendChild(plus);
+                }
+            }
 
             const optionsContainer = document.getElementById('l5-options');
             optionsContainer.innerHTML = '';
 
-            // Generate pool: 2 targets + 6 random from 36 words
+            // Generate pool: targets + random from 36 words
             let pool = [...data.chars];
+            const targetCount = Math.max(8, data.chars.length + 4);
             const shuffled36 = [...all36Words].sort(() => Math.random() - 0.5);
             for (let char of shuffled36) {
-                if (pool.length >= 8) break;
+                if (pool.length >= targetCount) break;
                 if (!pool.includes(char)) pool.push(char);
             }
             pool = pool.sort(() => Math.random() - 0.5);
 
             pool.forEach((char, idx) => {
                 const btn = document.createElement('button');
-                btn.className = "hanzi h-14 bg-white border-2 border-gray-200 shadow-sm rounded-xl font-bold flex items-center justify-center hover:border-indigo-300 hover:bg-indigo-50 transition-all btn-option";
+                btn.className = "hanzi h-14 min-w-[3.5rem] px-2 bg-white border-2 border-gray-200 shadow-sm rounded-xl font-bold flex items-center justify-center hover:border-indigo-300 hover:bg-indigo-50 transition-all btn-option";
                 btn.innerText = char;
                 btn.onclick = () => {
-                    if (l5CurrentSelections.length === 0) {
+                    if (l5CurrentSelections.length < data.chars.length) {
+                        const currentSlotIdx = l5CurrentSelections.length;
                         l5CurrentSelections.push(char);
-                        slot1.innerText = char;
-                        slot1.classList.remove('text-gray-400', 'border-gray-200');
-                        slot1.classList.add('text-indigo-600', 'border-indigo-400', 'bg-indigo-50');
-                        btn.disabled = true;
-                        btn.classList.add('opacity-50');
-                    } else if (l5CurrentSelections.length === 1) {
-                        l5CurrentSelections.push(char);
-                        slot2.innerText = char;
-                        slot2.classList.remove('text-gray-400', 'border-gray-200');
-                        slot2.classList.add('text-indigo-600', 'border-indigo-400', 'bg-indigo-50');
+                        
+                        const slot = document.getElementById(`l5-slot-${currentSlotIdx}`);
+                        slot.innerText = char;
+                        slot.classList.remove('text-gray-400', 'border-gray-200');
+                        slot.classList.add('text-indigo-600', 'border-indigo-400', 'bg-indigo-50');
+                        
                         btn.disabled = true;
                         btn.classList.add('opacity-50');
 
-                        // Check answer
-                        if (l5CurrentSelections[0] === data.chars[0] && l5CurrentSelections[1] === data.chars[1]) {
-                            slot1.classList.add('correct');
-                            slot2.classList.add('correct');
-                            setTimeout(() => {
-                                l5Progress++;
-                                if (l5Progress === l5Data.length) {
-                                    document.getElementById('btn-to-l6').classList.remove('hidden');
-                                    document.getElementById('l5-score').innerText = `Tiến độ: ${l5Progress}/${l5Data.length}`;
-                                } else {
-                                    renderL5();
+                        // Check answer if all slots are filled
+                        if (l5CurrentSelections.length === data.chars.length) {
+                            let isCorrect = true;
+                            for (let j = 0; j < data.chars.length; j++) {
+                                if (l5CurrentSelections[j] !== data.chars[j]) {
+                                    isCorrect = false;
+                                    break;
                                 }
-                            }, 800);
-                        } else {
-                            slot1.classList.add('incorrect');
-                            slot2.classList.add('incorrect');
-                            setTimeout(() => {
-                                renderL5(); // reset
-                            }, 800);
+                            }
+
+                            if (isCorrect) {
+                                for(let j = 0; j < data.chars.length; j++) {
+                                    document.getElementById(`l5-slot-${j}`).classList.add('correct');
+                                }
+                                setTimeout(() => {
+                                    l5Progress++;
+                                    if (l5Progress === l5Data.length) {
+                                        document.getElementById('btn-to-l6').classList.remove('hidden');
+                                        document.getElementById('l5-score').innerText = `Tiến độ: ${l5Progress}/${l5Data.length}`;
+                                    } else {
+                                        renderL5();
+                                    }
+                                }, 800);
+                            } else {
+                                for(let j = 0; j < data.chars.length; j++) {
+                                    document.getElementById(`l5-slot-${j}`).classList.add('incorrect');
+                                }
+                                setTimeout(() => {
+                                    renderL5(); // reset
+                                }, 800);
+                            }
                         }
                     }
                 };
