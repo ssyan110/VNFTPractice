@@ -71,7 +71,13 @@ const charDatabase = [
     { char: '那', pinyin: 'nà', meaning: 'KIA, ĐÓ', radical: '阝 (yì) – bộ Ấp' },
     { char: '哪', pinyin: 'nǎ', meaning: 'NÀO, ĐÂU', radical: '口 (kǒu) – bộ Khẩu' },
     { char: '十', pinyin: 'shí', meaning: 'MƯỜI', radical: '十 (shí) – bộ Thập' },
-    { char: '昨', pinyin: 'zuó', meaning: 'HÔM QUA', radical: '日 (rì) – bộ Nhật' }
+    { char: '昨', pinyin: 'zuó', meaning: 'HÔM QUA', radical: '日 (rì) – bộ Nhật' },
+    { char: '谢', pinyin: 'xiè', hanViet: 'tạ', meaning: 'CẢM ƠN, XIN LỖI, TỪ CHỐI, TÀN', radical: '讠 (yán) – bộ Ngôn', characterType: 'Hình thanh' },
+    { char: '人', pinyin: 'rén', hanViet: 'nhân', meaning: 'NGƯỜI', radical: '人 (rén) – bộ Nhân', characterType: 'Tượng hình' },
+    { char: '问', pinyin: 'wèn', hanViet: 'vấn', meaning: 'HỎI', radical: '门 (mén) – bộ Môn', characterType: 'Hình thanh' },
+    { char: '叫', pinyin: 'jiào', hanViet: 'khiếu', meaning: 'GỌI, KÊU', radical: '口 (kǒu) – bộ Khẩu', characterType: 'Hình thanh' },
+    { char: '门', pinyin: 'mén', hanViet: 'môn', meaning: 'CỬA', radical: '门 (mén) – bộ Môn', characterType: 'Tượng hình' },
+    { char: '们', pinyin: 'men', hanViet: 'môn', meaning: 'TRỢ TỪ SỐ NHIỀU DÙNG SAU ĐẠI TỪ HOẶC TỪ CHỈ NGƯỜI', radical: '亻 (rén) – bộ Nhân đứng', characterType: 'Hình thanh' }
 ];
 
 // Keep this list in sync with characters_learned.md so game 2 only uses
@@ -83,7 +89,8 @@ const learnedCharacters = [
     '银', '行', '二', '三', '四', '今', '关', '星', '期', '几', '我',
     '工', '作', '日', '是', '这', '进', '老', '师', '身', '体', '上',
     '下', '月', '生', '了', '木', '休', '亡', '也', '又', '子', '小',
-    '回', '校', '那', '哪', '十', '昨'
+    '回', '校', '那', '哪', '十', '昨', '谢', '人', '问', '叫', '门',
+    '们'
 ];
 const learnedCharacterSet = new Set(learnedCharacters);
 
@@ -201,7 +208,16 @@ const sentenceDatabase = [
     { vietnamese: "Hôm nay tôi đến trường gặp giáo viên.", answer: ['我', '今', '天', '去', '学', '校', '见', '老', '师'], chars: ['我', '今', '天', '去', '学', '校', '见', '老', '师'], pinyin: "Wǒ jīn tiān qù xué xiào jiàn lǎo shī." },
     { vietnamese: "Giáo viên bảo tôi đến trường.", answer: ['老', '师', '叫', '我', '去', '学', '校'], chars: ['老', '师', '叫', '我', '去', '学', '校'], pinyin: "Lǎo shī jiào wǒ qù xué xiào." },
     { vietnamese: "Thầy Bạch thứ năm vào trường không?", answer: ['白', '老', '师', '星', '期', '四', '进', '学', '校', '吗'], chars: ['白', '老', '师', '星', '期', '四', '进', '学', '校', '吗'], pinyin: "Bái lǎo shī xīng qī sì jìn xué xiào ma?" },
-    { vietnamese: "Hôm nay tôi sức khỏe không tốt, không đi làm.", answer: ['我', '今', '天', '身', '体', '不', '好', '不', '去', '工', '作'], chars: ['我', '今', '天', '身', '体', '不', '好', '不', '去', '工', '作'], pinyin: "Wǒ jīn tiān shēn tǐ bù hǎo, bú qù gōng zuò." }
+    { vietnamese: "Hôm nay tôi sức khỏe không tốt, không đi làm.", answer: ['我', '今', '天', '身', '体', '不', '好', '不', '去', '工', '作'], chars: ['我', '今', '天', '身', '体', '不', '好', '不', '去', '工', '作'], pinyin: "Wǒ jīn tiān shēn tǐ bù hǎo, bú qù gōng zuò." },
+    { vietnamese: "Tôi đi vào trường gặp giáo viên.", answer: ['我', '进', '去', '学', '校', '见', '老', '师'], chars: ['我', '进', '去', '学', '校', '见', '老', '师'], pinyin: "Wǒ jìn qù xué xiào jiàn lǎo shī." },
+    { vietnamese: "Mẹ tôi hỏi giáo viên sức khỏe tốt không?", answer: ['我', '妈', '妈', '问', '老', '师', '身', '体', '好', '吗'], chars: ['我', '妈', '妈', '问', '老', '师', '身', '体', '好', '吗'], pinyin: "Wǒ mā ma wèn lǎo shī shēn tǐ hǎo ma?" },
+    { vietnamese: "Đây là bố tôi, sức khỏe ông ấy không được tốt lắm.", answer: ['这', '是', '我', '爸', '爸', '他', '身', '体', '不', '太', '好'], chars: ['这', '是', '我', '爸', '爸', '他', '身', '体', '不', '太', '好'], pinyin: "Zhè shì wǒ bà ba, tā shēn tǐ bú tài hǎo." },
+    { vietnamese: "Cảm ơn bạn, hôm nay tôi không đi làm.", answer: ['谢', '谢', '你', '我', '今', '天', '不', '去', '工', '作'], chars: ['谢', '谢', '你', '我', '今', '天', '不', '去', '工', '作'], pinyin: "Xiè xie nǐ, wǒ jīn tiān bú qù gōng zuò." },
+    { vietnamese: "Giáo viên bảo tôi đến trường, vậy giáo viên bảo bạn đến trường không?", answer: ['老', '师', '叫', '我', '去', '学', '校', '那', '老', '师', '叫', '你', '去', '学', '校', '吗'], chars: ['老', '师', '叫', '我', '去', '学', '校', '那', '老', '师', '叫', '你', '去', '学', '校', '吗'], pinyin: "Lǎo shī jiào wǒ qù xué xiào, nà lǎo shī jiào nǐ qù xué xiào ma?" },
+    { vietnamese: "Bạn thứ mấy vào ngân hàng làm việc?", answer: ['你', '星', '期', '几', '进', '银', '行', '工', '作'], chars: ['你', '星', '期', '几', '进', '银', '行', '工', '作'], pinyin: "Nǐ xīng qī jǐ jìn yín háng gōng zuò?" },
+    { vietnamese: "Thầy Bạch thứ năm vào trường không?", answer: ['白', '老', '师', '星', '期', '四', '进', '学', '校', '吗'], chars: ['白', '老', '师', '星', '期', '四', '进', '学', '校', '吗'], pinyin: "Bái lǎo shī xīng qī sì jìn xué xiào ma?" },
+    { vietnamese: "Bố bảo tôi đi Bắc Kinh học tiếng Hán.", answer: ['爸', '爸', '叫', '我', '去', '北', '京', '学', '汉', '语'], chars: ['爸', '爸', '叫', '我', '去', '北', '京', '学', '汉', '语'], pinyin: "Bà ba jiào wǒ qù běi jīng xué hàn yǔ." },
+    { vietnamese: "Bố hỏi tôi ngày mai đi đâu làm việc?", answer: ['爸', '爸', '问', '我', '明', '天', '去', '哪', '工', '作'], chars: ['爸', '爸', '问', '我', '明', '天', '去', '哪', '工', '作'], pinyin: "Bà ba wèn wǒ míng tiān qù nǎ gōng zuò?" }
 ];
 
 // Grammar/Context Database (For Fill In The Blanks)
@@ -288,7 +304,16 @@ const sentenceRevealDatabase = [
     { chinese: '老师叫我明天去学校', vietnamese: 'Giáo viên bảo tôi ngày mai đến trường.' },
     { chinese: '白老师星期四进学校吗？', vietnamese: 'Thầy Bạch thứ năm vào trường không?' },
     { chinese: '我今天身体不好，不去工作', vietnamese: 'Hôm nay sức khỏe tôi không tốt, không đi làm.' },
-    { chinese: '下星期五是我生日，我不去学汉语', vietnamese: 'Thứ sáu tuần sau là sinh nhật tôi, tôi không đi học tiếng Hán.' }
+    { chinese: '下星期五是我生日，我不去学汉语', vietnamese: 'Thứ sáu tuần sau là sinh nhật tôi, tôi không đi học tiếng Hán.' },
+    { chinese: '我进去学校见老师。', vietnamese: 'Tôi đi vào trường gặp giáo viên.' },
+    { chinese: '我妈妈问老师身体好吗？', vietnamese: 'Mẹ tôi hỏi giáo viên sức khỏe tốt không?' },
+    { chinese: '这是我爸爸，他身体不太好。', vietnamese: 'Đây là bố tôi, sức khỏe ông ấy không được tốt lắm.' },
+    { chinese: '谢谢你，我今天不去工作。', vietnamese: 'Cảm ơn bạn, hôm nay tôi không đi làm.' },
+    { chinese: '老师叫我去学校，那老师叫你去学校吗？', vietnamese: 'Giáo viên bảo tôi đến trường, vậy giáo viên bảo bạn đến trường không?' },
+    { chinese: '你星期几进银行工作？', vietnamese: 'Bạn thứ mấy vào ngân hàng làm việc?' },
+    { chinese: '白老师星期四进学校吗？', vietnamese: 'Thầy Bạch thứ năm vào trường không?' },
+    { chinese: '爸爸叫我去北京学汉语。', vietnamese: 'Bố bảo tôi đi Bắc Kinh học tiếng Hán.' },
+    { chinese: '爸爸问我明天去哪工作？', vietnamese: 'Bố hỏi tôi ngày mai đi đâu làm việc?' }
 ];
 
 const animalCoverDatabase = [

@@ -1,6 +1,6 @@
 # Learned Characters
 
-Total: 72
+Total: 78
 
 | # | Character | Pinyin | Meaning |
 |---|-----------|--------|---------|
@@ -76,3 +76,9 @@ Total: 72
 | 70 | 哪 | nǎ | nào, đâu |
 | 71 | 十 | shí | mười |
 | 72 | 昨 | zuó | hôm qua |
+| 73 | 谢 | xiè | cảm ơn, xin lỗi, từ chối, tàn |
+| 74 | 人 | rén | người |
+| 75 | 问 | wèn | hỏi |
+| 76 | 叫 | jiào | gọi, kêu |
+| 77 | 门 | mén | cửa |
+| 78 | 们 | men | trợ từ số nhiều dùng sau đại từ hoặc từ chỉ người |
