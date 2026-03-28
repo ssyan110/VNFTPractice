@@ -916,7 +916,18 @@
         }
 
         function generateL4Board() {
-            const TOTAL = 81, FUNC_COUNT = 10, CHAR_COUNT = TOTAL - FUNC_COUNT;
+            const TOTAL = 81;
+
+            // Solo mode: no function cells, all characters
+            if (l4Mode === 'solo') {
+                let charPool = [...learnedCharacters].sort(() => Math.random() - 0.5);
+                while (charPool.length < TOTAL) charPool = charPool.concat([...learnedCharacters].sort(() => Math.random() - 0.5));
+                charPool = charPool.slice(0, TOTAL);
+                return charPool.map(char => ({ type: 'char', char, team: null }));
+            }
+
+            // Multi mode: 71 chars + 10 function cells
+            const FUNC_COUNT = 10, CHAR_COUNT = TOTAL - FUNC_COUNT;
             let charPool = [...learnedCharacters].sort(() => Math.random() - 0.5);
             while (charPool.length < CHAR_COUNT) charPool = charPool.concat([...learnedCharacters].sort(() => Math.random() - 0.5));
             charPool = charPool.slice(0, CHAR_COUNT);
@@ -1034,13 +1045,9 @@
             const cell = l4Board[idx];
             const btn = document.getElementById(`l4-cell-${idx}`);
 
-            // Solo mode: player is always blue
+            // Solo mode: click-cycle same as multi, then computer plays
             if (l4Mode === 'solo') {
-                if (cell.team !== null) return;
-                if (cell.type === 'func') {
-                    showL4FuncModal(idx);
-                    return;
-                }
+                if (cell.team !== null) return; // already claimed
                 cell.team = 'blue';
                 btn.classList.add('team-blue');
                 updateL4Scores();
