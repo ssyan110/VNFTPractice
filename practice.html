@@ -325,7 +325,12 @@
 
                     <!-- Winner banner -->
                     <div id="l4-winner"
-                        class="hidden mb-3 text-center py-4 rounded-2xl font-black text-2xl animate-pulse shadow-lg">
+                        class="hidden mb-3 text-center py-4 rounded-2xl font-black shadow-lg">
+                        <div id="l4-winner-text" class="text-2xl mb-3"></div>
+                        <div class="flex gap-3 justify-center">
+                            <button onclick="confirmL4Win()" class="bg-green-500 hover:bg-green-600 text-white px-6 py-2 rounded-xl font-bold cursor-pointer text-base">✓ Xác nhận</button>
+                            <button onclick="dismissL4Win()" class="bg-gray-300 hover:bg-gray-400 text-gray-700 px-6 py-2 rounded-xl font-bold cursor-pointer text-base">Tiếp tục chơi</button>
+                        </div>
                     </div>
 
                     <!-- Function cell modal -->
@@ -1238,6 +1243,10 @@
         function checkL4Win() {
             const SIZE = 9, WIN = 5;
             const dirs = [[0, 1], [1, 0], [1, 1], [1, -1]];
+
+            // Clear previous win highlights
+            for (let i = 0; i < 81; i++) document.getElementById(`l4-cell-${i}`).classList.remove('win-cell');
+
             for (const team of ['blue', 'red']) {
                 for (let r = 0; r < SIZE; r++) {
                     for (let c = 0; c < SIZE; c++) {
@@ -1252,29 +1261,42 @@
                                 cells.push(idx);
                             }
                             if (valid && cells.length === WIN) {
-                                highlightL4Win(cells, team);
+                                showL4WinBanner(cells, team);
                                 return true;
                             }
                         }
                     }
                 }
             }
+            // No win found — hide banner if showing
+            document.getElementById('l4-winner').classList.add('hidden');
             return false;
         }
 
-        function highlightL4Win(cells, team) {
-            l4GameOver = true;
-            clearL4Timer();
+        function showL4WinBanner(cells, team) {
+            // Highlight cells but do NOT lock the board
             cells.forEach(idx => document.getElementById(`l4-cell-${idx}`).classList.add('win-cell'));
             const banner = document.getElementById('l4-winner');
+            const text = document.getElementById('l4-winner-text');
             banner.classList.remove('hidden');
             if (team === 'blue') {
-                banner.className = 'mb-3 text-center py-4 rounded-2xl font-black text-2xl animate-pulse shadow-lg bg-blue-100 text-blue-800 border-2 border-blue-300';
-                banner.innerText = '🏆 Đội Xanh chiến thắng!';
+                banner.className = 'mb-3 text-center py-4 rounded-2xl font-black shadow-lg bg-blue-100 text-blue-800 border-2 border-blue-300';
+                text.innerText = '🏆 Đội Xanh chiến thắng!';
             } else {
-                banner.className = 'mb-3 text-center py-4 rounded-2xl font-black text-2xl animate-pulse shadow-lg bg-red-100 text-red-800 border-2 border-red-300';
-                banner.innerText = '🏆 Đội Đỏ chiến thắng!';
+                banner.className = 'mb-3 text-center py-4 rounded-2xl font-black shadow-lg bg-red-100 text-red-800 border-2 border-red-300';
+                text.innerText = '🏆 Đội Đỏ chiến thắng!';
             }
+        }
+
+        function confirmL4Win() {
+            l4GameOver = true;
+            clearL4Timer();
+        }
+
+        function dismissL4Win() {
+            // Hide banner, clear highlights, keep playing
+            document.getElementById('l4-winner').classList.add('hidden');
+            for (let i = 0; i < 81; i++) document.getElementById(`l4-cell-${i}`).classList.remove('win-cell');
         }
 
         // --- LEVEL 5 RENDER ---
