@@ -77,7 +77,12 @@ const charDatabase = [
     { char: '问', pinyin: 'wèn', hanViet: 'vấn', meaning: 'HỎI', radical: '门 (mén) – bộ Môn', characterType: 'Hình thanh' },
     { char: '叫', pinyin: 'jiào', hanViet: 'khiếu', meaning: 'GỌI, KÊU', radical: '口 (kǒu) – bộ Khẩu', characterType: 'Hình thanh' },
     { char: '门', pinyin: 'mén', hanViet: 'môn', meaning: 'CỬA', radical: '门 (mén) – bộ Môn', characterType: 'Tượng hình' },
-    { char: '们', pinyin: 'men', hanViet: 'môn', meaning: 'TRỢ TỪ SỐ NHIỀU DÙNG SAU ĐẠI TỪ HOẶC TỪ CHỈ NGƯỜI', radical: '亻 (rén) – bộ Nhân đứng', characterType: 'Hình thanh' }
+    { char: '们', pinyin: 'men', hanViet: 'môn', meaning: 'TRỢ TỪ SỐ NHIỀU DÙNG SAU ĐẠI TỪ HOẶC TỪ CHỈ NGƯỜI', radical: '亻 (rén) – bộ Nhân đứng', characterType: 'Hình thanh' },
+    { char: '名', pinyin: 'míng', meaning: 'TÊN, TÊN GỌI', radical: '夕 (xī) – bộ Tịch' },
+    { char: '字', pinyin: 'zì', meaning: 'CHỮ, VĂN TỰ', radical: '子 (zǐ) – bộ Tử' },
+    { char: '国', pinyin: 'guó', meaning: 'NƯỚC, QUỐC GIA', radical: '囗 (wéi) – bộ Vi' },
+    { char: '中', pinyin: 'zhōng', meaning: 'Ở GIỮA, TRUNG TÂM', radical: '丨 (gǔn) – bộ Cổn' },
+    { char: '文', pinyin: 'wén', meaning: 'VĂN, CHỮ VIẾT', radical: '文 (wén) – bộ Văn' }
 ];
 
 // Keep this list in sync with characters_learned.md so game 2 only uses
@@ -90,7 +95,7 @@ const learnedCharacters = [
     '工', '作', '日', '是', '这', '进', '老', '师', '身', '体', '上',
     '下', '月', '生', '了', '木', '休', '亡', '也', '又', '子', '小',
     '回', '校', '那', '哪', '十', '昨', '谢', '人', '问', '叫', '门',
-    '们'
+    '们', '名', '字', '国', '中', '文'
 ];
 const learnedCharacterSet = new Set(learnedCharacters);
 
@@ -140,7 +145,14 @@ const vocabDatabase = [
     { word: '三天', chars: ['三', '天'], pinyin: 'sān tiān', meaning: 'Ba ngày' },
     { word: '进去', chars: ['进', '去'], pinyin: 'jìn qù', meaning: 'Đi vào' },
     { word: '老师', chars: ['老', '师'], pinyin: 'lǎo shī', meaning: 'Giáo viên' },
-    { word: '身体', chars: ['身', '体'], pinyin: 'shēn tǐ', meaning: 'Cơ thể / Sức khỏe' }
+    { word: '身体', chars: ['身', '体'], pinyin: 'shēn tǐ', meaning: 'Cơ thể / Sức khỏe' },
+    { word: '名字', chars: ['名', '字'], pinyin: 'míng zì', meaning: 'Tên' },
+    { word: '中国', chars: ['中', '国'], pinyin: 'zhōng guó', meaning: 'Trung Quốc' },
+    { word: '中文', chars: ['中', '文'], pinyin: 'zhōng wén', meaning: 'Tiếng Trung' },
+    { word: '中国人', chars: ['中', '国', '人'], pinyin: 'zhōng guó rén', meaning: 'Người Trung Quốc' },
+    { word: '汉字', chars: ['汉', '字'], pinyin: 'hàn zì', meaning: 'Chữ Hán' },
+    { word: '国人', chars: ['国', '人'], pinyin: 'guó rén', meaning: 'Người trong nước' },
+    { word: '文字', chars: ['文', '字'], pinyin: 'wén zì', meaning: 'Văn tự / Chữ viết' }
 ];
 
 // Sentences Database
@@ -217,7 +229,14 @@ const sentenceDatabase = [
     { vietnamese: "Bạn thứ mấy vào ngân hàng làm việc?", answer: ['你', '星', '期', '几', '进', '银', '行', '工', '作'], chars: ['你', '星', '期', '几', '进', '银', '行', '工', '作'], pinyin: "Nǐ xīng qī jǐ jìn yín háng gōng zuò?" },
     { vietnamese: "Thầy Bạch thứ năm vào trường không?", answer: ['白', '老', '师', '星', '期', '四', '进', '学', '校', '吗'], chars: ['白', '老', '师', '星', '期', '四', '进', '学', '校', '吗'], pinyin: "Bái lǎo shī xīng qī sì jìn xué xiào ma?" },
     { vietnamese: "Bố bảo tôi đi Bắc Kinh học tiếng Hán.", answer: ['爸', '爸', '叫', '我', '去', '北', '京', '学', '汉', '语'], chars: ['爸', '爸', '叫', '我', '去', '北', '京', '学', '汉', '语'], pinyin: "Bà ba jiào wǒ qù běi jīng xué hàn yǔ." },
-    { vietnamese: "Bố hỏi tôi ngày mai đi đâu làm việc?", answer: ['爸', '爸', '问', '我', '明', '天', '去', '哪', '工', '作'], chars: ['爸', '爸', '问', '我', '明', '天', '去', '哪', '工', '作'], pinyin: "Bà ba wèn wǒ míng tiān qù nǎ gōng zuò?" }
+    { vietnamese: "Bố hỏi tôi ngày mai đi đâu làm việc?", answer: ['爸', '爸', '问', '我', '明', '天', '去', '哪', '工', '作'], chars: ['爸', '爸', '问', '我', '明', '天', '去', '哪', '工', '作'], pinyin: "Bà ba wèn wǒ míng tiān qù nǎ gōng zuò?" },
+    { vietnamese: "Bạn tên gì?", answer: ['你', '叫', '什', '么', '名', '字'], chars: ['你', '叫', '什', '么', '名', '字'], pinyin: "Nǐ jiào shén me míng zì?" },
+    { vietnamese: "Anh ấy là người Trung Quốc.", answer: ['他', '是', '中', '国', '人'], chars: ['他', '是', '中', '国', '人'], pinyin: "Tā shì zhōng guó rén." },
+    { vietnamese: "Tôi học tiếng Trung.", answer: ['我', '学', '中', '文'], chars: ['我', '学', '中', '文'], pinyin: "Wǒ xué zhōng wén." },
+    { vietnamese: "Chữ Hán không khó.", answer: ['汉', '字', '不', '难'], chars: ['汉', '字', '不', '难'], pinyin: "Hàn zì bù nán." },
+    { vietnamese: "Trung Quốc rất lớn.", answer: ['中', '国', '很', '大'], chars: ['中', '国', '很', '大'], pinyin: "Zhōng guó hěn dà." },
+    { vietnamese: "Cô ấy tên gì?", answer: ['她', '叫', '什', '么', '名', '字'], chars: ['她', '叫', '什', '么', '名', '字'], pinyin: "Tā jiào shén me míng zì?" },
+    { vietnamese: "Bạn là người nước nào?", answer: ['你', '是', '哪', '国', '人'], chars: ['你', '是', '哪', '国', '人'], pinyin: "Nǐ shì nǎ guó rén?" }
 ];
 
 // Grammar/Context Database (For Fill In The Blanks)
@@ -245,7 +264,13 @@ const grammarDatabase = [
     { text_pre: "去银", text_post: "吗？", vietnamese: "Đi ngân hàng không?", answer: '行' },
     { text_pre: "几", text_post: "？", vietnamese: "Mấy ngày?", answer: '天' },
     { text_pre: "今天星期", text_post: "？", vietnamese: "Hôm nay là thứ mấy?", answer: '几' },
-    { text_pre: "这", text_post: "你妈妈吗？", vietnamese: "Đây là mẹ bạn phải không?", answer: '是' }
+    { text_pre: "这", text_post: "你妈妈吗？", vietnamese: "Đây là mẹ bạn phải không?", answer: '是' },
+    { text_pre: "你叫什么", text_post: "字？", vietnamese: "Bạn tên gì?", answer: '名' },
+    { text_pre: "他是中", text_post: "人。", vietnamese: "Anh ấy là người Trung Quốc.", answer: '国' },
+    { text_pre: "我学", text_post: "文。", vietnamese: "Tôi học tiếng Trung.", answer: '中' },
+    { text_pre: "汉", text_post: "不难。", vietnamese: "Chữ Hán không khó.", answer: '字' },
+    { text_pre: "中国很", text_post: "。", vietnamese: "Trung Quốc rất lớn.", answer: '大' },
+    { text_pre: "中", text_post: "不难。", vietnamese: "Tiếng Trung không khó.", answer: '文' }
 ];
 
 const sentenceRevealDatabase = [
@@ -313,7 +338,15 @@ const sentenceRevealDatabase = [
     { chinese: '你星期几进银行工作？', vietnamese: 'Bạn thứ mấy vào ngân hàng làm việc?' },
     { chinese: '白老师星期四进学校吗？', vietnamese: 'Thầy Bạch thứ năm vào trường không?' },
     { chinese: '爸爸叫我去北京学汉语。', vietnamese: 'Bố bảo tôi đi Bắc Kinh học tiếng Hán.' },
-    { chinese: '爸爸问我明天去哪工作？', vietnamese: 'Bố hỏi tôi ngày mai đi đâu làm việc?' }
+    { chinese: '爸爸问我明天去哪工作？', vietnamese: 'Bố hỏi tôi ngày mai đi đâu làm việc?' },
+    { chinese: '你叫什么名字？', vietnamese: 'Bạn tên gì?' },
+    { chinese: '他是中国人。', vietnamese: 'Anh ấy là người Trung Quốc.' },
+    { chinese: '我学中文。', vietnamese: 'Tôi học tiếng Trung.' },
+    { chinese: '汉字不难。', vietnamese: 'Chữ Hán không khó.' },
+    { chinese: '中国很大。', vietnamese: 'Trung Quốc rất lớn.' },
+    { chinese: '她叫什么名字？', vietnamese: 'Cô ấy tên gì?' },
+    { chinese: '你是哪国人？', vietnamese: 'Bạn là người nước nào?' },
+    { chinese: '中文不难，汉字也不难。', vietnamese: 'Tiếng Trung không khó, chữ Hán cũng không khó.' }
 ];
 
 const animalCoverDatabase = [

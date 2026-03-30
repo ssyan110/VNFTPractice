@@ -1,6 +1,6 @@
 # Learned Characters
 
-Total: 78
+Total: 83
 
 | # | Character | Pinyin | Meaning |
 |---|-----------|--------|---------|
@@ -82,3 +82,8 @@ Total: 78
 | 76 | 叫 | jiào | gọi, kêu |
 | 77 | 门 | mén | cửa |
 | 78 | 们 | men | trợ từ số nhiều dùng sau đại từ hoặc từ chỉ người |
+| 79 | 名 | míng | tên, tên gọi |
+| 80 | 字 | zì | chữ, văn tự |
+| 81 | 国 | guó | nước, quốc gia |
+| 82 | 中 | zhōng | ở giữa, trung tâm |
+| 83 | 文 | wén | văn, chữ viết |
