@@ -1,6 +1,6 @@
 # Learned Characters
 
-Total: 83
+Total: 87
 
 | # | Character | Pinyin | Meaning |
 |---|-----------|--------|---------|
@@ -87,3 +87,7 @@ Total: 83
 | 81 | 国 | guó | nước, quốc gia |
 | 82 | 中 | zhōng | ở giữa, trung tâm |
 | 83 | 文 | wén | văn, chữ viết |
+| 84 | 习 | xí | luyện tập, học |
+| 85 | 发 | fā | phát, phát triển |
+| 86 | 音 | yīn | âm, âm thanh |
+| 87 | 朋 | péng | bạn bè |

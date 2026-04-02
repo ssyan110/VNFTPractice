@@ -82,7 +82,11 @@ const charDatabase = [
     { char: '字', pinyin: 'zì', meaning: 'CHỮ, VĂN TỰ', radical: '子 (zǐ) – bộ Tử' },
     { char: '国', pinyin: 'guó', meaning: 'NƯỚC, QUỐC GIA', radical: '囗 (wéi) – bộ Vi' },
     { char: '中', pinyin: 'zhōng', meaning: 'Ở GIỮA, TRUNG TÂM', radical: '丨 (gǔn) – bộ Cổn' },
-    { char: '文', pinyin: 'wén', meaning: 'VĂN, CHỮ VIẾT', radical: '文 (wén) – bộ Văn' }
+    { char: '文', pinyin: 'wén', meaning: 'VĂN, CHỮ VIẾT', radical: '文 (wén) – bộ Văn' },
+    { char: '习', pinyin: 'xí', meaning: 'LUYỆN TẬP, HỌC', radical: '乙 (yǐ) – bộ Ất' },
+    { char: '发', pinyin: 'fā', meaning: 'PHÁT, PHÁT TRIỂN', radical: '又 (yòu) – bộ Hựu' },
+    { char: '音', pinyin: 'yīn', meaning: 'ÂM, ÂM THANH', radical: '音 (yīn) – bộ Âm' },
+    { char: '朋', pinyin: 'péng', meaning: 'BẠN BÈ', radical: '月 (yuè) – bộ Nguyệt' }
 ];
 
 // Keep this list in sync with characters_learned.md so game 2 only uses
@@ -95,7 +99,7 @@ const learnedCharacters = [
     '工', '作', '日', '是', '这', '进', '老', '师', '身', '体', '上',
     '下', '月', '生', '了', '木', '休', '亡', '也', '又', '子', '小',
     '回', '校', '那', '哪', '十', '昨', '谢', '人', '问', '叫', '门',
-    '们', '名', '字', '国', '中', '文'
+    '们', '名', '字', '国', '中', '文', '习', '发', '音', '朋'
 ];
 const learnedCharacterSet = new Set(learnedCharacters);
 
@@ -152,7 +156,11 @@ const vocabDatabase = [
     { word: '中国人', chars: ['中', '国', '人'], pinyin: 'zhōng guó rén', meaning: 'Người Trung Quốc' },
     { word: '汉字', chars: ['汉', '字'], pinyin: 'hàn zì', meaning: 'Chữ Hán' },
     { word: '国人', chars: ['国', '人'], pinyin: 'guó rén', meaning: 'Người trong nước' },
-    { word: '文字', chars: ['文', '字'], pinyin: 'wén zì', meaning: 'Văn tự / Chữ viết' }
+    { word: '文字', chars: ['文', '字'], pinyin: 'wén zì', meaning: 'Văn tự / Chữ viết' },
+    { word: '学习', chars: ['学', '习'], pinyin: 'xué xí', meaning: 'Học tập' },
+    { word: '朋友', chars: ['朋', '友'], pinyin: 'péng yǒu', meaning: 'Bạn bè' },
+    { word: '发音', chars: ['发', '音'], pinyin: 'fā yīn', meaning: 'Phát âm' },
+    { word: '习字', chars: ['习', '字'], pinyin: 'xí zì', meaning: 'Luyện viết chữ' }
 ];
 
 // Sentences Database
@@ -236,7 +244,26 @@ const sentenceDatabase = [
     { vietnamese: "Chữ Hán không khó.", answer: ['汉', '字', '不', '难'], chars: ['汉', '字', '不', '难'], pinyin: "Hàn zì bù nán." },
     { vietnamese: "Trung Quốc rất lớn.", answer: ['中', '国', '很', '大'], chars: ['中', '国', '很', '大'], pinyin: "Zhōng guó hěn dà." },
     { vietnamese: "Cô ấy tên gì?", answer: ['她', '叫', '什', '么', '名', '字'], chars: ['她', '叫', '什', '么', '名', '字'], pinyin: "Tā jiào shén me míng zì?" },
-    { vietnamese: "Bạn là người nước nào?", answer: ['你', '是', '哪', '国', '人'], chars: ['你', '是', '哪', '国', '人'], pinyin: "Nǐ shì nǎ guó rén?" }
+    { vietnamese: "Bạn là người nước nào?", answer: ['你', '是', '哪', '国', '人'], chars: ['你', '是', '哪', '国', '人'], pinyin: "Nǐ shì nǎ guó rén?" },
+    { vietnamese: "Tôi học tập tiếng Trung.", answer: ['我', '学', '习', '中', '文'], chars: ['我', '学', '习', '中', '文'], pinyin: "Wǒ xué xí zhōng wén." },
+    { vietnamese: "Anh ấy là bạn tôi.", answer: ['他', '是', '我', '朋', '友'], chars: ['他', '是', '我', '朋', '友'], pinyin: "Tā shì wǒ péng yǒu." },
+    { vietnamese: "Phát âm tiếng Hán không khó.", answer: ['汉', '语', '发', '音', '不', '难'], chars: ['汉', '语', '发', '音', '不', '难'], pinyin: "Hàn yǔ fā yīn bù nán." },
+    { vietnamese: "Cô ấy là bạn tốt của tôi.", answer: ['她', '是', '我', '好', '朋', '友'], chars: ['她', '是', '我', '好', '朋', '友'], pinyin: "Tā shì wǒ hǎo péng yǒu." },
+    { vietnamese: "Đó là tên bạn phải không?", answer: ['那', '是', '你', '名', '字', '吗'], chars: ['那', '是', '你', '名', '字', '吗'], pinyin: "Nà shì nǐ míng zì ma?" },
+    { vietnamese: "Ngày mai tôi đi Trung Quốc hai mươi ngày.", answer: ['我', '明', '天', '去', '中', '国', '二', '十', '天'], chars: ['我', '明', '天', '去', '中', '国', '二', '十', '天'], pinyin: "Wǒ míng tiān qù zhōng guó èr shí tiān." },
+    { vietnamese: "Tiếng Trung của tôi không tốt, không đi Trung Quốc làm việc.", answer: ['我', '中', '文', '不', '好', '不', '去', '中', '国', '工', '作'], chars: ['我', '中', '文', '不', '好', '不', '去', '中', '国', '工', '作'], pinyin: "Wǒ zhōng wén bù hǎo, bù qù zhōng guó gōng zuò." },
+    { vietnamese: "Giáo viên bảo tôi đi Trung Quốc học tập tiếng Hán.", answer: ['老', '师', '叫', '我', '去', '中', '国', '学', '习', '汉', '语'], chars: ['老', '师', '叫', '我', '去', '中', '国', '学', '习', '汉', '语'], pinyin: "Lǎo shī jiào wǒ qù zhōng guó xué xí hàn yǔ." },
+    { vietnamese: "Phát âm tiếng Trung của tôi không tốt, phát âm của bạn tốt không?", answer: ['我', '中', '文', '发', '音', '不', '好', '你', '发', '音', '好', '吗'], chars: ['我', '中', '文', '发', '音', '不', '好', '你', '发', '音', '好', '吗'], pinyin: "Wǒ zhōng wén fā yīn bù hǎo, nǐ fā yīn hǎo ma?" },
+    { vietnamese: "Thứ tư tôi học tiếng Trung, không học tiếng Nhật.", answer: ['我', '星', '期', '三', '学', '习', '中', '文', '不', '学', '日', '文'], chars: ['我', '星', '期', '三', '学', '习', '中', '文', '不', '学', '日', '文'], pinyin: "Wǒ xīng qī sān xué xí zhōng wén, bù xué rì wén." },
+    { vietnamese: "Phát âm tiếng Nhật của tôi rất tốt, phát âm tiếng Trung không tốt.", answer: ['我', '日', '文', '发', '音', '很', '好', '中', '文', '发', '音', '不', '好'], chars: ['我', '日', '文', '发', '音', '很', '好', '中', '文', '发', '音', '不', '好'], pinyin: "Wǒ rì wén fā yīn hěn hǎo, zhōng wén fā yīn bù hǎo." },
+    { vietnamese: "Anh ấy là bạn Trung Quốc của tôi.", answer: ['他', '是', '我', '中', '国', '朋', '友'], chars: ['他', '是', '我', '中', '国', '朋', '友'], pinyin: "Tā shì wǒ zhōng guó péng yǒu." },
+    { vietnamese: "Tên tiếng Trung của tôi là Minh Minh.", answer: ['我', '的', '中', '文', '名', '字', '是', '明', '明'], chars: ['我', '的', '中', '文', '名', '字', '是', '明', '明'], pinyin: "Wǒ de zhōng wén míng zì shì míng míng." },
+    { vietnamese: "Đây là bạn của bố, anh ấy là người Nhật.", answer: ['这', '是', '爸', '爸', '的', '朋', '友', '他', '是', '日', '本', '人'], chars: ['这', '是', '爸', '爸', '的', '朋', '友', '他', '是', '日', '本', '人'], pinyin: "Zhè shì bà ba de péng yǒu, tā shì rì běn rén." },
+    { vietnamese: "Ngày mai tôi đi trường học tập, gặp bạn bè.", answer: ['我', '明', '天', '去', '学', '校', '学', '习', '见', '朋', '友'], chars: ['我', '明', '天', '去', '学', '校', '学', '习', '见', '朋', '友'], pinyin: "Wǒ míng tiān qù xué xiào xué xí, jiàn péng yǒu." },
+    { vietnamese: "Đi Trung Quốc làm việc tốt không?", answer: ['去', '中', '国', '工', '作', '好', '吗'], chars: ['去', '中', '国', '工', '作', '好', '吗'], pinyin: "Qù zhōng guó gōng zuò hǎo ma?" },
+    { vietnamese: "Tên tiếng Trung của bạn là gì?", answer: ['你', '中', '文', '名', '字', '是'], chars: ['你', '中', '文', '名', '字', '是'], pinyin: "Nǐ zhōng wén míng zì shì?" },
+    { vietnamese: "Phát âm tiếng Trung không quá khó, phát âm tiếng Nhật rất khó.", answer: ['中', '文', '发', '音', '不', '太', '难', '日', '文', '发', '音', '很', '难'], chars: ['中', '文', '发', '音', '不', '太', '难', '日', '文', '发', '音', '很', '难'], pinyin: "Zhōng wén fā yīn bú tài nán, rì wén fā yīn hěn nán." },
+    { vietnamese: "Phát âm tiếng Trung của bạn tôi rất tốt.", answer: ['我', '朋', '友', '中', '文', '发', '音', '很', '好'], chars: ['我', '朋', '友', '中', '文', '发', '音', '很', '好'], pinyin: "Wǒ péng yǒu zhōng wén fā yīn hěn hǎo." }
 ];
 
 // Grammar/Context Database (For Fill In The Blanks)
@@ -270,7 +297,11 @@ const grammarDatabase = [
     { text_pre: "我学", text_post: "文。", vietnamese: "Tôi học tiếng Trung.", answer: '中' },
     { text_pre: "汉", text_post: "不难。", vietnamese: "Chữ Hán không khó.", answer: '字' },
     { text_pre: "中国很", text_post: "。", vietnamese: "Trung Quốc rất lớn.", answer: '大' },
-    { text_pre: "中", text_post: "不难。", vietnamese: "Tiếng Trung không khó.", answer: '文' }
+    { text_pre: "中", text_post: "不难。", vietnamese: "Tiếng Trung không khó.", answer: '文' },
+    { text_pre: "我学", text_post: "中文。", vietnamese: "Tôi học tập tiếng Trung.", answer: '习' },
+    { text_pre: "汉语", text_post: "音不难。", vietnamese: "Phát âm tiếng Hán không khó.", answer: '发' },
+    { text_pre: "他是我", text_post: "友。", vietnamese: "Anh ấy là bạn tôi.", answer: '朋' },
+    { text_pre: "发", text_post: "很好。", vietnamese: "Phát âm rất tốt.", answer: '音' }
 ];
 
 const sentenceRevealDatabase = [
@@ -346,7 +377,27 @@ const sentenceRevealDatabase = [
     { chinese: '中国很大。', vietnamese: 'Trung Quốc rất lớn.' },
     { chinese: '她叫什么名字？', vietnamese: 'Cô ấy tên gì?' },
     { chinese: '你是哪国人？', vietnamese: 'Bạn là người nước nào?' },
-    { chinese: '中文不难，汉字也不难。', vietnamese: 'Tiếng Trung không khó, chữ Hán cũng không khó.' }
+    { chinese: '中文不难，汉字也不难。', vietnamese: 'Tiếng Trung không khó, chữ Hán cũng không khó.' },
+    { chinese: '我学习中文。', vietnamese: 'Tôi học tập tiếng Trung.' },
+    { chinese: '他是我朋友。', vietnamese: 'Anh ấy là bạn tôi.' },
+    { chinese: '汉语发音不难。', vietnamese: 'Phát âm tiếng Hán không khó.' },
+    { chinese: '她是我好朋友。', vietnamese: 'Cô ấy là bạn tốt của tôi.' },
+    { chinese: '我朋友学习汉语发音。', vietnamese: 'Bạn tôi học tập phát âm tiếng Hán.' },
+    { chinese: '那是你名字吗？', vietnamese: 'Đó là tên bạn phải không?' },
+    { chinese: '我明天去中国二十天。', vietnamese: 'Ngày mai tôi đi Trung Quốc hai mươi ngày.' },
+    { chinese: '我中文不好，不去中国工作。', vietnamese: 'Tiếng Trung của tôi không tốt, không đi Trung Quốc làm việc.' },
+    { chinese: '老师叫我去中国学习汉语。', vietnamese: 'Giáo viên bảo tôi đi Trung Quốc học tập tiếng Hán.' },
+    { chinese: '我中文发音不好，你发音好吗？', vietnamese: 'Phát âm tiếng Trung của tôi không tốt, phát âm của bạn tốt không?' },
+    { chinese: '我星期三学习中文，不学日文。', vietnamese: 'Thứ tư tôi học tiếng Trung, không học tiếng Nhật.' },
+    { chinese: '我日文发音很好，中文发音不好。', vietnamese: 'Phát âm tiếng Nhật của tôi rất tốt, phát âm tiếng Trung không tốt.' },
+    { chinese: '他是我中国朋友。', vietnamese: 'Anh ấy là bạn Trung Quốc của tôi.' },
+    { chinese: '我的中文名字是明明。', vietnamese: 'Tên tiếng Trung của tôi là Minh Minh.' },
+    { chinese: '这是爸爸的朋友，他是日本人。', vietnamese: 'Đây là bạn của bố, anh ấy là người Nhật.' },
+    { chinese: '我明天去学校学习、见朋友。', vietnamese: 'Ngày mai tôi đi trường học tập, gặp bạn bè.' },
+    { chinese: '去中国工作好吗？', vietnamese: 'Đi Trung Quốc làm việc tốt không?' },
+    { chinese: '你中文名字是？', vietnamese: 'Tên tiếng Trung của bạn là gì?' },
+    { chinese: '中文发音不太难，日文发音很难。', vietnamese: 'Phát âm tiếng Trung không quá khó, phát âm tiếng Nhật rất khó.' },
+    { chinese: '我朋友中文发音很好。', vietnamese: 'Phát âm tiếng Trung của bạn tôi rất tốt.' }
 ];
 
 const animalCoverDatabase = [
