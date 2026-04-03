@@ -86,7 +86,12 @@ const charDatabase = [
     { char: '习', pinyin: 'xí', meaning: 'LUYỆN TẬP, HỌC', radical: '乙 (yǐ) – bộ Ất' },
     { char: '发', pinyin: 'fā', meaning: 'PHÁT, PHÁT TRIỂN', radical: '又 (yòu) – bộ Hựu' },
     { char: '音', pinyin: 'yīn', meaning: 'ÂM, ÂM THANH', radical: '音 (yīn) – bộ Âm' },
-    { char: '朋', pinyin: 'péng', meaning: 'BẠN BÈ', radical: '月 (yuè) – bộ Nguyệt' }
+    { char: '朋', pinyin: 'péng', meaning: 'BẠN BÈ', radical: '月 (yuè) – bộ Nguyệt' },
+    { char: '书', pinyin: 'shū', meaning: 'SÁCH, VIẾT', radical: '乙 (yǐ) – bộ Ất' },
+    { char: '个', pinyin: 'gè', meaning: 'CÁI, LƯỢNG TỪ', radical: '亻 (rén) – bộ Nhân đứng' },
+    { char: '午', pinyin: 'wǔ', meaning: 'TRƯA', radical: '十 (shí) – bộ Thập' },
+    { char: '头', pinyin: 'tóu', meaning: 'ĐẦU', radical: '大 (dà) – bộ Đại' },
+    { char: '米', pinyin: 'mǐ', meaning: 'GẠO, MÉT', radical: '米 (mǐ) – bộ Mễ' }
 ];
 
 // Keep this list in sync with characters_learned.md so game 2 only uses
@@ -99,7 +104,8 @@ const learnedCharacters = [
     '工', '作', '日', '是', '这', '进', '老', '师', '身', '体', '上',
     '下', '月', '生', '了', '木', '休', '亡', '也', '又', '子', '小',
     '回', '校', '那', '哪', '十', '昨', '谢', '人', '问', '叫', '门',
-    '们', '名', '字', '国', '中', '文', '习', '发', '音', '朋'
+    '们', '名', '字', '国', '中', '文', '习', '发', '音', '朋',
+    '书', '个', '午', '头', '米'
 ];
 const learnedCharacterSet = new Set(learnedCharacters);
 
@@ -160,7 +166,12 @@ const vocabDatabase = [
     { word: '学习', chars: ['学', '习'], pinyin: 'xué xí', meaning: 'Học tập' },
     { word: '朋友', chars: ['朋', '友'], pinyin: 'péng yǒu', meaning: 'Bạn bè' },
     { word: '发音', chars: ['发', '音'], pinyin: 'fā yīn', meaning: 'Phát âm' },
-    { word: '习字', chars: ['习', '字'], pinyin: 'xí zì', meaning: 'Luyện viết chữ' }
+    { word: '习字', chars: ['习', '字'], pinyin: 'xí zì', meaning: 'Luyện viết chữ' },
+    { word: '中午', chars: ['中', '午'], pinyin: 'zhōng wǔ', meaning: 'Buổi trưa' },
+    { word: '上午', chars: ['上', '午'], pinyin: 'shàng wǔ', meaning: 'Buổi sáng' },
+    { word: '下午', chars: ['下', '午'], pinyin: 'xià wǔ', meaning: 'Buổi chiều' },
+    { word: '个人', chars: ['个', '人'], pinyin: 'gè rén', meaning: 'Cá nhân' },
+    { word: '头发', chars: ['头', '发'], pinyin: 'tóu fa', meaning: 'Tóc' }
 ];
 
 // Sentences Database
@@ -301,7 +312,11 @@ const grammarDatabase = [
     { text_pre: "我学", text_post: "中文。", vietnamese: "Tôi học tập tiếng Trung.", answer: '习' },
     { text_pre: "汉语", text_post: "音不难。", vietnamese: "Phát âm tiếng Hán không khó.", answer: '发' },
     { text_pre: "他是我", text_post: "友。", vietnamese: "Anh ấy là bạn tôi.", answer: '朋' },
-    { text_pre: "发", text_post: "很好。", vietnamese: "Phát âm rất tốt.", answer: '音' }
+    { text_pre: "发", text_post: "很好。", vietnamese: "Phát âm rất tốt.", answer: '音' },
+    { text_pre: "我看", text_post: "。", vietnamese: "Tôi đọc sách.", answer: '书' },
+    { text_pre: "中", text_post: "很忙。", vietnamese: "Buổi trưa rất bận.", answer: '午' },
+    { text_pre: "一", text_post: "人。", vietnamese: "Một người.", answer: '个' },
+    { text_pre: "上", text_post: "去学校。", vietnamese: "Buổi sáng đi trường.", answer: '午' }
 ];
 
 const sentenceRevealDatabase = [
@@ -383,6 +398,10 @@ const sentenceRevealDatabase = [
     { chinese: '汉语发音不难。', vietnamese: 'Phát âm tiếng Hán không khó.' },
     { chinese: '她是我好朋友。', vietnamese: 'Cô ấy là bạn tốt của tôi.' },
     { chinese: '我朋友学习汉语发音。', vietnamese: 'Bạn tôi học tập phát âm tiếng Hán.' },
+    { chinese: '我上午看书。', vietnamese: 'Buổi sáng tôi đọc sách.' },
+    { chinese: '中午去见朋友。', vietnamese: 'Buổi trưa đi gặp bạn.' },
+    { chinese: '下午我去学校学习。', vietnamese: 'Buổi chiều tôi đi trường học tập.' },
+    { chinese: '一个人去北京。', vietnamese: 'Một mình đi Bắc Kinh.' },
     { chinese: '那是你名字吗？', vietnamese: 'Đó là tên bạn phải không?' },
     { chinese: '我明天去中国二十天。', vietnamese: 'Ngày mai tôi đi Trung Quốc hai mươi ngày.' },
     { chinese: '我中文不好，不去中国工作。', vietnamese: 'Tiếng Trung của tôi không tốt, không đi Trung Quốc làm việc.' },

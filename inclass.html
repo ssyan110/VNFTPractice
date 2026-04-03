@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>汉字意义选择挑战</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;700&display=swap');
+
+        body {
+            font-family: 'Noto Sans SC', sans-serif;
+            background-color: #f8fafc;
+        }
+
+        .option-btn {
+            transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .option-btn:hover:not(:disabled) {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1);
+        }
+
+        .progress-transition {
+            transition: width 0.4s ease-in-out;
+        }
+    </style>
+</head>
+
+<body class="min-h-screen flex items-center justify-center p-4">
+
+    <div id="game-container"
+        class="w-full max-w-2xl bg-white rounded-3xl shadow-xl overflow-hidden border border-slate-200">
+        <!-- 头部进度 -->
+        <div class="bg-emerald-600 p-6 text-white">
+            <div class="flex justify-between items-center mb-4">
+                <div>
+                    <h1 class="text-xl font-bold italic tracking-tight">Chinese Quiz</h1>
+                    <p class="text-emerald-100 text-sm font-light" id="session-indicator">Session 1 of 9</p>
+                </div>
+                <div class="text-right">
+                    <div class="text-3xl font-black" id="score">0</div>
+                    <div class="text-[10px] uppercase tracking-widest opacity-80">POINTS</div>
+                </div>
+            </div>
+
+            <!-- 进度条 -->
+            <div class="space-y-2">
+                <div class="flex justify-between text-xs font-bold uppercase tracking-wider text-emerald-100">
+                    <span id="progress-text">Question 1 of 5</span>
+                    <span id="percent-text">0%</span>
+                </div>
+                <div class="w-full bg-emerald-900/30 h-2 rounded-full overflow-hidden">
+                    <div id="progress-bar"
+                        class="bg-white h-full w-0 progress-transition shadow-[0_0_10px_rgba(255,255,255,0.5)]"></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 游戏区域 -->
+        <div id="main-area" class="p-6 md:p-10">
+            <!-- 题目提示 -->
+            <div class="mb-10 text-center">
+                <span
+                    class="inline-block px-4 py-1 bg-emerald-50 text-emerald-700 rounded-full text-xs font-bold mb-4 border border-emerald-100 uppercase tracking-wider">Question</span>
+                <p id="chinese-sentence"
+                    class="text-3xl md:text-4xl text-slate-800 font-bold leading-tight mb-2 min-h-[4rem]"></p>
+                <div class="h-1 w-20 bg-emerald-500 mx-auto rounded-full mt-4"></div>
+            </div>
+
+            <!-- 选项 A B C D -->
+            <div class="grid grid-cols-1 gap-4" id="options-container">
+                <!-- 选项按钮会生成在这里 -->
+            </div>
+        </div>
+
+        <!-- 结算反馈 -->
+        <div id="feedback-modal"
+            class="hidden fixed inset-0 bg-slate-900/60 backdrop-blur-sm flex items-center justify-center p-4 z-50">
+            <div
+                class="bg-white rounded-3xl p-8 max-w-sm w-full text-center shadow-2xl transform transition-all scale-100">
+                <div id="feedback-icon" class="text-7xl mb-4"></div>
+                <h2 id="feedback-title" class="text-2xl font-bold mb-2"></h2>
+                <div class="p-4 bg-slate-50 rounded-2xl mb-6 text-left">
+                    <p class="text-xs text-slate-400 uppercase font-bold mb-1">正确意思 (Nghĩa đúng)</p>
+                    <p id="feedback-msg" class="text-slate-700 font-medium"></p>
+                </div>
+                <button id="next-btn"
+                    class="w-full py-4 bg-emerald-600 text-white rounded-2xl font-bold shadow-lg shadow-emerald-200 hover:bg-emerald-700 active:scale-95 transition-all">下一题
+                    (Tiếp theo)</button>
+            </div>
+        </div>
+
+        <!-- 最终结果 -->
+        <div id="result-screen" class="hidden p-10 text-center">
+            <div id="result-emoji" class="text-6xl mb-4">🏆</div>
+            <h2 id="result-title" class="text-3xl font-bold text-slate-800 mb-2">Session Complete!</h2>
+            <p id="result-desc" class="text-slate-500 mb-8">You've finished this set of questions.</p>
+            <div class="bg-emerald-50 rounded-2xl p-6 mb-8">
+                <p class="text-sm uppercase font-bold text-emerald-600 mb-1">Current Score</p>
+                <p id="final-score" class="text-5xl font-black text-emerald-700">0</p>
+            </div>
+            <button id="action-btn" onclick="nextSession()"
+                class="w-full py-4 bg-emerald-600 text-white rounded-2xl font-bold shadow-lg hover:bg-emerald-700 transition-all">下一组
+                (Nhóm tiếp theo)</button>
+        </div>
+    </div>
+
+    <script>
+        const sentenceData = [
+            { chinese: '谢谢你，我今天去工作，不去学校', vietnamese: 'Cảm ơn bạn, hôm nay tôi đi làm, không đến trường.' },
+            { chinese: '老师叫你明天去学校吗？', vietnamese: 'Giáo viên bảo bạn ngày mai đến trường phải không?' },
+            { chinese: '你星期几进学校工作？', vietnamese: 'Bạn thứ mấy vào trường làm việc?' },
+            { chinese: '我今天工作，不去见老师', vietnamese: 'Hôm nay tôi làm việc, không đi gặp giáo viên.' },
+            { chinese: '老师叫我明天去学校', vietnamese: 'Giáo viên bảo tôi ngày mai đến trường.' },
+            { chinese: '白老师星期四进学校吗？', vietnamese: 'Thầy Bạch thứ năm vào trường không?' },
+            { chinese: '我今天身体不好，不去工作', vietnamese: 'Hôm nay sức khỏe tôi không tốt, không đi làm.' },
+            { chinese: '下星期五是我生日，我不去学汉语', vietnamese: 'Thứ sáu tuần sau là sinh nhật tôi, tôi không đi học tiếng Hán.' },
+            { chinese: '我进去学校见老师', vietnamese: 'Tôi đi vào trường gặp giáo viên.' },
+            { chinese: '我妈妈问老师身体好吗？', vietnamese: 'Mẹ tôi hỏi giáo viên sức khỏe tốt không?' },
+            { chinese: '这是我爸爸，他身体不太好', vietnamese: 'Đây là bố tôi, sức khỏe ông ấy không được tốt lắm.' },
+            { chinese: '谢谢你，我今天不去工作', vietnamese: 'Cảm ơn bạn, hôm nay tôi không đi làm.' },
+            { chinese: '老师叫我去学校，那老师叫你去学校吗？', vietnamese: 'Giáo viên bảo tôi đến trường, vậy giáo viên bảo bạn đến trường không?' },
+            { chinese: '你星期几进银行工作？', vietnamese: 'Bạn thứ mấy vào ngân hàng làm việc?' },
+            { chinese: '爸爸叫我去北京学汉语', vietnamese: 'Bố bảo tôi đi Bắc Kinh học tiếng Hán.' },
+            { chinese: '爸爸问我明天去哪工作？', vietnamese: 'Bố hỏi tôi ngày mai đi đâu làm việc?' },
+            { chinese: '你叫什么名字？', vietnamese: 'Bạn tên gì?' },
+            { chinese: '他是中国人', vietnamese: 'Anh ấy là người Trung Quốc.' },
+            { chinese: '我学中文', vietnamese: 'Tôi học tiếng Trung.' },
+            { chinese: '汉字不难', vietnamese: 'Chữ Hán không khó.' },
+            { chinese: '中国很大', vietnamese: 'Trung Quốc rất lớn.' },
+            { chinese: '她叫什么名字？', vietnamese: 'Cô ấy tên gì?' },
+            { chinese: '你是哪国人？', vietnamese: 'Bạn là người nước nào?' },
+            { chinese: '中文不难，汉字也不难', vietnamese: 'Tiếng Trung không khó, chữ Hán cũng không khó.' },
+            { chinese: '我学习中文', vietnamese: 'Tôi học tập tiếng Trung.' },
+            { chinese: '他是我朋友', vietnamese: 'Anh ấy là bạn tôi.' },
+            { chinese: '汉语发音不难', vietnamese: 'Phát âm tiếng Hán không khó.' },
+            { chinese: '她是我好朋友', vietnamese: 'Cô ấy là bạn tốt của tôi.' },
+            { chinese: '我朋友学习汉语发音', vietnamese: 'Bạn tôi học tập phát âm tiếng Hán.' },
+            { chinese: '那是你名字吗？', vietnamese: 'Đó là tên bạn phải không?' },
+            { chinese: '我明天去中国二十天', vietnamese: 'Ngày mai tôi đi Trung Quốc hai mươi ngày.' },
+            { chinese: '我中文不好，不去中国工作', vietnamese: 'Tiếng Trung của tôi không tốt, không đi Trung Quốc làm việc.' },
+            { chinese: '老师叫我去中国学习汉语', vietnamese: 'Giáo viên bảo tôi đi Trung Quốc học tập tiếng Hán.' },
+            { chinese: '我中文发音不好，你发音好吗？', vietnamese: 'Phát âm tiếng Trung của tôi không tốt, phát âm của bạn tốt không?' },
+            { chinese: '我星期三学习中文，不学日文', vietnamese: 'Thứ tư tôi học tiếng Trung, không học tiếng Nhật.' },
+            { chinese: '我日文发音很好，中文发音不好', vietnamese: 'Phát âm tiếng Nhật của tôi rất tốt, phát âm tiếng Trung không tốt.' },
+            { chinese: '他是我中国朋友', vietnamese: 'Anh ấy là bạn Trung Quốc of tôi.' },
+            { chinese: '我的中文名字是明明', vietnamese: 'Tên tiếng Trung of tôi là Minh Minh.' },
+            { chinese: '这是爸爸的朋友，他是日本人', vietnamese: 'Đây là bạn of bố, anh ấy là người Nhật.' },
+            { chinese: '我明天去学校学习、见朋友', vietnamese: 'Ngày mai tôi đi trường học tập, gặp bạn bè.' },
+            { chinese: '去中国工作好吗？', vietnamese: 'Đi Trung Quốc làm việc tốt không?' },
+            { chinese: '你中文名字是？', vietnamese: 'Tên tiếng Trung of bạn là gì?' },
+            { chinese: '中文发音不太难，日文发音很难', vietnamese: 'Phát âm tiếng Trung không quá khó, phát âm tiếng Nhật rất khó.' },
+            { chinese: '我朋友中文发音很好', vietnamese: 'Phát âm tiếng Trung of bạn tôi rất tốt.' },
+            { chinese: '我今天学习汉语，我朋友学日语', vietnamese: 'Hôm nay tôi học tiếng Hán, bạn tôi học tiếng Nhật.' }
+        ];
+
+        let globalPool = [];
+        let currentSessionIndex = 0;
+        let currentQuestionIndex = 0;
+        let score = 0;
+        let isAnswered = false;
+
+        const QUESTIONS_PER_SESSION = 5;
+        const TOTAL_SESSIONS = 9; // 45 / 5 = 9
+
+        const chineseSentenceDisplay = document.getElementById('chinese-sentence');
+        const optionsContainer = document.getElementById('options-container');
+        const scoreDisplay = document.getElementById('score');
+        const feedbackModal = document.getElementById('feedback-modal');
+        const progressBar = document.getElementById('progress-bar');
+        const progressText = document.getElementById('progress-text');
+        const percentText = document.getElementById('percent-text');
+        const sessionIndicator = document.getElementById('session-indicator');
+        const mainArea = document.getElementById('main-area');
+        const resultScreen = document.getElementById('result-screen');
+
+        function startNewGame() {
+            score = 0;
+            currentSessionIndex = 0;
+            scoreDisplay.textContent = '0';
+
+            // 打乱所有 45 个句子
+            globalPool = [...sentenceData].sort(() => Math.random() - 0.5);
+
+            startSession();
+        }
+
+        function startSession() {
+            currentQuestionIndex = 0;
+            mainArea.classList.remove('hidden');
+            resultScreen.classList.add('hidden');
+            sessionIndicator.textContent = `Session ${currentSessionIndex + 1} of ${TOTAL_SESSIONS}`;
+            updateProgress();
+            initQuestion();
+        }
+
+        function updateProgress() {
+            const currentCount = currentQuestionIndex + 1;
+            const percentage = (currentQuestionIndex / QUESTIONS_PER_SESSION) * 100;
+
+            progressText.textContent = `Question ${currentCount} of ${QUESTIONS_PER_SESSION}`;
+            percentText.textContent = `${Math.round(percentage)}%`;
+            progressBar.style.width = `${percentage}%`;
+        }
+
+        function initQuestion() {
+            if (currentQuestionIndex >= QUESTIONS_PER_SESSION) {
+                showSessionResults();
+                return;
+            }
+
+            isAnswered = false;
+            // 从 globalPool 中根据 session 和 question 索引获取题目
+            const globalIndex = (currentSessionIndex * QUESTIONS_PER_SESSION) + currentQuestionIndex;
+            const currentItem = globalPool[globalIndex];
+
+            chineseSentenceDisplay.textContent = currentItem.chinese;
+
+            // 准备选项
+            let options = [{ text: currentItem.vietnamese, correct: true }];
+
+            // 干扰项
+            let distractors = sentenceData
+                .filter(s => s.vietnamese !== currentItem.vietnamese)
+                .sort(() => Math.random() - 0.5)
+                .slice(0, 3);
+
+            distractors.forEach(d => options.push({ text: d.vietnamese, correct: false }));
+            options.sort(() => Math.random() - 0.5);
+
+            optionsContainer.innerHTML = '';
+            const labels = ['A', 'B', 'C', 'D'];
+
+            options.forEach((opt, index) => {
+                const btn = document.createElement('button');
+                btn.className = 'option-btn group w-full p-4 md:p-5 text-left bg-white border-2 border-slate-100 rounded-2xl flex items-center gap-4 hover:border-emerald-200 hover:bg-emerald-50 transition-all';
+
+                const label = document.createElement('span');
+                label.className = 'flex-shrink-0 w-10 h-10 rounded-full bg-slate-100 text-slate-500 font-bold flex items-center justify-center group-hover:bg-emerald-500 group-hover:text-white transition-colors';
+                label.textContent = labels[index];
+
+                const text = document.createElement('span');
+                text.className = 'text-slate-700 font-medium text-sm md:text-base leading-tight';
+                text.textContent = opt.text;
+
+                btn.appendChild(label);
+                btn.appendChild(text);
+
+                btn.onclick = () => {
+                    if (isAnswered) return;
+                    handleSelection(opt.correct, btn);
+                };
+
+                optionsContainer.appendChild(btn);
+            });
+        }
+
+        function handleSelection(isCorrect, btn) {
+            isAnswered = true;
+            if (isCorrect) {
+                score += 10;
+                scoreDisplay.textContent = score;
+                btn.classList.add('border-emerald-500', 'bg-emerald-50');
+                showFeedback(true);
+            } else {
+                btn.classList.add('border-rose-500', 'bg-rose-50');
+                showFeedback(false);
+            }
+        }
+
+        function showFeedback(isCorrect) {
+            const icon = document.getElementById('feedback-icon');
+            const title = document.getElementById('feedback-title');
+            const msg = document.getElementById('feedback-msg');
+
+            if (isCorrect) {
+                icon.textContent = '✅';
+                title.textContent = 'Correct!';
+                title.className = 'text-2xl font-bold mb-2 text-emerald-600';
+            } else {
+                icon.textContent = '❌';
+                title.textContent = 'Incorrect';
+                title.className = 'text-2xl font-bold mb-2 text-rose-600';
+            }
+
+            const globalIndex = (currentSessionIndex * QUESTIONS_PER_SESSION) + currentQuestionIndex;
+            msg.textContent = globalPool[globalIndex].vietnamese;
+            feedbackModal.classList.remove('hidden');
+        }
+
+        function showSessionResults() {
+            mainArea.classList.add('hidden');
+            resultScreen.classList.remove('hidden');
+            document.getElementById('final-score').textContent = score;
+            progressBar.style.width = '100%';
+            percentText.textContent = '100%';
+
+            const actionBtn = document.getElementById('action-btn');
+            const resTitle = document.getElementById('result-title');
+            const resDesc = document.getElementById('result-desc');
+            const resEmoji = document.getElementById('result-emoji');
+
+            if (currentSessionIndex + 1 >= TOTAL_SESSIONS) {
+                resEmoji.textContent = '🎓';
+                resTitle.textContent = 'Course Complete!';
+                resDesc.textContent = "Congratulations! You've practiced all 45 sentences.";
+                actionBtn.textContent = '重新开始全部 (Bắt đầu lại tất cả)';
+                actionBtn.onclick = startNewGame;
+            } else {
+                resEmoji.textContent = '🏆';
+                resTitle.textContent = 'Session Complete!';
+                resDesc.textContent = `You finished session ${currentSessionIndex + 1}. Ready for the next one?`;
+                actionBtn.textContent = '进入下一组 (Nhóm tiếp theo)';
+                actionBtn.onclick = nextSession;
+            }
+        }
+
+        function nextSession() {
+            currentSessionIndex++;
+            startSession();
+        }
+
+        document.getElementById('next-btn').onclick = () => {
+            feedbackModal.classList.add('hidden');
+            currentQuestionIndex++;
+            updateProgress();
+            initQuestion();
+        };
+
+        // Initialize
+        window.onload = startNewGame;
+    </script>
+</body>
+
+</html>

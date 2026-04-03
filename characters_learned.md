@@ -1,6 +1,6 @@
 # Learned Characters
 
-Total: 87
+Total: 92
 
 | # | Character | Pinyin | Meaning |
 |---|-----------|--------|---------|
@@ -91,3 +91,8 @@ Total: 87
 | 85 | 发 | fā | phát, phát triển |
 | 86 | 音 | yīn | âm, âm thanh |
 | 87 | 朋 | péng | bạn bè |
+| 88 | 书 | shū | sách, viết |
+| 89 | 个 | gè | cái, lượng từ |
+| 90 | 午 | wǔ | trưa |
+| 91 | 头 | tóu | đầu |
+| 92 | 米 | mǐ | gạo, mét |
