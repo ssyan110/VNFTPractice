@@ -274,7 +274,21 @@ const sentenceDatabase = [
     { vietnamese: "Đi Trung Quốc làm việc tốt không?", answer: ['去', '中', '国', '工', '作', '好', '吗'], chars: ['去', '中', '国', '工', '作', '好', '吗'], pinyin: "Qù zhōng guó gōng zuò hǎo ma?" },
     { vietnamese: "Tên tiếng Trung của bạn là gì?", answer: ['你', '中', '文', '名', '字', '是'], chars: ['你', '中', '文', '名', '字', '是'], pinyin: "Nǐ zhōng wén míng zì shì?" },
     { vietnamese: "Phát âm tiếng Trung không quá khó, phát âm tiếng Nhật rất khó.", answer: ['中', '文', '发', '音', '不', '太', '难', '日', '文', '发', '音', '很', '难'], chars: ['中', '文', '发', '音', '不', '太', '难', '日', '文', '发', '音', '很', '难'], pinyin: "Zhōng wén fā yīn bú tài nán, rì wén fā yīn hěn nán." },
-    { vietnamese: "Phát âm tiếng Trung của bạn tôi rất tốt.", answer: ['我', '朋', '友', '中', '文', '发', '音', '很', '好'], chars: ['我', '朋', '友', '中', '文', '发', '音', '很', '好'], pinyin: "Wǒ péng yǒu zhōng wén fā yīn hěn hǎo." }
+    { vietnamese: "Phát âm tiếng Trung của bạn tôi rất tốt.", answer: ['我', '朋', '友', '中', '文', '发', '音', '很', '好'], chars: ['我', '朋', '友', '中', '文', '发', '音', '很', '好'], pinyin: "Wǒ péng yǒu zhōng wén fā yīn hěn hǎo." },
+    { vietnamese: "Hôm nay mẹ rất nhức đầu!", answer: ['妈', '妈', '今', '天', '头', '很', '大'], chars: ['妈', '妈', '今', '天', '头', '很', '大'], pinyin: "Mā ma jīn tiān tóu hěn dà!" },
+    { vietnamese: "Hôm nay có hai mươi người đi trường.", answer: ['今', '天', '有', '二', '十', '个', '人', '去', '学', '校'], chars: ['今', '天', '有', '二', '十', '个', '人', '去', '学', '校'], pinyin: "Jīn tiān yǒu èr shí gè rén qù xué xiào." },
+    { vietnamese: "Tôi có ba mươi sáu người bạn Trung Quốc.", answer: ['我', '有', '三', '十', '六', '个', '中', '国', '朋', '友'], chars: ['我', '有', '三', '十', '六', '个', '中', '国', '朋', '友'], pinyin: "Wǒ yǒu sān shí liù gè zhōng guó péng yǒu." },
+    { vietnamese: "Buổi trưa bạn đi đâu? Đi trường học tiếng Hán không?", answer: ['中', '午', '你', '去', '哪', '去', '学', '校', '学', '习', '汉', '语', '吗'], chars: ['中', '午', '你', '去', '哪', '去', '学', '校', '学', '习', '汉', '语', '吗'], pinyin: "Zhōng wǔ nǐ qù nǎ? Qù xué xiào xué xí hàn yǔ ma?" },
+    { vietnamese: "Đây không phải sách tiếng Hán, đây là sách tiếng Nhật.", answer: ['这', '不', '是', '汉', '语', '书', '这', '是', '日', '语', '书'], chars: ['这', '不', '是', '汉', '语', '书', '这', '是', '日', '语', '书'], pinyin: "Zhè bú shì hàn yǔ shū, zhè shì rì yǔ shū." },
+    { vietnamese: "Tiếng Hán rất khó, tôi nhức đầu quá!", answer: ['汉', '语', '很', '难', '我', '头', '大', '了'], chars: ['汉', '语', '很', '难', '我', '头', '大', '了'], pinyin: "Hàn yǔ hěn nán, wǒ tóu dà le!" },
+    { vietnamese: "Một người có một cái đầu.", answer: ['一', '个', '人', '有', '一', '个', '头'], chars: ['一', '个', '人', '有', '一', '个', '头'], pinyin: "Yī gè rén yǒu yī gè tóu." },
+    { vietnamese: "Hôm nay tôi không đi làm!", answer: ['今', '天', '老', '子', '不', '去', '工', '作'], chars: ['今', '天', '老', '子', '不', '去', '工', '作'], pinyin: "Jīn tiān lǎo zi bù qù gōng zuò!" },
+    { vietnamese: "Chủ nhật ngân hàng đóng, trường cũng đóng.", answer: ['星', '期', '日', '银', '行', '关', '学', '校', '也', '关'], chars: ['星', '期', '日', '银', '行', '关', '学', '校', '也', '关'], pinyin: "Xīng qī rì yín háng guān, xué xiào yě guān." },
+    { vietnamese: "Sức khỏe tôi không tốt, chiều không về trường học phát âm tiếng Hán.", answer: ['我', '身', '体', '不', '好', '下', '午', '不', '回', '学', '校', '学', '汉', '语', '发', '音'], chars: ['我', '身', '体', '不', '好', '下', '午', '不', '回', '学', '校', '学', '汉', '语', '发', '音'], pinyin: "Wǒ shēn tǐ bù hǎo, xià wǔ bù huí xué xiào xué hàn yǔ fā yīn." },
+    { vietnamese: "Anh ấy là giáo viên tiếng Nhật của bạn, đúng không?", answer: ['他', '是', '你', '的', '日', '语', '老', '师', '对', '吗'], chars: ['他', '是', '你', '的', '日', '语', '老', '师', '对', '吗'], pinyin: "Tā shì nǐ de rì yǔ lǎo shī, duì ma?" },
+    { vietnamese: "Hôm nay rất bận, tôi nhức đầu quá!", answer: ['今', '天', '很', '忙', '我', '头', '很', '大'], chars: ['今', '天', '很', '忙', '我', '头', '很', '大'], pinyin: "Jīn tiān hěn máng, wǒ tóu hěn dà!" },
+    { vietnamese: "Người kia là giáo viên đại học, đúng không?", answer: ['那', '个', '人', '是', '大', '学', '老', '师', '对', '吗'], chars: ['那', '个', '人', '是', '大', '学', '老', '师', '对', '吗'], pinyin: "Nà gè rén shì dà xué lǎo shī, duì ma?" },
+    { vietnamese: "Giáo viên này hôm nay không vào trường làm việc, anh ấy quá bận.", answer: ['这', '个', '老', '师', '今', '天', '不', '进', '学', '校', '工', '作', '他', '太', '忙', '了'], chars: ['这', '个', '老', '师', '今', '天', '不', '进', '学', '校', '工', '作', '他', '太', '忙', '了'], pinyin: "Zhè gè lǎo shī jīn tiān bù jìn xué xiào gōng zuò, tā tài máng le." }
 ];
 
 // Grammar/Context Database (For Fill In The Blanks)
@@ -316,7 +330,12 @@ const grammarDatabase = [
     { text_pre: "我看", text_post: "。", vietnamese: "Tôi đọc sách.", answer: '书' },
     { text_pre: "中", text_post: "很忙。", vietnamese: "Buổi trưa rất bận.", answer: '午' },
     { text_pre: "一", text_post: "人。", vietnamese: "Một người.", answer: '个' },
-    { text_pre: "上", text_post: "去学校。", vietnamese: "Buổi sáng đi trường.", answer: '午' }
+    { text_pre: "上", text_post: "去学校。", vietnamese: "Buổi sáng đi trường.", answer: '午' },
+    { text_pre: "这不是汉语", text_post: "。", vietnamese: "Đây không phải sách tiếng Hán.", answer: '书' },
+    { text_pre: "一", text_post: "人有一个头。", vietnamese: "Một người có một cái đầu.", answer: '个' },
+    { text_pre: "汉语很难，我", text_post: "大了！", vietnamese: "Tiếng Hán rất khó, tôi nhức đầu quá!", answer: '头' },
+    { text_pre: "今天有二十", text_post: "人去学校。", vietnamese: "Hôm nay có hai mươi người đi trường.", answer: '个' },
+    { text_pre: "下", text_post: "不回学校。", vietnamese: "Buổi chiều không về trường.", answer: '午' }
 ];
 
 const sentenceRevealDatabase = [
@@ -416,7 +435,21 @@ const sentenceRevealDatabase = [
     { chinese: '去中国工作好吗？', vietnamese: 'Đi Trung Quốc làm việc tốt không?' },
     { chinese: '你中文名字是？', vietnamese: 'Tên tiếng Trung của bạn là gì?' },
     { chinese: '中文发音不太难，日文发音很难。', vietnamese: 'Phát âm tiếng Trung không quá khó, phát âm tiếng Nhật rất khó.' },
-    { chinese: '我朋友中文发音很好。', vietnamese: 'Phát âm tiếng Trung của bạn tôi rất tốt.' }
+    { chinese: '我朋友中文发音很好。', vietnamese: 'Phát âm tiếng Trung của bạn tôi rất tốt.' },
+    { chinese: '妈妈今天头很大！', vietnamese: 'Hôm nay mẹ rất nhức đầu!' },
+    { chinese: '今天有二十个人去学校。', vietnamese: 'Hôm nay có hai mươi người đi trường.' },
+    { chinese: '我有三十六个中国朋友。', vietnamese: 'Tôi có ba mươi sáu người bạn Trung Quốc.' },
+    { chinese: '中午你去哪？去学校学习汉语吗？', vietnamese: 'Buổi trưa bạn đi đâu? Đi trường học tiếng Hán không?' },
+    { chinese: '这不是汉语书，这是日语书。', vietnamese: 'Đây không phải sách tiếng Hán, đây là sách tiếng Nhật.' },
+    { chinese: '汉语很难，我头大了！', vietnamese: 'Tiếng Hán rất khó, tôi nhức đầu quá!' },
+    { chinese: '一个人有一个头。', vietnamese: 'Một người có một cái đầu.' },
+    { chinese: '今天老子不去工作！', vietnamese: 'Hôm nay tôi không đi làm!' },
+    { chinese: '星期日银行关，学校也关。', vietnamese: 'Chủ nhật ngân hàng đóng, trường cũng đóng.' },
+    { chinese: '我身体不好，下午不回学校学汉语发音。', vietnamese: 'Sức khỏe tôi không tốt, chiều không về trường học phát âm tiếng Hán.' },
+    { chinese: '他是你的日语老师，对吗？', vietnamese: 'Anh ấy là giáo viên tiếng Nhật của bạn, đúng không?' },
+    { chinese: '今天很忙，我头很大！', vietnamese: 'Hôm nay rất bận, tôi nhức đầu quá!' },
+    { chinese: '那个人是大学老师，对吗？', vietnamese: 'Người kia là giáo viên đại học, đúng không?' },
+    { chinese: '这个老师今天不进学校工作，他太忙了。', vietnamese: 'Giáo viên này hôm nay không vào trường làm việc, anh ấy quá bận.' }
 ];
 
 const animalCoverDatabase = [
