@@ -91,7 +91,10 @@ const charDatabase = [
     { char: '个', pinyin: 'gè', meaning: 'CÁI, LƯỢNG TỪ', radical: '亻 (rén) – bộ Nhân đứng' },
     { char: '午', pinyin: 'wǔ', meaning: 'TRƯA', radical: '十 (shí) – bộ Thập' },
     { char: '头', pinyin: 'tóu', meaning: 'ĐẦU', radical: '大 (dà) – bộ Đại' },
-    { char: '米', pinyin: 'mǐ', meaning: 'GẠO, MÉT', radical: '米 (mǐ) – bộ Mễ' }
+    { char: '米', pinyin: 'mǐ', meaning: 'GẠO, MÉT', radical: '米 (mǐ) – bộ Mễ' },
+    { char: '吃', pinyin: 'chī', meaning: 'ĂN', radical: '口 (khẩu) – miệng', characterType: 'Hình thanh' },
+    { char: '要', pinyin: 'yào', meaning: 'MUỐN, CẦN, YÊU CẦU', radical: '襾 (tây/á) – che phủ, phía trên', characterType: 'Hình thanh' },
+    { char: '饭', pinyin: 'fàn', meaning: 'CƠM, THỨC ĂN', radical: '饣 (thực) – ăn uống, thức ăn', characterType: 'Hình thanh' }
 ];
 
 // Keep this list in sync with characters_learned.md so game 2 only uses
@@ -105,7 +108,7 @@ const learnedCharacters = [
     '下', '月', '生', '了', '木', '休', '亡', '也', '又', '子', '小',
     '回', '校', '那', '哪', '十', '昨', '谢', '人', '问', '叫', '门',
     '们', '名', '字', '国', '中', '文', '习', '发', '音', '朋',
-    '书', '个', '午', '头', '米'
+    '书', '个', '午', '头', '米', '吃', '要', '饭'
 ];
 const learnedCharacterSet = new Set(learnedCharacters);
 
@@ -171,7 +174,8 @@ const vocabDatabase = [
     { word: '上午', chars: ['上', '午'], pinyin: 'shàng wǔ', meaning: 'Buổi sáng' },
     { word: '下午', chars: ['下', '午'], pinyin: 'xià wǔ', meaning: 'Buổi chiều' },
     { word: '个人', chars: ['个', '人'], pinyin: 'gè rén', meaning: 'Cá nhân' },
-    { word: '头发', chars: ['头', '发'], pinyin: 'tóu fa', meaning: 'Tóc' }
+    { word: '头发', chars: ['头', '发'], pinyin: 'tóu fa', meaning: 'Tóc' },
+    { word: '吃饭', chars: ['吃', '饭'], pinyin: 'chī fàn', meaning: 'Ăn cơm' }
 ];
 
 // Sentences Database
@@ -288,7 +292,16 @@ const sentenceDatabase = [
     { vietnamese: "Anh ấy là giáo viên tiếng Nhật của bạn, đúng không?", answer: ['他', '是', '你', '的', '日', '语', '老', '师', '对', '吗'], chars: ['他', '是', '你', '的', '日', '语', '老', '师', '对', '吗'], pinyin: "Tā shì nǐ de rì yǔ lǎo shī, duì ma?" },
     { vietnamese: "Hôm nay rất bận, tôi nhức đầu quá!", answer: ['今', '天', '很', '忙', '我', '头', '很', '大'], chars: ['今', '天', '很', '忙', '我', '头', '很', '大'], pinyin: "Jīn tiān hěn máng, wǒ tóu hěn dà!" },
     { vietnamese: "Người kia là giáo viên đại học, đúng không?", answer: ['那', '个', '人', '是', '大', '学', '老', '师', '对', '吗'], chars: ['那', '个', '人', '是', '大', '学', '老', '师', '对', '吗'], pinyin: "Nà gè rén shì dà xué lǎo shī, duì ma?" },
-    { vietnamese: "Giáo viên này hôm nay không vào trường làm việc, anh ấy quá bận.", answer: ['这', '个', '老', '师', '今', '天', '不', '进', '学', '校', '工', '作', '他', '太', '忙', '了'], chars: ['这', '个', '老', '师', '今', '天', '不', '进', '学', '校', '工', '作', '他', '太', '忙', '了'], pinyin: "Zhè gè lǎo shī jīn tiān bù jìn xué xiào gōng zuò, tā tài máng le." }
+    { vietnamese: "Giáo viên này hôm nay không vào trường làm việc, anh ấy quá bận.", answer: ['这', '个', '老', '师', '今', '天', '不', '进', '学', '校', '工', '作', '他', '太', '忙', '了'], chars: ['这', '个', '老', '师', '今', '天', '不', '进', '学', '校', '工', '作', '他', '太', '忙', '了'], pinyin: "Zhè gè lǎo shī jīn tiān bù jìn xué xiào gōng zuò, tā tài máng le." },
+    { vietnamese: "Đây là một cuốn sách tiếng Hán, không khó.", answer: ['这', '是', '一', '本', '汉', '语', '书', '不', '难'], chars: ['这', '是', '一', '本', '汉', '语', '书', '不', '难'], pinyin: "Zhè shì yì běn hàn yǔ shū, bù nán." },
+    { vietnamese: "Tên người bạn của bạn là gì?", answer: ['你', '朋', '友', '的', '名', '字', '是'], chars: ['你', '朋', '友', '的', '名', '字', '是'], pinyin: "Nǐ péng yǒu de míng zì shì?" },
+    { vietnamese: "Giáo viên ăn cơm một mình.", answer: ['老', '师', '一', '个', '人', '吃', '饭'], chars: ['老', '师', '一', '个', '人', '吃', '饭'], pinyin: "Lǎo shī yí gè rén chī fàn." },
+    { vietnamese: "Trưa chủ nhật bạn có đi ăn cơm không?", answer: ['星', '期', '日', '中', '午', '你', '要', '去', '吃', '饭', '吗'], chars: ['星', '期', '日', '中', '午', '你', '要', '去', '吃', '饭', '吗'], pinyin: "Xīng qī rì zhōng wǔ nǐ yào qù chī fàn ma?" },
+    { vietnamese: "Tôi có một tên tiếng Trung, là Tiểu Minh.", answer: ['我', '有', '一', '个', '中', '文', '名', '字', '是', '小', '明'], chars: ['我', '有', '一', '个', '中', '文', '名', '字', '是', '小', '明'], pinyin: "Wǒ yǒu yí gè zhōng wén míng zì, shì xiǎo míng." },
+    { vietnamese: "Công việc thật khó! Tôi nhức đầu quá!", answer: ['工', '作', '好', '难', '我', '头', '大', '了'], chars: ['工', '作', '好', '难', '我', '头', '大', '了'], pinyin: "Gōng zuò hǎo nán! Wǒ tóu dà le!" },
+    { vietnamese: "Cô ấy có một người bạn Trung Quốc, tên là Tiểu Vương.", answer: ['她', '有', '一', '个', '中', '国', '朋', '友', '叫', '小', '王'], chars: ['她', '有', '一', '个', '中', '国', '朋', '友', '叫', '小', '王'], pinyin: "Tā yǒu yí gè zhōng guó péng yǒu, jiào xiǎo wáng." },
+    { vietnamese: "Trưa ngày mai bạn đi đâu ăn cơm?", answer: ['你', '明', '天', '中', '午', '去', '哪', '吃', '饭'], chars: ['你', '明', '天', '中', '午', '去', '哪', '吃', '饭'], pinyin: "Nǐ míng tiān zhōng wǔ qù nǎ chī fàn?" },
+    { vietnamese: "Mẹ bảo tôi buổi trưa về ăn cơm.", answer: ['妈', '妈', '叫', '我', '中', '午', '回', '去', '吃', '饭'], chars: ['妈', '妈', '叫', '我', '中', '午', '回', '去', '吃', '饭'], pinyin: "Mā ma jiào wǒ zhōng wǔ huí qù chī fàn." }
 ];
 
 // Grammar/Context Database (For Fill In The Blanks)
@@ -449,7 +462,16 @@ const sentenceRevealDatabase = [
     { chinese: '他是你的日语老师，对吗？', vietnamese: 'Anh ấy là giáo viên tiếng Nhật của bạn, đúng không?' },
     { chinese: '今天很忙，我头很大！', vietnamese: 'Hôm nay rất bận, tôi nhức đầu quá!' },
     { chinese: '那个人是大学老师，对吗？', vietnamese: 'Người kia là giáo viên đại học, đúng không?' },
-    { chinese: '这个老师今天不进学校工作，他太忙了。', vietnamese: 'Giáo viên này hôm nay không vào trường làm việc, anh ấy quá bận.' }
+    { chinese: '这个老师今天不进学校工作，他太忙了。', vietnamese: 'Giáo viên này hôm nay không vào trường làm việc, anh ấy quá bận.' },
+    { chinese: '这是一本汉语书，不难。', vietnamese: 'Đây là một cuốn sách tiếng Hán, không khó.' },
+    { chinese: '你朋友的名字是？', vietnamese: 'Tên người bạn của bạn là gì?' },
+    { chinese: '老师一个人吃饭。', vietnamese: 'Giáo viên ăn cơm một mình.' },
+    { chinese: '星期日中午你要去吃饭吗？', vietnamese: 'Trưa chủ nhật bạn có đi ăn cơm không?' },
+    { chinese: '我有一个中文名字，是小明。', vietnamese: 'Tôi có một tên tiếng Trung, là Tiểu Minh.' },
+    { chinese: '工作好难！我头大了！', vietnamese: 'Công việc thật khó! Tôi nhức đầu quá!' },
+    { chinese: '她有一个中国朋友，叫小王。', vietnamese: 'Cô ấy có một người bạn Trung Quốc, tên là Tiểu Vương.' },
+    { chinese: '你明天中午去哪吃饭？', vietnamese: 'Trưa ngày mai bạn đi đâu ăn cơm?' },
+    { chinese: '妈妈叫我中午回去吃饭。', vietnamese: 'Mẹ bảo tôi buổi trưa về ăn cơm.' }
 ];
 
 const animalCoverDatabase = [
