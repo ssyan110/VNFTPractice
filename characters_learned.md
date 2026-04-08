@@ -1,6 +1,6 @@
 # Learned Characters
 
-Total: 92
+Total: 97
 
 | # | Character | Pinyin | Meaning |
 |---|-----------|--------|---------|
@@ -96,3 +96,8 @@ Total: 92
 | 90 | 午 | wǔ | trưa |
 | 91 | 头 | tóu | đầu |
 | 92 | 米 | mǐ | gạo, mét |
+| 93 | 吃 | chī | ăn |
+| 94 | 要 | yào | muốn, cần, yêu cầu |
+| 95 | 饭 | fàn | cơm, thức ăn |
+| 96 | 些 | xiē | một ít, vài, một số |
+| 97 | 包 | bāo | gói, bao, bọc, chứa đựng |

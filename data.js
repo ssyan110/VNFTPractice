@@ -94,7 +94,9 @@ const charDatabase = [
     { char: '米', pinyin: 'mǐ', meaning: 'GẠO, MÉT', radical: '米 (mǐ) – bộ Mễ' },
     { char: '吃', pinyin: 'chī', meaning: 'ĂN', radical: '口 (khẩu) – miệng', characterType: 'Hình thanh' },
     { char: '要', pinyin: 'yào', meaning: 'MUỐN, CẦN, YÊU CẦU', radical: '襾 (tây/á) – che phủ, phía trên', characterType: 'Hình thanh' },
-    { char: '饭', pinyin: 'fàn', meaning: 'CƠM, THỨC ĂN', radical: '饣 (thực) – ăn uống, thức ăn', characterType: 'Hình thanh' }
+    { char: '饭', pinyin: 'fàn', meaning: 'CƠM, THỨC ĂN', radical: '饣 (thực) – ăn uống, thức ăn', characterType: 'Hình thanh' },
+    { char: '些', pinyin: 'xiē', hanViet: 'ta', meaning: 'MỘT ÍT, VÀI, MỘT SỐ', radical: '止 (zhǐ) – bộ Chỉ', characterType: 'Hội ý' },
+    { char: '包', pinyin: 'bāo', hanViet: 'bao', meaning: 'GÓI, BAO, BỌC, CHỨA ĐỰNG', radical: '勹 (bāo) – bộ Bao', characterType: 'Hội ý' }
 ];
 
 // Keep this list in sync with characters_learned.md so game 2 only uses
@@ -108,7 +110,7 @@ const learnedCharacters = [
     '下', '月', '生', '了', '木', '休', '亡', '也', '又', '子', '小',
     '回', '校', '那', '哪', '十', '昨', '谢', '人', '问', '叫', '门',
     '们', '名', '字', '国', '中', '文', '习', '发', '音', '朋',
-    '书', '个', '午', '头', '米', '吃', '要', '饭'
+    '书', '个', '午', '头', '米', '吃', '要', '饭', '些', '包'
 ];
 const learnedCharacterSet = new Set(learnedCharacters);
 
@@ -301,7 +303,11 @@ const sentenceDatabase = [
     { vietnamese: "Công việc thật khó! Tôi nhức đầu quá!", answer: ['工', '作', '好', '难', '我', '头', '大', '了'], chars: ['工', '作', '好', '难', '我', '头', '大', '了'], pinyin: "Gōng zuò hǎo nán! Wǒ tóu dà le!" },
     { vietnamese: "Cô ấy có một người bạn Trung Quốc, tên là Tiểu Vương.", answer: ['她', '有', '一', '个', '中', '国', '朋', '友', '叫', '小', '王'], chars: ['她', '有', '一', '个', '中', '国', '朋', '友', '叫', '小', '王'], pinyin: "Tā yǒu yí gè zhōng guó péng yǒu, jiào xiǎo wáng." },
     { vietnamese: "Trưa ngày mai bạn đi đâu ăn cơm?", answer: ['你', '明', '天', '中', '午', '去', '哪', '吃', '饭'], chars: ['你', '明', '天', '中', '午', '去', '哪', '吃', '饭'], pinyin: "Nǐ míng tiān zhōng wǔ qù nǎ chī fàn?" },
-    { vietnamese: "Mẹ bảo tôi buổi trưa về ăn cơm.", answer: ['妈', '妈', '叫', '我', '中', '午', '回', '去', '吃', '饭'], chars: ['妈', '妈', '叫', '我', '中', '午', '回', '去', '吃', '饭'], pinyin: "Mā ma jiào wǒ zhōng wǔ huí qù chī fàn." }
+    { vietnamese: "Mẹ bảo tôi buổi trưa về ăn cơm.", answer: ['妈', '妈', '叫', '我', '中', '午', '回', '去', '吃', '饭'], chars: ['妈', '妈', '叫', '我', '中', '午', '回', '去', '吃', '饭'], pinyin: "Mā ma jiào wǒ zhōng wǔ huí qù chī fàn." },
+    { vietnamese: "Bạn muốn một ít bánh bao không?", answer: ['你', '要', '一', '些', '包', '子', '吗'], chars: ['你', '要', '一', '些', '包', '子', '吗'], pinyin: "Nǐ yào yì xiē bāo zi ma?" },
+    { vietnamese: "Hôm nay tôi bao ăn!", answer: ['今', '天', '吃', '饭', '我', '包'], chars: ['今', '天', '吃', '饭', '我', '包'], pinyin: "Jīn tiān chī fàn wǒ bāo!" },
+    { vietnamese: "Cái cặp sách này là của cô ấy phải không?", answer: ['这', '个', '书', '包', '是', '她', '的', '吗'], chars: ['这', '个', '书', '包', '是', '她', '的', '吗'], pinyin: "Zhè gè shū bāo shì tā de ma?" },
+    { vietnamese: "Đây là túi xách của bạn hả?", answer: ['这', '是', '你', '的', '包', '吗'], chars: ['这', '是', '你', '的', '包', '吗'], pinyin: "Zhè shì nǐ de bāo ma?" }
 ];
 
 // Grammar/Context Database (For Fill In The Blanks)
@@ -471,7 +477,11 @@ const sentenceRevealDatabase = [
     { chinese: '工作好难！我头大了！', vietnamese: 'Công việc thật khó! Tôi nhức đầu quá!' },
     { chinese: '她有一个中国朋友，叫小王。', vietnamese: 'Cô ấy có một người bạn Trung Quốc, tên là Tiểu Vương.' },
     { chinese: '你明天中午去哪吃饭？', vietnamese: 'Trưa ngày mai bạn đi đâu ăn cơm?' },
-    { chinese: '妈妈叫我中午回去吃饭。', vietnamese: 'Mẹ bảo tôi buổi trưa về ăn cơm.' }
+    { chinese: '妈妈叫我中午回去吃饭。', vietnamese: 'Mẹ bảo tôi buổi trưa về ăn cơm.' },
+    { chinese: '你要一些包子吗？', vietnamese: 'Bạn muốn một ít bánh bao không?' },
+    { chinese: '今天吃饭我包！', vietnamese: 'Hôm nay tôi bao ăn!' },
+    { chinese: '这个书包是她的吗？', vietnamese: 'Cái cặp sách này là của cô ấy phải không?' },
+    { chinese: '这是你的包吗？', vietnamese: 'Đây là túi xách của bạn hả?' }
 ];
 
 const animalCoverDatabase = [
