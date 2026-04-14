@@ -1,468 +1,523 @@
 ﻿Question #,Question Text,Answer 1,Answer 2,Answer 3 (Optional),Answer 4 (Optional),Correct Answer(s),Time Limit (sec) (Max: 300 seconds)
-1,Chữ「一」có nghĩa là gì?,MỘT,HÁN,HAI,"KIA, ĐÓ",1,20
-2,Chữ「八」có nghĩa là gì?,"LÀM, TẠO RA, SÁNG TẠO, LÀM VIỆC","THẦY, GIÁO VIÊN",TỐT,TÁM,4,20
-3,Chữ「五」có nghĩa là gì?,TRỢ TỪ SỐ NHIỀU DÙNG SAU ĐẠI TỪ HOẶC TỪ CHỈ NGƯỜI,HAI,NĂM,"THÂN, CƠ THỂ",3,20
-4,Chữ「不」có nghĩa là gì?,KHÔNG,"TÊN, TÊN GỌI","NHỎ, BÉ",PHỤ NỮ,1,20
-5,Chữ「大」có nghĩa là gì?,"GẠO, MÉT",TỐT,"HÔM NAY, BÂY GIỜ",TO LỚN,4,20
-6,Chữ「口」có nghĩa là gì?,"THÂN, CƠ THỂ",RẤT,"KỲ, TUẦN",MIỆNG,4,20
-7,Chữ「白」có nghĩa là gì?,TRẮNG,"CON, ĐỨA TRẺ",BẠN BÈ,TRỢ TỪ SỐ NHIỀU DÙNG SAU ĐẠI TỪ HOẶC TỪ CHỈ NGƯỜI,1,20
-8,Chữ「女」có nghĩa là gì?,"TÊN, TÊN GỌI",ANH ẤY,PHỤ NỮ,BẠN,3,20
-9,Chữ「你」có nghĩa là gì?,BẠC,ĐÚNG,BẬN,BẠN,4,20
-10,Chữ「好」có nghĩa là gì?,BỐN,TỐT,NGÔN NGỮ,MƯỜI,2,20
-11,Chữ「马」có nghĩa là gì?,NGỰA,"GIÀ, LỚN TUỔI","SÁCH, VIẾT","TRÊN, LÊN",1,20
-12,Chữ「太」có nghĩa là gì?,"QUÁ, LẮM",CHÍN,NĂM,NGHỈ NGƠI,1,20
-13,Chữ「汉」có nghĩa là gì?,"KIA, ĐÓ",CŨNG,HÁN,"ÂM, ÂM THANH",3,20
-14,Chữ「语」có nghĩa là gì?,NGÔN NGỮ,TÁM,GẶP,"DƯỚI, XUỐNG",1,20
-15,Chữ「吗」có nghĩa là gì?,"LÀM, TẠO RA, SÁNG TẠO, LÀM VIỆC",KHÔNG (TRỢ TỪ),HAI,CŨNG,2,20
-16,Chữ「妈」có nghĩa là gì?,MẸ,"MẶT TRỜI, NGÀY",NGÂN HÀNG,BỐN,1,20
-17,Chữ「爸」có nghĩa là gì?,ĐI,"THÂN THỂ, CƠ THỂ",NĂM,BỐ,4,20
-18,Chữ「很」có nghĩa là gì?,RẤT,"VĂN, CHỮ VIẾT",NGHỈ NGƠI,CŨNG,1,20
-19,Chữ「忙」có nghĩa là gì?,"LÀM, TẠO RA, SÁNG TẠO, LÀM VIỆC","TRÊN, LÊN",BẬN,"KIA, ĐÓ",3,20
-20,Chữ「他」có nghĩa là gì?,"NƯỚC, QUỐC GIA",ANH ẤY,"GẠO, MÉT","LÀM, TẠO RA, SÁNG TẠO, LÀM VIỆC",2,20
-21,Chữ「她」có nghĩa là gì?,CHÍN,CÔ ẤY,"CHỮ, VĂN TỰ",CỬA,2,20
-22,Chữ「难」có nghĩa là gì?,"NƯỚC, QUỐC GIA",KHÓ,"TRỜI, NGÀY",TÔI,2,20
-23,Chữ「六」có nghĩa là gì?,NGÂN HÀNG,NGỰA,SÁU,NGÔN NGỮ,3,20
-24,Chữ「七」có nghĩa là gì?,BẢY,BỐN,"LẠI, NỮA",NGÂN HÀNG,1,20
-25,Chữ「九」có nghĩa là gì?,KINH,CHÍN,"TRỜI, NGÀY",HAI,2,20
-26,Chữ「学」có nghĩa là gì?,HỌC,NGHỈ NGƠI,"THÂN, CƠ THỂ","HÔM NAY, BÂY GIỜ",1,20
-27,Chữ「去」có nghĩa là gì?,ĐẦU,BẠN BÈ,TRỢ TỪ HOÀN THÀNH,ĐI,4,20
-28,Chữ「北」có nghĩa là gì?,BẢY,MIỆNG,TO LỚN,BẮC,4,20
-29,Chữ「京」có nghĩa là gì?,HỎI,"DƯỚI, XUỐNG",KINH,KHÓ,3,20
-30,Chữ「对」có nghĩa là gì?,ANH ẤY,BẢY,TO LỚN,ĐÚNG,4,20
-31,Chữ「明」có nghĩa là gì?,"NÀO, ĐÂU",SÁNG,KHÔNG (TRỢ TỪ),CHÍN,2,20
-32,Chữ「天」có nghĩa là gì?,"MẶT TRĂNG, THÁNG","TRỜI, NGÀY",HÔM QUA,"GỌI, KÊU",2,20
-33,Chữ「见」có nghĩa là gì?,KHÓ,"GIÀ, LỚN TUỔI",GẶP,HỌC,3,20
-34,Chữ「银」có nghĩa là gì?,BẠN,BẠC,"SÁCH, VIẾT","THÂN, CƠ THỂ",2,20
-35,Chữ「行」có nghĩa là gì?,NGƯỜI,NGÂN HÀNG,"NÀO, ĐÂU","SINH, SỐNG",2,20
-36,Chữ「二」có nghĩa là gì?,"VĂN, CHỮ VIẾT",HAI,"CÔNG, VIỆC, CÔNG VIỆC, THỢ",KHÔNG,2,20
-37,Chữ「三」có nghĩa là gì?,BA,PHỤ NỮ,HỎI,"GIÀ, LỚN TUỔI",1,20
-38,Chữ「四」có nghĩa là gì?,BỐN,"MẤY, BAO NHIÊU","GẠO, MÉT",MƯỜI,1,20
-39,Chữ「今」có nghĩa là gì?,BẠN BÈ,CHÍN,"HÔM NAY, BÂY GIỜ",NGƯỜI,3,20
-40,Chữ「关」có nghĩa là gì?,"DƯỚI, XUỐNG","ĐÓNG, TẮT",MỘT,"NÀO, ĐÂU",2,20
-41,Chữ「星」có nghĩa là gì?,"PHÁT, PHÁT TRIỂN",ĐẦU,SAO,"LÀ, ĐÚNG, PHẢI",3,20
-42,Chữ「期」có nghĩa là gì?,"KỲ, TUẦN",BỐN,TỐT,MƯỜI,1,20
-43,Chữ「几」có nghĩa là gì?,"KỲ, TUẦN","VÀO, TIẾN VÀO","LẠI, NỮA","MẤY, BAO NHIÊU",4,20
-44,Chữ「我」có nghĩa là gì?,"LẠI, NỮA",SÁU,TÔI,"TRÊN, LÊN",3,20
-45,Chữ「工」có nghĩa là gì?,"CÔNG, VIỆC, CÔNG VIỆC, THỢ","SINH, SỐNG",BẬN,PHỤ NỮ,1,20
-46,Chữ「作」có nghĩa là gì?,NGỰA,MƯỜI,"LÀ, ĐÚNG, PHẢI","LÀM, TẠO RA, SÁNG TẠO, LÀM VIỆC",4,20
-47,Chữ「日」có nghĩa là gì?,"PHÁT, PHÁT TRIỂN",KHÔNG (TRỢ TỪ),"MẶT TRỜI, NGÀY",SAO,3,20
-48,Chữ「是」có nghĩa là gì?,BỐN,"LÀ, ĐÚNG, PHẢI","CON, ĐỨA TRẺ",ANH ẤY,2,20
-49,Chữ「这」có nghĩa là gì?,TRỢ TỪ SỐ NHIỀU DÙNG SAU ĐẠI TỪ HOẶC TỪ CHỈ NGƯỜI,"ĐÂY, CÁI NÀY","CẢM ƠN, XIN LỖI, TỪ CHỐI, TÀN",ĐI,2,20
-50,Chữ「进」có nghĩa là gì?,"TRỜI, NGÀY","VÀO, TIẾN VÀO","LẠI, NỮA","ĐÂY, CÁI NÀY",2,20
-51,Chữ「老」có nghĩa là gì?,"GIÀ, LỚN TUỔI","VĂN, CHỮ VIẾT",HÔM QUA,"CẢM ƠN, XIN LỖI, TỪ CHỐI, TÀN",1,20
-52,Chữ「师」có nghĩa là gì?,"THẦY, GIÁO VIÊN","CON, ĐỨA TRẺ","LÀM, TẠO RA, SÁNG TẠO, LÀM VIỆC",BẠC,1,20
-53,Chữ「身」có nghĩa là gì?,"CÔNG, VIỆC, CÔNG VIỆC, THỢ","THÂN THỂ, CƠ THỂ",KINH,"THÂN, CƠ THỂ",4,20
-54,Chữ「体」có nghĩa là gì?,HỎI,"THÂN THỂ, CƠ THỂ","ÂM, ÂM THANH",ĐI,2,20
-55,Chữ「上」có nghĩa là gì?,HÔM QUA,TRỢ TỪ SỐ NHIỀU DÙNG SAU ĐẠI TỪ HOẶC TỪ CHỈ NGƯỜI,HÁN,"TRÊN, LÊN",4,20
-56,Chữ「下」có nghĩa là gì?,"DƯỚI, XUỐNG",SÁU,KHÔNG,TRƯA,1,20
-57,Chữ「月」có nghĩa là gì?,CHÍN,"MẶT TRĂNG, THÁNG","KỲ, TUẦN","HÔM NAY, BÂY GIỜ",2,20
-58,Chữ「生」có nghĩa là gì?,"THÂN, CƠ THỂ","CÔNG, VIỆC, CÔNG VIỆC, THỢ","SINH, SỐNG","CÂY, GỖ",3,20
-59,Chữ「了」có nghĩa là gì?,"GIÀ, LỚN TUỔI",TRỢ TỪ HOÀN THÀNH,TRẮNG,TRỢ TỪ SỐ NHIỀU DÙNG SAU ĐẠI TỪ HOẶC TỪ CHỈ NGƯỜI,2,20
-60,Chữ「木」có nghĩa là gì?,CHÍN,BẬN,"CÂY, GỖ",NGỰA,3,20
-61,Chữ「休」có nghĩa là gì?,"QUÁ, LẮM",NGHỈ NGƠI,"SÁCH, VIẾT",ĐÚNG,2,20
-62,Chữ「亡」có nghĩa là gì?,"MẤT, CHẾT","CÔNG, VIỆC, CÔNG VIỆC, THỢ",ANH ẤY,BẠN,1,20
-63,Chữ「也」có nghĩa là gì?,CŨNG,TÔI,HỎI,"KỲ, TUẦN",1,20
-64,Chữ「又」có nghĩa là gì?,"ÂM, ÂM THANH","NÀO, ĐÂU","LÀ, ĐÚNG, PHẢI","LẠI, NỮA",4,20
-65,Chữ「子」có nghĩa là gì?,TRỢ TỪ SỐ NHIỀU DÙNG SAU ĐẠI TỪ HOẶC TỪ CHỈ NGƯỜI,TRƯỜNG HỌC,"QUAY LẠI, TRỞ VỀ","CON, ĐỨA TRẺ",4,20
-66,Chữ「小」có nghĩa là gì?,"NHỎ, BÉ","LÀ, ĐÚNG, PHẢI","MẤY, BAO NHIÊU",NGÂN HÀNG,1,20
-67,Chữ「回」có nghĩa là gì?,"THẦY, GIÁO VIÊN","QUAY LẠI, TRỞ VỀ",CHÍN,KHÓ,2,20
-68,Chữ「校」có nghĩa là gì?,"HÔM NAY, BÂY GIỜ",TRƯỜNG HỌC,"KIA, ĐÓ","MẤY, BAO NHIÊU",2,20
-69,Chữ「那」có nghĩa là gì?,MẸ,"KIA, ĐÓ",CŨNG,BẠN BÈ,2,20
-70,Chữ「哪」có nghĩa là gì?,"QUÁ, LẮM","NÀO, ĐÂU","SINH, SỐNG",MƯỜI,2,20
-71,Chữ「十」có nghĩa là gì?,MƯỜI,"THÂN, CƠ THỂ","TRỜI, NGÀY","ĐÓNG, TẮT",1,20
-72,Chữ「昨」có nghĩa là gì?,HÔM QUA,SAO,HÁN,BẠN,1,20
-73,Chữ「谢」có nghĩa là gì?,MIỆNG,ĐẦU,BA,"CẢM ƠN, XIN LỖI, TỪ CHỐI, TÀN",4,20
-74,Chữ「人」có nghĩa là gì?,NGƯỜI,HỌC,"NHỎ, BÉ",CÔ ẤY,1,20
-75,Chữ「问」có nghĩa là gì?,NGỰA,"LÀM, TẠO RA, SÁNG TẠO, LÀM VIỆC",HỎI,TRẮNG,3,20
-76,Chữ「叫」có nghĩa là gì?,NĂM,"GỌI, KÊU","LẠI, NỮA",BẠN BÈ,2,20
-77,Chữ「门」có nghĩa là gì?,CỬA,TÔI,"LÀM, TẠO RA, SÁNG TẠO, LÀM VIỆC",SAO,1,20
-78,Chữ「们」có nghĩa là gì?,TRỢ TỪ SỐ NHIỀU DÙNG SAU ĐẠI TỪ HOẶC TỪ CHỈ NGƯỜI,HÔM QUA,BẠC,"Ở GIỮA, TRUNG TÂM",1,20
-79,Chữ「名」có nghĩa là gì?,"DƯỚI, XUỐNG",ĐẦU,"TÊN, TÊN GỌI","LẠI, NỮA",3,20
-80,Chữ「字」có nghĩa là gì?,"CHỮ, VĂN TỰ",KHÓ,"LÀM, TẠO RA, SÁNG TẠO, LÀM VIỆC",CÔ ẤY,1,20
-81,Chữ「国」có nghĩa là gì?,"THÂN THỂ, CƠ THỂ","NƯỚC, QUỐC GIA","MẶT TRỜI, NGÀY",TRỢ TỪ HOÀN THÀNH,2,20
-82,Chữ「中」có nghĩa là gì?,TRỢ TỪ HOÀN THÀNH,"NƯỚC, QUỐC GIA","Ở GIỮA, TRUNG TÂM",HAI,3,20
-83,Chữ「文」có nghĩa là gì?,CỬA,"VĂN, CHỮ VIẾT","TÊN, TÊN GỌI","CON, ĐỨA TRẺ",2,20
-84,Chữ「习」có nghĩa là gì?,"THÂN THỂ, CƠ THỂ",SÁNG,"LUYỆN TẬP, HỌC","Ở GIỮA, TRUNG TÂM",3,20
-85,Chữ「发」có nghĩa là gì?,"NÀO, ĐÂU","ĐÂY, CÁI NÀY","PHÁT, PHÁT TRIỂN",NĂM,3,20
-86,Chữ「音」có nghĩa là gì?,"CON, ĐỨA TRẺ","ÂM, ÂM THANH",TRẮNG,TRƯỜNG HỌC,2,20
-87,Chữ「朋」có nghĩa là gì?,"Ở GIỮA, TRUNG TÂM",BẠN BÈ,"DƯỚI, XUỐNG","SINH, SỐNG",2,20
-88,Chữ「书」có nghĩa là gì?,BẬN,CÔ ẤY,"SÁCH, VIẾT","ĐÓNG, TẮT",3,20
-89,Chữ「个」có nghĩa là gì?,"ĐÂY, CÁI NÀY","QUAY LẠI, TRỞ VỀ","CÔNG, VIỆC, CÔNG VIỆC, THỢ","CÁI, LƯỢNG TỪ",4,20
-90,Chữ「午」có nghĩa là gì?,TO LỚN,GẶP,TRƯA,"LẠI, NỮA",3,20
-91,Chữ「头」có nghĩa là gì?,"SÁCH, VIẾT",TRỢ TỪ SỐ NHIỀU DÙNG SAU ĐẠI TỪ HOẶC TỪ CHỈ NGƯỜI,"LÀM, TẠO RA, SÁNG TẠO, LÀM VIỆC",ĐẦU,4,20
-92,Chữ「米」có nghĩa là gì?,BẢY,BẬN,"TÊN, TÊN GỌI","GẠO, MÉT",4,20
-93,"Chữ nào có nghĩa ""MỘT""?",一,语,银,今,1,20
-94,"Chữ nào có nghĩa ""TÁM""?",八,文,生,七,1,20
-95,"Chữ nào có nghĩa ""NĂM""?",关,昨,五,这,3,20
-96,"Chữ nào có nghĩa ""KHÔNG""?",朋,不,三,我,2,20
-97,"Chữ nào có nghĩa ""TO LỚN""?",大,门,去,体,1,20
-98,"Chữ nào có nghĩa ""MIỆNG""?",妈,口,哪,老,2,20
-99,"Chữ nào có nghĩa ""TRẮNG""?",人,这,白,午,3,20
-100,"Chữ nào có nghĩa ""PHỤ NỮ""?",女,老,体,她,1,20
-101,"Chữ nào có nghĩa ""BẠN""?",音,书,米,你,4,20
-102,"Chữ nào có nghĩa ""TỐT""?",好,很,们,生,1,20
-103,"Chữ nào có nghĩa ""NGỰA""?",马,了,忙,她,1,20
-104,"Chữ nào có nghĩa ""QUÁ, LẮM""?",生,校,太,身,3,20
-105,"Chữ nào có nghĩa ""HÁN""?",下,汉,午,口,2,20
-106,"Chữ nào có nghĩa ""NGÔN NGỮ""?",作,语,木,文,2,20
-107,"Chữ nào có nghĩa ""KHÔNG (TRỢ TỪ)""?",吗,谢,下,很,1,20
-108,"Chữ nào có nghĩa ""MẸ""?",不,也,妈,子,3,20
-109,"Chữ nào có nghĩa ""BỐ""?",爸,一,大,去,1,20
-110,"Chữ nào có nghĩa ""RẤT""?",身,很,是,四,2,20
-111,"Chữ nào có nghĩa ""BẬN""?",忙,体,个,三,1,20
-112,"Chữ nào có nghĩa ""ANH ẤY""?",汉,们,他,很,3,20
-113,"Chữ nào có nghĩa ""CÔ ẤY""?",了,昨,她,中,3,20
-114,"Chữ nào có nghĩa ""KHÓ""?",老,这,很,难,4,20
-115,"Chữ nào có nghĩa ""SÁU""?",星,午,六,一,3,20
-116,"Chữ nào có nghĩa ""BẢY""?",子,明,爸,七,4,20
-117,"Chữ nào có nghĩa ""CHÍN""?",九,习,女,见,1,20
-118,"Chữ nào có nghĩa ""HỌC""?",二,学,汉,回,2,20
-119,"Chữ nào có nghĩa ""ĐI""?",明,了,生,去,4,20
-120,"Chữ nào có nghĩa ""BẮC""?",哪,二,身,北,4,20
-121,"Chữ nào có nghĩa ""KINH""?",名,京,个,回,2,20
-122,"Chữ nào có nghĩa ""ĐÚNG""?",期,对,也,进,2,20
-123,"Chữ nào có nghĩa ""SÁNG""?",们,明,哪,九,2,20
-124,"Chữ nào có nghĩa ""TRỜI, NGÀY""?",八,国,你,天,4,20
-125,"Chữ nào có nghĩa ""GẶP""?",见,月,头,语,1,20
-126,"Chữ nào có nghĩa ""BẠC""?",明,工,银,八,3,20
-127,"Chữ nào có nghĩa ""NGÂN HÀNG""?",行,白,六,老,1,20
-128,"Chữ nào có nghĩa ""HAI""?",北,见,他,二,4,20
-129,"Chữ nào có nghĩa ""BA""?",期,中,马,三,4,20
-130,"Chữ nào có nghĩa ""BỐN""?",难,四,天,我,2,20
-131,"Chữ nào có nghĩa ""HÔM NAY, BÂY GIỜ""?",米,京,大,今,4,20
-132,"Chữ nào có nghĩa ""ĐÓNG, TẮT""?",妈,文,关,十,3,20
-133,"Chữ nào có nghĩa ""SAO""?",月,哪,星,吗,3,20
-134,"Chữ nào có nghĩa ""KỲ, TUẦN""?",门,期,日,名,2,20
-135,"Chữ nào có nghĩa ""MẤY, BAO NHIÊU""?",大,他,几,老,3,20
-136,"Chữ nào có nghĩa ""TÔI""?",们,我,子,回,2,20
-137,"Chữ nào có nghĩa ""CÔNG, VIỆC, CÔNG VIỆC, THỢ""?",工,老,人,五,1,20
-138,"Chữ nào có nghĩa ""LÀM, TẠO RA, SÁNG TẠO, LÀM VIỆC""?",小,发,作,天,3,20
-139,"Chữ nào có nghĩa ""MẶT TRỜI, NGÀY""?",国,日,们,爸,2,20
-140,"Chữ nào có nghĩa ""LÀ, ĐÚNG, PHẢI""?",下,是,老,又,2,20
-141,"Chữ nào có nghĩa ""ĐÂY, CÁI NÀY""?",不,月,这,今,3,20
-142,"Chữ nào có nghĩa ""VÀO, TIẾN VÀO""?",哪,进,太,也,2,20
-143,"Chữ nào có nghĩa ""GIÀ, LỚN TUỔI""?",体,门,哪,老,4,20
-144,"Chữ nào có nghĩa ""THẦY, GIÁO VIÊN""?",体,师,期,几,2,20
-145,"Chữ nào có nghĩa ""THÂN, CƠ THỂ""?",身,大,师,问,1,20
-146,"Chữ nào có nghĩa ""THÂN THỂ, CƠ THỂ""?",体,银,一,期,1,20
-147,"Chữ nào có nghĩa ""TRÊN, LÊN""?",作,很,上,小,3,20
-148,"Chữ nào có nghĩa ""DƯỚI, XUỐNG""?",吗,下,去,她,2,20
-149,"Chữ nào có nghĩa ""MẶT TRĂNG, THÁNG""?",月,关,十,身,1,20
-150,"Chữ nào có nghĩa ""SINH, SỐNG""?",亡,回,个,生,4,20
-151,"Chữ nào có nghĩa ""TRỢ TỪ HOÀN THÀNH""?",不,五,了,大,3,20
-152,"Chữ nào có nghĩa ""CÂY, GỖ""?",米,身,木,大,3,20
-153,"Chữ nào có nghĩa ""NGHỈ NGƠI""?",叫,休,今,问,2,20
-154,"Chữ nào có nghĩa ""MẤT, CHẾT""?",校,爸,师,亡,4,20
-155,"Chữ nào có nghĩa ""CŨNG""?",们,进,银,也,4,20
-156,"Chữ nào có nghĩa ""LẠI, NỮA""?",一,文,大,又,4,20
-157,"Chữ nào có nghĩa ""CON, ĐỨA TRẺ""?",子,是,学,明,1,20
-158,"Chữ nào có nghĩa ""NHỎ, BÉ""?",人,十,小,师,3,20
-159,"Chữ nào có nghĩa ""QUAY LẠI, TRỞ VỀ""?",发,那,回,白,3,20
-160,"Chữ nào có nghĩa ""TRƯỜNG HỌC""?",语,小,明,校,4,20
-161,"Chữ nào có nghĩa ""KIA, ĐÓ""?",很,那,亡,国,2,20
-162,"Chữ nào có nghĩa ""NÀO, ĐÂU""?",是,老,哪,头,3,20
-163,"Chữ nào có nghĩa ""MƯỜI""?",文,行,十,生,3,20
-164,"Chữ nào có nghĩa ""HÔM QUA""?",中,口,银,昨,4,20
-165,"Chữ nào có nghĩa ""CẢM ƠN, XIN LỖI, TỪ CHỐI, TÀN""?",工,期,谢,学,3,20
-166,"Chữ nào có nghĩa ""NGƯỜI""?",人,那,日,五,1,20
-167,"Chữ nào có nghĩa ""HỎI""?",四,问,白,几,2,20
-168,"Chữ nào có nghĩa ""GỌI, KÊU""?",叫,京,二,九,1,20
-169,"Chữ nào có nghĩa ""CỬA""?",几,工,对,门,4,20
-170,"Chữ nào có nghĩa ""TRỢ TỪ SỐ NHIỀU DÙNG SAU ĐẠI TỪ HOẶC TỪ CHỈ NGƯỜI""?",爸,体,又,们,4,20
-171,"Chữ nào có nghĩa ""TÊN, TÊN GỌI""?",忙,大,太,名,4,20
-172,"Chữ nào có nghĩa ""CHỮ, VĂN TỰ""?",也,字,文,回,2,20
-173,"Chữ nào có nghĩa ""NƯỚC, QUỐC GIA""?",国,问,小,进,1,20
-174,"Chữ nào có nghĩa ""Ở GIỮA, TRUNG TÂM""?",头,书,中,她,3,20
-175,"Chữ nào có nghĩa ""VĂN, CHỮ VIẾT""?",师,文,明,见,2,20
-176,"Chữ nào có nghĩa ""LUYỆN TẬP, HỌC""?",作,九,叫,习,4,20
-177,"Chữ nào có nghĩa ""PHÁT, PHÁT TRIỂN""?",他,国,五,发,4,20
-178,"Chữ nào có nghĩa ""ÂM, ÂM THANH""?",行,音,汉,休,2,20
-179,"Chữ nào có nghĩa ""BẠN BÈ""?",女,八,朋,汉,3,20
-180,"Chữ nào có nghĩa ""SÁCH, VIẾT""?",北,书,好,一,2,20
-181,"Chữ nào có nghĩa ""CÁI, LƯỢNG TỪ""?",校,这,书,个,4,20
-182,"Chữ nào có nghĩa ""TRƯA""?",你,朋,午,行,3,20
-183,"Chữ nào có nghĩa ""ĐẦU""?",问,进,难,头,4,20
-184,"Chữ nào có nghĩa ""GẠO, MÉT""?",门,你,米,音,3,20
-185,Pinyin của chữ「一」là gì?,wèn,shēng,wén,yī,4,15
-186,Pinyin của chữ「八」là gì?,bā,shēng,dà,bái,1,15
-187,Pinyin của chữ「五」là gì?,mǐ,wǔ,zì,rì,2,15
-188,Pinyin của chữ「不」là gì?,qī,lǎo,bù,wǒ,3,15
-189,Pinyin của chữ「大」là gì?,dà,rén,zuó,bā,1,15
-190,Pinyin của chữ「口」là gì?,shàng,wén,kǒu,men,3,15
-191,Pinyin của chữ「白」là gì?,jīn,jīng,yuè,bái,4,15
-192,Pinyin của chữ「女」là gì?,zì,nǚ,jìn,wǒ,2,15
-193,Pinyin của chữ「你」là gì?,nǐ,máng,fā,yuè,1,15
-194,Pinyin của chữ「好」là gì?,hǎo,bà,nǚ,jǐ,1,15
-195,Pinyin của chữ「马」là gì?,wǒ,mǎ,gè,nà,2,15
-196,Pinyin của chữ「太」là gì?,sì,bù,tài,gè,3,15
-197,Pinyin của chữ「汉」là gì?,nán,dà,hàn,wén,3,15
-198,Pinyin của chữ「语」là gì?,zì,yǔ,zuó,yě,2,15
-199,Pinyin của chữ「吗」là gì?,ma,shēng,duì,le,1,15
-200,Pinyin của chữ「妈」là gì?,èr,guān,qī,mā,4,15
-201,Pinyin của chữ「爸」là gì?,dà,bà,tiān,háng,2,15
-202,Pinyin của chữ「很」là gì?,yuè,qī,hěn,xīng,3,15
-203,Pinyin của chữ「忙」là gì?,rì,nán,máng,guān,3,15
-204,Pinyin của chữ「他」là gì?,tā,yǔ,kǒu,èr,1,15
-205,Pinyin của chữ「她」là gì?,yuè,tā,wǒ,jiàn,2,15
-206,Pinyin của chữ「难」là gì?,hàn,guān,nán,míng,3,15
-207,Pinyin của chữ「六」là gì?,yě,liù,xiè,nǐ,2,15
-208,Pinyin của chữ「七」là gì?,gōng,nǐ,qī,xiǎo,3,15
-209,Pinyin của chữ「九」là gì?,jiǔ,guān,yín,shū,1,15
-210,Pinyin của chữ「学」là gì?,xué,fā,liù,qù,1,15
-211,Pinyin của chữ「去」là gì?,jīn,tā,qù,qī,3,15
-212,Pinyin của chữ「北」là gì?,zhōng,xīng,běi,sì,3,15
-213,Pinyin của chữ「京」là gì?,le,hěn,shēn,jīng,4,15
-214,Pinyin của chữ「对」là gì?,xià,nǐ,duì,nán,3,15
-215,Pinyin của chữ「明」là gì?,fā,jiàn,xiào,míng,4,15
-216,Pinyin của chữ「天」là gì?,tiān,xiè,tǐ,xiū,1,15
-217,Pinyin của chữ「见」là gì?,ma,wén,wáng,jiàn,4,15
-218,Pinyin của chữ「银」là gì?,yín,shí,bā,sì,1,15
-219,Pinyin của chữ「行」là gì?,sì,wén,qī,háng,4,15
-220,Pinyin của chữ「二」là gì?,èr,bù,yīn,mā,1,15
-221,Pinyin của chữ「三」là gì?,wǒ,sān,yīn,shàng,2,15
-222,Pinyin của chữ「四」là gì?,tóu,sì,zuó,zì,2,15
-223,Pinyin của chữ「今」là gì?,shēng,yīn,mén,jīn,4,15
-224,Pinyin của chữ「关」là gì?,guān,mā,xiū,shēn,1,15
-225,Pinyin của chữ「星」là gì?,xīng,yín,fā,yǔ,1,15
-226,Pinyin của chữ「期」là gì?,qī,zǐ,shì,nà,1,15
-227,Pinyin của chữ「几」là gì?,jǐ,xiǎo,sān,bā,1,15
-228,Pinyin của chữ「我」là gì?,lǎo,wǒ,nán,wèn,2,15
-229,Pinyin của chữ「工」là gì?,qī,gōng,guān,lǎo,2,15
-230,Pinyin của chữ「作」là gì?,xué,mǎ,xià,zuò,4,15
-231,Pinyin của chữ「日」là gì?,rì,sān,yī,wǔ,1,15
-232,Pinyin của chữ「是」là gì?,nǎ,shì,míng,lǎo,2,15
-233,Pinyin của chữ「这」là gì?,gōng,zhè,mén,lǎo,2,15
-234,Pinyin của chữ「进」là gì?,mén,jìn,ma,fā,2,15
-235,Pinyin của chữ「老」là gì?,mǐ,shēn,shì,lǎo,4,15
-236,Pinyin của chữ「师」là gì?,zuò,míng,shī,hěn,3,15
-237,Pinyin của chữ「身」là gì?,zhè,shēn,xiū,kǒu,2,15
-238,Pinyin của chữ「体」là gì?,ma,gōng,nǎ,tǐ,4,15
-239,Pinyin của chữ「上」là gì?,xué,shàng,zì,nán,2,15
-240,Pinyin của chữ「下」là gì?,bā,hěn,xià,xiū,3,15
-241,Pinyin của chữ「月」là gì?,yīn,mén,yuè,xiū,3,15
-242,Pinyin của chữ「生」là gì?,yǔ,shēng,xí,sān,2,15
-243,Pinyin của chữ「了」là gì?,guó,le,péng,xué,2,15
-244,Pinyin của chữ「木」là gì?,mù,zhōng,jīn,nǐ,1,15
-245,Pinyin của chữ「休」là gì?,xiū,wén,zuó,jīn,1,15
-246,Pinyin của chữ「亡」là gì?,jiǔ,wáng,shì,máng,2,15
-247,Pinyin của chữ「也」là gì?,jǐ,mù,bù,yě,4,15
-248,Pinyin của chữ「又」là gì?,bà,liù,èr,yòu,4,15
-249,Pinyin của chữ「子」là gì?,zǐ,qī,míng,gè,1,15
-250,Pinyin của chữ「小」là gì?,rì,yī,xiǎo,shēng,3,15
-251,Pinyin của chữ「回」là gì?,zì,bù,duì,huí,4,15
-252,Pinyin của chữ「校」là gì?,xiào,xí,duì,xiǎo,1,15
-253,Pinyin của chữ「那」là gì?,dà,nà,xué,xiū,2,15
-254,Pinyin của chữ「哪」là gì?,tǐ,shēn,nǎ,míng,3,15
-255,Pinyin của chữ「十」là gì?,yuè,shí,nán,zhè,2,15
-256,Pinyin của chữ「昨」là gì?,jìn,zuó,kǒu,nǐ,2,15
-257,Pinyin của chữ「谢」là gì?,xiè,jiào,xiào,shí,1,15
-258,Pinyin của chữ「人」là gì?,míng,rén,sì,qī,2,15
-259,Pinyin của chữ「问」là gì?,wèn,nǎ,jìn,míng,1,15
-260,Pinyin của chữ「叫」là gì?,yīn,zì,jiào,jīng,3,15
-261,Pinyin của chữ「门」là gì?,mā,mén,máng,wáng,2,15
-262,Pinyin của chữ「们」là gì?,bā,jiǔ,huí,men,4,15
-263,Pinyin của chữ「名」là gì?,míng,xià,duì,xiū,1,15
-264,Pinyin của chữ「字」là gì?,zhè,zì,jīng,rì,2,15
-265,Pinyin của chữ「国」là gì?,shū,guó,yě,xiǎo,2,15
-266,Pinyin của chữ「中」là gì?,bà,huí,zhōng,wén,3,15
-267,Pinyin của chữ「文」là gì?,jiào,mù,wén,nán,3,15
-268,Pinyin của chữ「习」là gì?,le,rì,xí,jiàn,3,15
-269,Pinyin của chữ「发」là gì?,rì,bā,shū,fā,4,15
-270,Pinyin của chữ「音」là gì?,bái,mén,yīn,qī,3,15
-271,Pinyin của chữ「朋」là gì?,jǐ,wǔ,zhōng,péng,4,15
-272,Pinyin của chữ「书」là gì?,sì,máng,mā,shū,4,15
-273,Pinyin của chữ「个」là gì?,mǐ,gè,wáng,tiān,2,15
-274,Pinyin của chữ「午」là gì?,nǚ,le,wǔ,xiū,3,15
-275,Pinyin của chữ「头」là gì?,nán,tóu,èr,jiǔ,2,15
-276,Pinyin của chữ「米」là gì?,kǒu,sān,wèn,mǐ,4,15
-277,你___吗? (Bạn có khỏe không?),学,好,我,去,2,20
-278,我很___。 (Tôi rất bận.),一,二,很,忙,4,20
-279,明___见。 (Hẹn gặp lại ngày mai.),天,了,北,这,1,20
-280,汉___不难。 (Tiếng Hán không khó.),今,语,亡,汉,2,20
-281,去北___。 (Đi Bắc Kinh.),京,白,哪,昨,1,20
-282,"七___九。 (Bảy, tám, chín.)",吗,八,亡,昨,2,20
-283,不___。 (Không đúng.),难,对,十,昨,2,20
-284,她很___。 (Cô ấy rất tốt.),朋,生,好,师,3,20
-285,___京很大。 (Bắc Kinh rất lớn.),北,名,休,一,1,20
-286,去银___。 (Đi ngân hàng.),口,十,行,休,3,20
-287,今___很忙。 (Hôm nay rất bận.),语,天,她,很,2,20
-288,明___去银行。 (Ngày mai đi ngân hàng.),马,天,爸,银,2,20
-289,星___三。 (Thứ tư.),期,八,书,爸,1,20
-290,星期___。 (Thứ ba.),天,谢,去,二,4,20
-291,星期___。 (Thứ năm.),音,八,们,四,4,20
-292,你学汉语___？ (Bạn học tiếng Hán không?),吗,日,马,好,1,20
-293,你去北___吗？ (Bạn đi Bắc Kinh không?),那,星,也,京,4,20
-294,北___很大。 (Bắc Kinh rất lớn.),对,亡,妈,京,4,20
-295,他不___。 (Anh ấy không bận.),一,忙,子,下,2,20
-296,今___见。 (Hôm nay gặp.),昨,天,又,十,2,20
-297,去银___吗？ (Đi ngân hàng không?),二,行,白,字,2,20
-298,几___？ (Mấy ngày?),难,天,进,哪,2,20
-299,今天星期___？ (Hôm nay là thứ mấy?),北,哪,几,午,3,20
-300,这___你妈妈吗？ (Đây là mẹ bạn phải không?),几,行,是,爸,3,20
-301,你叫什么___字？ (Bạn tên gì?),音,明,一,名,4,20
-302,他是中___人。 (Anh ấy là người Trung Quốc.),行,那,国,也,3,20
-303,我学___文。 (Tôi học tiếng Trung.),头,名,文,中,4,20
-304,汉___不难。 (Chữ Hán không khó.),日,不,学,字,4,20
-305,中国很___。 (Trung Quốc rất lớn.),妈,女,大,是,3,20
-306,中___不难。 (Tiếng Trung không khó.),文,日,体,叫,1,20
-307,我学___中文。 (Tôi học tập tiếng Trung.),个,国,习,期,3,20
-308,汉语___音不难。 (Phát âm tiếng Hán không khó.),京,发,十,难,2,20
-309,他是我___友。 (Anh ấy là bạn tôi.),京,朋,那,行,2,20
-310,发___很好。 (Phát âm rất tốt.),星,难,音,门,3,20
-311,我看___。 (Tôi đọc sách.),日,头,书,校,3,20
-312,中___很忙。 (Buổi trưa rất bận.),七,身,午,三,3,20
-313,一___人。 (Một người.),问,头,门,个,4,20
-314,上___去学校。 (Buổi sáng đi trường.),她,午,五,汉,2,20
-315,这不是汉语___。 (Đây không phải sách tiếng Hán.),书,汉,十,工,1,20
-316,一___人有一个头。 (Một người có một cái đầu.),个,北,是,银,1,20
-317,"汉语很难，我___大了！ (Tiếng Hán rất khó, tôi nhức đầu quá!)",午,回,语,头,4,20
-318,今天有二十___人去学校。 (Hôm nay có hai mươi người đi trường.),日,你,工,个,4,20
-319,下___不回学校。 (Buổi chiều không về trường.),午,吗,字,叫,1,20
-320,「北京」có nghĩa là gì?,Ngựa trắng,Bắc Kinh,Phải không / Vậy sao?,Không đi,2,20
-321,「汉语」có nghĩa là gì?,Tiếng Hán,Hôm nay đi,Bố,Thứ năm,1,20
-322,「银行」có nghĩa là gì?,Ngân hàng,Thứ bảy,Tiếng Hán,Không gặp,1,20
-323,「明天」có nghĩa là gì?,Học tập,Ngày mai,Trung Quốc,Mấy ngày nay,2,20
-324,「你好」có nghĩa là gì?,Tên,Đại học,Tuần / thứ,Xin chào,4,20
-325,「爸爸」có nghĩa là gì?,Ba ngày,Mấy ngày,Chủ nhật,Bố,4,20
-326,「妈妈」có nghĩa là gì?,Trung Quốc,Mẹ,Cá nhân,Học tập,2,20
-327,「很大」có nghĩa là gì?,Rất to,Cá nhân,Mẹ,Ngày mai đi,1,20
-328,「太忙」có nghĩa là gì?,Có khỏe / tốt không?,Quá bận,Mấy ngày,Thứ tư,2,20
-329,「不难」có nghĩa là gì?,Không khó,Cá nhân,Phải không / Vậy sao?,Công việc / Làm việc,1,20
-330,「很忙」có nghĩa là gì?,Rất bận,Chữ Hán,Đại học,Thứ tư,1,20
-331,「去吗」có nghĩa là gì?,Học tập,Mấy ngày nay,Không đi,Đi không?,4,20
-332,「今天」có nghĩa là gì?,Phải không / Vậy sao?,Không khó,Hôm nay,Trung Quốc,3,20
-333,「星期」có nghĩa là gì?,Tuần / thứ,Mẹ,Bắc Kinh,Rất to,1,20
-334,「星期一」có nghĩa là gì?,Tiếng Hán,Thứ hai,Đi không?,Đại học,2,20
-335,「星期二」có nghĩa là gì?,Rất to,Thứ ba,Buổi sáng,Chủ nhật,2,20
-336,「星期三」có nghĩa là gì?,Đại học,Công việc / Làm việc,Đi không?,Thứ tư,4,20
-337,「星期四」có nghĩa là gì?,Chữ Hán,Chủ nhật,Phải không / Vậy sao?,Thứ năm,4,20
-338,「星期五」có nghĩa là gì?,Văn tự / Chữ viết,Người Trung Quốc,Không đi,Thứ sáu,4,20
-339,「星期六」có nghĩa là gì?,Đây là,Đúng không?,Quá tốt,Thứ bảy,4,20
-340,「星期天」có nghĩa là gì?,Chủ nhật,Buổi chiều,Rất bận,Buổi sáng,1,20
-341,「几天」có nghĩa là gì?,Ngày mai đi,Tên,Thứ tư,Mấy ngày,4,20
-342,「今天见」có nghĩa là gì?,Mấy ngày nay,Thứ sáu,Trung Quốc,Hôm nay gặp,4,20
-343,「今天去」có nghĩa là gì?,Đúng không?,Ngày mai,Hôm nay đi,Học tập,3,20
-344,「明天去」có nghĩa là gì?,Trung Quốc,Ngày mai đi,Tiếng Hán,Hôm nay đi,2,20
-345,「大学」có nghĩa là gì?,Người Trung Quốc,Đại học,Xin chào,Ngày mai,2,20
-346,「好吗」có nghĩa là gì?,Rất to,Xin chào,Có khỏe / tốt không?,Hôm nay đi,3,20
-347,「对吗」có nghĩa là gì?,Tuần / thứ,Tóc,Ngày mai đi,Đúng không?,4,20
-348,「工作」có nghĩa là gì?,Không đi,Tuần / thứ,Công việc / Làm việc,Không gặp,3,20
-349,「这是」có nghĩa là gì?,Giáo viên,Đây là,Không gặp,Ngày mai đi,2,20
-350,「是吗」có nghĩa là gì?,Mấy ngày nay,Hôm nay đi,Phải không / Vậy sao?,Người trong nước,3,20
-351,「不去」có nghĩa là gì?,Luyện viết chữ,Không đi,Ngân hàng,Rất bận,2,20
-352,「不见」có nghĩa là gì?,Bạn bè,Không gặp,Xin chào,Đi không?,2,20
-353,「太好」có nghĩa là gì?,Ngân hàng,Quá tốt,Công việc / Làm việc,Đây là,2,20
-354,「白马」có nghĩa là gì?,Thứ bảy,Ngựa trắng,Phát âm,Đại học,2,20
-355,「大马」có nghĩa là gì?,Không đi,Hôm nay,Ngựa lớn,Phát âm,3,20
-356,「这几天」có nghĩa là gì?,Mấy ngày nay,Tên,Thứ ba,Văn tự / Chữ viết,1,20
-357,「星期日」có nghĩa là gì?,Đi không?,Thứ năm,Chủ nhật,Đây là,3,20
-358,「三天」có nghĩa là gì?,Quá bận,Ba ngày,Đại học,Rất bận,2,20
-359,「进去」có nghĩa là gì?,Ba ngày,Ngày mai đi,Đi vào,Quá tốt,3,20
-360,「老师」có nghĩa là gì?,Giáo viên,Buổi chiều,Thứ năm,Thứ tư,1,20
-361,「身体」có nghĩa là gì?,Hôm nay đi,Đi vào,Tóc,Cơ thể / Sức khỏe,4,20
-362,「名字」có nghĩa là gì?,Tên,Không khó,Quá bận,Ngày mai đi,1,20
-363,「中国」có nghĩa là gì?,Hôm nay,Trung Quốc,Không khó,Mấy ngày,2,20
-364,「中文」có nghĩa là gì?,Mẹ,Tiếng Trung,Mấy ngày nay,Ngựa trắng,2,20
-365,「中国人」có nghĩa là gì?,Tiếng Trung,Người Trung Quốc,Ba ngày,Không gặp,2,20
-366,「汉字」có nghĩa là gì?,Phải không / Vậy sao?,Buổi trưa,Đại học,Chữ Hán,4,20
-367,「国人」có nghĩa là gì?,Chữ Hán,Người trong nước,Hôm nay gặp,Buổi trưa,2,20
-368,「文字」có nghĩa là gì?,Văn tự / Chữ viết,Hôm nay gặp,Không đi,Tuần / thứ,1,20
-369,「学习」có nghĩa là gì?,Học tập,Cơ thể / Sức khỏe,Giáo viên,Hôm nay đi,1,20
-370,「朋友」có nghĩa là gì?,Bạn bè,Trung Quốc,Mẹ,Xin chào,1,20
-371,「发音」có nghĩa là gì?,Phát âm,Xin chào,Luyện viết chữ,Không gặp,1,20
-372,「习字」có nghĩa là gì?,Tóc,Tên,Luyện viết chữ,Ba ngày,3,20
-373,「中午」có nghĩa là gì?,Buổi trưa,Luyện viết chữ,Không khó,Giáo viên,1,20
-374,「上午」có nghĩa là gì?,Hôm nay đi,Buổi sáng,Thứ năm,Văn tự / Chữ viết,2,20
-375,「下午」có nghĩa là gì?,Xin chào,Buổi chiều,Bắc Kinh,Mấy ngày nay,2,20
-376,「个人」có nghĩa là gì?,Buổi chiều,Người Trung Quốc,Thứ sáu,Cá nhân,4,20
-377,「头发」có nghĩa là gì?,Có khỏe / tốt không?,Mấy ngày,Chủ nhật,Tóc,4,20
-378,「汉语不难。」nghĩa là gì?,Tiếng Hán không khó.,Tôi đi ngân hàng.,Đây là bố tôi.,Tiểu Minh là sinh viên đại học phải không?,1,30
-379,「我学汉语。」nghĩa là gì?,"Hôm nay sức khỏe tôi không tốt, không đi làm.",Cô ấy là bạn tốt của tôi.,Thứ sáu gặp!,Tôi học tiếng Hán.,4,30
-380,「你学汉语吗？」nghĩa là gì?,Hôm nay tôi không đi làm!,Bạn học tiếng Hán không?,"Hôm nay sức khỏe tôi không tốt, không đi làm.",Tôi học tiếng Trung.,2,30
-381,「我爸爸很好，你爸爸好吗？」nghĩa là gì?,Tôi không vào trường gặp giáo viên.,"Bố tôi rất khỏe, bố bạn có khỏe không?",Hẹn gặp ngày mai!,Ngày mai tôi đi Trung Quốc hai mươi ngày.,2,30
-382,「妈妈今天很忙。」nghĩa là gì?,Hôm nay làm việc bận không?,Hôm nay mẹ rất bận.,Ngày mai anh ấy đi Bắc Kinh làm việc.,Hôm nay tôi đi gặp mẹ.,2,30
-383,「我去银行。」nghĩa là gì?,Tôi đi ngân hàng.,Ngày mai bạn đi ngân hàng làm việc không?,"Đây là bố tôi, sức khỏe ông ấy rất tốt.",Bắc Kinh lớn không?,1,30
-384,「她去北京几天？」nghĩa là gì?,Thứ mấy bạn đi ngân hàng?,Cô ấy đi Bắc Kinh mấy ngày?,"Cảm ơn bạn, hôm nay tôi không đi làm.","Ngày mai thứ Hai, bạn đi đâu?",2,30
-385,「他去银行吗？」nghĩa là gì?,Ngày mai tôi đi Trung Quốc hai mươi ngày.,Anh ấy đi ngân hàng không?,Bố hỏi tôi ngày mai đi đâu làm việc?,Tôi học tiếng Hán.,2,30
-386,「我去了北京，北京很大。」nghĩa là gì?,"Tiếng Trung không khó, chữ Hán cũng không khó.",Tôi học tiếng Trung.,Tôi học tập tiếng Trung.,"Tôi đã đi Bắc Kinh, Bắc Kinh rất lớn.",4,30
-387,「明天见！」nghĩa là gì?,Thầy Bạch thứ năm vào trường không?,"Tiếng Trung không khó, chữ Hán cũng không khó.",Hẹn gặp ngày mai!,Ngày mai tôi về trường.,3,30
-388,「今天我去见妈妈。」nghĩa là gì?,Hôm nay tôi đi gặp mẹ.,Hôm nay là thứ tư.,Ngày mai bạn đi ngân hàng làm việc không?,"Ngày ngày học tiếng Hán, tiếng Hán không khó.",1,30
-389,「星期几你去银行？」nghĩa là gì?,Phát âm tiếng Hán không khó.,Thứ mấy bạn đi ngân hàng?,Thầy Bạch thứ năm vào trường không?,"Đây là ngựa trắng, đúng không?",2,30
-390,「明天我很忙。」nghĩa là gì?,Thứ mấy bạn về Bắc Kinh? Về mấy ngày?,Hẹn gặp ngày mai!,Ngày mai tôi rất bận.,Bạn thứ mấy vào ngân hàng làm việc?,3,30
-391,「今天星期几？」nghĩa là gì?,Anh ấy là người Trung Quốc.,Một mình đi Bắc Kinh.,Thầy Bạch thứ năm vào trường không?,Hôm nay là thứ mấy?,4,30
-392,「今天星期三。」nghĩa là gì?,Ngày mai chủ nhật phải không?,Hôm nay là thứ tư.,Bố hỏi tôi ngày mai đi đâu làm việc?,Một tuần bạn đến trường mấy ngày?,2,30
-393,「明天星期日吗？」nghĩa là gì?,Tôi có ba mươi sáu người bạn Trung Quốc.,Ngày mai anh ấy đi Bắc Kinh làm việc.,Hôm nay mẹ rất bận.,Ngày mai chủ nhật phải không?,4,30
-394,「今天星期几？」nghĩa là gì?,Ngày mai tôi về trường.,Thứ mấy bạn đi ngân hàng?,Ngày mai tôi rất bận.,Hôm nay thứ mấy?,4,30
-395,「明天我回学校。」nghĩa là gì?,Ngày mai bạn đi ngân hàng làm việc không?,Ngày mai tôi về trường.,Phát âm tiếng Hán không khó.,Hôm nay là thứ tư.,2,30
-396,「你明天去哪？」nghĩa là gì?,Hôm nay mẹ rất nhức đầu!,Ngày mai tôi đi Trung Quốc hai mươi ngày.,Ngày mai bạn đi đâu?,Tôi đi vào trường gặp giáo viên.,3,30
-397,「今天工作忙吗？」nghĩa là gì?,Một mình đi Bắc Kinh.,Hôm nay làm việc bận không?,Thứ mấy bạn về Bắc Kinh? Về mấy ngày?,Bố hỏi tôi ngày mai đi đâu làm việc?,2,30
-398,「星期五见！」nghĩa là gì?,Bạn học tiếng Hán không?,"Đây là ngựa trắng, đúng không?",Thứ sáu gặp!,Một người có một cái đầu.,3,30
-399,「小明是大学生吗？」nghĩa là gì?,Cô ấy là bạn tốt của tôi.,Hôm nay thứ mấy?,Tiểu Minh là sinh viên đại học phải không?,Thầy Bạch thứ năm vào trường không?,3,30
-400,「今天是十月九日。」nghĩa là gì?,Chủ nhật tôi không làm việc.,Anh ấy là bạn tôi.,Tôi có ba mươi sáu người bạn Trung Quốc.,Hôm nay là ngày 9 tháng 10.,4,30
-401,「这是我妈妈。」nghĩa là gì?,Bạn tôi học tập phát âm tiếng Hán.,Đây là mẹ tôi.,Bố bảo tôi đi Bắc Kinh học tiếng Hán.,Anh ấy là bạn tôi.,2,30
-402,「你明天去银行工作吗？」nghĩa là gì?,Ngày mai bạn đi ngân hàng làm việc không?,Trung Quốc rất lớn.,"Ngân hàng đóng cửa thứ Bảy, Chủ Nhật.",Đó là tên bạn phải không?,1,30
-403,「这是我爸爸。」nghĩa là gì?,Cô ấy là bạn tốt của tôi.,Đây là bố tôi.,Tiếng Hán không khó.,Bố hỏi tôi ngày mai đi đâu làm việc?,2,30
-404,「他明天去北京工作。」nghĩa là gì?,Tôi học tập tiếng Trung.,Buổi chiều tôi đi trường học tập.,Ngày mai anh ấy đi Bắc Kinh làm việc.,Bạn là người nước nào?,3,30
-405,「星期日我不工作。」nghĩa là gì?,Bạn tên gì?,Hôm nay có hai mươi người đi trường.,Chủ nhật tôi không làm việc.,Tên tiếng Trung của bạn là gì?,3,30
-406,「这几天我很忙。」nghĩa là gì?,Mấy ngày nay tôi rất bận.,Tên tiếng Trung của tôi là Minh Minh.,Tên tiếng Trung của bạn là gì?,Hôm nay mẹ rất bận.,1,30
-407,「天天学汉语，汉语不难。」nghĩa là gì?,"Ngày ngày học tiếng Hán, tiếng Hán không khó.",Bạn tên gì?,Anh ấy là bạn tôi.,Một tuần bạn đến trường mấy ngày?,1,30
-408,「你不是我妈妈。」nghĩa là gì?,Một mình đi Bắc Kinh.,Bạn không phải là mẹ của tôi.,Đây là mẹ tôi.,"Ngày ngày học tiếng Hán, tiếng Hán không khó.",2,30
-409,「这是白马，对吗？」nghĩa là gì?,Ngày mai bạn đi đâu?,Giáo viên bảo bạn ngày mai đến trường phải không?,"Tiếng Trung không khó, chữ Hán cũng không khó.","Đây là ngựa trắng, đúng không?",4,30
-410,「今天他去银行工作吗？」nghĩa là gì?,Hôm nay anh ấy đi ngân hàng làm việc phải không?,Tên tiếng Trung của bạn là gì?,Một người có một cái đầu.,Đi Trung Quốc làm việc tốt không?,1,30
-411,「北京大吗？」nghĩa là gì?,Hôm nay tôi đi gặp mẹ.,Bắc Kinh lớn không?,Đi Trung Quốc làm việc tốt không?,"Người kia là giáo viên đại học, đúng không?",2,30
-412,「银行星期六、星期日关」nghĩa là gì?,Ngày mai tôi rất bận.,Hôm nay tôi đi gặp mẹ.,"Ngân hàng đóng cửa thứ Bảy, Chủ Nhật.",Giáo viên bảo bạn ngày mai đến trường phải không?,3,30
-413,「你一星期去学校几天？」nghĩa là gì?,Thứ mấy bạn về Bắc Kinh? Về mấy ngày?,Một tuần bạn đến trường mấy ngày?,Ngày mai chủ nhật phải không?,"Chủ nhật ngân hàng đóng, trường cũng đóng.",2,30
-414,「那是我学生，我对他很好」nghĩa là gì?,Thứ sáu gặp!,"Đó là học sinh của tôi, tôi rất tốt với bạn ấy.",Bắc Kinh lớn không?,Mấy ngày nay tôi rất bận.,2,30
-415,「明天星期一，你去哪？」nghĩa là gì?,"Đó là học sinh của tôi, tôi rất tốt với bạn ấy.",Hôm nay là ngày 9 tháng 10.,Giáo viên bảo tôi đi Trung Quốc học tập tiếng Hán.,"Ngày mai thứ Hai, bạn đi đâu?",4,30
-416,「你星期几回北京？回几天？」nghĩa là gì?,Giáo viên bảo tôi đi Trung Quốc học tập tiếng Hán.,Mấy ngày nay tôi rất bận.,"Đây là bố tôi, sức khỏe ông ấy rất tốt.",Thứ mấy bạn về Bắc Kinh? Về mấy ngày?,4,30
-417,「我不进学校见老师」nghĩa là gì?,Tôi không vào trường gặp giáo viên.,Tên tiếng Trung của bạn là gì?,Anh ấy đi ngân hàng không?,"Ngày mai thứ Hai, bạn đi đâu?",1,30
-418,「我妈问老师身体好吗？」nghĩa là gì?,Bạn không phải là mẹ của tôi.,Hôm nay tôi không đi làm!,Mẹ tôi hỏi giáo viên sức khỏe có tốt không?,Tên tiếng Trung của bạn là gì?,3,30
-419,「这是我爸爸，他身体很好」nghĩa là gì?,Ngày mai bạn đi ngân hàng làm việc không?,Cô ấy là bạn tốt của tôi.,Hôm nay tôi không đi làm!,"Đây là bố tôi, sức khỏe ông ấy rất tốt.",4,30
-420,「老师叫你明天去学校吗？」nghĩa là gì?,"Cảm ơn bạn, hôm nay tôi không đi làm.",Hôm nay mẹ rất bận.,Giáo viên bảo bạn ngày mai đến trường phải không?,"Tiếng Trung không khó, chữ Hán cũng không khó.",3,30
-421,「你星期几进学校工作？」nghĩa là gì?,Hôm nay anh ấy đi ngân hàng làm việc phải không?,Bạn thứ mấy vào trường làm việc?,Bạn thứ mấy vào ngân hàng làm việc?,Ngày mai anh ấy đi Bắc Kinh làm việc.,2,30
-422,「我今天工作，不去见老师」nghĩa là gì?,"Hôm nay tôi làm việc, không đi gặp giáo viên.",Bố hỏi tôi ngày mai đi đâu làm việc?,"Anh ấy là giáo viên tiếng Nhật của bạn, đúng không?","Tôi đã đi Bắc Kinh, Bắc Kinh rất lớn.",1,30
-423,「老师叫我明天去学校」nghĩa là gì?,Đi Trung Quốc làm việc tốt không?,"Hôm nay rất bận, tôi nhức đầu quá!",Hôm nay thứ mấy?,Giáo viên bảo tôi ngày mai đến trường.,4,30
-424,「白老师星期四进学校吗？」nghĩa là gì?,Thứ sáu gặp!,Bắc Kinh lớn không?,Hôm nay là ngày 9 tháng 10.,Thầy Bạch thứ năm vào trường không?,4,30
-425,「我今天身体不好，不去工作」nghĩa là gì?,Phát âm tiếng Hán không khó.,Buổi trưa đi gặp bạn.,Đó là tên bạn phải không?,"Hôm nay sức khỏe tôi không tốt, không đi làm.",4,30
-426,「我进去学校见老师。」nghĩa là gì?,"Ngày mai thứ Hai, bạn đi đâu?",Tôi đi vào trường gặp giáo viên.,Ngày mai bạn đi đâu?,"Đó là học sinh của tôi, tôi rất tốt với bạn ấy.",2,30
-427,「我妈妈问老师身体好吗？」nghĩa là gì?,Mẹ tôi hỏi giáo viên sức khỏe tốt không?,"Anh ấy là giáo viên tiếng Nhật của bạn, đúng không?","Đó là học sinh của tôi, tôi rất tốt với bạn ấy.",Buổi sáng tôi đọc sách.,1,30
-428,「谢谢你，我今天不去工作。」nghĩa là gì?,Bạn tên gì?,Mấy ngày nay tôi rất bận.,Hẹn gặp ngày mai!,"Cảm ơn bạn, hôm nay tôi không đi làm.",4,30
-429,「你星期几进银行工作？」nghĩa là gì?,Tên tiếng Trung của tôi là Minh Minh.,Bạn thứ mấy vào ngân hàng làm việc?,Một mình đi Bắc Kinh.,Cô ấy đi Bắc Kinh mấy ngày?,2,30
-430,「白老师星期四进学校吗？」nghĩa là gì?,Phát âm tiếng Trung của bạn tôi rất tốt.,Anh ấy đi ngân hàng không?,Tôi học tiếng Trung.,Thầy Bạch thứ năm vào trường không?,4,30
-431,「爸爸叫我去北京学汉语。」nghĩa là gì?,Bố bảo tôi đi Bắc Kinh học tiếng Hán.,"Đây là bố tôi, sức khỏe ông ấy rất tốt.",Buổi sáng tôi đọc sách.,Tôi đi ngân hàng.,1,30
-432,「爸爸问我明天去哪工作？」nghĩa là gì?,Phát âm tiếng Hán không khó.,Tôi đi vào trường gặp giáo viên.,Bố hỏi tôi ngày mai đi đâu làm việc?,Đó là tên bạn phải không?,3,30
-433,「你叫什么名字？」nghĩa là gì?,Thứ mấy bạn về Bắc Kinh? Về mấy ngày?,Phát âm tiếng Hán không khó.,Bạn tên gì?,Một người có một cái đầu.,3,30
-434,「他是中国人。」nghĩa là gì?,Anh ấy là người Trung Quốc.,Thứ mấy bạn đi ngân hàng?,Giáo viên bảo bạn ngày mai đến trường phải không?,Phát âm tiếng Trung của bạn tôi rất tốt.,1,30
-435,「我学中文。」nghĩa là gì?,Thứ mấy bạn về Bắc Kinh? Về mấy ngày?,Một mình đi Bắc Kinh.,Bạn học tiếng Hán không?,Tôi học tiếng Trung.,4,30
-436,「汉字不难。」nghĩa là gì?,Chữ Hán không khó.,Hôm nay là ngày 9 tháng 10.,"Tiếng Hán rất khó, tôi nhức đầu quá!","Đây là ngựa trắng, đúng không?",1,30
-437,「中国很大。」nghĩa là gì?,Bố hỏi tôi ngày mai đi đâu làm việc?,"Ngày ngày học tiếng Hán, tiếng Hán không khó.",Tôi có ba mươi sáu người bạn Trung Quốc.,Trung Quốc rất lớn.,4,30
-438,「她叫什么名字？」nghĩa là gì?,Mẹ tôi hỏi giáo viên sức khỏe tốt không?,Hôm nay tôi đi gặp mẹ.,"Đây là ngựa trắng, đúng không?",Cô ấy tên gì?,4,30
-439,「你是哪国人？」nghĩa là gì?,Hôm nay mẹ rất bận.,Tên tiếng Trung của bạn là gì?,"Hôm nay tôi làm việc, không đi gặp giáo viên.",Bạn là người nước nào?,4,30
-440,「中文不难，汉字也不难。」nghĩa là gì?,Đi Trung Quốc làm việc tốt không?,Mẹ tôi hỏi giáo viên sức khỏe tốt không?,Cô ấy tên gì?,"Tiếng Trung không khó, chữ Hán cũng không khó.",4,30
-441,「我学习中文。」nghĩa là gì?,Bạn học tiếng Hán không?,Cô ấy là bạn tốt của tôi.,Hôm nay mẹ rất nhức đầu!,Tôi học tập tiếng Trung.,4,30
-442,「他是我朋友。」nghĩa là gì?,Ngày mai bạn đi ngân hàng làm việc không?,Bắc Kinh lớn không?,Thầy Bạch thứ năm vào trường không?,Anh ấy là bạn tôi.,4,30
-443,「汉语发音不难。」nghĩa là gì?,Phát âm tiếng Hán không khó.,"Chủ nhật ngân hàng đóng, trường cũng đóng.",Tiếng Hán không khó.,Mẹ tôi hỏi giáo viên sức khỏe có tốt không?,1,30
-444,「她是我好朋友。」nghĩa là gì?,Cô ấy là bạn tốt của tôi.,Giáo viên bảo tôi ngày mai đến trường.,"Ngân hàng đóng cửa thứ Bảy, Chủ Nhật.",Thứ mấy bạn đi ngân hàng?,1,30
-445,「我朋友学习汉语发音。」nghĩa là gì?,"Hôm nay rất bận, tôi nhức đầu quá!",Mẹ tôi hỏi giáo viên sức khỏe tốt không?,"Hôm nay tôi làm việc, không đi gặp giáo viên.",Bạn tôi học tập phát âm tiếng Hán.,4,30
-446,「我上午看书。」nghĩa là gì?,Anh ấy là người Trung Quốc.,Buổi sáng tôi đọc sách.,"Tiếng Trung không khó, chữ Hán cũng không khó.",Bạn là người nước nào?,2,30
-447,「中午去见朋友。」nghĩa là gì?,Buổi trưa đi gặp bạn.,Tên tiếng Trung của tôi là Minh Minh.,Bạn thứ mấy vào trường làm việc?,Tôi không vào trường gặp giáo viên.,1,30
-448,「下午我去学校学习。」nghĩa là gì?,Hôm nay tôi không đi làm!,"Tôi đã đi Bắc Kinh, Bắc Kinh rất lớn.",Buổi chiều tôi đi trường học tập.,Bố bảo tôi đi Bắc Kinh học tiếng Hán.,3,30
-449,「一个人去北京。」nghĩa là gì?,Đây là bố tôi.,Phát âm tiếng Hán không khó.,Một mình đi Bắc Kinh.,"Hôm nay sức khỏe tôi không tốt, không đi làm.",3,30
-450,「那是你名字吗？」nghĩa là gì?,Đó là tên bạn phải không?,Tiểu Minh là sinh viên đại học phải không?,Thứ sáu gặp!,"Đây là bố tôi, sức khỏe ông ấy rất tốt.",1,30
-451,「我明天去中国二十天。」nghĩa là gì?,Đi Trung Quốc làm việc tốt không?,Tôi học tập tiếng Trung.,Ngày mai anh ấy đi Bắc Kinh làm việc.,Ngày mai tôi đi Trung Quốc hai mươi ngày.,4,30
-452,「老师叫我去中国学习汉语。」nghĩa là gì?,Anh ấy là bạn tôi.,Tôi học tiếng Trung.,Một người có một cái đầu.,Giáo viên bảo tôi đi Trung Quốc học tập tiếng Hán.,4,30
-453,「他是我中国朋友。」nghĩa là gì?,Tiếng Hán không khó.,"Cảm ơn bạn, hôm nay tôi không đi làm.",Tôi học tập tiếng Trung.,Anh ấy là bạn Trung Quốc của tôi.,4,30
-454,「我的中文名字是明明。」nghĩa là gì?,Đi Trung Quốc làm việc tốt không?,Tên tiếng Trung của tôi là Minh Minh.,Ngày mai chủ nhật phải không?,Hôm nay thứ mấy?,2,30
-455,「去中国工作好吗？」nghĩa là gì?,Đi Trung Quốc làm việc tốt không?,Mẹ tôi hỏi giáo viên sức khỏe có tốt không?,Đó là tên bạn phải không?,Chữ Hán không khó.,1,30
-456,「你中文名字是？」nghĩa là gì?,Tên tiếng Trung của bạn là gì?,"Đó là học sinh của tôi, tôi rất tốt với bạn ấy.",Một tuần bạn đến trường mấy ngày?,Hôm nay mẹ rất nhức đầu!,1,30
-457,「我朋友中文发音很好。」nghĩa là gì?,Hôm nay tôi đi gặp mẹ.,Một người có một cái đầu.,Hôm nay tôi không đi làm!,Phát âm tiếng Trung của bạn tôi rất tốt.,4,30
-458,「妈妈今天头很大！」nghĩa là gì?,Chủ nhật tôi không làm việc.,Tôi học tiếng Trung.,Tiếng Hán không khó.,Hôm nay mẹ rất nhức đầu!,4,30
-459,「今天有二十个人去学校。」nghĩa là gì?,Hôm nay có hai mươi người đi trường.,Tôi học tiếng Trung.,Bắc Kinh lớn không?,"Chủ nhật ngân hàng đóng, trường cũng đóng.",1,30
-460,「我有三十六个中国朋友。」nghĩa là gì?,Tôi có ba mươi sáu người bạn Trung Quốc.,Mấy ngày nay tôi rất bận.,Bạn không phải là mẹ của tôi.,Ngày mai tôi đi Trung Quốc hai mươi ngày.,1,30
-461,「汉语很难，我头大了！」nghĩa là gì?,"Ngân hàng đóng cửa thứ Bảy, Chủ Nhật.","Người kia là giáo viên đại học, đúng không?","Tiếng Hán rất khó, tôi nhức đầu quá!",Buổi chiều tôi đi trường học tập.,3,30
-462,「一个人有一个头。」nghĩa là gì?,Một người có một cái đầu.,Tôi học tiếng Trung.,Tiếng Hán không khó.,Buổi trưa đi gặp bạn.,1,30
-463,「今天老子不去工作！」nghĩa là gì?,Bố bảo tôi đi Bắc Kinh học tiếng Hán.,Hôm nay tôi không đi làm!,"Chủ nhật ngân hàng đóng, trường cũng đóng.","Bố tôi rất khỏe, bố bạn có khỏe không?",2,30
-464,「星期日银行关，学校也关。」nghĩa là gì?,Ngày mai anh ấy đi Bắc Kinh làm việc.,"Chủ nhật ngân hàng đóng, trường cũng đóng.","Đây là bố tôi, sức khỏe ông ấy rất tốt.","Ngày mai thứ Hai, bạn đi đâu?",2,30
-465,「他是你的日语老师，对吗？」nghĩa là gì?,Hôm nay thứ mấy?,Cô ấy đi Bắc Kinh mấy ngày?,"Anh ấy là giáo viên tiếng Nhật của bạn, đúng không?",Tôi đi vào trường gặp giáo viên.,3,30
-466,「今天很忙，我头很大！」nghĩa là gì?,Tên tiếng Trung của tôi là Minh Minh.,"Ngày mai thứ Hai, bạn đi đâu?","Hôm nay rất bận, tôi nhức đầu quá!",Ngày mai tôi đi Trung Quốc hai mươi ngày.,3,30
-467,「那个人是大学老师，对吗？」nghĩa là gì?,Ngày mai bạn đi ngân hàng làm việc không?,"Người kia là giáo viên đại học, đúng không?",Một tuần bạn đến trường mấy ngày?,Cô ấy đi Bắc Kinh mấy ngày?,2,30
+1,Chữ「一」có nghĩa là gì?,MỘT,"VĂN, CHỮ VIẾT",ĐÚNG,"CƠM, THỨC ĂN",1,20
+2,Chữ「八」có nghĩa là gì?,"ĐÂY, CÁI NÀY",TÁM,ANH ẤY,BẬN,2,20
+3,Chữ「五」có nghĩa là gì?,NĂM,PHỤ NỮ,CỬA,"TÊN, TÊN GỌI",1,20
+4,Chữ「不」có nghĩa là gì?,BẠN BÈ,KHÔNG,"ÂM, ÂM THANH",MƯỜI,2,20
+5,Chữ「大」có nghĩa là gì?,TO LỚN,BẠC,TRƯA,"MUỐN, CẦN, YÊU CẦU",1,20
+6,Chữ「口」có nghĩa là gì?,HÔM QUA,SÁNG,TRƯỜNG HỌC,MIỆNG,4,20
+7,Chữ「白」có nghĩa là gì?,"NƯỚC, QUỐC GIA","LÀM, TẠO RA, SÁNG TẠO, LÀM VIỆC",TRẮNG,"CÂY, GỖ",3,20
+8,Chữ「女」có nghĩa là gì?,"KỲ, TUẦN",PHỤ NỮ,NGƯỜI,"PHÁT, PHÁT TRIỂN",2,20
+9,Chữ「你」có nghĩa là gì?,BẠN,"THÂN THỂ, CƠ THỂ",CŨNG,MẸ,1,20
+10,Chữ「好」có nghĩa là gì?,MƯỜI,MẸ,TỐT,"CÁI, LƯỢNG TỪ",3,20
+11,Chữ「马」có nghĩa là gì?,BẠN,NGỰA,KHÓ,"SINH, SỐNG",2,20
+12,Chữ「太」có nghĩa là gì?,"THÂN, CƠ THỂ","QUÁ, LẮM","MẤT, CHẾT",BẠN,2,20
+13,Chữ「汉」có nghĩa là gì?,"ĐÓNG, TẮT","SÁCH, VIẾT",BẠN,HÁN,4,20
+14,Chữ「语」có nghĩa là gì?,NGÔN NGỮ,ĂN,NGƯỜI,BẠN,1,20
+15,Chữ「吗」có nghĩa là gì?,ĐÚNG,"MẤT, CHẾT",KHÔNG (TRỢ TỪ),TỐT,3,20
+16,Chữ「妈」có nghĩa là gì?,MẸ,BẠN,"LÔNG, HÀO (TIỀN)",HỎI,1,20
+17,Chữ「爸」có nghĩa là gì?,BỐ,"THÂN, CƠ THỂ","LUYỆN TẬP, HỌC",RƯỢU,1,20
+18,Chữ「很」có nghĩa là gì?,"CHỮ, VĂN TỰ",RẤT,"LẠI, NỮA",ANH ẤY,2,20
+19,Chữ「忙」có nghĩa là gì?,ĂN,TO LỚN,"MẶT TRĂNG, THÁNG",BẬN,4,20
+20,Chữ「他」có nghĩa là gì?,HỎI,TÔI,ANH ẤY,"GỌI, KÊU",3,20
+21,Chữ「她」có nghĩa là gì?,CŨNG,KHÔNG,"VÀO, TIẾN VÀO",CÔ ẤY,4,20
+22,Chữ「难」có nghĩa là gì?,TÔI,KHÓ,"CƠM, THỨC ĂN","MẤY, BAO NHIÊU",2,20
+23,Chữ「六」có nghĩa là gì?,SÁU,CHÍN,BỐN,BẢY,1,20
+24,Chữ「七」có nghĩa là gì?,"LÀM, TẠO RA, SÁNG TẠO, LÀM VIỆC","LẠI, NỮA",BẢY,ĐÚNG,3,20
+25,Chữ「九」có nghĩa là gì?,CHÍN,BA,"CHỮ, VĂN TỰ","HÔM NAY, BÂY GIỜ",1,20
+26,Chữ「学」có nghĩa là gì?,MIỆNG,"MUỐN, CẦN, YÊU CẦU",BỐ,HỌC,4,20
+27,Chữ「去」có nghĩa là gì?,"Ở GIỮA, TRUNG TÂM",RẤT,"GIÀ, LỚN TUỔI",ĐI,4,20
+28,Chữ「北」có nghĩa là gì?,"MẶT TRĂNG, THÁNG",TRƯA,"NƯỚC, QUỐC GIA",BẮC,4,20
+29,Chữ「京」có nghĩa là gì?,KINH,"PHÁT, PHÁT TRIỂN","SINH, SỐNG",BẠN,1,20
+30,Chữ「对」có nghĩa là gì?,MƯỜI,BẠN,ĐÚNG,"THÂN, CƠ THỂ",3,20
+31,Chữ「明」có nghĩa là gì?,"CƠM, THỨC ĂN",SÁNG,"THẦY, GIÁO VIÊN",ĐẦU,2,20
+32,Chữ「天」có nghĩa là gì?,HỎI,KINH,"ÂM, ÂM THANH","TRỜI, NGÀY",4,20
+33,Chữ「见」có nghĩa là gì?,TRỢ TỪ SỐ NHIỀU DÙNG SAU ĐẠI TỪ HOẶC TỪ CHỈ NGƯỜI,KHÔNG,GẶP,"ĐẦU, ĐỒNG (TIỀN)",3,20
+34,Chữ「银」có nghĩa là gì?,"SÁCH, VIẾT","DƯỚI, XUỐNG","CHỮ, VĂN TỰ",BẠC,4,20
+35,Chữ「行」có nghĩa là gì?,SÁNG,NGÂN HÀNG,"QUÁ, LẮM","NHỎ, BÉ",2,20
+36,Chữ「二」có nghĩa là gì?,HAI,"CON, ĐỨA TRẺ",MỘT,"VĂN, CHỮ VIẾT",1,20
+37,Chữ「三」có nghĩa là gì?,ĐÚNG,"GIÀ, LỚN TUỔI",BA,NGÔN NGỮ,3,20
+38,Chữ「四」có nghĩa là gì?,BẠN,HAI,BỐN,ĐẦU,3,20
+39,Chữ「今」có nghĩa là gì?,"HÔM NAY, BÂY GIỜ","PHÁT, PHÁT TRIỂN","CON, ĐỨA TRẺ",TRƯA,1,20
+40,Chữ「关」có nghĩa là gì?,"THÂN THỂ, CƠ THỂ","VĂN, CHỮ VIẾT",KHÔNG (TRỢ TỪ),"ĐÓNG, TẮT",4,20
+41,Chữ「星」có nghĩa là gì?,TRẮNG,ĐI,SAO,"CÔNG, VIỆC, CÔNG VIỆC, THỢ",3,20
+42,Chữ「期」có nghĩa là gì?,"LÀM, TẠO RA, SÁNG TẠO, LÀM VIỆC",BẢY,"KỲ, TUẦN",NGƯỜI,3,20
+43,Chữ「几」có nghĩa là gì?,"MẤT, CHẾT",CHÍN,"MẤY, BAO NHIÊU",SÁU,3,20
+44,Chữ「我」có nghĩa là gì?,KHÔNG,NĂM,"KỲ, TUẦN",TÔI,4,20
+45,Chữ「工」có nghĩa là gì?,"CÔNG, VIỆC, CÔNG VIỆC, THỢ","ĐÂY, CÁI NÀY","MUỐN, CẦN, YÊU CẦU","CHỮ, VĂN TỰ",1,20
+46,Chữ「作」có nghĩa là gì?,"LÀM, TẠO RA, SÁNG TẠO, LÀM VIỆC",ANH ẤY,"CÂY, GỖ","PHÁT, PHÁT TRIỂN",1,20
+47,Chữ「日」có nghĩa là gì?,KINH,"NÀO, ĐÂU","GẠO, MÉT","MẶT TRỜI, NGÀY",4,20
+48,Chữ「是」có nghĩa là gì?,ĐÚNG,"LÀ, ĐÚNG, PHẢI","Ở GIỮA, TRUNG TÂM",BỐ,2,20
+49,Chữ「这」có nghĩa là gì?,TÔI,"Ở GIỮA, TRUNG TÂM",TRỢ TỪ SỐ NHIỀU DÙNG SAU ĐẠI TỪ HOẶC TỪ CHỈ NGƯỜI,"ĐÂY, CÁI NÀY",4,20
+50,Chữ「进」có nghĩa là gì?,"LUYỆN TẬP, HỌC",NGÔN NGỮ,BẮC,"VÀO, TIẾN VÀO",4,20
+51,Chữ「老」có nghĩa là gì?,"SINH, SỐNG",NĂM,"GIÀ, LỚN TUỔI","MẤT, CHẾT",3,20
+52,Chữ「师」có nghĩa là gì?,"CON, ĐỨA TRẺ","THẦY, GIÁO VIÊN","VĂN, CHỮ VIẾT","QUAY LẠI, TRỞ VỀ",2,20
+53,Chữ「身」có nghĩa là gì?,TÁM,"THÂN, CƠ THỂ",NĂM,SÁNG,2,20
+54,Chữ「体」có nghĩa là gì?,"TRỜI, NGÀY","THÂN THỂ, CƠ THỂ","CHỮ, VĂN TỰ",TỐT,2,20
+55,Chữ「上」có nghĩa là gì?,"TRỜI, NGÀY","TRÊN, LÊN","NƯỚC, QUỐC GIA","KỲ, TUẦN",2,20
+56,Chữ「下」có nghĩa là gì?,RƯỢU,"DƯỚI, XUỐNG",TỐT,HÁN,2,20
+57,Chữ「月」có nghĩa là gì?,ĐI,CŨNG,"MẶT TRĂNG, THÁNG",BẮC,3,20
+58,Chữ「生」có nghĩa là gì?,"GỌI, KÊU","PHÁT, PHÁT TRIỂN","SINH, SỐNG","ÂM, ÂM THANH",3,20
+59,Chữ「了」có nghĩa là gì?,TRỢ TỪ HOÀN THÀNH,"GẠO, MÉT","TRÊN, LÊN",NĂM,1,20
+60,Chữ「木」có nghĩa là gì?,"CÂY, GỖ","HÔM NAY, BÂY GIỜ",MIỆNG,KINH,1,20
+61,Chữ「休」có nghĩa là gì?,"KIA, ĐÓ",TRỢ TỪ SỐ NHIỀU DÙNG SAU ĐẠI TỪ HOẶC TỪ CHỈ NGƯỜI,"SÁCH, VIẾT",NGHỈ NGƠI,4,20
+62,Chữ「亡」có nghĩa là gì?,"GÓI, BAO, BỌC, CHỨA ĐỰNG","MẤT, CHẾT",ĂN,RẤT,2,20
+63,Chữ「也」có nghĩa là gì?,BẢY,ĐI,CŨNG,MẸ,3,20
+64,Chữ「又」có nghĩa là gì?,BẠN BÈ,"HÔM NAY, BÂY GIỜ","LẠI, NỮA","ÂM, ÂM THANH",3,20
+65,Chữ「子」có nghĩa là gì?,KINH,CỬA,"TÊN, TÊN GỌI","CON, ĐỨA TRẺ",4,20
+66,Chữ「小」có nghĩa là gì?,CÔ ẤY,RƯỢU,"VÀO, TIẾN VÀO","NHỎ, BÉ",4,20
+67,Chữ「回」có nghĩa là gì?,NGƯỜI,"TRÊN, LÊN","QUAY LẠI, TRỞ VỀ","QUÁ, LẮM",3,20
+68,Chữ「校」có nghĩa là gì?,TRƯỜNG HỌC,NGÔN NGỮ,"PHÁT, PHÁT TRIỂN",BẠN BÈ,1,20
+69,Chữ「那」có nghĩa là gì?,"MỘT ÍT, VÀI, MỘT SỐ",SÁNG,"KIA, ĐÓ","PHÁT, PHÁT TRIỂN",3,20
+70,Chữ「哪」có nghĩa là gì?,"NÀO, ĐÂU",KINH,"CƠM, THỨC ĂN","LÀ, ĐÚNG, PHẢI",1,20
+71,Chữ「十」có nghĩa là gì?,NĂM,"LÀM, TẠO RA, SÁNG TẠO, LÀM VIỆC",MƯỜI,HỌC,3,20
+72,Chữ「昨」có nghĩa là gì?,BẠC,KHÔNG (TRỢ TỪ),BỐN,HÔM QUA,4,20
+73,Chữ「谢」có nghĩa là gì?,RẤT,HÔM QUA,"LẠI, NỮA","CẢM ƠN, XIN LỖI, TỪ CHỐI, TÀN",4,20
+74,Chữ「人」có nghĩa là gì?,NGƯỜI,"VÀO, TIẾN VÀO","KIA, ĐÓ","ĐẦU, ĐỒNG (TIỀN)",1,20
+75,Chữ「问」có nghĩa là gì?,HỎI,"CHỮ, VĂN TỰ","CƠM, THỨC ĂN","Ở GIỮA, TRUNG TÂM",1,20
+76,Chữ「叫」có nghĩa là gì?,"MẤY, BAO NHIÊU","GỌI, KÊU",GẶP,NGÂN HÀNG,2,20
+77,Chữ「门」có nghĩa là gì?,CỬA,"MẶT TRỜI, NGÀY",SÁU,TRƯA,1,20
+78,Chữ「们」có nghĩa là gì?,TRỢ TỪ SỐ NHIỀU DÙNG SAU ĐẠI TỪ HOẶC TỪ CHỈ NGƯỜI,MƯỜI,HÔM QUA,"THẦY, GIÁO VIÊN",1,20
+79,Chữ「名」có nghĩa là gì?,"LẠI, NỮA","MẤT, CHẾT",NGÂN HÀNG,"TÊN, TÊN GỌI",4,20
+80,Chữ「字」có nghĩa là gì?,"CHỮ, VĂN TỰ",HÔM QUA,ANH ẤY,"QUAY LẠI, TRỞ VỀ",1,20
+81,Chữ「国」có nghĩa là gì?,RƯỢU,"NƯỚC, QUỐC GIA",MIỆNG,"GIÀ, LỚN TUỔI",2,20
+82,Chữ「中」có nghĩa là gì?,BẬN,"VĂN, CHỮ VIẾT","Ở GIỮA, TRUNG TÂM",TÔI,3,20
+83,Chữ「文」có nghĩa là gì?,"SINH, SỐNG",KHÔNG,"VĂN, CHỮ VIẾT","CHIA, PHÚT, PHÂN",3,20
+84,Chữ「习」có nghĩa là gì?,TRẮNG,CÔ ẤY,"CÁI, LƯỢNG TỪ","LUYỆN TẬP, HỌC",4,20
+85,Chữ「发」có nghĩa là gì?,"MẶT TRỜI, NGÀY",NGÔN NGỮ,"PHÁT, PHÁT TRIỂN","GÓI, BAO, BỌC, CHỨA ĐỰNG",3,20
+86,Chữ「音」có nghĩa là gì?,"VĂN, CHỮ VIẾT","ÂM, ÂM THANH","CHỮ, VĂN TỰ",CHÍN,2,20
+87,Chữ「朋」có nghĩa là gì?,BẠN BÈ,NGÂN HÀNG,"GỌI, KÊU",KHÔNG,1,20
+88,Chữ「书」có nghĩa là gì?,"SÁCH, VIẾT",BẮC,CŨNG,"MẶT TRỜI, NGÀY",1,20
+89,Chữ「个」có nghĩa là gì?,"CƠM, THỨC ĂN",BẠN BÈ,"CÁI, LƯỢNG TỪ","SINH, SỐNG",3,20
+90,Chữ「午」có nghĩa là gì?,"CON, ĐỨA TRẺ",TO LỚN,TRƯA,"LÀM, TẠO RA, SÁNG TẠO, LÀM VIỆC",3,20
+91,Chữ「头」có nghĩa là gì?,ANH ẤY,HAI,BẠC,ĐẦU,4,20
+92,Chữ「米」có nghĩa là gì?,SAO,"TRỜI, NGÀY",KHÓ,"GẠO, MÉT",4,20
+93,Chữ「吃」có nghĩa là gì?,ĂN,"THẦY, GIÁO VIÊN",HAI,KHÔNG (TRỢ TỪ),1,20
+94,Chữ「要」có nghĩa là gì?,"CON, ĐỨA TRẺ","MUỐN, CẦN, YÊU CẦU","CÂY, GỖ",RƯỢU,2,20
+95,Chữ「饭」có nghĩa là gì?,TRƯA,"CÁI, LƯỢNG TỪ","CƠM, THỨC ĂN",HỎI,3,20
+96,Chữ「些」có nghĩa là gì?,"CÔNG, VIỆC, CÔNG VIỆC, THỢ","MỘT ÍT, VÀI, MỘT SỐ",GẶP,"NƯỚC, QUỐC GIA",2,20
+97,Chữ「包」có nghĩa là gì?,MƯỜI,"HÔM NAY, BÂY GIỜ","GÓI, BAO, BỌC, CHỨA ĐỰNG","GẠO, MÉT",3,20
+98,Chữ「酒」có nghĩa là gì?,RƯỢU,"Ở GIỮA, TRUNG TÂM","THẦY, GIÁO VIÊN","MẤT, CHẾT",1,20
+99,Chữ「元」có nghĩa là gì?,BẠN BÈ,KHÔNG (TRỢ TỪ),"ĐẦU, ĐỒNG (TIỀN)","THẦY, GIÁO VIÊN",3,20
+100,Chữ「毛」có nghĩa là gì?,"LÔNG, HÀO (TIỀN)",ANH ẤY,"NÀO, ĐÂU",HỌC,1,20
+101,Chữ「分」có nghĩa là gì?,ĂN,"CHIA, PHÚT, PHÂN",HÔM QUA,SAO,2,20
+102,"Chữ nào có nghĩa ""MỘT""?",星,一,吗,你,2,20
+103,"Chữ nào có nghĩa ""TÁM""?",八,吃,作,北,1,20
+104,"Chữ nào có nghĩa ""NĂM""?",天,五,四,个,2,20
+105,"Chữ nào có nghĩa ""KHÔNG""?",回,发,书,不,4,20
+106,"Chữ nào có nghĩa ""TO LỚN""?",老,国,大,她,3,20
+107,"Chữ nào có nghĩa ""MIỆNG""?",难,口,头,习,2,20
+108,"Chữ nào có nghĩa ""TRẮNG""?",五,元,这,白,4,20
+109,"Chữ nào có nghĩa ""PHỤ NỮ""?",他,女,明,不,2,20
+110,"Chữ nào có nghĩa ""BẠN""?",生,谢,哪,你,4,20
+111,"Chữ nào có nghĩa ""TỐT""?",吃,亡,女,好,4,20
+112,"Chữ nào có nghĩa ""NGỰA""?",谢,马,体,京,2,20
+113,"Chữ nào có nghĩa ""QUÁ, LẮM""?",太,作,爸,个,1,20
+114,"Chữ nào có nghĩa ""HÁN""?",汉,中,要,北,1,20
+115,"Chữ nào có nghĩa ""NGÔN NGỮ""?",语,妈,今,元,1,20
+116,"Chữ nào có nghĩa ""KHÔNG (TRỢ TỪ)""?",吗,回,语,北,1,20
+117,"Chữ nào có nghĩa ""MẸ""?",身,些,妈,我,3,20
+118,"Chữ nào có nghĩa ""BỐ""?",人,见,爸,九,3,20
+119,"Chữ nào có nghĩa ""RẤT""?",太,很,天,子,2,20
+120,"Chữ nào có nghĩa ""BẬN""?",忙,马,他,毛,1,20
+121,"Chữ nào có nghĩa ""ANH ẤY""?",太,你,昨,他,4,20
+122,"Chữ nào có nghĩa ""CÔ ẤY""?",名,汉,工,她,4,20
+123,"Chữ nào có nghĩa ""KHÓ""?",午,二,不,难,4,20
+124,"Chữ nào có nghĩa ""SÁU""?",六,不,忙,日,1,20
+125,"Chữ nào có nghĩa ""BẢY""?",头,银,是,七,4,20
+126,"Chữ nào có nghĩa ""CHÍN""?",九,几,中,那,1,20
+127,"Chữ nào có nghĩa ""HỌC""?",妈,见,很,学,4,20
+128,"Chữ nào có nghĩa ""ĐI""?",问,好,去,吃,3,20
+129,"Chữ nào có nghĩa ""BẮC""?",文,北,明,是,2,20
+130,"Chữ nào có nghĩa ""KINH""?",汉,天,京,谢,3,20
+131,"Chữ nào có nghĩa ""ĐÚNG""?",对,校,小,六,1,20
+132,"Chữ nào có nghĩa ""SÁNG""?",哪,们,明,子,3,20
+133,"Chữ nào có nghĩa ""TRỜI, NGÀY""?",们,天,语,些,2,20
+134,"Chữ nào có nghĩa ""GẶP""?",作,工,见,昨,3,20
+135,"Chữ nào có nghĩa ""BẠC""?",几,小,银,很,3,20
+136,"Chữ nào có nghĩa ""NGÂN HÀNG""?",要,工,行,木,3,20
+137,"Chữ nào có nghĩa ""HAI""?",身,二,妈,这,2,20
+138,"Chữ nào có nghĩa ""BA""?",个,难,问,三,4,20
+139,"Chữ nào có nghĩa ""BỐN""?",四,你,银,头,1,20
+140,"Chữ nào có nghĩa ""HÔM NAY, BÂY GIỜ""?",名,今,难,校,2,20
+141,"Chữ nào có nghĩa ""ĐÓNG, TẮT""?",口,文,关,北,3,20
+142,"Chữ nào có nghĩa ""SAO""?",书,文,二,星,4,20
+143,"Chữ nào có nghĩa ""KỲ, TUẦN""?",期,难,好,哪,1,20
+144,"Chữ nào có nghĩa ""MẤY, BAO NHIÊU""?",三,几,分,十,2,20
+145,"Chữ nào có nghĩa ""TÔI""?",他,我,银,语,2,20
+146,"Chữ nào có nghĩa ""CÔNG, VIỆC, CÔNG VIỆC, THỢ""?",叫,女,工,老,3,20
+147,"Chữ nào có nghĩa ""LÀM, TẠO RA, SÁNG TẠO, LÀM VIỆC""?",七,几,作,去,3,20
+148,"Chữ nào có nghĩa ""MẶT TRỜI, NGÀY""?",日,汉,午,我,1,20
+149,"Chữ nào có nghĩa ""LÀ, ĐÚNG, PHẢI""?",今,是,头,期,2,20
+150,"Chữ nào có nghĩa ""ĐÂY, CÁI NÀY""?",这,要,又,她,1,20
+151,"Chữ nào có nghĩa ""VÀO, TIẾN VÀO""?",元,女,书,进,4,20
+152,"Chữ nào có nghĩa ""GIÀ, LỚN TUỔI""?",这,学,国,老,4,20
+153,"Chữ nào có nghĩa ""THẦY, GIÁO VIÊN""?",关,师,门,书,2,20
+154,"Chữ nào có nghĩa ""THÂN, CƠ THỂ""?",关,了,一,身,4,20
+155,"Chữ nào có nghĩa ""THÂN THỂ, CƠ THỂ""?",国,银,体,白,3,20
+156,"Chữ nào có nghĩa ""TRÊN, LÊN""?",上,大,妈,门,1,20
+157,"Chữ nào có nghĩa ""DƯỚI, XUỐNG""?",下,星,大,你,1,20
+158,"Chữ nào có nghĩa ""MẶT TRĂNG, THÁNG""?",回,昨,们,月,4,20
+159,"Chữ nào có nghĩa ""SINH, SỐNG""?",叫,生,元,人,2,20
+160,"Chữ nào có nghĩa ""TRỢ TỪ HOÀN THÀNH""?",下,对,了,习,3,20
+161,"Chữ nào có nghĩa ""CÂY, GỖ""?",三,人,今,木,4,20
+162,"Chữ nào có nghĩa ""NGHỈ NGƠI""?",身,天,文,休,4,20
+163,"Chữ nào có nghĩa ""MẤT, CHẾT""?",亡,四,个,身,1,20
+164,"Chữ nào có nghĩa ""CŨNG""?",不,马,也,师,3,20
+165,"Chữ nào có nghĩa ""LẠI, NỮA""?",五,不,月,又,4,20
+166,"Chữ nào có nghĩa ""CON, ĐỨA TRẺ""?",好,子,忙,休,2,20
+167,"Chữ nào có nghĩa ""NHỎ, BÉ""?",文,小,休,太,2,20
+168,"Chữ nào có nghĩa ""QUAY LẠI, TRỞ VỀ""?",女,中,包,回,4,20
+169,"Chữ nào có nghĩa ""TRƯỜNG HỌC""?",进,见,去,校,4,20
+170,"Chữ nào có nghĩa ""KIA, ĐÓ""?",口,那,生,字,2,20
+171,"Chữ nào có nghĩa ""NÀO, ĐÂU""?",些,九,学,哪,4,20
+172,"Chữ nào có nghĩa ""MƯỜI""?",习,好,天,十,4,20
+173,"Chữ nào có nghĩa ""HÔM QUA""?",京,名,木,昨,4,20
+174,"Chữ nào có nghĩa ""CẢM ƠN, XIN LỖI, TỪ CHỐI, TÀN""?",天,星,谢,生,3,20
+175,"Chữ nào có nghĩa ""NGƯỜI""?",生,十,人,习,3,20
+176,"Chữ nào có nghĩa ""HỎI""?",很,小,问,是,3,20
+177,"Chữ nào có nghĩa ""GỌI, KÊU""?",对,叫,饭,哪,2,20
+178,"Chữ nào có nghĩa ""CỬA""?",马,那,木,门,4,20
+179,"Chữ nào có nghĩa ""TRỢ TỪ SỐ NHIỀU DÙNG SAU ĐẠI TỪ HOẶC TỪ CHỈ NGƯỜI""?",们,学,文,下,1,20
+180,"Chữ nào có nghĩa ""TÊN, TÊN GỌI""?",一,名,银,下,2,20
+181,"Chữ nào có nghĩa ""CHỮ, VĂN TỰ""?",午,们,妈,字,4,20
+182,"Chữ nào có nghĩa ""NƯỚC, QUỐC GIA""?",太,亡,谢,国,4,20
+183,"Chữ nào có nghĩa ""Ở GIỮA, TRUNG TÂM""?",中,昨,语,书,1,20
+184,"Chữ nào có nghĩa ""VĂN, CHỮ VIẾT""?",文,汉,了,期,1,20
+185,"Chữ nào có nghĩa ""LUYỆN TẬP, HỌC""?",对,习,是,去,2,20
+186,"Chữ nào có nghĩa ""PHÁT, PHÁT TRIỂN""?",马,子,生,发,4,20
+187,"Chữ nào có nghĩa ""ÂM, ÂM THANH""?",音,爸,妈,八,1,20
+188,"Chữ nào có nghĩa ""BẠN BÈ""?",朋,是,体,月,1,20
+189,"Chữ nào có nghĩa ""SÁCH, VIẾT""?",书,关,工,妈,1,20
+190,"Chữ nào có nghĩa ""CÁI, LƯỢNG TỪ""?",八,口,四,个,4,20
+191,"Chữ nào có nghĩa ""TRƯA""?",马,几,午,米,3,20
+192,"Chữ nào có nghĩa ""ĐẦU""?",白,校,头,五,3,20
+193,"Chữ nào có nghĩa ""GẠO, MÉT""?",人,文,米,回,3,20
+194,"Chữ nào có nghĩa ""ĂN""?",吃,休,亡,头,1,20
+195,"Chữ nào có nghĩa ""MUỐN, CẦN, YÊU CẦU""?",学,习,头,要,4,20
+196,"Chữ nào có nghĩa ""CƠM, THỨC ĂN""?",京,大,饭,期,3,20
+197,"Chữ nào có nghĩa ""MỘT ÍT, VÀI, MỘT SỐ""?",子,中,国,些,4,20
+198,"Chữ nào có nghĩa ""GÓI, BAO, BỌC, CHỨA ĐỰNG""?",见,包,期,六,2,20
+199,"Chữ nào có nghĩa ""RƯỢU""?",不,下,酒,北,3,20
+200,"Chữ nào có nghĩa ""ĐẦU, ĐỒNG (TIỀN)""?",是,日,亡,元,4,20
+201,"Chữ nào có nghĩa ""LÔNG, HÀO (TIỀN)""?",上,天,毛,饭,3,20
+202,"Chữ nào có nghĩa ""CHIA, PHÚT, PHÂN""?",分,了,大,马,1,20
+203,Pinyin của chữ「一」là gì?,qī,xiào,yī,nà,3,15
+204,Pinyin của chữ「八」là gì?,zì,tài,shàng,bā,4,15
+205,Pinyin của chữ「五」là gì?,jīn,bà,wǔ,hàn,3,15
+206,Pinyin của chữ「不」là gì?,duì,bù,sān,shí,2,15
+207,Pinyin của chữ「大」là gì?,qī,yě,dà,xué,3,15
+208,Pinyin của chữ「口」là gì?,lǎo,kǒu,jiǔ,qī,2,15
+209,Pinyin của chữ「白」là gì?,xiē,ma,duì,bái,4,15
+210,Pinyin của chữ「女」là gì?,xiào,jiàn,jīng,nǚ,4,15
+211,Pinyin của chữ「你」là gì?,bà,míng,nǐ,zì,3,15
+212,Pinyin của chữ「好」là gì?,nǚ,hǎo,bāo,zì,2,15
+213,Pinyin của chữ「马」là gì?,yín,nǎ,qù,mǎ,4,15
+214,Pinyin của chữ「太」là gì?,tài,mǎ,tóu,men,1,15
+215,Pinyin của chữ「汉」là gì?,wáng,chī,míng,hàn,4,15
+216,Pinyin của chữ「语」là gì?,xīng,yín,jiàn,yǔ,4,15
+217,Pinyin của chữ「吗」là gì?,huí,ma,gè,xià,2,15
+218,Pinyin của chữ「妈」là gì?,mā,xīng,yòu,mǐ,1,15
+219,Pinyin của chữ「爸」là gì?,shū,bà,yín,zuò,2,15
+220,Pinyin của chữ「很」là gì?,hěn,yuán,háng,èr,1,15
+221,Pinyin của chữ「忙」là gì?,máng,yě,shí,nǎ,1,15
+222,Pinyin của chữ「他」là gì?,bù,yào,jiào,tā,4,15
+223,Pinyin của chữ「她」là gì?,nǎ,jiǔ,tā,xiè,3,15
+224,Pinyin của chữ「难」là gì?,nán,tā,qù,liù,1,15
+225,Pinyin của chữ「六」là gì?,rì,liù,sān,běi,2,15
+226,Pinyin của chữ「七」là gì?,mǐ,bái,qī,xiē,3,15
+227,Pinyin của chữ「九」là gì?,jiǔ,péng,shī,rén,1,15
+228,Pinyin của chữ「学」là gì?,péng,jiǔ,xué,rén,3,15
+229,Pinyin của chữ「去」là gì?,tóu,hǎo,qù,kǒu,3,15
+230,Pinyin của chữ「北」là gì?,shì,běi,máo,jiǔ,2,15
+231,Pinyin của chữ「京」là gì?,nǐ,hàn,shēng,jīng,4,15
+232,Pinyin của chữ「对」là gì?,duì,yīn,kǒu,ma,1,15
+233,Pinyin của chữ「明」là gì?,fàn,míng,wén,ma,2,15
+234,Pinyin của chữ「天」là gì?,kǒu,tiān,yín,wèn,2,15
+235,Pinyin của chữ「见」là gì?,duì,jiàn,wèn,kǒu,2,15
+236,Pinyin của chữ「银」là gì?,qī,le,tā,yín,4,15
+237,Pinyin của chữ「行」là gì?,máo,háng,sì,nán,2,15
+238,Pinyin của chữ「二」là gì?,zuó,tiān,èr,chī,3,15
+239,Pinyin của chữ「三」là gì?,ma,jīn,sān,bā,3,15
+240,Pinyin của chữ「四」là gì?,sì,nǎ,jīn,men,1,15
+241,Pinyin của chữ「今」là gì?,èr,jīn,yòu,jiǔ,2,15
+242,Pinyin của chữ「关」là gì?,shì,xīng,mǎ,guān,4,15
+243,Pinyin của chữ「星」là gì?,guó,shí,shàng,xīng,4,15
+244,Pinyin của chữ「期」là gì?,lǎo,qī,jiǔ,wáng,2,15
+245,Pinyin của chữ「几」là gì?,jǐ,xiè,sān,huí,1,15
+246,Pinyin của chữ「我」là gì?,wǒ,zuò,sān,zì,1,15
+247,Pinyin của chữ「工」là gì?,tǐ,fā,gōng,zì,3,15
+248,Pinyin của chữ「作」là gì?,zuò,zhōng,gōng,nǎ,1,15
+249,Pinyin của chữ「日」là gì?,xiǎo,háng,rì,le,3,15
+250,Pinyin của chữ「是」là gì?,wáng,shì,mā,xiū,2,15
+251,Pinyin của chữ「这」là gì?,zhè,xiē,dà,bù,1,15
+252,Pinyin của chữ「进」là gì?,shī,gè,jiǔ,jìn,4,15
+253,Pinyin của chữ「老」là gì?,xí,tǐ,bā,lǎo,4,15
+254,Pinyin của chữ「师」là gì?,nǚ,shī,yuè,lǎo,2,15
+255,Pinyin của chữ「身」là gì?,jìn,shēn,xià,jiàn,2,15
+256,Pinyin của chữ「体」là gì?,tǐ,hǎo,jǐ,qù,1,15
+257,Pinyin của chữ「上」là gì?,fēn,bù,mā,shàng,4,15
+258,Pinyin của chữ「下」là gì?,tiān,háng,xià,jiàn,3,15
+259,Pinyin của chữ「月」là gì?,ma,yuè,nǎ,míng,2,15
+260,Pinyin của chữ「生」là gì?,běi,yīn,péng,shēng,4,15
+261,Pinyin của chữ「了」là gì?,le,xué,hàn,nà,1,15
+262,Pinyin của chữ「木」là gì?,gè,jiǔ,tài,mù,4,15
+263,Pinyin của chữ「休」là gì?,xīng,jīn,gè,xiū,4,15
+264,Pinyin của chữ「亡」là gì?,mén,máng,èr,wáng,4,15
+265,Pinyin của chữ「也」là gì?,shū,yě,xiǎo,bù,2,15
+266,Pinyin của chữ「又」là gì?,xiè,yòu,zhè,nǎ,2,15
+267,Pinyin của chữ「子」là gì?,rén,zǐ,mù,fā,2,15
+268,Pinyin của chữ「小」là gì?,xiǎo,nǚ,tài,wén,1,15
+269,Pinyin của chữ「回」là gì?,guān,huí,le,gè,2,15
+270,Pinyin của chữ「校」là gì?,le,wáng,fēn,xiào,4,15
+271,Pinyin của chữ「那」là gì?,fàn,nà,nǎ,xiǎo,2,15
+272,Pinyin của chữ「哪」là gì?,guān,nǎ,fàn,xiē,2,15
+273,Pinyin của chữ「十」là gì?,qù,míng,shí,rén,3,15
+274,Pinyin của chữ「昨」là gì?,nǐ,zuó,mǐ,shēng,2,15
+275,Pinyin của chữ「谢」là gì?,mén,xiè,xiào,jìn,2,15
+276,Pinyin của chữ「人」là gì?,yě,rén,liù,nǎ,2,15
+277,Pinyin của chữ「问」là gì?,wèn,yào,yòu,jǐ,1,15
+278,Pinyin của chữ「叫」là gì?,zhōng,bái,yě,jiào,4,15
+279,Pinyin của chữ「门」là gì?,míng,tǐ,jiǔ,mén,4,15
+280,Pinyin của chữ「们」là gì?,men,yuán,sān,bā,1,15
+281,Pinyin của chữ「名」là gì?,qī,yòu,míng,xià,3,15
+282,Pinyin của chữ「字」là gì?,yǔ,mù,rì,zì,4,15
+283,Pinyin của chữ「国」là gì?,tā,guó,jīng,tā,2,15
+284,Pinyin của chữ「中」là gì?,zhōng,zǐ,gōng,xiè,1,15
+285,Pinyin của chữ「文」là gì?,nǚ,men,wén,jǐ,3,15
+286,Pinyin của chữ「习」là gì?,èr,xí,yuán,xiǎo,2,15
+287,Pinyin của chữ「发」là gì?,shàng,gōng,bā,fā,4,15
+288,Pinyin của chữ「音」là gì?,hǎo,fàn,hàn,yīn,4,15
+289,Pinyin của chữ「朋」là gì?,yòu,péng,shēn,tiān,2,15
+290,Pinyin của chữ「书」là gì?,gōng,shū,jǐ,kǒu,2,15
+291,Pinyin của chữ「个」là gì?,shì,shēn,máng,gè,4,15
+292,Pinyin của chữ「午」là gì?,wǔ,háng,wèn,hǎo,1,15
+293,Pinyin của chữ「头」là gì?,tóu,shàng,xí,xué,1,15
+294,Pinyin của chữ「米」là gì?,jīn,mǐ,nǚ,yīn,2,15
+295,Pinyin của chữ「吃」là gì?,dà,xí,hàn,chī,4,15
+296,Pinyin của chữ「要」là gì?,tā,wáng,yě,yào,4,15
+297,Pinyin của chữ「饭」là gì?,fàn,yǔ,mù,wèn,1,15
+298,Pinyin của chữ「些」là gì?,xiē,xīng,kǒu,yuè,1,15
+299,Pinyin của chữ「包」là gì?,yě,mén,péng,bāo,4,15
+300,Pinyin của chữ「酒」là gì?,zuò,jiǔ,yě,bái,2,15
+301,Pinyin của chữ「元」là gì?,máng,bāo,yuán,shí,3,15
+302,Pinyin của chữ「毛」là gì?,máo,fēn,shēng,shí,1,15
+303,Pinyin của chữ「分」là gì?,fàn,rì,fēn,rén,3,15
+304,你___吗? (Bạn có khỏe không?),分,对,语,好,4,20
+305,我很___。 (Tôi rất bận.),妈,忙,汉,们,2,20
+306,明___见。 (Hẹn gặp lại ngày mai.),个,师,十,天,4,20
+307,汉___不难。 (Tiếng Hán không khó.),语,元,体,休,1,20
+308,去北___。 (Đi Bắc Kinh.),人,午,头,京,4,20
+309,"七___九。 (Bảy, tám, chín.)",八,饭,我,汉,1,20
+310,不___。 (Không đúng.),对,星,期,子,1,20
+311,她很___。 (Cô ấy rất tốt.),头,又,习,好,4,20
+312,___京很大。 (Bắc Kinh rất lớn.),北,分,二,日,1,20
+313,去银___。 (Đi ngân hàng.),人,行,妈,马,2,20
+314,今___很忙。 (Hôm nay rất bận.),太,了,老,天,4,20
+315,明___去银行。 (Ngày mai đi ngân hàng.),头,酒,马,天,4,20
+316,星___三。 (Thứ tư.),毛,期,也,八,2,20
+317,星期___。 (Thứ ba.),二,些,马,学,1,20
+318,星期___。 (Thứ năm.),朋,四,吃,九,2,20
+319,你学汉语___？ (Bạn học tiếng Hán không?),吗,见,北,午,1,20
+320,你去北___吗？ (Bạn đi Bắc Kinh không?),元,六,京,进,3,20
+321,北___很大。 (Bắc Kinh rất lớn.),京,些,今,叫,1,20
+322,他不___。 (Anh ấy không bận.),八,日,忙,中,3,20
+323,今___见。 (Hôm nay gặp.),语,天,那,下,2,20
+324,去银___吗？ (Đi ngân hàng không?),星,行,饭,进,2,20
+325,几___？ (Mấy ngày?),下,身,好,天,4,20
+326,今天星期___？ (Hôm nay là thứ mấy?),二,几,头,分,2,20
+327,这___你妈妈吗？ (Đây là mẹ bạn phải không?),难,二,五,是,4,20
+328,你叫什么___字？ (Bạn tên gì?),身,语,包,名,4,20
+329,他是中___人。 (Anh ấy là người Trung Quốc.),朋,米,今,国,4,20
+330,我学___文。 (Tôi học tiếng Trung.),我,毛,元,中,4,20
+331,汉___不难。 (Chữ Hán không khó.),字,他,小,天,1,20
+332,中国很___。 (Trung Quốc rất lớn.),也,哪,书,大,4,20
+333,中___不难。 (Tiếng Trung không khó.),上,文,这,校,2,20
+334,我学___中文。 (Tôi học tập tiếng Trung.),工,今,作,习,4,20
+335,汉语___音不难。 (Phát âm tiếng Hán không khó.),元,毛,发,又,3,20
+336,他是我___友。 (Anh ấy là bạn tôi.),妈,朋,十,木,2,20
+337,发___很好。 (Phát âm rất tốt.),音,叫,她,是,1,20
+338,我看___。 (Tôi đọc sách.),难,书,这,元,2,20
+339,中___很忙。 (Buổi trưa rất bận.),下,你,午,京,3,20
+340,一___人。 (Một người.),银,字,个,二,3,20
+341,上___去学校。 (Buổi sáng đi trường.),哪,门,二,午,4,20
+342,这不是汉语___。 (Đây không phải sách tiếng Hán.),上,门,书,口,3,20
+343,一___人有一个头。 (Một người có một cái đầu.),个,北,月,九,1,20
+344,"汉语很难，我___大了！ (Tiếng Hán rất khó, tôi nhức đầu quá!)",几,吗,头,期,3,20
+345,今天有二十___人去学校。 (Hôm nay có hai mươi người đi trường.),白,分,个,米,3,20
+346,下___不回学校。 (Buổi chiều không về trường.),口,午,一,六,2,20
+347,我不喝___。 (Tôi không uống rượu.),又,酒,今,书,2,20
+348,这个面包三___五毛。 (Cái bánh mì này ba đồng năm hào.),几,元,谢,很,2,20
+349,三元五___。 (Ba đồng năm hào.),分,毛,几,包,2,20
+350,你几点几___回去？ (Bạn mấy giờ mấy phút về?),们,中,分,日,3,20
+351,「北京」có nghĩa là gì?,Mấy ngày,Đây là,Cơ thể / Sức khỏe,Bắc Kinh,4,20
+352,「汉语」có nghĩa là gì?,Tiếng Hán,Quá bận,Học tập,Cơ thể / Sức khỏe,1,20
+353,「银行」có nghĩa là gì?,Có khỏe / tốt không?,Ngân hàng,Phát âm,Ngày mai đi,2,20
+354,「明天」có nghĩa là gì?,Học tập,Bố,Không gặp,Ngày mai,4,20
+355,「你好」có nghĩa là gì?,Công việc / Làm việc,Xin chào,Rất bận,Tiếng Hán,2,20
+356,「爸爸」có nghĩa là gì?,Hôm nay gặp,Không khó,Phát âm,Bố,4,20
+357,「妈妈」có nghĩa là gì?,Mẹ,Thứ ba,Chủ nhật,Người trong nước,1,20
+358,「很大」có nghĩa là gì?,Trung Quốc,Rất to,Hôm nay gặp,Buổi sáng,2,20
+359,「太忙」có nghĩa là gì?,Văn tự / Chữ viết,Quá bận,Bắc Kinh,Đại học,2,20
+360,「不难」có nghĩa là gì?,Thứ sáu,Đi không?,Không khó,Tên,3,20
+361,「很忙」có nghĩa là gì?,Đúng không?,Không gặp,Rất bận,Hôm nay,3,20
+362,「去吗」có nghĩa là gì?,Người Trung Quốc,Tóc,Đi không?,Ngựa lớn,3,20
+363,「今天」có nghĩa là gì?,Hôm nay,Bắc Kinh,Luyện viết chữ,Thứ bảy,1,20
+364,「星期」có nghĩa là gì?,Tuần / thứ,Ngày mai đi,Bố,Ngựa lớn,1,20
+365,「星期一」có nghĩa là gì?,Người trong nước,Học tập,Thứ hai,Thứ năm,3,20
+366,「星期二」có nghĩa là gì?,Thứ ba,Hôm nay đi,Đây là,Bắc Kinh,1,20
+367,「星期三」có nghĩa là gì?,Xin chào,Có khỏe / tốt không?,Đây là,Thứ tư,4,20
+368,「星期四」có nghĩa là gì?,Ngày mai,Học tập,Chữ Hán,Thứ năm,4,20
+369,「星期五」có nghĩa là gì?,Bố,Thứ sáu,Bạn bè,Ngày mai đi,2,20
+370,「星期六」có nghĩa là gì?,Luyện viết chữ,Học tập,Cơ thể / Sức khỏe,Thứ bảy,4,20
+371,「星期天」có nghĩa là gì?,Bạn bè,Người trong nước,Chủ nhật,Thứ hai,3,20
+372,「几天」có nghĩa là gì?,Tên,Mấy ngày,Văn tự / Chữ viết,Ngày mai,2,20
+373,「今天见」có nghĩa là gì?,Hôm nay gặp,Ngựa trắng,Tóc,Đi không?,1,20
+374,「今天去」có nghĩa là gì?,Ngựa trắng,Ngựa lớn,Hôm nay đi,Buổi chiều,3,20
+375,「明天去」có nghĩa là gì?,Không đi,Thứ hai,Bắc Kinh,Ngày mai đi,4,20
+376,「大学」có nghĩa là gì?,Chủ nhật,Rất to,Bạn bè,Đại học,4,20
+377,「好吗」có nghĩa là gì?,Hôm nay gặp,Ngày mai đi,Phải không / Vậy sao?,Có khỏe / tốt không?,4,20
+378,「对吗」có nghĩa là gì?,Thứ năm,Đúng không?,Thứ sáu,Hôm nay đi,2,20
+379,「工作」có nghĩa là gì?,Người trong nước,Trung Quốc,Công việc / Làm việc,Bắc Kinh,3,20
+380,「这是」có nghĩa là gì?,Cá nhân,Đây là,Ba ngày,Buổi trưa,2,20
+381,「是吗」có nghĩa là gì?,Hôm nay đi,Học tập,Ngựa trắng,Phải không / Vậy sao?,4,20
+382,「不去」có nghĩa là gì?,Tuần / thứ,Ngựa lớn,Không đi,Người trong nước,3,20
+383,「不见」có nghĩa là gì?,Chữ Hán,Trung Quốc,Không gặp,Tiếng Trung,3,20
+384,「太好」có nghĩa là gì?,Người Trung Quốc,Quá tốt,Công việc / Làm việc,Đây là,2,20
+385,「白马」có nghĩa là gì?,Bắc Kinh,Hôm nay đi,Hôm nay gặp,Ngựa trắng,4,20
+386,「大马」có nghĩa là gì?,Ngân hàng,Giáo viên,Ngựa trắng,Ngựa lớn,4,20
+387,「这几天」có nghĩa là gì?,Mấy ngày nay,Thứ sáu,Quá tốt,Cơ thể / Sức khỏe,1,20
+388,「星期日」có nghĩa là gì?,Thứ tư,Ngựa trắng,Chủ nhật,Thứ bảy,3,20
+389,「三天」có nghĩa là gì?,Ngày mai,Ba ngày,Phát âm,Tên,2,20
+390,「进去」có nghĩa là gì?,Hôm nay đi,Buổi chiều,Đi vào,Đại học,3,20
+391,「老师」có nghĩa là gì?,Giáo viên,Thứ bảy,Rất to,Buổi trưa,1,20
+392,「身体」có nghĩa là gì?,Văn tự / Chữ viết,Người trong nước,Cơ thể / Sức khỏe,Không khó,3,20
+393,「名字」có nghĩa là gì?,Phải không / Vậy sao?,Tiếng Trung,Tên,Quá tốt,3,20
+394,「中国」có nghĩa là gì?,Bạn bè,Đây là,Trung Quốc,Đi vào,3,20
+395,「中文」có nghĩa là gì?,Tên,Thứ bảy,Ngân hàng,Tiếng Trung,4,20
+396,「中国人」có nghĩa là gì?,Người Trung Quốc,Mấy ngày nay,Hôm nay gặp,Tuần / thứ,1,20
+397,「汉字」có nghĩa là gì?,Quá bận,Chữ Hán,Người Trung Quốc,Tuần / thứ,2,20
+398,「国人」có nghĩa là gì?,Người Trung Quốc,Người trong nước,Chữ Hán,Thứ hai,2,20
+399,「文字」có nghĩa là gì?,Ba ngày,Hôm nay gặp,Đi vào,Văn tự / Chữ viết,4,20
+400,「学习」có nghĩa là gì?,Bắc Kinh,Học tập,Ngựa trắng,Đi vào,2,20
+401,「朋友」có nghĩa là gì?,Quá tốt,Người trong nước,Bạn bè,Hôm nay đi,3,20
+402,「发音」có nghĩa là gì?,Mấy ngày,Phát âm,Mẹ,Không khó,2,20
+403,「习字」có nghĩa là gì?,Bạn bè,Thứ ba,Luyện viết chữ,Ngân hàng,3,20
+404,「中午」có nghĩa là gì?,Tiếng Trung,Bắc Kinh,Buổi trưa,Phải không / Vậy sao?,3,20
+405,「上午」có nghĩa là gì?,Chủ nhật,Hôm nay gặp,Cá nhân,Buổi sáng,4,20
+406,「下午」có nghĩa là gì?,Đúng không?,Đi không?,Quá bận,Buổi chiều,4,20
+407,「个人」có nghĩa là gì?,Cá nhân,Tuần / thứ,Rất to,Hôm nay gặp,1,20
+408,「头发」có nghĩa là gì?,Ngựa trắng,Thứ sáu,Tóc,Cơ thể / Sức khỏe,3,20
+409,「吃饭」có nghĩa là gì?,Giáo viên,Hôm nay đi,Đại học,Ăn cơm,4,20
+410,「汉语不难。」nghĩa là gì?,Tiếng Hán không khó.,"Người kia là giáo viên đại học, đúng không?",Hôm nay là thứ tư.,Những người này không phải bạn tôi.,1,30
+411,「我学汉语。」nghĩa là gì?,Mẹ bảo tôi buổi trưa về ăn cơm.,Tôi đi ngân hàng.,Tôi học tiếng Hán.,Người này không uống rượu.,3,30
+412,「你学汉语吗？」nghĩa là gì?,Cô ấy đi Bắc Kinh mấy ngày?,Hôm nay làm việc bận không?,Bạn của anh ấy tên là Tạ Hữu Phân.,Bạn học tiếng Hán không?,4,30
+413,「我爸爸很好，你爸爸好吗？」nghĩa là gì?,Đây là túi xách của bạn hả?,"Cái bánh mì này không ngon, tôi không ăn.","Bố tôi rất khỏe, bố bạn có khỏe không?","Hôm nay sức khỏe tôi không tốt, không đi làm.",3,30
+414,「妈妈今天很忙。」nghĩa là gì?,Hôm nay mẹ rất bận.,Một mình đi Bắc Kinh.,Một người có một cái đầu.,Buổi trưa đi gặp bạn.,1,30
+415,「我去银行。」nghĩa là gì?,Tôi đi ngân hàng.,Tôi không vào trường gặp giáo viên.,Ngày mai tôi đi Trung Quốc hai mươi ngày.,Hôm nay là thứ mấy?,1,30
+416,「她去北京几天？」nghĩa là gì?,Cô ấy đi Bắc Kinh mấy ngày?,Thầy Bạch thứ năm vào trường không?,"Cái bánh mì này không ngon, tôi không ăn.","Anh ấy muốn ăn mì, tôi muốn ăn cơm trắng.",1,30
+417,「他去银行吗？」nghĩa là gì?,Ngày mai tôi về trường.,Anh ấy đi ngân hàng không?,Mẹ tôi hỏi giáo viên sức khỏe tốt không?,"Ngân hàng đóng cửa thứ Bảy, Chủ Nhật.",2,30
+418,「我去了北京，北京很大。」nghĩa là gì?,Cái cặp sách này là của cô ấy phải không?,Tên người bạn của bạn là gì?,Giáo viên bảo tôi ngày mai đến trường.,"Tôi đã đi Bắc Kinh, Bắc Kinh rất lớn.",4,30
+419,「明天见！」nghĩa là gì?,Đây là mẹ tôi.,Hẹn gặp ngày mai!,Hôm nay có hai mươi người đi trường.,Hôm nay là thứ mấy?,2,30
+420,「今天我去见妈妈。」nghĩa là gì?,Chủ nhật tôi không làm việc.,Hôm nay tôi đi gặp mẹ.,Đó là sách tiếng Hán của bạn phải không?,"Hôm nay sức khỏe tôi không tốt, không đi làm.",2,30
+421,「星期几你去银行？」nghĩa là gì?,Anh ấy là người Trung Quốc.,Thứ mấy bạn đi ngân hàng?,Thầy Bạch thứ năm vào trường không?,Đây là bố tôi.,2,30
+422,「明天我很忙。」nghĩa là gì?,Bạn tên gì?,"Người kia là giáo viên đại học, đúng không?",Cái bánh mì này ba đồng năm hào.,Ngày mai tôi rất bận.,4,30
+423,「今天星期几？」nghĩa là gì?,Anh ấy là người Trung Quốc.,Cái bánh mì này ba đồng năm hào.,Hôm nay mẹ rất nhức đầu!,Hôm nay là thứ mấy?,4,30
+424,「今天星期三。」nghĩa là gì?,Trưa ngày mai bạn đi đâu ăn cơm?,Giáo viên ăn cơm một mình.,Thầy Bạch thứ năm vào trường không?,Hôm nay là thứ tư.,4,30
+425,「明天星期日吗？」nghĩa là gì?,Ngày mai chủ nhật phải không?,"Ngày ngày học tiếng Hán, tiếng Hán không khó.",Cuốn sách này tên là gì?,Công việc thật khó! Tôi nhức đầu quá!,1,30
+426,「今天星期几？」nghĩa là gì?,Hôm nay làm việc bận không?,Hôm nay thứ mấy?,Anh ấy đi ngân hàng không?,"Tiếng Trung không khó, chữ Hán cũng không khó.",2,30
+427,「明天我回学校。」nghĩa là gì?,Tôi có ba mươi sáu người bạn Trung Quốc.,Ngày mai tôi về trường.,"Bố tôi rất khỏe, bố bạn có khỏe không?",Đi Trung Quốc làm việc tốt không?,2,30
+428,「你明天去哪？」nghĩa là gì?,Ngày mai bạn đi đâu?,Bạn của anh ấy tên là Tạ Hữu Phân.,Chữ Hán không khó.,Buổi chiều tôi đi trường học tập.,1,30
+429,「今天工作忙吗？」nghĩa là gì?,Tên tiếng Trung của tôi là Minh Minh.,Đây là túi xách của bạn hả?,Hôm nay làm việc bận không?,"Tiếng Trung không khó, chữ Hán cũng không khó.",3,30
+430,「星期五见！」nghĩa là gì?,"Ngày ngày học tiếng Hán, tiếng Hán không khó.",Thứ mấy bạn về Bắc Kinh? Về mấy ngày?,Thứ sáu gặp!,Đi Trung Quốc làm việc tốt không?,3,30
+431,「小明是大学生吗？」nghĩa là gì?,Cô ấy đi Bắc Kinh mấy ngày?,Tôi không vào trường gặp giáo viên.,Anh ấy đi ngân hàng không?,Tiểu Minh là sinh viên đại học phải không?,4,30
+432,「今天是十月九日。」nghĩa là gì?,Đây là bố tôi.,Tiếng Hán không khó.,"Hôm nay tôi làm việc, không đi gặp giáo viên.",Hôm nay là ngày 9 tháng 10.,4,30
+433,「这是我妈妈。」nghĩa là gì?,Đây là mẹ tôi.,"Đây là ngựa trắng, đúng không?",Tôi học tiếng Hán.,Tiểu Minh là sinh viên đại học phải không?,1,30
+434,「你明天去银行工作吗？」nghĩa là gì?,Bạn của anh ấy tên là Tạ Hữu Phân.,Hôm nay là thứ mấy?,Thứ sáu gặp!,Ngày mai bạn đi ngân hàng làm việc không?,4,30
+435,「这是我爸爸。」nghĩa là gì?,Chữ Hán không khó.,Mẹ bảo tôi buổi trưa về ăn cơm.,Những người này không phải bạn tôi.,Đây là bố tôi.,4,30
+436,「他明天去北京工作。」nghĩa là gì?,Ngày mai anh ấy đi Bắc Kinh làm việc.,Ngày mai tôi về trường.,Thầy Bạch thứ năm vào trường không?,Hôm nay mẹ rất nhức đầu!,1,30
+437,「星期日我不工作。」nghĩa là gì?,"Bố tôi rất khỏe, bố bạn có khỏe không?","Đó là học sinh của tôi, tôi rất tốt với bạn ấy.",Chủ nhật tôi không làm việc.,Cô ấy là bạn tốt của tôi.,3,30
+438,「这几天我很忙。」nghĩa là gì?,Tôi học tập tiếng Trung.,Hôm nay làm việc bận không?,Đây là mẹ tôi.,Mấy ngày nay tôi rất bận.,4,30
+439,「天天学汉语，汉语不难。」nghĩa là gì?,Bạn học tiếng Hán không?,Phát âm tiếng Trung của bạn tôi rất tốt.,"Ngày ngày học tiếng Hán, tiếng Hán không khó.",Một tuần bạn đến trường mấy ngày?,3,30
+440,「你不是我妈妈。」nghĩa là gì?,Bạn không phải là mẹ của tôi.,Trưa chủ nhật bạn có đi ăn cơm không?,Bạn thứ mấy vào trường làm việc?,Hẹn gặp ngày mai!,1,30
+441,「这是白马，对吗？」nghĩa là gì?,Bố bảo tôi đi Bắc Kinh học tiếng Hán.,"Đây là ngựa trắng, đúng không?",Bố hỏi tôi ngày mai đi đâu làm việc?,"Cảm ơn bạn, hôm nay tôi không đi làm.",2,30
+442,「今天他去银行工作吗？」nghĩa là gì?,Giáo viên bảo tôi ngày mai đến trường.,Hôm nay anh ấy đi ngân hàng làm việc phải không?,"Hôm nay sức khỏe tôi không tốt, không đi làm.",Mẹ tôi hỏi giáo viên sức khỏe có tốt không?,2,30
+443,「北京大吗？」nghĩa là gì?,"Ngân hàng đóng cửa thứ Bảy, Chủ Nhật.",Cô ấy là bạn tốt của tôi.,Đó là tên bạn phải không?,Bắc Kinh lớn không?,4,30
+444,「银行星期六、星期日关」nghĩa là gì?,Cái bánh mì này ba đồng năm hào.,Tôi có ba mươi sáu người bạn Trung Quốc.,"Ngân hàng đóng cửa thứ Bảy, Chủ Nhật.",Bố hỏi tôi ngày mai đi đâu làm việc?,3,30
+445,「你一星期去学校几天？」nghĩa là gì?,Hôm nay có hai mươi người đi trường.,Buổi sáng tôi đọc sách.,Phát âm tiếng Trung của bạn tôi rất tốt.,Một tuần bạn đến trường mấy ngày?,4,30
+446,「那是我学生，我对他很好」nghĩa là gì?,"Ngày ngày học tiếng Hán, tiếng Hán không khó.","Đó là học sinh của tôi, tôi rất tốt với bạn ấy.",Buổi trưa đi gặp bạn.,Đây là bố tôi.,2,30
+447,「明天星期一，你去哪？」nghĩa là gì?,Giáo viên bảo tôi ngày mai đến trường.,Anh ấy là bạn Trung Quốc của tôi.,"Ngày mai thứ Hai, bạn đi đâu?",Anh ấy đi ngân hàng không?,3,30
+448,「你星期几回北京？回几天？」nghĩa là gì?,Thứ mấy bạn về Bắc Kinh? Về mấy ngày?,"Tiếng Hán rất khó, tôi nhức đầu quá!",Hôm nay mẹ rất nhức đầu!,Bạn tên gì?,1,30
+449,「我不进学校见老师」nghĩa là gì?,Tôi không vào trường gặp giáo viên.,Mẹ tôi hỏi giáo viên sức khỏe có tốt không?,Cái bánh mì này ba đồng năm hào.,Hôm nay anh ấy đi ngân hàng làm việc phải không?,1,30
+450,「我妈问老师身体好吗？」nghĩa là gì?,Mẹ tôi hỏi giáo viên sức khỏe có tốt không?,Mẹ tôi hỏi giáo viên sức khỏe tốt không?,Ngày mai bạn đi ngân hàng làm việc không?,Một mình đi Bắc Kinh.,1,30
+451,「这是我爸爸，他身体很好」nghĩa là gì?,Mẹ bảo tôi buổi trưa về ăn cơm.,Ngày mai tôi đi Trung Quốc hai mươi ngày.,"Đây là bố tôi, sức khỏe ông ấy rất tốt.",Một tuần bạn đến trường mấy ngày?,3,30
+452,「老师叫你明天去学校吗？」nghĩa là gì?,Mẹ tôi hỏi giáo viên sức khỏe tốt không?,Giáo viên bảo bạn ngày mai đến trường phải không?,Bạn muốn một ít bánh bao không?,Bạn thứ mấy vào trường làm việc?,2,30
+453,「你星期几进学校工作？」nghĩa là gì?,Bắc Kinh lớn không?,Hôm nay anh ấy đi ngân hàng làm việc phải không?,"Đây là một cuốn sách tiếng Hán, không khó.",Bạn thứ mấy vào trường làm việc?,4,30
+454,「我今天工作，不去见老师」nghĩa là gì?,"Hôm nay tôi làm việc, không đi gặp giáo viên.",Chữ Hán không khó.,Hôm nay mẹ rất bận.,Thứ mấy bạn về Bắc Kinh? Về mấy ngày?,1,30
+455,「老师叫我明天去学校」nghĩa là gì?,Ngày mai bạn đi đâu?,Hôm nay là thứ mấy?,Giáo viên bảo tôi ngày mai đến trường.,Ngày mai tôi về trường.,3,30
+456,「白老师星期四进学校吗？」nghĩa là gì?,Đây là mẹ tôi.,"Tiếng Trung không khó, chữ Hán cũng không khó.",Bạn thứ mấy vào trường làm việc?,Thầy Bạch thứ năm vào trường không?,4,30
+457,「我今天身体不好，不去工作」nghĩa là gì?,"Hôm nay sức khỏe tôi không tốt, không đi làm.",Ngày mai chủ nhật phải không?,Giáo viên bảo tôi ngày mai đến trường.,Trung Quốc rất lớn.,1,30
+458,「我进去学校见老师。」nghĩa là gì?,Đây là túi xách của bạn hả?,Tôi đi vào trường gặp giáo viên.,Ngày mai chủ nhật phải không?,Giáo viên bảo bạn ngày mai đến trường phải không?,2,30
+459,「我妈妈问老师身体好吗？」nghĩa là gì?,Hôm nay có hai mươi người đi trường.,Đây là túi xách của bạn hả?,Một người có một cái đầu.,Mẹ tôi hỏi giáo viên sức khỏe tốt không?,4,30
+460,「谢谢你，我今天不去工作。」nghĩa là gì?,Ngày mai bạn đi đâu?,Thứ mấy bạn về Bắc Kinh? Về mấy ngày?,"Cảm ơn bạn, hôm nay tôi không đi làm.",Đây là mẹ tôi.,3,30
+461,「你星期几进银行工作？」nghĩa là gì?,Bạn thứ mấy vào ngân hàng làm việc?,Hôm nay mẹ rất nhức đầu!,Bố hỏi tôi ngày mai đi đâu làm việc?,Hôm nay là thứ tư.,1,30
+462,「白老师星期四进学校吗？」nghĩa là gì?,"Anh ấy muốn ăn mì, tôi muốn ăn cơm trắng.","Ngân hàng đóng cửa thứ Bảy, Chủ Nhật.",Cô ấy tên gì?,Thầy Bạch thứ năm vào trường không?,4,30
+463,「爸爸叫我去北京学汉语。」nghĩa là gì?,"Đây là một cuốn sách tiếng Hán, không khó.",Hôm nay mẹ rất bận.,Bố bảo tôi đi Bắc Kinh học tiếng Hán.,Hôm nay làm việc bận không?,3,30
+464,「爸爸问我明天去哪工作？」nghĩa là gì?,Thầy Bạch thứ năm vào trường không?,Bố hỏi tôi ngày mai đi đâu làm việc?,Ngày mai tôi về trường.,Tôi không vào trường gặp giáo viên.,2,30
+465,「你叫什么名字？」nghĩa là gì?,"Cảm ơn bạn, hôm nay tôi không đi làm.",Hôm nay làm việc bận không?,Bạn tên gì?,Cái bánh mì này ba đồng năm hào.,3,30
+466,「他是中国人。」nghĩa là gì?,Anh ấy là người Trung Quốc.,Một mình đi Bắc Kinh.,Tôi đi ngân hàng.,"Hôm nay sức khỏe tôi không tốt, không đi làm.",1,30
+467,「我学中文。」nghĩa là gì?,Thứ mấy bạn về Bắc Kinh? Về mấy ngày?,Giáo viên bảo bạn ngày mai đến trường phải không?,Tôi học tiếng Trung.,Tên tiếng Trung của tôi là Minh Minh.,3,30
+468,「汉字不难。」nghĩa là gì?,Buổi trưa đi gặp bạn.,Chữ Hán không khó.,Bạn muốn một ít bánh bao không?,Anh ấy là bạn Trung Quốc của tôi.,2,30
+469,「中国很大。」nghĩa là gì?,Tôi học tập tiếng Trung.,Những người này không phải bạn tôi.,Tôi học tiếng Hán.,Trung Quốc rất lớn.,4,30
+470,「她叫什么名字？」nghĩa là gì?,Ngày mai bạn đi đâu?,Cô ấy tên gì?,"Tôi đã đi Bắc Kinh, Bắc Kinh rất lớn.","Tiếng Trung không khó, chữ Hán cũng không khó.",2,30
+471,「你是哪国人？」nghĩa là gì?,Đó là tên bạn phải không?,Bạn là người nước nào?,Tôi có ba mươi sáu người bạn Trung Quốc.,Đi Trung Quốc làm việc tốt không?,2,30
+472,「中文不难，汉字也不难。」nghĩa là gì?,Trung Quốc rất lớn.,"Tiếng Trung không khó, chữ Hán cũng không khó.",Công việc thật khó! Tôi nhức đầu quá!,"Ngày ngày học tiếng Hán, tiếng Hán không khó.",2,30
+473,「我学习中文。」nghĩa là gì?,Tên tiếng Trung của tôi là Minh Minh.,Tôi học tập tiếng Trung.,Hôm nay làm việc bận không?,Bạn tên gì?,2,30
+474,「他是我朋友。」nghĩa là gì?,Đó là sách tiếng Hán của bạn phải không?,Công việc thật khó! Tôi nhức đầu quá!,Bạn không phải là mẹ của tôi.,Anh ấy là bạn tôi.,4,30
+475,「汉语发音不难。」nghĩa là gì?,"Chủ nhật ngân hàng đóng, trường cũng đóng.",Cô ấy là bạn tốt của tôi.,Phát âm tiếng Hán không khó.,"Anh ấy muốn ăn mì, tôi muốn ăn cơm trắng.",3,30
+476,「她是我好朋友。」nghĩa là gì?,"Chủ nhật ngân hàng đóng, trường cũng đóng.",Một người có một cái đầu.,Cô ấy là bạn tốt của tôi.,Thầy Bạch thứ năm vào trường không?,3,30
+477,「我朋友学习汉语发音。」nghĩa là gì?,Bạn tôi học tập phát âm tiếng Hán.,Tôi học tiếng Hán.,Thầy Bạch thứ năm vào trường không?,Hôm nay tôi đi gặp mẹ.,1,30
+478,「我上午看书。」nghĩa là gì?,Tiếng Hán không khó.,Tôi học tiếng Trung.,Ngày mai bạn đi đâu?,Buổi sáng tôi đọc sách.,4,30
+479,「中午去见朋友。」nghĩa là gì?,Buổi trưa đi gặp bạn.,Bạn mấy giờ mấy phút về?,"Người kia là giáo viên đại học, đúng không?",Anh ấy đi ngân hàng không?,1,30
+480,「下午我去学校学习。」nghĩa là gì?,Bạn không phải là mẹ của tôi.,Tôi không vào trường gặp giáo viên.,Hôm nay có hai mươi người đi trường.,Buổi chiều tôi đi trường học tập.,4,30
+481,「一个人去北京。」nghĩa là gì?,Hẹn gặp ngày mai!,Một mình đi Bắc Kinh.,"Ngày mai thứ Hai, bạn đi đâu?",Hôm nay tôi bao ăn!,2,30
+482,「那是你名字吗？」nghĩa là gì?,Bắc Kinh lớn không?,Chữ Hán không khó.,Hôm nay tôi bao ăn!,Đó là tên bạn phải không?,4,30
+483,「我明天去中国二十天。」nghĩa là gì?,Bắc Kinh lớn không?,Ngày mai tôi đi Trung Quốc hai mươi ngày.,"Tôi đã đi Bắc Kinh, Bắc Kinh rất lớn.",Công việc thật khó! Tôi nhức đầu quá!,2,30
+484,「老师叫我去中国学习汉语。」nghĩa là gì?,Giáo viên bảo tôi đi Trung Quốc học tập tiếng Hán.,Trưa ngày mai bạn đi đâu ăn cơm?,Cô ấy đi Bắc Kinh mấy ngày?,"Hôm nay tôi làm việc, không đi gặp giáo viên.",1,30
+485,「他是我中国朋友。」nghĩa là gì?,Buổi sáng tôi đọc sách.,Hôm nay có hai mươi người đi trường.,Ngày mai bạn đi ngân hàng làm việc không?,Anh ấy là bạn Trung Quốc của tôi.,4,30
+486,「我的中文名字是明明。」nghĩa là gì?,"Tiếng Hán rất khó, tôi nhức đầu quá!","Anh ấy là giáo viên tiếng Nhật của bạn, đúng không?",Tên người bạn của bạn là gì?,Tên tiếng Trung của tôi là Minh Minh.,4,30
+487,「去中国工作好吗？」nghĩa là gì?,Đó là sách tiếng Hán của bạn phải không?,Đi Trung Quốc làm việc tốt không?,Phát âm tiếng Trung của bạn tôi rất tốt.,Hôm nay anh ấy đi ngân hàng làm việc phải không?,2,30
+488,「你中文名字是？」nghĩa là gì?,Anh ấy là bạn tôi.,Đó là tên bạn phải không?,Hôm nay mẹ rất nhức đầu!,Tên tiếng Trung của bạn là gì?,4,30
+489,「我朋友中文发音很好。」nghĩa là gì?,Một mình đi Bắc Kinh.,Hôm nay là thứ mấy?,Bắc Kinh lớn không?,Phát âm tiếng Trung của bạn tôi rất tốt.,4,30
+490,「妈妈今天头很大！」nghĩa là gì?,Hôm nay mẹ rất nhức đầu!,Đây là túi xách của bạn hả?,Thầy Bạch thứ năm vào trường không?,"Hôm nay sức khỏe tôi không tốt, không đi làm.",1,30
+491,「今天有二十个人去学校。」nghĩa là gì?,Phát âm tiếng Trung của bạn tôi rất tốt.,Thứ mấy bạn đi ngân hàng?,Buổi chiều tôi đi trường học tập.,Hôm nay có hai mươi người đi trường.,4,30
+492,「我有三十六个中国朋友。」nghĩa là gì?,Cuốn sách này tên là gì?,Tôi có ba mươi sáu người bạn Trung Quốc.,"Cái bánh mì này không ngon, tôi không ăn.",Phát âm tiếng Trung của bạn tôi rất tốt.,2,30
+493,「汉语很难，我头大了！」nghĩa là gì?,Chủ nhật tôi không làm việc.,"Tiếng Hán rất khó, tôi nhức đầu quá!",Ngày mai tôi đi Trung Quốc hai mươi ngày.,Hôm nay mẹ rất nhức đầu!,2,30
+494,「一个人有一个头。」nghĩa là gì?,Tôi đi ngân hàng.,Thứ mấy bạn về Bắc Kinh? Về mấy ngày?,Một người có một cái đầu.,Hôm nay mẹ rất nhức đầu!,3,30
+495,「今天老子不去工作！」nghĩa là gì?,Hôm nay tôi không đi làm!,Tôi đi vào trường gặp giáo viên.,Ngày mai chủ nhật phải không?,Thầy Bạch thứ năm vào trường không?,1,30
+496,「星期日银行关，学校也关。」nghĩa là gì?,Anh ấy là người Trung Quốc.,"Chủ nhật ngân hàng đóng, trường cũng đóng.",Hôm nay mẹ rất bận.,Buổi sáng tôi đọc sách.,2,30
+497,「他是你的日语老师，对吗？」nghĩa là gì?,Hôm nay anh ấy đi ngân hàng làm việc phải không?,"Anh ấy là giáo viên tiếng Nhật của bạn, đúng không?",Ngày mai tôi rất bận.,Tôi học tiếng Hán.,2,30
+498,「今天很忙，我头很大！」nghĩa là gì?,Cô ấy là bạn tốt của tôi.,Ngày mai chủ nhật phải không?,"Hôm nay rất bận, tôi nhức đầu quá!",Những người này không phải bạn tôi.,3,30
+499,「那个人是大学老师，对吗？」nghĩa là gì?,Hẹn gặp ngày mai!,Hôm nay tôi không đi làm!,"Người kia là giáo viên đại học, đúng không?",Hôm nay tôi đi gặp mẹ.,3,30
+500,「这是一本汉语书，不难。」nghĩa là gì?,"Đây là một cuốn sách tiếng Hán, không khó.",Một mình đi Bắc Kinh.,Bạn mấy giờ mấy phút về?,Hôm nay tôi không đi làm!,1,30
+501,「你朋友的名字是？」nghĩa là gì?,Mấy ngày nay tôi rất bận.,Chủ nhật tôi không làm việc.,Tên người bạn của bạn là gì?,Đây là túi xách của bạn hả?,3,30
+502,「老师一个人吃饭。」nghĩa là gì?,Bạn của anh ấy tên là Tạ Hữu Phân.,Bạn muốn ăn mì Trung Quốc không?,Giáo viên ăn cơm một mình.,Tiểu Minh là sinh viên đại học phải không?,3,30
+503,「星期日中午你要去吃饭吗？」nghĩa là gì?,Trưa chủ nhật bạn có đi ăn cơm không?,"Đây là bố tôi, sức khỏe ông ấy rất tốt.",Đó là tên bạn phải không?,"Đây là một cuốn sách tiếng Hán, không khó.",1,30
+504,「工作好难！我头大了！」nghĩa là gì?,"Tiếng Hán rất khó, tôi nhức đầu quá!","Hôm nay rất bận, tôi nhức đầu quá!",Công việc thật khó! Tôi nhức đầu quá!,Bạn tôi học tập phát âm tiếng Hán.,3,30
+505,「你明天中午去哪吃饭？」nghĩa là gì?,Một tuần bạn đến trường mấy ngày?,Trưa ngày mai bạn đi đâu ăn cơm?,"Hôm nay tôi làm việc, không đi gặp giáo viên.",Bạn thứ mấy vào ngân hàng làm việc?,2,30
+506,「妈妈叫我中午回去吃饭。」nghĩa là gì?,Giáo viên bảo tôi ngày mai đến trường.,Giáo viên bảo bạn ngày mai đến trường phải không?,Bố hỏi tôi ngày mai đi đâu làm việc?,Mẹ bảo tôi buổi trưa về ăn cơm.,4,30
+507,「你要一些包子吗？」nghĩa là gì?,Anh ấy là người Trung Quốc.,Hôm nay tôi bao ăn!,Công việc thật khó! Tôi nhức đầu quá!,Bạn muốn một ít bánh bao không?,4,30
+508,「今天吃饭我包！」nghĩa là gì?,Một mình đi Bắc Kinh.,Cái cặp sách này là của cô ấy phải không?,Trưa chủ nhật bạn có đi ăn cơm không?,Hôm nay tôi bao ăn!,4,30
+509,「这个书包是她的吗？」nghĩa là gì?,Chủ nhật tôi không làm việc.,Bố bảo tôi đi Bắc Kinh học tiếng Hán.,Cái cặp sách này là của cô ấy phải không?,Hôm nay tôi bao ăn!,3,30
+510,「这是你的包吗？」nghĩa là gì?,Thầy Bạch thứ năm vào trường không?,Hôm nay có hai mươi người đi trường.,Đây là túi xách của bạn hả?,Bạn là người nước nào?,3,30
+511,「这些人不是我朋友。」nghĩa là gì?,Trưa chủ nhật bạn có đi ăn cơm không?,Hôm nay mẹ rất bận.,Những người này không phải bạn tôi.,Ngày mai tôi về trường.,3,30
+512,「你要吃中国面条吗？」nghĩa là gì?,Bạn muốn ăn mì Trung Quốc không?,Bạn học tiếng Hán không?,Trung Quốc rất lớn.,Hôm nay là ngày 9 tháng 10.,1,30
+513,「这本书的名字是？」nghĩa là gì?,Bạn mấy giờ mấy phút về?,"Hôm nay sức khỏe tôi không tốt, không đi làm.",Bạn học tiếng Hán không?,Cuốn sách này tên là gì?,4,30
+514,「我不喝酒，谢谢。」nghĩa là gì?,"Tôi không uống rượu, cảm ơn.","Ngày ngày học tiếng Hán, tiếng Hán không khó.",Đó là sách tiếng Hán của bạn phải không?,Đây là mẹ tôi.,1,30
+515,「这个面包三元五毛。」nghĩa là gì?,Trung Quốc rất lớn.,Thứ mấy bạn đi ngân hàng?,Anh ấy là người Trung Quốc.,Cái bánh mì này ba đồng năm hào.,4,30
+516,「你几点几分回去？」nghĩa là gì?,Bạn mấy giờ mấy phút về?,Tôi không vào trường gặp giáo viên.,"Bố tôi rất khỏe, bố bạn có khỏe không?",Bắc Kinh lớn không?,1,30
+517,「他朋友叫谢友分。」nghĩa là gì?,Bạn của anh ấy tên là Tạ Hữu Phân.,"Tôi không uống rượu, cảm ơn.",Đó là sách tiếng Hán của bạn phải không?,Tiểu Minh là sinh viên đại học phải không?,1,30
+518,「那些人是中国人吧。」nghĩa là gì?,Những người kia là người Trung Quốc nhỉ.,Ngày mai bạn đi ngân hàng làm việc không?,Mẹ tôi hỏi giáo viên sức khỏe có tốt không?,"Đây là ngựa trắng, đúng không?",1,30
+519,「他要吃面条，我要吃白饭。」nghĩa là gì?,"Anh ấy muốn ăn mì, tôi muốn ăn cơm trắng.",Cô ấy là bạn tốt của tôi.,Công việc thật khó! Tôi nhức đầu quá!,Bạn của anh ấy tên là Tạ Hữu Phân.,1,30
+520,「他这个人不喝酒。」nghĩa là gì?,Người này không uống rượu.,Cô ấy là bạn tốt của tôi.,Giáo viên ăn cơm một mình.,Một mình đi Bắc Kinh.,1,30
+521,「那是你的汉语书吗？」nghĩa là gì?,Đó là sách tiếng Hán của bạn phải không?,"Tôi không uống rượu, cảm ơn.",Những người này không phải bạn tôi.,Công việc thật khó! Tôi nhức đầu quá!,1,30
+522,「这个面包不好吃，我不吃。」nghĩa là gì?,Hôm nay mẹ rất nhức đầu!,"Cảm ơn bạn, hôm nay tôi không đi làm.",Phát âm tiếng Hán không khó.,"Cái bánh mì này không ngon, tôi không ăn.",4,30

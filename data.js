@@ -96,7 +96,11 @@ const charDatabase = [
     { char: '要', pinyin: 'yào', meaning: 'MUỐN, CẦN, YÊU CẦU', radical: '襾 (tây/á) – che phủ, phía trên', characterType: 'Hình thanh' },
     { char: '饭', pinyin: 'fàn', meaning: 'CƠM, THỨC ĂN', radical: '饣 (thực) – ăn uống, thức ăn', characterType: 'Hình thanh' },
     { char: '些', pinyin: 'xiē', hanViet: 'ta', meaning: 'MỘT ÍT, VÀI, MỘT SỐ', radical: '止 (zhǐ) – bộ Chỉ', characterType: 'Hội ý' },
-    { char: '包', pinyin: 'bāo', hanViet: 'bao', meaning: 'GÓI, BAO, BỌC, CHỨA ĐỰNG', radical: '勹 (bāo) – bộ Bao', characterType: 'Hội ý' }
+    { char: '包', pinyin: 'bāo', hanViet: 'bao', meaning: 'GÓI, BAO, BỌC, CHỨA ĐỰNG', radical: '勹 (bāo) – bộ Bao', characterType: 'Hội ý' },
+    { char: '酒', pinyin: 'jiǔ', meaning: 'RƯỢU', radical: '氵 (shuǐ) – bộ Thủy' },
+    { char: '元', pinyin: 'yuán', meaning: 'ĐẦU, ĐỒNG (TIỀN)', radical: '儿 (ér) – bộ Nhi' },
+    { char: '毛', pinyin: 'máo', meaning: 'LÔNG, HÀO (TIỀN)', radical: '毛 (máo) – bộ Mao' },
+    { char: '分', pinyin: 'fēn', meaning: 'CHIA, PHÚT, PHÂN', radical: '刀 (dāo) – bộ Đao' }
 ];
 
 // Keep this list in sync with characters_learned.md so game 2 only uses
@@ -110,7 +114,8 @@ const learnedCharacters = [
     '下', '月', '生', '了', '木', '休', '亡', '也', '又', '子', '小',
     '回', '校', '那', '哪', '十', '昨', '谢', '人', '问', '叫', '门',
     '们', '名', '字', '国', '中', '文', '习', '发', '音', '朋',
-    '书', '个', '午', '头', '米', '吃', '要', '饭', '些', '包'
+    '书', '个', '午', '头', '米', '吃', '要', '饭', '些', '包',
+    '酒', '元', '毛', '分'
 ];
 const learnedCharacterSet = new Set(learnedCharacters);
 
@@ -307,7 +312,23 @@ const sentenceDatabase = [
     { vietnamese: "Bạn muốn một ít bánh bao không?", answer: ['你', '要', '一', '些', '包', '子', '吗'], chars: ['你', '要', '一', '些', '包', '子', '吗'], pinyin: "Nǐ yào yì xiē bāo zi ma?" },
     { vietnamese: "Hôm nay tôi bao ăn!", answer: ['今', '天', '吃', '饭', '我', '包'], chars: ['今', '天', '吃', '饭', '我', '包'], pinyin: "Jīn tiān chī fàn wǒ bāo!" },
     { vietnamese: "Cái cặp sách này là của cô ấy phải không?", answer: ['这', '个', '书', '包', '是', '她', '的', '吗'], chars: ['这', '个', '书', '包', '是', '她', '的', '吗'], pinyin: "Zhè gè shū bāo shì tā de ma?" },
-    { vietnamese: "Đây là túi xách của bạn hả?", answer: ['这', '是', '你', '的', '包', '吗'], chars: ['这', '是', '你', '的', '包', '吗'], pinyin: "Zhè shì nǐ de bāo ma?" }
+    { vietnamese: "Đây là túi xách của bạn hả?", answer: ['这', '是', '你', '的', '包', '吗'], chars: ['这', '是', '你', '的', '包', '吗'], pinyin: "Zhè shì nǐ de bāo ma?" },
+    { vietnamese: "Những người này không phải bạn tôi.", answer: ['这', '些', '人', '不', '是', '我', '朋', '友'], chars: ['这', '些', '人', '不', '是', '我', '朋', '友'], pinyin: "Zhè xiē rén bú shì wǒ péng yǒu." },
+    { vietnamese: "Buổi trưa tôi không ăn cơm, tôi ăn một cái bánh mì.", answer: ['我', '中', '午', '不', '吃', '饭', '我', '吃', '一', '个', '面', '包'], chars: ['我', '中', '午', '不', '吃', '饭', '我', '吃', '一', '个', '面', '包'], pinyin: "Wǒ zhōng wǔ bù chī fàn, wǒ chī yī gè miàn bāo." },
+    { vietnamese: "Bạn muốn ăn mì Trung Quốc không?", answer: ['你', '要', '吃', '中', '国', '面', '条', '吗'], chars: ['你', '要', '吃', '中', '国', '面', '条', '吗'], pinyin: "Nǐ yào chī zhōng guó miàn tiáo ma?" },
+    { vietnamese: "Cuốn sách này tên là gì?", answer: ['这', '本', '书', '的', '名', '字', '是'], chars: ['这', '本', '书', '的', '名', '字', '是'], pinyin: "Zhè běn shū de míng zì shì?" },
+    { vietnamese: "Tôi không uống rượu, cảm ơn.", answer: ['我', '不', '喝', '酒', '谢', '谢'], chars: ['我', '不', '喝', '酒', '谢', '谢'], pinyin: "Wǒ bù hē jiǔ, xiè xie." },
+    { vietnamese: "Cái bánh mì này ba đồng năm hào.", answer: ['这', '个', '面', '包', '三', '元', '五', '毛'], chars: ['这', '个', '面', '包', '三', '元', '五', '毛'], pinyin: "Zhè gè miàn bāo sān yuán wǔ máo." },
+    { vietnamese: "Bạn mấy giờ mấy phút về?", answer: ['你', '几', '点', '几', '分', '回', '去'], chars: ['你', '几', '点', '几', '分', '回', '去'], pinyin: "Nǐ jǐ diǎn jǐ fēn huí qù?" },
+    { vietnamese: "Bạn của anh ấy tên là Tạ Hữu Phân.", answer: ['他', '朋', '友', '叫', '谢', '友', '分'], chars: ['他', '朋', '友', '叫', '谢', '友', '分'], pinyin: "Tā péng yǒu jiào xiè yǒu fēn." },
+    { vietnamese: "Chủ nhật các bạn đi đâu uống rượu? Tôi cũng muốn đi.", answer: ['你', '们', '星', '期', '日', '去', '哪', '喝', '酒', '我', '也', '要', '去'], chars: ['你', '们', '星', '期', '日', '去', '哪', '喝', '酒', '我', '也', '要', '去'], pinyin: "Nǐ men xīng qī rì qù nǎ hē jiǔ? Wǒ yě yào qù." },
+    { vietnamese: "Những người kia là người Trung Quốc nhỉ.", answer: ['那', '些', '人', '是', '中', '国', '人', '吧'], chars: ['那', '些', '人', '是', '中', '国', '人', '吧'], pinyin: "Nà xiē rén shì zhōng guó rén ba." },
+    { vietnamese: "Phát âm của tên tiếng Trung này là gì?", answer: ['这', '个', '中', '文', '名', '字', '的', '发', '音', '是', '什', '么'], chars: ['这', '个', '中', '文', '名', '字', '的', '发', '音', '是', '什', '么'], pinyin: "Zhè gè zhōng wén míng zì de fā yīn shì shén me?" },
+    { vietnamese: "Anh ấy muốn ăn mì, tôi muốn ăn cơm trắng.", answer: ['他', '要', '吃', '面', '条', '我', '要', '吃', '白', '饭'], chars: ['他', '要', '吃', '面', '条', '我', '要', '吃', '白', '饭'], pinyin: "Tā yào chī miàn tiáo, wǒ yào chī bái fàn." },
+    { vietnamese: "Người này không uống rượu.", answer: ['他', '这', '个', '人', '不', '喝', '酒'], chars: ['他', '这', '个', '人', '不', '喝', '酒'], pinyin: "Tā zhè gè rén bù hē jiǔ." },
+    { vietnamese: "Đó là sách tiếng Hán của bạn phải không?", answer: ['那', '是', '你', '的', '汉', '语', '书', '吗'], chars: ['那', '是', '你', '的', '汉', '语', '书', '吗'], pinyin: "Nà shì nǐ de hàn yǔ shū ma?" },
+    { vietnamese: "Cái bánh mì này không ngon, tôi không ăn.", answer: ['这', '个', '面', '包', '不', '好', '吃', '我', '不', '吃'], chars: ['这', '个', '面', '包', '不', '好', '吃', '我', '不', '吃'], pinyin: "Zhè gè miàn bāo bù hǎo chī, wǒ bù chī." },
+    { vietnamese: "Cuốn sách này bốn đồng năm hào, cuốn kia sáu đồng bảy hào.", answer: ['这', '本', '书', '四', '元', '五', '毛', '那', '本', '书', '六', '元', '七', '毛'], chars: ['这', '本', '书', '四', '元', '五', '毛', '那', '本', '书', '六', '元', '七', '毛'], pinyin: "Zhè běn shū sì yuán wǔ máo, nà běn shū liù yuán qī máo." }
 ];
 
 // Grammar/Context Database (For Fill In The Blanks)
@@ -354,7 +375,11 @@ const grammarDatabase = [
     { text_pre: "一", text_post: "人有一个头。", vietnamese: "Một người có một cái đầu.", answer: '个' },
     { text_pre: "汉语很难，我", text_post: "大了！", vietnamese: "Tiếng Hán rất khó, tôi nhức đầu quá!", answer: '头' },
     { text_pre: "今天有二十", text_post: "人去学校。", vietnamese: "Hôm nay có hai mươi người đi trường.", answer: '个' },
-    { text_pre: "下", text_post: "不回学校。", vietnamese: "Buổi chiều không về trường.", answer: '午' }
+    { text_pre: "下", text_post: "不回学校。", vietnamese: "Buổi chiều không về trường.", answer: '午' },
+    { text_pre: "我不喝", text_post: "。", vietnamese: "Tôi không uống rượu.", answer: '酒' },
+    { text_pre: "这个面包三", text_post: "五毛。", vietnamese: "Cái bánh mì này ba đồng năm hào.", answer: '元' },
+    { text_pre: "三元五", text_post: "。", vietnamese: "Ba đồng năm hào.", answer: '毛' },
+    { text_pre: "你几点几", text_post: "回去？", vietnamese: "Bạn mấy giờ mấy phút về?", answer: '分' }
 ];
 
 const sentenceRevealDatabase = [
@@ -481,7 +506,23 @@ const sentenceRevealDatabase = [
     { chinese: '你要一些包子吗？', vietnamese: 'Bạn muốn một ít bánh bao không?' },
     { chinese: '今天吃饭我包！', vietnamese: 'Hôm nay tôi bao ăn!' },
     { chinese: '这个书包是她的吗？', vietnamese: 'Cái cặp sách này là của cô ấy phải không?' },
-    { chinese: '这是你的包吗？', vietnamese: 'Đây là túi xách của bạn hả?' }
+    { chinese: '这是你的包吗？', vietnamese: 'Đây là túi xách của bạn hả?' },
+    { chinese: '这些人不是我朋友。', vietnamese: 'Những người này không phải bạn tôi.' },
+    { chinese: '我中午不吃饭，我吃一个面包。', vietnamese: 'Buổi trưa tôi không ăn cơm, tôi ăn một cái bánh mì.' },
+    { chinese: '你要吃中国面条吗？', vietnamese: 'Bạn muốn ăn mì Trung Quốc không?' },
+    { chinese: '这本书的名字是？', vietnamese: 'Cuốn sách này tên là gì?' },
+    { chinese: '我不喝酒，谢谢。', vietnamese: 'Tôi không uống rượu, cảm ơn.' },
+    { chinese: '这个面包三元五毛。', vietnamese: 'Cái bánh mì này ba đồng năm hào.' },
+    { chinese: '你几点几分回去？', vietnamese: 'Bạn mấy giờ mấy phút về?' },
+    { chinese: '他朋友叫谢友分。', vietnamese: 'Bạn của anh ấy tên là Tạ Hữu Phân.' },
+    { chinese: '你们星期日去哪喝酒？我也要去。', vietnamese: 'Chủ nhật các bạn đi đâu uống rượu? Tôi cũng muốn đi.' },
+    { chinese: '那些人是中国人吧。', vietnamese: 'Những người kia là người Trung Quốc nhỉ.' },
+    { chinese: '这个中文名字的发音是什么？', vietnamese: 'Phát âm của tên tiếng Trung này là gì?' },
+    { chinese: '他要吃面条，我要吃白饭。', vietnamese: 'Anh ấy muốn ăn mì, tôi muốn ăn cơm trắng.' },
+    { chinese: '他这个人不喝酒。', vietnamese: 'Người này không uống rượu.' },
+    { chinese: '那是你的汉语书吗？', vietnamese: 'Đó là sách tiếng Hán của bạn phải không?' },
+    { chinese: '这个面包不好吃，我不吃。', vietnamese: 'Cái bánh mì này không ngon, tôi không ăn.' },
+    { chinese: '这本书四元五毛，那本书六元七毛。', vietnamese: 'Cuốn sách này bốn đồng năm hào, cuốn kia sáu đồng bảy hào.' }
 ];
 
 const animalCoverDatabase = [

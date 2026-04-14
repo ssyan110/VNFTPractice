@@ -1,6 +1,6 @@
 # Learned Characters
 
-Total: 97
+Total: 101
 
 | # | Character | Pinyin | Meaning |
 |---|-----------|--------|---------|
@@ -101,3 +101,7 @@ Total: 97
 | 95 | 饭 | fàn | cơm, thức ăn |
 | 96 | 些 | xiē | một ít, vài, một số |
 | 97 | 包 | bāo | gói, bao, bọc, chứa đựng |
+| 98 | 酒 | jiǔ | rượu |
+| 99 | 元 | yuán | đầu, đồng (tiền) |
+| 100 | 毛 | máo | lông, hào (tiền) |
+| 101 | 分 | fēn | chia, phút, phân |
