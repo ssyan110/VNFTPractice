@@ -100,7 +100,11 @@ const charDatabase = [
     { char: '酒', pinyin: 'jiǔ', meaning: 'RƯỢU', radical: '氵 (shuǐ) – bộ Thủy' },
     { char: '元', pinyin: 'yuán', meaning: 'ĐẦU, ĐỒNG (TIỀN)', radical: '儿 (ér) – bộ Nhi' },
     { char: '毛', pinyin: 'máo', meaning: 'LÔNG, HÀO (TIỀN)', radical: '毛 (máo) – bộ Mao' },
-    { char: '分', pinyin: 'fēn', meaning: 'CHIA, PHÚT, PHÂN', radical: '刀 (dāo) – bộ Đao' }
+    { char: '分', pinyin: 'fēn', meaning: 'CHIA, PHÚT, PHÂN', radical: '刀 (dāo) – bộ Đao' },
+    { char: '斤', pinyin: 'jīn', hanViet: 'cân', meaning: 'CÂN, ĐƠN VỊ CÂN NẶNG', radical: '斤 (jīn) – bộ Cân', characterType: 'Tượng hình' },
+    { char: '多', pinyin: 'duō', hanViet: 'đa', meaning: 'NHIỀU', radical: '夕 (xī) – bộ Tịch', characterType: 'Hội ý' },
+    { char: '少', pinyin: 'shǎo', hanViet: 'thiểu', meaning: 'ÍT, THIẾU, TRẺ', radical: '小 (xiǎo) – bộ Tiểu', characterType: 'Tượng hình' },
+    { char: '还', pinyin: 'hái, huán', hanViet: 'hoàn', meaning: 'CÒN, VẪN, LẠI; TRẢ, QUAY VỀ', radical: '辶 (chuò) – bộ Sước', characterType: 'Hình thanh' }
 ];
 
 // Keep this list in sync with characters_learned.md so game 2 only uses
@@ -115,7 +119,7 @@ const learnedCharacters = [
     '回', '校', '那', '哪', '十', '昨', '谢', '人', '问', '叫', '门',
     '们', '名', '字', '国', '中', '文', '习', '发', '音', '朋',
     '书', '个', '午', '头', '米', '吃', '要', '饭', '些', '包',
-    '酒', '元', '毛', '分'
+    '酒', '元', '毛', '分', '斤', '多', '少', '还'
 ];
 const learnedCharacterSet = new Set(learnedCharacters);
 

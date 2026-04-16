@@ -1,6 +1,6 @@
 # Learned Characters
 
-Total: 101
+Total: 105
 
 | # | Character | Pinyin | Meaning |
 |---|-----------|--------|---------|
@@ -105,3 +105,7 @@ Total: 101
 | 99 | 元 | yuán | đầu, đồng (tiền) |
 | 100 | 毛 | máo | lông, hào (tiền) |
 | 101 | 分 | fēn | chia, phút, phân |
+| 102 | 斤 | jīn | cân, đơn vị cân nặng |
+| 103 | 多 | duō | nhiều |
+| 104 | 少 | shǎo | ít, thiếu, trẻ |
+| 105 | 还 | hái, huán | còn, vẫn, lại; trả, quay về |
